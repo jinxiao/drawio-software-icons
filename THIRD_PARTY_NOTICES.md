@@ -6,6 +6,8 @@ The collection contains brand artwork from these upstream repositories:
 | --- | --- | --- | --- |
 | Devicon | https://github.com/devicons/devicon | MIT | [devicon-LICENSE.txt](licenses/devicon-LICENSE.txt) |
 | Dashboard Icons | https://github.com/homarr-labs/dashboard-icons | Apache-2.0 | [dashboard-LICENSE.txt](licenses/dashboard-LICENSE.txt) |
+| Ant Design Icons | https://github.com/ant-design/ant-design-icons | MIT | [antdesign-LICENSE.txt](licenses/antdesign-LICENSE.txt) |
+| Vendor Icons SVG (ServiceNow) | https://github.com/bwks/vendor-icons-svg | GPL-3.0-only | [vendor-LICENSE.txt](licenses/vendor-LICENSE.txt) |
 
 Each entry in `catalog.json` (source: `data/catalog.json`) records its original SVG URL, pinned upstream commit, source checksum, packaged checksum and collection license URL. `data/sources.lock.json` pins the exact collection revisions.
 
@@ -17,9 +19,19 @@ When present, obsolete XML declarations, external DTD declarations and editor me
 
 必要时移除旧 XML 声明、外部 DTD 声明和编辑器元数据，不改动图形路径、配色与比例。优先原色无文字图标；上游只有单色或字标版本时使用已有版本，并记录 variant。并非每个品牌都提供多色图形。
 
+Exception: the ServiceNow SVG from Vendor Icons SVG is preserved verbatim, including its editable vector source and metadata. It is distributed with the upstream GPL text and source attribution; no additional GPL restrictions are imposed by the project-use statement. Ant Design supplies monochrome WeChat, WeCom, DingTalk and QQ artwork. Feishu / Lark uses the Lark mark from Dashboard Icons and is searchable under both regional product names.
+
+例外：Vendor Icons SVG 的 ServiceNow 素材保留完整原始 SVG 源码与元数据，附带上游 GPL 文本及来源；本项目用途声明不额外限制 GPL 已授予的权利。Ant Design 提供微信、企业微信、钉钉和 QQ 的单色图形。飞书 / Lark 使用 Dashboard Icons 的 Lark 图形，可用两个地区的产品名称搜索。
+
 ## Attribution and trademarks / 署名与商标
 
 Devicon artwork is collected by the Devicon contributors; Dashboard Icons artwork is collected by Homarr Labs and its contributors. All product names, logos, trademarks and brands belong to their respective owners. This independent collection uses them for identification and does not imply endorsement or affiliation with draw.io, Devicon, Homarr Labs, or the featured projects. Collection licenses do not grant trademark rights or replace project-specific brand guidelines.
+
+Additional artwork is collected by the Ant Design Icons contributors and bwks / Vendor Icons SVG contributors. Collection licensing is reported from each pinned repository; it is not a representation that the collection's authors own every depicted brand or can authorize all brand uses.
+
+**Commercial icon scope:** this project's commercial software icons are provided solely for draw.io architecture diagrams, not other distribution purposes. This does not override upstream licenses or brand-owner rights. See the bilingual [icon usage policy](ICON_USAGE.md). Brand-owner permissions are not individually verified.
+
+**商业图标用途：** 本项目仅提供用于 draw.io 架构图绘制的商业软件图标，不适用于其他发行用途；此声明不覆盖上游许可和品牌方权利。详见中英双语 [图标使用声明](ICON_USAGE.md)。品牌授权尚未逐项核实。
 
 感谢 Devicon、Homarr Labs 与各项目贡献者。品牌名称、图标与商标属于各自所有者。本项目仅用于标识，不代表官方背书或隶属关系。图标集许可证不授予商标权，也不替代具体项目的品牌规范。
 

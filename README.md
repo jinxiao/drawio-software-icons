@@ -1,33 +1,41 @@
 # Software Icons for draw.io
 
-[English](README.en.md) · [在线图标库](https://jinxiao.github.io/drawio-software-icons/)
+[简体中文](README.zh-CN.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
 
-410 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
+427 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
-## 使用
+**Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.
 
-1. 打开在线图标库，点击 **一键加载全部分类**，在新标签页打开 draw.io。
-2. 进入编辑画布后，8 个分类库会一起出现在左侧，无需逐个导入 XML。
-3. 将图标拖入画布，可以缩放、连接和添加自己的说明。
+## Messaging and enterprise applications
 
-网站右上角可切换 English / 中文，选择会保存到本机浏览器，加载的分类库名称也会跟随语言切换。软件品牌名称保留原名。**自选分类加载** 默认全选，可取消不需要的分类；也可单独打开一个分类。保留 draw.io 默认形状库。
+The **Apps & Content Management** category includes WeChat, WeCom, DingTalk, QQ, Feishu / Lark, Microsoft Teams, Slack, Discord, Telegram, Signal, WhatsApp, Zoom, Cisco Webex, Element, Rocket.Chat, Zulip and ServiceNow, alongside existing Mattermost. Search by English names, Chinese names such as 微信 / 钉钉 / 飞书, or tags such as IM / ITSM / 工单. Messaging clients, hosted services and enterprise editions may have different software licenses; the collection records the linked product's editorial type.
 
-分类按用途合并为：数据与中间件、云与基础设施、开发工具与 DevOps、语言与运行时、框架与应用开发、数据分析与 AI、监控与安全、应用与内容管理。Git、Gitea、Forgejo、GitHub、GitLab 统一归入「开发工具与 DevOps」。旧分类网页参数与 XML 地址继续映射到合并后的分类。
+WeChat, WeCom, DingTalk and QQ use upstream monochrome artwork. ServiceNow uses an upstream wordmark, not a newly drawn logo. Original colors and proportions are preserved.
 
-**桌面版与离线使用：** 下载完整 ZIP 后解压，在 draw.io 中打开 **文件 → 打开库 → 设备**，选择 `libraries/zh-CN/` 或 `libraries/en/` 下的 XML。`libraries/all.xml` 是去重后的全集。SVG 已内嵌，导入后不依赖图标源网站。不要用“打开图表”导入图标库。
+## Use the icons
 
-图标是可缩放的 SVG 图片，不是可逐条编辑路径的原生形状。默认不附加文字，名称用于库内识别。浅色 / 深色按钮仅改变预览背景，不修改品牌颜色。
+1. Click **Open all in draw.io** on the website to launch draw.io in a new tab.
+2. Once you enter the editor, all 8 category libraries appear in the left sidebar, without individual XML imports.
+3. Drag an icon onto the canvas, resize it, connect it and add your own labels.
 
-## 本地开发
+Switch between English and Chinese using the header button. Your choice is remembered in this browser and determines the library names. Brand names retain their original spelling. **Choose categories** starts with everything selected; uncheck any categories you do not need, or open a single category. Standard draw.io libraries remain available.
 
-需要 Node.js 22.12+ 和 npm。首次安装依赖：
+The eight categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
+
+**Desktop and offline:** download and extract the ZIP. In draw.io, use **File → Open Library → Device** and select an XML under `libraries/en/` or `libraries/zh-CN/`. `libraries/all.xml` is the deduplicated full collection. SVGs are embedded, so imported libraries do not depend on external image hosts. Use Open Library, not Open Diagram.
+
+Icons are scalable SVG image shapes, not individually editable vector paths. Labels are not added to the canvas automatically. Light / dark controls only change the preview background, never the brand colors.
+
+## Development
+
+Requires Node.js 22.12+ and npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-终端会打印本地网址，默认 `http://127.0.0.1:5173/`。本地环境请下载 XML 后手动导入；draw.io 在线服务无法读取你电脑上的本地库地址。
+Open the local URL printed by Vite (normally `http://127.0.0.1:5173/`). Download and manually import XML during local development: online draw.io cannot fetch libraries from your computer's localhost.
 
 ```sh
 npm test
@@ -35,39 +43,42 @@ npm run build
 npm run preview
 ```
 
-`npm run build` 校验图标、执行 TypeScript 检查、生成库与 ZIP，再构建静态网站到 `dist/`。依赖安装后，测试和构建完全使用仓库中的资源，不联网采集。
+The build validates the catalog, checks TypeScript, generates libraries and the ZIP, then writes the static site to `dist/`. Once dependencies are installed, testing and building require no upstream downloads.
 
-## 收集与更新
+## Collect and update
 
 ```sh
 npm run sync
 npm run sync -- --update
 ```
 
-默认使用 `data/sources.lock.json` 中的固定提交；`--update` 检查上游当前分支。HTTP 下载带超时，按固定 URL 缓存到 `.sync-stage/`。任一文件下载或检查失败时，现有图标、清单及锁定版本保持不变；修复原因后可复用缓存补齐。只有图标、清单内容或许可证实际改变才提交更新，上游无关提交不会产生更新 PR。
+The default uses commits pinned in `data/sources.lock.json`. `--update` resolves current upstream branches. Downloads have timeouts and a URL-keyed cache under `.sync-stage/`. Network or validation failures do not replace existing committed assets, catalog or pins. Fix the cause, then reuse cached downloads to finish. Unrelated upstream commits alone do not create changes.
 
-每月通过 Actions 检查一次，更新现有 `automation/icon-update` 分支和 PR，人工审核后合并，不自动上线未经合并的更新。新软件通过维护清单添加，不自动把整个上游目录全部收录。
+A monthly Actions workflow checks the existing selection and creates or updates one `automation/icon-update` PR. Review and merge it to publish. New software is added through the curated selection; upstream catalogs are not indiscriminately imported.
 
-## 数据与产物
+## Data and artifacts
 
-- `data/selection.mjs`：维护的软件范围、官网、软件类型；`data/taxonomy.mjs`：分类合并与项目归类规则。
-- `data/catalog.json`：采集后的图标清单与完整来源；`data/categories*.json`：分类中英文案。
-- `assets/icons/`：处理后的 SVG；`licenses/`：原始图标集许可。
-- `scripts/`：采集、校验、离线生成工具；`src/`：中英文静态网站。
-- `dist/catalog.json`：公共目录接口，`schemaVersion: 1`、版本、分类、图标与稳定相对路径。
-- `dist/libraries/zh-CN/` 与 `dist/libraries/en/`：每种语言 8 个分类库，以及兼容旧链接的文件；`dist/libraries/all.xml`：全集。ZIP 只包含当前分类库。
-- `dist/downloads/drawio-software-icons.zip`：全部 SVG、分类库、清单、使用说明与许可文件。
+- `data/selection.mjs`: project selection, homepage and editorial software type; `data/taxonomy.mjs`: category merging and project classification rules.
+- `data/communication.mjs`: messaging / enterprise additions and bilingual search aliases.
+- `data/catalog.json`: collected metadata and provenance. `data/categories*.json`: bilingual category text.
+- `assets/icons/` and `licenses/`: packaged SVGs and original collection licenses.
+- `scripts/` and `src/`: collection / validation / generation tools and the bilingual static site.
+- `dist/catalog.json`: public catalog, `schemaVersion: 1`, version, categories and stable relative asset paths.
+- `dist/libraries/en/`, `dist/libraries/zh-CN/`: 8 category libraries per language, plus compatibility files for legacy URLs; `dist/libraries/all.xml`: all icons. The ZIP includes only current category libraries.
+- `dist/downloads/drawio-software-icons.zip`: SVGs, libraries, catalog, guides and licenses.
 
-清单字段包括 `id/name/aliases/tags/category/softwareType/homepage/repository/asset/width/height/sha256/source`。`source` 中包含原始 URL、提交、路径、变体、图标集许可和原始 SHA-256。`softwareLicense` 未核实时为 null，不将图标集许可套用到软件上。
+`README.md` is the default English guide; `README.zh-CN.md` is the Chinese guide. `README.en.md` remains a compatibility link. Both guides, `ICON_USAGE.md`, all upstream license texts and provenance are included in the downloadable ZIP. Commercial catalog entries expose `usagePolicy`, `usagePolicyUrl` and `brandPermissionStatus`; these describe project scope, not a vendor authorization.
 
-## GitHub Pages
+Icon records expose `id/name/aliases/tags/category/softwareType/homepage/repository/asset/width/height/sha256/source`. Source metadata includes original URL, commit, path, variant, collection license and original SHA-256. Unverified software SPDX licenses are null; a collection license is never substituted for a software license.
 
-公开仓库 `jinxiao/drawio-software-icons`，默认网址 `https://jinxiao.github.io/drawio-software-icons/`。Settings → Pages → Source 选择 GitHub Actions，推送到 `main` 后校验并发布。站点使用相对资源地址，也支持其他仓库子路径。
+## Deployment
 
-Settings → Actions → General 中允许 GitHub Actions 创建 Pull Request，供每月更新工作流使用。定时任务用仓库 `GITHUB_TOKEN` 创建更新 PR，并在自身工作流内完成测试及构建；如果 GitHub 对机器人 PR 的附加检查要求批准，在 PR 页面批准运行即可。
+The public repository is `jinxiao/drawio-software-icons`, with the default Pages URL `https://jinxiao.github.io/drawio-software-icons/`. In Settings → Pages, select GitHub Actions. A push to `main` validates and publishes. Relative asset URLs support repository subpaths and other static hosts.
 
-## 验收
+Enable **Allow GitHub Actions to create and approve pull requests** under Settings → Actions → General so scheduled updates can open PRs. The update workflow tests and builds its own changes before creating a PR. Additional checks on bot-created PRs may require approval in GitHub's PR interface.
 
-打开站点检查：语言切换与刷新保持、中文/英文/别名搜索、软件类型筛选、无结果提示、明暗预览、详情来源链接、SVG/XML/ZIP 下载。在 draw.io 中分别打开一个分类、多个分类；拖入横向和方形图标，缩放后保存并重新打开。桌面版导入下载的分类 XML，确认离线图标可见。
+## Acceptance checks
 
-代码与文档采用 MIT；图标保留上游许可与商标权。详见 [第三方资源说明](THIRD_PARTY_NOTICES.md) 与 [贡献指南](CONTRIBUTING.md)。
+Open the published site and check language persistence, bilingual / alias search, type filtering, empty results, light / dark previews, source links and SVG / XML / ZIP downloads. Open single and multiple categories in draw.io, drag square and wide icons onto a canvas, resize, save and reopen. Import a downloaded category XML into draw.io Desktop and check icons offline.
+
+Original code and documentation are MIT licensed. Artwork retains upstream licenses and trademark rights, including the GPL-covered ServiceNow SVG source. See the [icon usage policy](ICON_USAGE.md), [third-party notices](THIRD_PARTY_NOTICES.md) and [contribution guide](CONTRIBUTING.md).

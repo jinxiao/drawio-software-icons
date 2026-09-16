@@ -1,6 +1,7 @@
 // id~official GitHub repository, or id~https://official-homepage.
 // One reviewed primary category per software project; add cross-cutting search tags separately.
 import { categoryForProject } from './taxonomy.mjs';
+import { communicationProjects } from './communication.mjs';
 const groups = {
 databases: `aerospike~aerospike/aerospike-server cassandra~apache/cassandra clickhouse~ClickHouse/ClickHouse couchdb~apache/couchdb duckdb~duckdb/duckdb firebird~FirebirdSQL/firebird influxdb~influxdata/influxdb mariadb~MariaDB/server mongodb~mongodb/mongo mysql~mysql/mysql-server neo4j~neo4j/neo4j postgresql~postgres/postgres rocksdb~facebook/rocksdb sqlite~https://sqlite.org surrealdb~surrealdb/surrealdb vitess~vitessio/vitess yugabytedb~yugabyte/yugabyte-db`,
 caching: `memcached~memcached/memcached redis~redis/redis`,
@@ -46,4 +47,5 @@ export const selection = Object.entries({devicon: groups, dashboard: extras}).fl
     softwareType: commercial.has(id) ? 'commercial' : sourceAvailable.has(id) ? 'source-available' : unverified.has(id) ? 'unverified' : 'open-source',
     softwareLicense: null,
     classificationNote: '人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。'};
-})));
+}))).concat(communicationProjects.map(({aliases,tags,...project})=>({...project,category:'applications',softwareLicense:null,
+  classificationNote:'Editorial classification of the linked product: hosted services may include open-source clients. Verify edition-specific licensing with the vendor.'})));

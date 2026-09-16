@@ -16,6 +16,7 @@ const en=await json('data/categories.en.json');
 const categories=(await json('data/categories.json')).map(c=>({...c,nameEn:en[c.id][0],descriptionEn:en[c.id][1],
   libraries:{'zh-CN':`libraries/zh-CN/${c.name.replaceAll('/','-')}.xml`,en:`libraries/en/${en[c.id][0]}.xml`}}));
 const entries=new Map(), categoryXml=new Map(), zipFiles={};
+const usageNotice='Commercial icons: provided solely for draw.io architecture diagrams, not other distribution purposes. 商业图标仅供 draw.io 架构图绘制，不适用于其他发行用途。 Upstream licenses and brand rights remain applicable; this statement grants no additional rights. See ICON_USAGE.md and THIRD_PARTY_NOTICES.md.';
 const addZip=(name,data)=>{zipFiles[name]=[typeof data==='string'?strToU8(data):data,{mtime:new Date('2020-01-01T00:00:00Z')}];};
 for(const icon of catalog.icons) {
   const svg=await readFile(`assets/${icon.asset}`,'utf8');
@@ -30,7 +31,7 @@ for(const category of categories) {
   const localizedXml={};
   for(const [locale,path] of Object.entries(category.libraries)) {
     const title=locale==='en'?category.nameEn:category.name;
-    const xml=libraryXml(items,`${category.name} ${category.nameEn} ${category.keywords.join(' ')}`,title);
+    const xml=libraryXml(items,`${category.name} ${category.nameEn} ${category.keywords.join(' ')}`,title,usageNotice);
     const parsed=readLibrary(xml);
     if(JSON.stringify(parsed)!==JSON.stringify(items)) throw Error(`Library round-trip failed: ${category.id}/${locale}`);
     localizedXml[locale]=xml;
@@ -45,14 +46,14 @@ for(const legacy of await json('data/legacy-categories.json')) {
   if(!xml) throw Error(`Unknown legacy category: ${legacy.category}`);
   for(const [locale,path] of Object.entries(legacy.libraries)) await save(`public/${path}`,xml[locale]);
 }
-const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件','全部软件图标 / All Software Icons');
+const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件','全部软件图标 / All Software Icons',usageNotice);
 await save('public/libraries/all.xml',allXml);addZip('libraries/all.xml',allXml);
 const publicCatalog=JSON.stringify({...catalog,categories,categoryAliases},null,2)+'\n';
 await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCatalog);
 // Content-addressed URL keeps new application code from fetching an old cached catalog.
 await save(`public/catalog-${hash(publicCatalog)}.json`,publicCatalog);
 for(const file of await readdir('licenses')) {const content=await readFile(`licenses/${file}`);await save(`public/licenses/${file}`,content);addZip(`licenses/${file}`,content);}
-for(const file of ['README.md','README.en.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE']) {
+for(const file of ['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE']) {
   const content=await readFile(file);await save(`public/${file}`,content);addZip(file,content);
 }
 const zip=zipSync(zipFiles,{level:6});

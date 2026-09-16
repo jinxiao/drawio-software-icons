@@ -11,7 +11,7 @@
     "validate": "node scripts/validate.mjs",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
-    "build": "npm run validate && npm run typecheck && node scripts/generate.mjs && vite build",
+    "build": "npm run validate && npm run typecheck && node scripts/generate.mjs && vite build && node scripts/check-distribution.mjs",
     "dev": "node scripts/generate.mjs && vite --host 127.0.0.1",
     "preview": "vite preview --host 127.0.0.1"
   },

@@ -1,11 +1,17 @@
 import { readFile, cp, mkdtemp, mkdir } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { selection } from '../data/selection.mjs';
+import { communicationMetadata } from '../data/communication.mjs';
 import { hash, json, save, saveJson, inspectSvg, normalizeSvg } from './lib.mjs';
 
 const definitions = {
   devicon:{repo:'devicons/devicon', branch:'master', license:'MIT', index:'devicon.json'},
-  dashboard:{repo:'homarr-labs/dashboard-icons', branch:'main', license:'Apache-2.0', index:'tree.json'}
+  dashboard:{repo:'homarr-labs/dashboard-icons', branch:'main', license:'Apache-2.0', index:'tree.json'},
+  antdesign:{repo:'ant-design/ant-design-icons', branch:'master', license:'MIT', index:null,
+    initialRevision:'7f2516ac91226d2b41f93b35cb5197c8d94f7189',
+    paths:{wechat:'packages/icons-svg/svg/filled/wechat.svg',wecom:'packages/icons-svg/svg/filled/wechat-work.svg',dingtalk:'packages/icons-svg/svg/outlined/dingtalk.svg',qq:'packages/icons-svg/svg/outlined/qq.svg'}},
+  vendor:{repo:'bwks/vendor-icons-svg',branch:'master',license:'GPL-3.0-only',index:null,preserveOriginal:true,
+    initialRevision:'702f2ac88acc71759ce623bc5000a596195e9db3',paths:{servicenow:'servicenow.svg'}}
 };
 const update = process.argv.includes('--update');
 const oldLock = await json('data/sources.lock.json').catch(e => {if(e.code !== 'ENOENT') throw e; return null;});
@@ -25,7 +31,7 @@ async function download(url) {
   return content;
 }
 for (const [id, source] of Object.entries(definitions)) {
-  const revision = update || !oldLock ? execFileSync('git', ['ls-remote', `https://github.com/${source.repo}.git`, `refs/heads/${source.branch}`], {encoding:'utf8',timeout:60000}).split(/\s/)[0] : oldLock[id].revision;
+  const revision = update || !(oldLock?.[id]?.revision || source.initialRevision) ? execFileSync('git', ['ls-remote', `https://github.com/${source.repo}.git`, `refs/heads/${source.branch}`], {encoding:'utf8',timeout:60000}).split(/\s/)[0] : oldLock?.[id]?.revision ?? source.initialRevision;
   if (!/^[a-f0-9]{40}$/.test(revision)) throw Error(`Could not resolve ${id}`);
   pins[id] = {...source, revision};
 }
@@ -34,8 +40,8 @@ const stage = await mkdtemp('.sync-stage/run-');
 const indexes = {};
 for (const [id, source] of Object.entries(pins)) {
   const base = `https://raw.githubusercontent.com/${source.repo}/${source.revision}/`;
-  const [index, license] = await Promise.all([download(base+source.index),download(base+'LICENSE')]);
-  indexes[id] = JSON.parse(index);
+  const [index, license] = await Promise.all([source.index?download(base+source.index):null,download(base+'LICENSE')]);
+  if(index) indexes[id] = JSON.parse(index);
   await save(`${stage}/licenses/${id}-LICENSE.txt`,license);
 }
 const devicons = new Map(indexes.devicon.map(i=>[i.name,i]));
@@ -55,9 +61,13 @@ async function worker() {
         variant = ['original','plain','original-wordmark','plain-wordmark','line'].find(v=>metadata.versions.svg.includes(v));
         if (!variant) throw Error('No supported SVG variant');
         path = `icons/${item.id}/${item.id}-${variant}.svg`;
-      } else {
+      } else if(item.source === 'dashboard') {
         if (!dashboardFiles.has(`${item.id}.svg`)) throw Error('Icon missing in Dashboard SVG index');
         path = `svg/${item.id}.svg`; variant = 'original';
+      } else {
+        path=source.paths?.[item.id];
+        if(!path) throw Error('Missing curated source path');
+        variant=item.source==='antdesign'?'monochrome':'original';
       }
       const sourceUrl = `https://raw.githubusercontent.com/${source.repo}/${source.revision}/${path}`;
       const prior = oldIcons.get(item.id);
@@ -68,12 +78,16 @@ async function worker() {
       }
       let upstreamSha256 = prior?.source.url === sourceUrl ? prior.source.sha256 : null;
       if (!raw) { const original = await download(sourceUrl); upstreamSha256=hash(original); raw=normalizeSvg(original); }
+      // Keep the GPL collection's SVG source byte-for-byte, including its metadata.
+      if(source.preserveOriginal) {raw=await download(sourceUrl);upstreamSha256=hash(raw);}
       const dimensions = inspectSvg(raw);
       const category = categoryMap.get(item.category);
       if (!category) throw Error('Unknown category');
       const {source: sourceId, ...project} = item;
-      const aliases = [...new Set([...(metadata?.altnames ?? []), ...(item.id === 'kubernetes' ? ['k8s'] : []), ...(item.id === 'postgresql' ? ['postgres','pg'] : []), ...(item.id === 'amazonwebservices' ? ['aws'] : [])])];
-      icons[index] = {...project, aliases, tags:[...new Set([...(metadata?.tags ?? []).filter(t=>t !== 'open-source'), category.name,...category.keywords])],
+      const extra=communicationMetadata.get(item.id);
+      const aliases = [...new Set([...(extra?.aliases??[]),...(metadata?.altnames ?? []), ...(item.id === 'kubernetes' ? ['k8s'] : []), ...(item.id === 'postgresql' ? ['postgres','pg'] : []), ...(item.id === 'amazonwebservices' ? ['aws'] : [])])];
+      icons[index] = {...project, aliases, tags:[...new Set([...(extra?.tags??[]),...(metadata?.tags ?? []).filter(t=>t !== 'open-source'), category.name,...category.keywords])],
+        ...(item.softwareType==='commercial'?{usagePolicy:'drawio-architecture-only',usagePolicyUrl:'ICON_USAGE.md',brandPermissionStatus:'not-verified'}:{}),
         asset:`icons/${item.id}.svg`, ...dimensions, sha256:hash(raw),
         source:{id:sourceId, repository:`https://github.com/${source.repo}`,revision:source.revision,path,url:sourceUrl,variant,sha256:upstreamSha256,collectionLicense:source.license,
           licenseUrl:`https://github.com/${source.repo}/blob/${source.revision}/LICENSE`,

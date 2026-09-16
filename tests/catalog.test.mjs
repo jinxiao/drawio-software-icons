@@ -4,6 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {filterIcons,drawioUrl,isLocalSite,resolveCategory,libraryPaths} from '../src/catalog.mjs';
 import {inspectSvg,normalizeSvg,libraryEntry,libraryXml,readLibrary,json,parser} from '../scripts/lib.mjs';
 import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
+import {communicationProjects} from '../data/communication.mjs';
 
 const catalog=await json('data/catalog.json');
 const english=await json('data/categories.en.json');
@@ -38,6 +39,24 @@ test('both locale category catalogs are complete and all categories are populate
   assert.equal(new Set(catalog.icons.map(i=>i.id)).size,catalog.icons.length);
   assert.ok(categories.every(c=>catalog.icons.some(i=>i.category===c.id)));
   assert.ok(catalog.icons.every(i=>categories.some(c=>c.id===i.category)));
+});
+
+test('IM and enterprise additions have searchable names, correct categories and commercial notices',()=>{
+  for(const project of communicationProjects) {
+    const icon=catalog.icons.find(i=>i.id===project.id);
+    assert.ok(icon,project.id);
+    assert.equal(icon.category,'applications',project.id);
+    assert.equal(icon.softwareType,project.softwareType,project.id);
+    for(const query of [project.name,...project.aliases]) assert.ok(filterIcons(catalog.icons,categories,query).some(i=>i.id===project.id),query);
+  }
+  for(const icon of catalog.icons.filter(i=>i.softwareType==='commercial')) {
+    assert.equal(icon.usagePolicy,'drawio-architecture-only',icon.id);
+    assert.equal(icon.usagePolicyUrl,'ICON_USAGE.md',icon.id);
+    assert.equal(icon.brandPermissionStatus,'not-verified',icon.id);
+  }
+  const serviceNow=catalog.icons.find(i=>i.id==='servicenow');
+  assert.equal(serviceNow.sha256,serviceNow.source.sha256,'GPL SVG source must be preserved verbatim');
+  assert.equal(serviceNow.source.collectionLicense,'GPL-3.0-only');
 });
 
 test('related software shares a category across icon sources and legacy categories resolve',async()=>{
@@ -91,7 +110,7 @@ test('library XML survives Unicode, quotes, ampersands and embedded SVG unchange
 test('draw.io library titles are explicit Unicode text independent of encoded URL filenames',()=>{
   const entries=[libraryEntry({id:'git',name:'Git',aliases:[],tags:[]},square)];
   for(const title of [...categories.flatMap(c=>[c.name,c.nameEn]),'中文 & "quoted" <tools>']) {
-    const xml=libraryXml(entries,'tags',title);
+    const xml=libraryXml(entries,'tags',title,'Commercial icons: draw.io architecture diagrams only. 商业图标使用声明：ICON_USAGE.md');
     // EditorUi.loadLibrary passes the root title attribute to libraryLoaded,
     // which prefers it over the URL filename for the sidebar heading.
     assert.equal(parser.parse(xml).mxlibrary['@_title'],title);

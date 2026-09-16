@@ -12,5 +12,31 @@
     "license": "Apache-2.0",
     "index": "tree.json",
     "revision": "ce550a844bad92ea19b5926cb887285c46bac01a"
+  },
+  "antdesign": {
+    "repo": "ant-design/ant-design-icons",
+    "branch": "master",
+    "license": "MIT",
+    "index": null,
+    "initialRevision": "7f2516ac91226d2b41f93b35cb5197c8d94f7189",
+    "paths": {
+      "wechat": "packages/icons-svg/svg/filled/wechat.svg",
+      "wecom": "packages/icons-svg/svg/filled/wechat-work.svg",
+      "dingtalk": "packages/icons-svg/svg/outlined/dingtalk.svg",
+      "qq": "packages/icons-svg/svg/outlined/qq.svg"
+    },
+    "revision": "7f2516ac91226d2b41f93b35cb5197c8d94f7189"
+  },
+  "vendor": {
+    "repo": "bwks/vendor-icons-svg",
+    "branch": "master",
+    "license": "GPL-3.0-only",
+    "index": null,
+    "preserveOriginal": true,
+    "initialRevision": "702f2ac88acc71759ce623bc5000a596195e9db3",
+    "paths": {
+      "servicenow": "servicenow.svg"
+    },
+    "revision": "702f2ac88acc71759ce623bc5000a596195e9db3"
   }
 }

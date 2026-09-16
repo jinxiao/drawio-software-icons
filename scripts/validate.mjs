@@ -16,6 +16,7 @@ for(const icon of catalog.icons) {
   if(!seed || Object.entries(seed).some(([key,value])=>key !== 'source' && JSON.stringify(icon[key]) !== JSON.stringify(value))) fail(`Stale metadata: ${icon.id}`);
   if(!categoryIds.has(icon.category)) fail(`Unknown category: ${icon.id}`);
   if(!['open-source','source-available','commercial','unverified'].includes(icon.softwareType)) fail(`Invalid type: ${icon.id}`);
+  if(icon.softwareType==='commercial' && (icon.usagePolicy!=='drawio-architecture-only' || icon.usagePolicyUrl!=='ICON_USAGE.md' || icon.brandPermissionStatus!=='not-verified')) fail(`Missing commercial usage policy: ${icon.id}`);
   if(!icon.name || !Array.isArray(icon.aliases) || !icon.tags.length) fail(`Incomplete metadata: ${icon.id}`);
   if(new URL(icon.homepage).protocol !== 'https:') fail(`Invalid project URL: ${icon.id}`);
   const source=sources[icon.source.id];

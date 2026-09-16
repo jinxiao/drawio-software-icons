@@ -22,4 +22,9 @@ SOFTWARE.
 
 This license covers original project code and documentation only. Third-party
 icons retain their upstream licenses and trademark rights. See
-THIRD_PARTY_NOTICES.md and licenses/.
+THIRD_PARTY_NOTICES.md, ICON_USAGE.md and licenses/.
+
+Commercial brand assets are offered by this project solely for draw.io
+architecture diagrams, not for other distribution purposes. This statement
+does not change the MIT grant for original code and documentation, override
+third-party license grants, or confer trademark permission.
