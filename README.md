@@ -12,6 +12,8 @@ The **Apps & Content Management** category includes WeChat, WeCom, DingTalk, QQ,
 
 WeChat, WeCom, DingTalk and Feishu use unmodified 512 × 512 color PNG application icons from their official publishers’ App Store listings. Feishu and Lark are separate entries. QQ retains its upstream monochrome artwork. ServiceNow uses an upstream wordmark, not a newly drawn logo. Original colors and proportions are preserved.
 
+DingTalk is displayed through an SVG rounded-corner clip with transparent corners. The original PNG is embedded unchanged and also included separately in the ZIP. This is a project presentation adjustment, not a new official vector logo.
+
 ## Use the icons
 
 1. Click **Open all in draw.io** on the website to launch draw.io in a new tab.

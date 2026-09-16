@@ -23,6 +23,11 @@ for(const icon of catalog.icons) {
   entries.set(icon.id,libraryEntry(icon,svg));
   await save(`public/${icon.asset}`,svg);
   addZip(icon.asset,svg);
+  if(icon.source.variant==='official-png-rounded') {
+    const original=await readFile(`assets/icons/${icon.id}.png`);
+    await save(`public/icons/${icon.id}.png`,original);
+    addZip(`icons/${icon.id}.png`,original);
+  }
 }
 for(const category of categories) {
   const items=catalog.icons.filter(i=>i.category===category.id).map(i=>entries.get(i.id));

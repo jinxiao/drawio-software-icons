@@ -26,6 +26,7 @@
     "retrievedOn": "2026-09-16"
   },
   "dingtalk": {
+    "presentation": {"kind": "rounded-rect", "radius": 112},
     "appId": 930368978,
     "name": "钉钉",
     "publisher": "DingTalk Technology Co., Ltd.",

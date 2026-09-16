@@ -64,15 +64,25 @@ test('Chinese messaging products use pinned official color PNGs and Feishu is di
   for(const id of ['wechat','wecom','dingtalk','feishu']) {
     const icon=catalog.icons.find(i=>i.id===id);
     assert.equal(icon.source.id,'official-apps');
-    assert.equal(icon.asset,`icons/${id}.png`);
+    assert.equal(icon.asset,`icons/${id}.${id==='dingtalk'?'svg':'png'}`);
     assert.equal(icon.source.publisher,official[id].publisher);
-    const png=await readFile(`assets/${icon.asset}`);
+    const png=await readFile(`assets/icons/${id}.png`);
     assert.equal(hash(png),official[id].sha256);
     assert.deepEqual(inspectPng(png),{width:512,height:512});
-    const entry=libraryEntry(icon,png);
+    const asset=id==='dingtalk'?await readFile(`assets/${icon.asset}`,'utf8'):png;
+    const entry=libraryEntry(icon,asset);
     assert.equal(entry.w,64);assert.equal(entry.h,64);
-    assert.ok(entry.data.startsWith('data:image/png;base64,'));
-    assert.deepEqual(Buffer.from(entry.data.split(',')[1],'base64'),png);
+    assert.ok(entry.data.startsWith(`data:image/${id==='dingtalk'?'svg+xml':'png'};base64,`));
+    assert.deepEqual(Buffer.from(entry.data.split(',')[1],'base64'),Buffer.from(asset));
+    if(id==='dingtalk') {
+      const svg=parser.parse(asset).svg;
+      assert.equal(svg.image['@_clip-path'],'url(#corners)');
+      assert.equal(svg.defs.clipPath['@_id'],'corners');
+      assert.equal(svg.defs.clipPath.rect['@_rx'],'112');
+      assert.equal(svg.defs.clipPath.rect['@_width'],'512');
+      assert.equal(svg.defs.clipPath.rect['@_height'],'512');
+      assert.deepEqual(Buffer.from(svg.image['@_xlink:href'].split(',')[1],'base64'),png);
+    }
     assert.deepEqual(readLibrary(libraryXml([entry])),[entry]);
     assert.throws(()=>inspectPng(png.subarray(0,png.length-1)));
     const invalid=Buffer.from(png);invalid.writeUInt32BE(0,16);
@@ -171,6 +181,7 @@ test('unsafe SVG payloads are rejected, including entity-encoded remote URLs',()
   assert.throws(()=>inspectSvg(square.replace('100 100','0 -1')));
   assert.throws(()=>inspectSvg(square.replace('</svg>','')));
   assert.throws(()=>normalizeSvg('<!ENTITY x SYSTEM "https://evil.test">'+square));
+  for(const href of ['data:image/png;base64,AAAA','data:image/svg+xml;base64,PHN2Zy8+','data:text/html;base64,PHNjcmlwdD4=']) assert.throws(()=>inspectSvg(wrap(`<image href="${href}"/>`)));
   assert.deepEqual(inspectSvg(wrap('<defs><linearGradient id="g"/></defs><path fill="url(#g)"/>')),{width:10,height:10});
   assert.equal(inspectSvg(normalizeSvg('<?xml version="1.0"?>'+square)).width,100);
 });

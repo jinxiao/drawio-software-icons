@@ -1,6 +1,6 @@
 import {readFile} from 'node:fs/promises';
 import {selection} from '../data/selection.mjs';
-import {json,hash,inspectSvg,inspectPng} from './lib.mjs';
+import {json,hash,inspectSvg,inspectPng,packageOfficialPng} from './lib.mjs';
 const catalog = await json('data/catalog.json');
 const categories = await json('data/categories.json');
 const sources = await json('data/sources.lock.json');
@@ -26,12 +26,15 @@ for(const icon of catalog.icons) {
   if((!official && !icon.source.url.includes(`/${source.revision}/`)) || !icon.source.licenseUrl || !icon.source.collectionLicense || !/^[a-f0-9]{64}$/.test(icon.source.sha256)) fail(`Incomplete provenance: ${icon.id}`);
   if(official) {
     const pinned=officialIcons[icon.id];
-    if(!pinned || icon.source.url!==pinned.url || icon.source.publisher!==pinned.publisher || icon.source.listing!==pinned.listing || icon.sha256!==pinned.sha256 || icon.source.sha256!==pinned.sha256 || source.revision!==hash(JSON.stringify(officialIcons))) fail(`Invalid official artwork pin: ${icon.id}`);
+    if(!pinned || icon.source.url!==pinned.url || icon.source.publisher!==pinned.publisher || icon.source.listing!==pinned.listing || icon.source.sha256!==pinned.sha256 || source.revision!==hash(JSON.stringify(officialIcons))) fail(`Invalid official artwork pin: ${icon.id}`);
+    const original=await readFile(`assets/icons/${icon.id}.png`);
+    if(hash(original)!==pinned.sha256 || hash(packageOfficialPng(original,pinned.presentation))!==icon.sha256) fail(`Invalid packaged official artwork: ${icon.id}`);
   }
-  if(icon.asset !== `icons/${icon.id}.${official?'png':'svg'}`) fail(`Invalid asset path: ${icon.id}`);
-  const svg=await readFile(`assets/${icon.asset}`,official?undefined:'utf8');
+  const png=official && !officialIcons[icon.id].presentation;
+  if(icon.asset !== `icons/${icon.id}.${png?'png':'svg'}`) fail(`Invalid asset path: ${icon.id}`);
+  const svg=await readFile(`assets/${icon.asset}`,png?undefined:'utf8');
   if(hash(svg)!==icon.sha256) fail(`Checksum mismatch: ${icon.id}`);
-  const size=official?inspectPng(svg):inspectSvg(svg);
+  const size=png?inspectPng(svg):inspectSvg(svg);
   if(size.width!==icon.width || size.height!==icon.height) fail(`Dimension mismatch: ${icon.id}`);
 }
 for(const c of categories) if(!catalog.icons.some(i=>i.category===c.id)) fail(`Empty category: ${c.id}`);

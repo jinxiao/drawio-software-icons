@@ -2,7 +2,7 @@ import { readFile, cp, mkdtemp, mkdir } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { selection } from '../data/selection.mjs';
 import { communicationMetadata } from '../data/communication.mjs';
-import { hash, json, save, saveJson, inspectSvg, inspectPng, normalizeSvg } from './lib.mjs';
+import { hash, json, save, saveJson, inspectSvg, inspectPng, normalizeSvg, packageOfficialPng } from './lib.mjs';
 
 const definitions = {
   devicon:{repo:'devicons/devicon', branch:'master', license:'MIT', index:'devicon.json'},
@@ -63,11 +63,12 @@ async function worker() {
       const source = pins[item.source];
       const official = item.source==='official-apps'?officialIcons[item.id]:null;
       if(item.source==='official-apps' && !official) throw Error('Official artwork missing from pinned manifest');
-      const asset=`icons/${item.id}.${official?'png':'svg'}`;
+      const asset=`icons/${item.id}.${official && !official.presentation?'png':'svg'}`;
+      const originalAsset=official?`icons/${item.id}.png`:asset;
       const metadata = item.source === 'devicon' ? devicons.get(item.id) : null;
       let path, variant;
       if(official) {
-        path=asset;variant='official-png';
+        path=originalAsset;variant=official.presentation?'official-png-rounded':'official-png';
       } else if (item.source === 'devicon') {
         if (!metadata) throw Error('Icon missing in Devicon index');
         variant = ['original','plain','original-wordmark','plain-wordmark','line'].find(v=>metadata.versions.svg.includes(v));
@@ -85,7 +86,7 @@ async function worker() {
       const prior = oldIcons.get(item.id);
       let raw;
       if (prior?.source.url === sourceUrl || official) {
-        try { raw = await readFile(`assets/${asset}`,official?undefined:'utf8'); if(hash(raw)!==(official?.sha256??prior.sha256)) raw = null; }
+        try { raw = await readFile(`assets/${originalAsset}`,official?undefined:'utf8'); if(hash(raw)!==(official?.sha256??prior.sha256)) raw = null; }
         catch(e) {if(e.code !== 'ENOENT') throw e;}
       }
       let upstreamSha256 = official?.sha256 ?? (prior?.source.url === sourceUrl ? prior.source.sha256 : null);
@@ -95,6 +96,11 @@ async function worker() {
       if(source.preserveOriginal) {raw=await download(sourceUrl);upstreamSha256=hash(raw);}
       const dimensions = official?inspectPng(raw):inspectSvg(raw);
       if(official && (dimensions.width!==official.width || dimensions.height!==official.height)) throw Error('Official artwork dimensions do not match manifest');
+      if(official?.presentation) {
+        await save(`${stage}/assets/${originalAsset}`,raw);
+        raw=packageOfficialPng(raw,official.presentation);
+        inspectSvg(raw);
+      }
       const category = categoryMap.get(item.category);
       if (!category) throw Error('Unknown category');
       const {source: sourceId, ...project} = item;

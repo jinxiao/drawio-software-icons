@@ -20,6 +20,10 @@ For official publisher PNGs, the catalog instead records the verified publisher,
 
 ## Modifications / 处理方式
 
+DingTalk uses an SVG wrapper with a 112 px rounded-rectangle clip on the 512 px canvas. The PNG bytes inside are unchanged; transparent corners replace the square display boundary. This project presentation is recorded in `data/official-icons.json`, with separate source and packaged checksums. The library embeds the SVG wrapper; the ZIP also retains the original PNG. The wrapper does not make the raster artwork a vector logo.
+
+钉钉在 512 px 画布上使用半径 112 px 的 SVG 圆角裁切，内部 PNG 字节不变，四角透明。这是清单中明确记录的项目显示调整，原图与打包文件分别校验；图标库内嵌 SVG 包装文件，ZIP 同时保留原 PNG。包装不会把位图变成矢量 Logo。
+
 When present, obsolete XML declarations, external DTD declarations and editor metadata are removed. The artwork's paths, colors and proportions are retained. SVGs are embedded as base64 data URIs in draw.io libraries, with their proportions retained within a 64 px bounding box. A source may supply a plain or wordmark variant when no original symbol is available; the selected variant is recorded in each entry.
 
 必要时移除旧 XML 声明、外部 DTD 声明和编辑器元数据，不改动图形路径、配色与比例。优先原色无文字图标；上游只有单色或字标版本时使用已有版本，并记录 variant。并非每个品牌都提供多色图形。

@@ -25,3 +25,5 @@ Keep icon IDs stable. Classify projects by purpose using `data/taxonomy.mjs`, in
 SVGs must be safe and self-contained. Scripts, event handlers, external resources and invalid dimensions fail validation. Do not rasterize, recolor or redraw a logo merely to bypass a validation failure; investigate the source or exclude the entry.
 
 Official publisher PNGs are also supported. Prefer original color publisher artwork over monochrome substitutes. Pin each PNG's exact URL, official product listing, publisher, dimensions and SHA-256 in `data/official-icons.json`; never silently replace it during monthly updates. Keep original pixels, distinguish Feishu from Lark, and describe PNG as raster artwork. Use `inspectPng` validation and embed PNG bytes directly in libraries. The dedicated rights notice must not claim an open-source artwork license.
+
+For DingTalk, the manifest's `presentation` adds an SVG rounded-corner clip around the original PNG. Preserve both source and packaged hashes and include the original PNG in the ZIP. Do not replace this with website-only CSS: downloads and draw.io must use the same clipped asset.

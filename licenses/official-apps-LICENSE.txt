@@ -9,6 +9,10 @@ on their verified App Store product listings. They are preserved without
 recoloring, tracing, cropping or changing their pixels. Apple hosts the artwork;
 its availability does not grant an artwork redistribution or trademark license.
 
+DingTalk's packaged SVG adds a rounded-corner display clip around the unchanged
+PNG. This is a project presentation adjustment; it is not official vector art.
+The original PNG is also included separately.
+
 The source listing, publisher, artwork URL, retrieval date and SHA-256 are
 recorded in data/official-icons.json and the distributed catalog.json.
 Copyright and trademark rights remain with their respective owners. No
@@ -27,3 +31,6 @@ See ICON_USAGE.md and THIRD_PARTY_NOTICES.md for the project's usage policy.
 权仍归原权利人；本项目不声称这些图标采用 MIT、Apache 或其他开源
 许可。商业图标仅供 draw.io 架构图标识使用，不适用于其他发行用途；
 此用途声明不能替代品牌方授权。详见 ICON_USAGE.md。
+
+钉钉的 SVG 包装为原始 PNG 添加圆角显示裁切，PNG 字节不变，并单独保留
+原图。这是项目显示调整，不是官方矢量素材。

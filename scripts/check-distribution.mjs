@@ -31,10 +31,16 @@ assert.equal(readLibrary(strFromU8(zip['libraries/all.xml'])).length,catalog.ico
 const library=readLibrary(strFromU8(zip['libraries/all.xml']));
 for(const [id,official] of Object.entries(await json('data/official-icons.json'))) {
   const icon=catalog.icons.find(i=>i.id===id);
-  assert.equal(hash(zip[icon.asset]),official.sha256,`${id}: original PNG in ZIP`);
+  assert.equal(hash(zip[`icons/${id}.png`]),official.sha256,`${id}: original PNG in ZIP`);
+  assert.equal(hash(zip[icon.asset]),icon.sha256,`${id}: packaged icon in ZIP`);
   const entry=library.find(e=>e.title===icon.name);
-  assert.ok(entry.data.startsWith('data:image/png;base64,'),id);
-  assert.equal(hash(Buffer.from(entry.data.split(',')[1],'base64')),official.sha256,`${id}: embedded PNG`);
+  assert.ok(entry.data.startsWith(`data:image/${official.presentation?'svg+xml':'png'};base64,`),id);
+  const embedded=Buffer.from(entry.data.split(',')[1],'base64');
+  assert.equal(hash(embedded),icon.sha256,`${id}: embedded asset`);
+  if(official.presentation) {
+    const original=parser.parse(embedded.toString()).svg.image['@_xlink:href'];
+    assert.equal(hash(Buffer.from(original.split(',')[1],'base64')),official.sha256,`${id}: original PNG inside rounded SVG`);
+  }
 }
 const serviceNow=catalog.icons.find(i=>i.id==='servicenow');
 assert.equal(hash(zip[serviceNow.asset]),serviceNow.source.sha256,'Distribute complete original ServiceNow SVG source');

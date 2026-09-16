@@ -27,6 +27,13 @@ export function inspectPng(data) {
   return {width,height};
 }
 
+export function packageOfficialPng(png, presentation) {
+  const {width,height}=inspectPng(png);
+  if(!presentation) return png;
+  if(presentation.kind!=='rounded-rect' || !Number.isFinite(presentation.radius) || presentation.radius<=0 || presentation.radius>Math.min(width,height)/2) throw Error('Invalid PNG presentation');
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><defs><clipPath id="corners"><rect width="${width}" height="${height}" rx="${presentation.radius}"/></clipPath></defs><image width="${width}" height="${height}" clip-path="url(#corners)" xlink:href="data:image/png;base64,${Buffer.from(png).toString('base64')}"/></svg>\n`;
+}
+
 export function inspectSvg(svg) {
   if (Buffer.byteLength(svg) > 1_000_000) throw Error('SVG exceeds 1 MB');
   if (/<!DOCTYPE|<!ENTITY|<\?xml-stylesheet/i.test(svg)) throw Error('External XML declarations are not supported');
@@ -42,7 +49,13 @@ export function inspectSvg(svg) {
       const local = key.replace(/^@_/, '').split(':').pop().toLowerCase();
       if (!key.startsWith('@_') && ['script','foreignobject','iframe','object','embed','animate','animatetransform','animatemotion','set'].includes(local)) throw Error(`Unsafe SVG element: ${key}`);
       if (key.startsWith('@_') && (/^on/i.test(local) || local === 'base')) throw Error(`Unsafe SVG attribute: ${key}`);
-      if (key.startsWith('@_') && ['href','src'].includes(local) && !String(value).startsWith('#')) throw Error('External SVG resource');
+        if (key.startsWith('@_') && ['href','src'].includes(local) && !String(value).startsWith('#')) {
+          const embedded=/^data:image\/png;base64,([A-Za-z0-9+/]+={0,2})$/.exec(String(value));
+          if(!embedded) throw Error('External SVG resource');
+          const png=Buffer.from(embedded[1],'base64');
+          if(png.toString('base64')!==embedded[1]) throw Error('Invalid embedded PNG encoding');
+          inspectPng(png);
+        }
       if (typeof value === 'string') {
         if (/@import|expression\s*\(|javascript:|\\/i.test(value)) throw Error('Unsafe SVG CSS');
         for (const match of value.matchAll(/url\s*\(([^)]*)\)/gi)) {
