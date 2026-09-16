@@ -1,6 +1,9 @@
 import './style.css';
 import { messages, type Locale } from './i18n';
-import { filterIcons, drawioUrl, isLocalSite } from './catalog.mjs';
+import { filterIcons, drawioUrl, isLocalSite, resolveCategory } from './catalog.mjs';
+
+// Vite binds the application to the catalog generated for this build.
+declare const __CATALOG_FILE__: string;
 
 type Icon = {
   id:string; name:string; aliases:string[]; tags:string[]; category:string; softwareType:string;
@@ -8,7 +11,7 @@ type Icon = {
   source:{id:string;url:string;revision:string;collectionLicense:string;licenseUrl:string};
 };
 type Category = {id:string;name:string;nameEn:string;description:string;descriptionEn:string;keywords:string[];count:number;libraries:Record<Locale,string>};
-type Catalog = {version:string;icons:Icon[];categories:Category[];categoryAliases:Record<string,string>};
+type Catalog = {version:string;icons:Icon[];categories:Category[];categoryAliases?:Record<string,string>};
 const $ = <T extends Element=HTMLElement>(selector:string) => document.querySelector<T>(selector)!;
 const esc = (s:unknown) => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const readPreference = (key:string) => {try{return localStorage.getItem(key);}catch{return null;}};
@@ -147,12 +150,11 @@ document.addEventListener('keydown',event=>{
 });
 async function init() {
   try {
-    const response=await fetch(file('catalog.json'));
+    const response=await fetch(file(__CATALOG_FILE__));
     if(!response.ok)throw Error(String(response.status));
     catalog=await response.json();
     catalog.categories.forEach(c=>selected.add(c.id));
-    activeCategory=catalog.categoryAliases[activeCategory]??activeCategory;
-    if(!catalog.categories.some(c=>c.id===activeCategory))activeCategory='all';
+    activeCategory=resolveCategory(catalog,activeCategory);
     if(!['all','open-source','source-available','commercial','unverified'].includes(activeType))activeType='all';
     renderShell();
   } catch(error) {

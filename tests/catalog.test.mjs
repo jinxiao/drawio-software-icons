@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {filterIcons,drawioUrl,isLocalSite} from '../src/catalog.mjs';
+import {filterIcons,drawioUrl,isLocalSite,resolveCategory} from '../src/catalog.mjs';
 import {inspectSvg,normalizeSvg,libraryEntry,libraryXml,readLibrary,json} from '../scripts/lib.mjs';
 import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
 
@@ -9,6 +9,16 @@ const catalog=await json('data/catalog.json');
 const english=await json('data/categories.en.json');
 const categories=(await json('data/categories.json')).map(c=>({...c,nameEn:english[c.id][0]}));
 const square='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="#123456" d="M0 0h100v100H0z"/></svg>';
+
+test('homepage and category links tolerate catalogs without the optional alias map',()=>{
+  const olderCatalog={categories};
+  assert.equal(resolveCategory(olderCatalog,'all'),'all');
+  assert.equal(resolveCategory(olderCatalog,'development'),'development');
+  assert.equal(resolveCategory(olderCatalog,'unknown'),'all');
+  assert.equal(resolveCategory({...olderCatalog,categoryAliases:null},'all'),'all');
+  assert.equal(resolveCategory({...olderCatalog,categoryAliases},'automation'),'development');
+  assert.equal(resolveCategory({...olderCatalog,categoryAliases},'all'),'all');
+});
 test('bilingual search, aliases, combined filters and no results',()=>{
   assert.equal(filterIcons(catalog.icons,categories,'k8s')[0].id,'kubernetes');
   const zh=filterIcons(catalog.icons,categories,'数据库').map(i=>i.id);

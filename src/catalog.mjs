@@ -1,3 +1,7 @@
+export function resolveCategory(catalog, requested = 'all') {
+  const category = catalog.categoryAliases?.[requested] ?? requested;
+  return catalog.categories.some(c => c.id === category) ? category : 'all';
+}
 export function filterIcons(icons, categories, query = '', category = 'all', type = 'all') {
   const terms = query.normalize('NFKC').toLowerCase().trim().split(/\s+/).filter(Boolean);
   const categoryText = new Map(categories.map(c=>[c.id,[c.name,c.nameEn,...c.keywords].join(' ')]));

@@ -2,7 +2,7 @@ import { readFile, readdir, rm, lstat } from 'node:fs/promises';
 import { resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { zipSync, strToU8 } from 'fflate';
-import { json,save,libraryEntry,libraryXml,readLibrary } from './lib.mjs';
+import { json,save,hash,libraryEntry,libraryXml,readLibrary } from './lib.mjs';
 import { categoryAliases } from '../data/taxonomy.mjs';
 // Only this script's generated output may be cleaned; never follow an output symlink.
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
@@ -42,6 +42,8 @@ const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件
 await save('public/libraries/all.xml',allXml);addZip('libraries/all.xml',allXml);
 const publicCatalog=JSON.stringify({...catalog,categories,categoryAliases},null,2)+'\n';
 await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCatalog);
+// Content-addressed URL keeps new application code from fetching an old cached catalog.
+await save(`public/catalog-${hash(publicCatalog)}.json`,publicCatalog);
 for(const file of await readdir('licenses')) {const content=await readFile(`licenses/${file}`);await save(`public/licenses/${file}`,content);addZip(`licenses/${file}`,content);}
 for(const file of ['README.md','README.en.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE']) {
   const content=await readFile(file);await save(`public/${file}`,content);addZip(file,content);
