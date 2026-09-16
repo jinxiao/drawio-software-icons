@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {filterIcons,drawioUrl,isLocalSite} from '../src/catalog.mjs';
 import {inspectSvg,normalizeSvg,libraryEntry,libraryXml,readLibrary,json} from '../scripts/lib.mjs';
+import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
 
 const catalog=await json('data/catalog.json');
 const english=await json('data/categories.en.json');
@@ -22,10 +23,36 @@ test('bilingual search, aliases, combined filters and no results',()=>{
 });
 test('both locale category catalogs are complete and all categories are populated',()=>{
   assert.deepEqual(Object.keys(english).sort(),categories.map(c=>c.id).sort());
-  assert.equal(categories.length,18);
+  assert.equal(categories.length,8);
   assert.ok(catalog.icons.length>=300);
   assert.equal(new Set(catalog.icons.map(i=>i.id)).size,catalog.icons.length);
   assert.ok(categories.every(c=>catalog.icons.some(i=>i.category===c.id)));
+  assert.ok(catalog.icons.every(i=>categories.some(c=>c.id===i.category)));
+});
+
+test('related software shares a category across icon sources and legacy categories resolve',async()=>{
+  for(const id of ['git','github','gitlab','gitea','forgejo']) {
+    assert.equal(catalog.icons.find(i=>i.id===id)?.category,'development',id);
+  }
+  for(const id of ['opensearch','elasticsearch']) assert.equal(catalog.icons.find(i=>i.id===id)?.category,'databases',id);
+  assert.equal(categoryForProject('gitea','collaboration'),'development');
+  const legacy=await json('data/legacy-categories.json');
+  assert.equal(legacy.length,18);
+  for(const c of legacy) {
+    assert.equal(categoryAliases[c.id]??c.id,c.category);
+    assert.ok(categories.some(current=>current.id===c.category));
+  }
+});
+
+test('open all includes exactly eight distinct category libraries in either language',()=>{
+  const base='https://example.github.io/drawio-software-icons/';
+  for(const locale of ['zh-CN','en']) {
+    const paths=categories.map(c=>`libraries/${locale}/${(locale==='en'?c.nameEn:c.name).replaceAll('/','-')}.xml`);
+    const url=drawioUrl(base,paths);
+    const loaded=url.split('clibs=')[1].split(';').map(id=>decodeURIComponent(id.slice(1)));
+    assert.equal(new Set(loaded).size,8);
+    assert.deepEqual(loaded,paths.map(p=>new URL(p,base).href));
+  }
 });
 test('draw.io links preserve multiple Unicode paths and repository base paths',()=>{
   const base='https://example.github.io/drawio-software-icons/';

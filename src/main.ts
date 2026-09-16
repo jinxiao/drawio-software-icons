@@ -8,7 +8,7 @@ type Icon = {
   source:{id:string;url:string;revision:string;collectionLicense:string;licenseUrl:string};
 };
 type Category = {id:string;name:string;nameEn:string;description:string;descriptionEn:string;keywords:string[];count:number;libraries:Record<Locale,string>};
-type Catalog = {version:string;icons:Icon[];categories:Category[]};
+type Catalog = {version:string;icons:Icon[];categories:Category[];categoryAliases:Record<string,string>};
 const $ = <T extends Element=HTMLElement>(selector:string) => document.querySelector<T>(selector)!;
 const esc = (s:unknown) => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const readPreference = (key:string) => {try{return localStorage.getItem(key);}catch{return null;}};
@@ -50,6 +50,9 @@ function showNotice() {
   $('#notice-body').textContent=t.localNote;
   $<HTMLDialogElement>('#notice').showModal();
 }
+function openAllLink(className:string) {
+  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,catalog.categories.map(c=>c.libraries[locale])))}" target="_blank" rel="noopener noreferrer">${messages[locale].openAll}${svg('external')}</a>`;
+}
 function renderShell() {
   const t=messages[locale];
   document.documentElement.lang=locale;
@@ -64,14 +67,14 @@ function renderShell() {
     <main>
       <section class="hero"><div class="hero-copy"><p class="eyebrow"><span></span>${t.eyebrow}</p>
         <h1>${t.hero1}<br><em>${t.hero2}</em></h1><p class="intro">${t.intro}</p>
-        <div class="hero-actions"><a class="button primary" href="#library">${t.browse}${svg('arrow')}</a><a class="button outline" href="${file('downloads/drawio-software-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div>
+        <div class="hero-actions">${openAllLink('primary')}<a class="button outline" href="${file('downloads/drawio-software-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${t.openAllHint}</p>
         <div class="hero-facts"><span><b>${catalog.icons.length}</b> ${t.icons}</span><i></i><span><b>${catalog.categories.length}</b> ${t.categories}</span><i></i><span>${t.vector}</span></div>
       </div><div class="hero-art" aria-hidden="true"><div class="art-label">YOUR STACK, AT A GLANCE</div><div class="art-grid">${featured.map((id,i)=>`<div class="art-tile art-${i}"><img src="${file(`icons/${id}.svg`)}" alt="" width="48" height="48"></div>`).join('')}</div><div class="art-caption"><span class="status-dot"></span>SVG · DRAW.IO · OFFLINE READY</div><span class="art-plus">+</span></div></section>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
         <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">${t.library}</span><span class="tiny-pill">${catalog.icons.length}</span></div>
           <button class="category-button" data-category="all"><span>${svg('grid')}${t.all}</span><small>${catalog.icons.length}</small></button>
           <p class="category-heading">${t.categoryLabel}</p><div class="category-list">${catalog.categories.map(c=>`<button class="category-button" data-category="${c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
-          <button class="bundle-button" id="bundle"><span>${svg('grid')} ${t.bundle}</span><small>${t.bundleHint}</small></button>
+          ${openAllLink('primary open-all-sidebar')}<button class="bundle-button" id="bundle"><span>${svg('grid')} ${t.bundle}</span><small>${t.bundleHint}</small></button>
         </aside>
         <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"><kbd>/</kbd></label>
           <div class="background-toggle" role="group" aria-label="${t.preview}"><button id="light" aria-label="${t.light}" title="${t.light}" aria-pressed="${!dark}"><span class="light-dot"></span></button><button id="dark" aria-label="${t.dark}" title="${t.dark}" aria-pressed="${dark}"><span class="dark-dot"></span></button></div></div>
@@ -104,7 +107,7 @@ function renderResults() {
   $('#result-count').textContent=`${results.length} ${t.results}`;
   document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===activeCategory)));
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.type===activeType)));
-  $('#category-actions').innerHTML=c?`<button class="button small primary" id="open-category">${t.openDrawio}${svg('external')}</button><a class="button small subtle" href="${file(c.libraries[locale])}" download>${svg('download')}${t.downloadLibrary}</a>`:`<a class="button small subtle" href="${file('libraries/all.xml')}" download>${svg('download')}${t.allLibrary}</a>`;
+  $('#category-actions').innerHTML=c?`<button class="button small primary" id="open-category">${t.openDrawio}${svg('external')}</button><a class="button small subtle" href="${file(c.libraries[locale])}" download>${svg('download')}${t.downloadLibrary}</a>`:`${openAllLink('small primary')}<a class="button small subtle" href="${file('libraries/all.xml')}" download>${svg('download')}${t.allLibrary}</a>`;
   if(c) $('#open-category').addEventListener('click',()=>openLibraries([c]));
   const grid=$('#grid');
   grid.innerHTML=results.length?results.slice(0,limit).map(icon=>{
@@ -134,6 +137,7 @@ function showBundle() {
   refresh();dialog.showModal();
 }
 document.addEventListener('click',event=>{
+  if(local && (event.target as Element).closest('[data-open-all]')) {event.preventDefault();showNotice();}
   const close=(event.target as Element).closest<HTMLElement>('[data-close]');
   if(close) $<HTMLDialogElement>('#'+close.dataset.close).close();
 });
@@ -146,6 +150,8 @@ async function init() {
     const response=await fetch(file('catalog.json'));
     if(!response.ok)throw Error(String(response.status));
     catalog=await response.json();
+    catalog.categories.forEach(c=>selected.add(c.id));
+    activeCategory=catalog.categoryAliases[activeCategory]??activeCategory;
     if(!catalog.categories.some(c=>c.id===activeCategory))activeCategory='all';
     if(!['all','open-source','source-available','commercial','unverified'].includes(activeType))activeType='all';
     renderShell();

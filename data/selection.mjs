@@ -1,5 +1,6 @@
 // id~official GitHub repository, or id~https://official-homepage.
 // One reviewed primary category per software project; add cross-cutting search tags separately.
+import { categoryForProject } from './taxonomy.mjs';
 const groups = {
 databases: `aerospike~aerospike/aerospike-server cassandra~apache/cassandra clickhouse~ClickHouse/ClickHouse couchdb~apache/couchdb duckdb~duckdb/duckdb firebird~FirebirdSQL/firebird influxdb~influxdata/influxdb mariadb~MariaDB/server mongodb~mongodb/mongo mysql~mysql/mysql-server neo4j~neo4j/neo4j postgresql~postgres/postgres rocksdb~facebook/rocksdb sqlite~https://sqlite.org surrealdb~surrealdb/surrealdb vitess~vitessio/vitess yugabytedb~yugabyte/yugabyte-db`,
 caching: `memcached~memcached/memcached redis~redis/redis`,
@@ -40,7 +41,7 @@ export const selection = Object.entries({devicon: groups, dashboard: extras}).fl
   const split = row.indexOf('~');
   const id = row.slice(0, split), project = row.slice(split + 1);
   const homepage = project.startsWith('https://') ? project : `https://github.com/${project}`;
-  return {id, name: names[id] ?? id[0].toUpperCase() + id.slice(1), category, source, homepage,
+  return {id, name: names[id] ?? id[0].toUpperCase() + id.slice(1), category: categoryForProject(id, category), source, homepage,
     repository: project.startsWith('https://') ? null : homepage,
     softwareType: commercial.has(id) ? 'commercial' : sourceAvailable.has(id) ? 'source-available' : unverified.has(id) ? 'unverified' : 'open-source',
     softwareLicense: null,

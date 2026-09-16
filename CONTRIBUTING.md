@@ -16,6 +16,8 @@ UI strings are paired in `src/i18n.ts`. Categories use `data/categories.json` an
 
 ## Stable interfaces / 稳定接口
 
-Keep icon IDs and existing category IDs stable. Additive metadata changes may keep `schemaVersion: 1`; incompatible changes require a schema-version increase. Library paths are generated from localized category names, so renaming a category also changes public download URLs and should be treated as a breaking change. Prefer correcting descriptions over renaming published categories.
+Keep icon IDs stable. Classify projects by purpose using `data/taxonomy.mjs`, independently of their upstream collection. When merging categories, add retired IDs to `categoryAliases` and preserve published localized library paths in `data/legacy-categories.json`. The generator serves those paths with the successor category while the ZIP and website list only current categories. Renames without compatibility mappings are breaking changes. Additive metadata may keep `schemaVersion: 1`; incompatible schema changes require a version increase.
+
+分类调整使用 `data/taxonomy.mjs`，同类项目统一归类。合并分类时保留旧 ID 映射和 XML 地址，避免已保存的链接失效；中英文分类与使用说明需同步更新。
 
 Only safe, self-contained SVGs are accepted. Scripts, event handlers, external resources and invalid dimensions fail validation. Do not rasterize, recolor or redraw a logo merely to bypass a validation failure; investigate the source or exclude the entry.

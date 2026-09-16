@@ -3,6 +3,7 @@ import { resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { zipSync, strToU8 } from 'fflate';
 import { json,save,libraryEntry,libraryXml,readLibrary } from './lib.mjs';
+import { categoryAliases } from '../data/taxonomy.mjs';
 // Only this script's generated output may be cleaned; never follow an output symlink.
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const output=resolve(projectRoot,'public');
@@ -14,7 +15,7 @@ const catalog=await json('data/catalog.json');
 const en=await json('data/categories.en.json');
 const categories=(await json('data/categories.json')).map(c=>({...c,nameEn:en[c.id][0],descriptionEn:en[c.id][1],
   libraries:{'zh-CN':`libraries/zh-CN/${c.name.replaceAll('/','-')}.xml`,en:`libraries/en/${en[c.id][0]}.xml`}}));
-const entries=new Map(), zipFiles={};
+const entries=new Map(), categoryXml=new Map(), zipFiles={};
 const addZip=(name,data)=>{zipFiles[name]=[typeof data==='string'?strToU8(data):data,{mtime:new Date('2020-01-01T00:00:00Z')}];};
 for(const icon of catalog.icons) {
   const svg=await readFile(`assets/${icon.asset}`,'utf8');
@@ -28,11 +29,18 @@ for(const category of categories) {
   const parsed=readLibrary(xml);
   if(JSON.stringify(parsed)!==JSON.stringify(items)) throw Error(`Library round-trip failed: ${category.id}`);
   category.count=items.length;
+  categoryXml.set(category.id,xml);
   for(const path of Object.values(category.libraries)) {await save(`public/${path}`,xml);addZip(path,xml);}
+}
+// Keep published URLs usable, without adding duplicate libraries to the ZIP or UI.
+for(const legacy of await json('data/legacy-categories.json')) {
+  const xml=categoryXml.get(legacy.category);
+  if(!xml) throw Error(`Unknown legacy category: ${legacy.category}`);
+  for(const path of Object.values(legacy.libraries)) await save(`public/${path}`,xml);
 }
 const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件');
 await save('public/libraries/all.xml',allXml);addZip('libraries/all.xml',allXml);
-const publicCatalog=JSON.stringify({...catalog,categories},null,2)+'\n';
+const publicCatalog=JSON.stringify({...catalog,categories,categoryAliases},null,2)+'\n';
 await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCatalog);
 for(const file of await readdir('licenses')) {const content=await readFile(`licenses/${file}`);await save(`public/licenses/${file}`,content);addZip(`licenses/${file}`,content);}
 for(const file of ['README.md','README.en.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE']) {

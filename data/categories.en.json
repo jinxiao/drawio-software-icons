@@ -1,20 +1,34 @@
 {
-  "databases":["Databases","Relational, document, graph and time-series databases"],
-  "caching":["Caching","In-memory caches and key-value stores"],
-  "messaging":["Messaging & Streaming","Queues, event buses and streaming systems"],
-  "storage":["Storage & Backup","Object storage, file sync and backups"],
-  "containers":["Containers & Orchestration","Containers, clusters, virtualization and delivery"],
-  "networking":["Networking & Gateways","Proxies, web servers, DNS and network management"],
-  "observability":["Observability","Metrics, logs, tracing and alerts"],
-  "security":["Security & Identity","Authentication, access control and secrets"],
-  "development":["Developer Tools","Editors, version control, testing and collaboration"],
-  "automation":["CI-CD & Infrastructure","Builds, releases, configuration and infrastructure"],
-  "languages":["Languages & Runtimes","Programming languages, runtimes and compilers"],
-  "frameworks":["Web Frameworks","Frontend, backend, UI and application libraries"],
-  "data":["Data & Analytics","Pipelines, processing, analysis and visualization"],
-  "ai":["AI & Machine Learning","Model training, inference and AI applications"],
-  "systems":["Operating Systems","Operating systems, distributions and environments"],
-  "collaboration":["Office & Content","Knowledge bases, content management and teamwork"],
-  "media":["Media & Desktop","Creative tools, game engines and media management"],
-  "cloud":["Cloud & Hosting","Cloud computing, hosted platforms and services"]
+  "databases": [
+    "Data & Middleware",
+    "Databases, caches, messaging, storage and backups"
+  ],
+  "infrastructure": [
+    "Cloud & Infrastructure",
+    "Cloud platforms, containers, operating systems, networking and gateways"
+  ],
+  "development": [
+    "Developer Tools & DevOps",
+    "Git, code hosting, editors, testing, CI/CD and automation"
+  ],
+  "languages": [
+    "Languages & Runtimes",
+    "Programming languages, runtimes and compilers"
+  ],
+  "frameworks": [
+    "Frameworks & App Development",
+    "Web, desktop and mobile frameworks, libraries and game engines"
+  ],
+  "data": [
+    "Analytics & AI",
+    "Data pipelines, analytics, visualization and machine learning"
+  ],
+  "observability": [
+    "Monitoring & Security",
+    "Metrics, logs, tracing, identity and security"
+  ],
+  "applications": [
+    "Apps & Content Management",
+    "Office collaboration, content management, media and desktop apps"
+  ]
 }

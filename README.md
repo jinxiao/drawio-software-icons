@@ -2,15 +2,17 @@
 
 [English](README.en.md) · [在线图标库](https://jinxiao.github.io/drawio-software-icons/)
 
-410 个软件与服务图标，18 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
+410 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
 ## 使用
 
-1. 打开在线图标库，按软件名称、别名或中英文分类搜索。
-2. 选择分类，点击 **在 draw.io 中打开**。图标库会出现在 draw.io 左侧。
+1. 打开在线图标库，点击 **一键加载全部分类**，在新标签页打开 draw.io。
+2. 进入编辑画布后，8 个分类库会一起出现在左侧，无需逐个导入 XML。
 3. 将图标拖入画布，可以缩放、连接和添加自己的说明。
 
-网站右上角可切换 English / 中文，选择会保存到本机浏览器。软件品牌名称保留原名。组合分类库可一次打开多个分类，保留 draw.io 默认形状库。
+网站右上角可切换 English / 中文，选择会保存到本机浏览器，加载的分类库名称也会跟随语言切换。软件品牌名称保留原名。**自选分类加载** 默认全选，可取消不需要的分类；也可单独打开一个分类。保留 draw.io 默认形状库。
+
+分类按用途合并为：数据与中间件、云与基础设施、开发工具与 DevOps、语言与运行时、框架与应用开发、数据分析与 AI、监控与安全、应用与内容管理。Git、Gitea、Forgejo、GitHub、GitLab 统一归入「开发工具与 DevOps」。旧分类网页参数与 XML 地址继续映射到合并后的分类。
 
 **桌面版与离线使用：** 下载完整 ZIP 后解压，在 draw.io 中打开 **文件 → 打开库 → 设备**，选择 `libraries/zh-CN/` 或 `libraries/en/` 下的 XML。`libraries/all.xml` 是去重后的全集。SVG 已内嵌，导入后不依赖图标源网站。不要用“打开图表”导入图标库。
 
@@ -48,12 +50,12 @@ npm run sync -- --update
 
 ## 数据与产物
 
-- `data/selection.mjs`：维护的软件范围、主分类、官网、软件类型。
+- `data/selection.mjs`：维护的软件范围、官网、软件类型；`data/taxonomy.mjs`：分类合并与项目归类规则。
 - `data/catalog.json`：采集后的图标清单与完整来源；`data/categories*.json`：分类中英文案。
 - `assets/icons/`：处理后的 SVG；`licenses/`：原始图标集许可。
 - `scripts/`：采集、校验、离线生成工具；`src/`：中英文静态网站。
 - `dist/catalog.json`：公共目录接口，`schemaVersion: 1`、版本、分类、图标与稳定相对路径。
-- `dist/libraries/zh-CN/` 与 `dist/libraries/en/`：18 个中文和 18 个英文分类库；`dist/libraries/all.xml`：全集。
+- `dist/libraries/zh-CN/` 与 `dist/libraries/en/`：每种语言 8 个分类库，以及兼容旧链接的文件；`dist/libraries/all.xml`：全集。ZIP 只包含当前分类库。
 - `dist/downloads/drawio-software-icons.zip`：全部 SVG、分类库、清单、使用说明与许可文件。
 
 清单字段包括 `id/name/aliases/tags/category/softwareType/homepage/repository/asset/width/height/sha256/source`。`source` 中包含原始 URL、提交、路径、变体、图标集许可和原始 SHA-256。`softwareLicense` 未核实时为 null，不将图标集许可套用到软件上。

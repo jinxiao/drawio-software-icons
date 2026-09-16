@@ -1,0 +1,146 @@
+[
+  {
+    "id": "databases",
+    "category": "databases",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/数据库.xml",
+      "en": "libraries/en/Databases.xml"
+    }
+  },
+  {
+    "id": "caching",
+    "category": "databases",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/缓存.xml",
+      "en": "libraries/en/Caching.xml"
+    }
+  },
+  {
+    "id": "messaging",
+    "category": "databases",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/消息与流处理.xml",
+      "en": "libraries/en/Messaging & Streaming.xml"
+    }
+  },
+  {
+    "id": "storage",
+    "category": "databases",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/存储与备份.xml",
+      "en": "libraries/en/Storage & Backup.xml"
+    }
+  },
+  {
+    "id": "containers",
+    "category": "infrastructure",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/容器与编排.xml",
+      "en": "libraries/en/Containers & Orchestration.xml"
+    }
+  },
+  {
+    "id": "networking",
+    "category": "infrastructure",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/网络与网关.xml",
+      "en": "libraries/en/Networking & Gateways.xml"
+    }
+  },
+  {
+    "id": "observability",
+    "category": "observability",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/监控与可观测性.xml",
+      "en": "libraries/en/Observability.xml"
+    }
+  },
+  {
+    "id": "security",
+    "category": "observability",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/安全与身份.xml",
+      "en": "libraries/en/Security & Identity.xml"
+    }
+  },
+  {
+    "id": "development",
+    "category": "development",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/开发与协作工具.xml",
+      "en": "libraries/en/Developer Tools.xml"
+    }
+  },
+  {
+    "id": "automation",
+    "category": "development",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/CI-CD 与基础设施自动化.xml",
+      "en": "libraries/en/CI-CD & Infrastructure.xml"
+    }
+  },
+  {
+    "id": "languages",
+    "category": "languages",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/语言与运行时.xml",
+      "en": "libraries/en/Languages & Runtimes.xml"
+    }
+  },
+  {
+    "id": "frameworks",
+    "category": "frameworks",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/Web 框架.xml",
+      "en": "libraries/en/Web Frameworks.xml"
+    }
+  },
+  {
+    "id": "data",
+    "category": "data",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/数据工程与分析.xml",
+      "en": "libraries/en/Data & Analytics.xml"
+    }
+  },
+  {
+    "id": "ai",
+    "category": "data",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/AI 与机器学习.xml",
+      "en": "libraries/en/AI & Machine Learning.xml"
+    }
+  },
+  {
+    "id": "systems",
+    "category": "infrastructure",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/操作系统.xml",
+      "en": "libraries/en/Operating Systems.xml"
+    }
+  },
+  {
+    "id": "collaboration",
+    "category": "applications",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/办公与内容协作.xml",
+      "en": "libraries/en/Office & Content.xml"
+    }
+  },
+  {
+    "id": "media",
+    "category": "applications",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/媒体与桌面应用.xml",
+      "en": "libraries/en/Media & Desktop.xml"
+    }
+  },
+  {
+    "id": "cloud",
+    "category": "infrastructure",
+    "libraries": {
+      "zh-CN": "libraries/zh-CN/云平台与托管服务.xml",
+      "en": "libraries/en/Cloud & Hosting.xml"
+    }
+  }
+]
