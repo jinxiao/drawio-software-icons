@@ -1,0 +1,20 @@
+{
+  "databases":["Databases","Relational, document, graph and time-series databases"],
+  "caching":["Caching","In-memory caches and key-value stores"],
+  "messaging":["Messaging & Streaming","Queues, event buses and streaming systems"],
+  "storage":["Storage & Backup","Object storage, file sync and backups"],
+  "containers":["Containers & Orchestration","Containers, clusters, virtualization and delivery"],
+  "networking":["Networking & Gateways","Proxies, web servers, DNS and network management"],
+  "observability":["Observability","Metrics, logs, tracing and alerts"],
+  "security":["Security & Identity","Authentication, access control and secrets"],
+  "development":["Developer Tools","Editors, version control, testing and collaboration"],
+  "automation":["CI-CD & Infrastructure","Builds, releases, configuration and infrastructure"],
+  "languages":["Languages & Runtimes","Programming languages, runtimes and compilers"],
+  "frameworks":["Web Frameworks","Frontend, backend, UI and application libraries"],
+  "data":["Data & Analytics","Pipelines, processing, analysis and visualization"],
+  "ai":["AI & Machine Learning","Model training, inference and AI applications"],
+  "systems":["Operating Systems","Operating systems, distributions and environments"],
+  "collaboration":["Office & Content","Knowledge bases, content management and teamwork"],
+  "media":["Media & Desktop","Creative tools, game engines and media management"],
+  "cloud":["Cloud & Hosting","Cloud computing, hosted platforms and services"]
+}

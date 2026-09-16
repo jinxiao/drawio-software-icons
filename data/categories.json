@@ -1,0 +1,202 @@
+[
+  {
+    "id": "databases",
+    "name": "数据库",
+    "description": "关系型、文档、图与时序数据库",
+    "keywords": [
+      "database",
+      "sql",
+      "nosql",
+      "数据"
+    ]
+  },
+  {
+    "id": "caching",
+    "name": "缓存",
+    "description": "内存缓存与键值存储",
+    "keywords": [
+      "cache",
+      "key-value",
+      "内存"
+    ]
+  },
+  {
+    "id": "messaging",
+    "name": "消息与流处理",
+    "description": "消息队列、事件总线与流式系统",
+    "keywords": [
+      "queue",
+      "stream",
+      "event",
+      "消息"
+    ]
+  },
+  {
+    "id": "storage",
+    "name": "存储与备份",
+    "description": "对象存储、文件同步与数据备份",
+    "keywords": [
+      "storage",
+      "backup",
+      "s3",
+      "文件"
+    ]
+  },
+  {
+    "id": "containers",
+    "name": "容器与编排",
+    "description": "容器、集群、虚拟化与应用交付",
+    "keywords": [
+      "container",
+      "kubernetes",
+      "docker",
+      "容器"
+    ]
+  },
+  {
+    "id": "networking",
+    "name": "网络与网关",
+    "description": "代理、Web 服务器、DNS 与网络管理",
+    "keywords": [
+      "network",
+      "proxy",
+      "gateway",
+      "网络"
+    ]
+  },
+  {
+    "id": "observability",
+    "name": "监控与可观测性",
+    "description": "指标、日志、追踪与告警",
+    "keywords": [
+      "monitoring",
+      "metrics",
+      "logs",
+      "tracing",
+      "监控"
+    ]
+  },
+  {
+    "id": "security",
+    "name": "安全与身份",
+    "description": "认证、访问控制、密钥与密码管理",
+    "keywords": [
+      "security",
+      "identity",
+      "auth",
+      "安全"
+    ]
+  },
+  {
+    "id": "development",
+    "name": "开发与协作工具",
+    "description": "编辑器、版本管理、测试与开发工具",
+    "keywords": [
+      "developer",
+      "editor",
+      "test",
+      "git",
+      "开发"
+    ]
+  },
+  {
+    "id": "automation",
+    "name": "CI/CD 与基础设施自动化",
+    "description": "构建、发布、配置与基础设施管理",
+    "keywords": [
+      "ci",
+      "cd",
+      "iac",
+      "build",
+      "自动化"
+    ]
+  },
+  {
+    "id": "languages",
+    "name": "语言与运行时",
+    "description": "编程语言、运行时与编译器",
+    "keywords": [
+      "language",
+      "runtime",
+      "compiler",
+      "编程"
+    ]
+  },
+  {
+    "id": "frameworks",
+    "name": "Web 框架",
+    "description": "前后端框架、UI 与应用开发库",
+    "keywords": [
+      "framework",
+      "frontend",
+      "backend",
+      "框架"
+    ]
+  },
+  {
+    "id": "data",
+    "name": "数据工程与分析",
+    "description": "数据管道、计算、分析与可视化",
+    "keywords": [
+      "analytics",
+      "etl",
+      "visualization",
+      "分析"
+    ]
+  },
+  {
+    "id": "ai",
+    "name": "AI 与机器学习",
+    "description": "模型训练、推理与 AI 应用",
+    "keywords": [
+      "ai",
+      "ml",
+      "llm",
+      "人工智能"
+    ]
+  },
+  {
+    "id": "systems",
+    "name": "操作系统",
+    "description": "操作系统、发行版与系统环境",
+    "keywords": [
+      "os",
+      "linux",
+      "distribution",
+      "系统"
+    ]
+  },
+  {
+    "id": "collaboration",
+    "name": "办公与内容协作",
+    "description": "知识库、内容管理与团队协作",
+    "keywords": [
+      "wiki",
+      "cms",
+      "office",
+      "协作"
+    ]
+  },
+  {
+    "id": "media",
+    "name": "媒体与桌面应用",
+    "description": "创作、游戏引擎与媒体管理",
+    "keywords": [
+      "media",
+      "desktop",
+      "design",
+      "媒体"
+    ]
+  },
+  {
+    "id": "cloud",
+    "name": "云平台与托管服务",
+    "description": "云计算、托管平台与商业服务",
+    "keywords": [
+      "cloud",
+      "hosting",
+      "saas",
+      "云"
+    ]
+  }
+]

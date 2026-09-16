@@ -1,0 +1,38 @@
+name: Check upstream icons
+on:
+  schedule:
+    - cron: '23 3 1 * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: icon-update
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run sync -- --update
+      - run: npm test
+      - run: npm run build
+      - name: Create or update review PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/icon-update
+          title: 'chore: refresh selected software icons'
+          commit-message: 'chore: refresh selected software icons and provenance'
+          body-path: .update-summary.md
+          add-paths: |
+            data/catalog.json
+            data/sources.lock.json
+            assets/icons
+            licenses

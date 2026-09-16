@@ -1,0 +1,16 @@
+{
+  "devicon": {
+    "repo": "devicons/devicon",
+    "branch": "master",
+    "license": "MIT",
+    "index": "devicon.json",
+    "revision": "7330accdbc47e2dc0c19789a48533c4a3c50fe58"
+  },
+  "dashboard": {
+    "repo": "homarr-labs/dashboard-icons",
+    "branch": "main",
+    "license": "Apache-2.0",
+    "index": "tree.json",
+    "revision": "ce550a844bad92ea19b5926cb887285c46bac01a"
+  }
+}
