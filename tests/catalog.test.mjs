@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {filterIcons,drawioUrl,isLocalSite,resolveCategory} from '../src/catalog.mjs';
-import {inspectSvg,normalizeSvg,libraryEntry,libraryXml,readLibrary,json} from '../scripts/lib.mjs';
+import {filterIcons,drawioUrl,isLocalSite,resolveCategory,libraryPaths} from '../src/catalog.mjs';
+import {inspectSvg,normalizeSvg,libraryEntry,libraryXml,readLibrary,json,parser} from '../scripts/lib.mjs';
 import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
 
 const catalog=await json('data/catalog.json');
@@ -86,6 +86,30 @@ test('library XML survives Unicode, quotes, ampersands and embedded SVG unchange
   assert.deepEqual(readLibrary(xml),[entry]);
   assert.equal(Buffer.from(readLibrary(xml)[0].data.split(',')[1],'base64').toString(),square);
   assert.equal(entry.w,64);assert.equal(entry.h,64);assert.equal(entry.aspect,'fixed');
+});
+
+test('draw.io library titles are explicit Unicode text independent of encoded URL filenames',()=>{
+  const entries=[libraryEntry({id:'git',name:'Git',aliases:[],tags:[]},square)];
+  for(const title of [...categories.flatMap(c=>[c.name,c.nameEn]),'中文 & "quoted" <tools>']) {
+    const xml=libraryXml(entries,'tags',title);
+    // EditorUi.loadLibrary passes the root title attribute to libraryLoaded,
+    // which prefers it over the URL filename for the sidebar heading.
+    assert.equal(parser.parse(xml).mxlibrary['@_title'],title);
+    assert.deepEqual(readLibrary(xml),entries);
+  }
+});
+
+test('library links use locale-specific revisions and support older catalogs',()=>{
+  const category={libraries:{'zh-CN':'libraries/zh-CN/监控与安全.xml',en:'libraries/en/Monitoring & Security.xml'},
+    libraryRevisions:{'zh-CN':'abc123',en:'def456'}};
+  for(const locale of ['zh-CN','en']) {
+    const path=libraryPaths([category],locale)[0];
+    const base='https://example.github.io/drawio-software-icons/';
+    const loaded=decodeURIComponent(drawioUrl(base,[path]).split('clibs=U')[1]);
+    assert.equal(new URL(loaded).searchParams.get('v'),category.libraryRevisions[locale]);
+    assert.equal(decodeURIComponent(new URL(loaded).pathname),'/drawio-software-icons/'+category.libraries[locale]);
+    assert.deepEqual(libraryPaths([{libraries:category.libraries}],locale),[category.libraries[locale]]);
+  }
 });
 test('wide and portrait logos keep aspect ratio, including actual collected SVGs',async()=>{
   const wide=square.replace('0 0 100 100','0 0 200 50');

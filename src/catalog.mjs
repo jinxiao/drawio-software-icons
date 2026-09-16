@@ -12,6 +12,13 @@ export function filterIcons(icons, categories, query = '', category = 'all', typ
     return terms.every(term=>text.includes(term));
   });
 }
+export function libraryPaths(categories, locale) {
+  return categories.map(category => {
+    const path = category.libraries[locale];
+    const revision = category.libraryRevisions?.[locale];
+    return revision ? `${path}?v=${encodeURIComponent(revision)}` : path;
+  });
+}
 export function drawioUrl(baseUrl, paths) {
   if (!paths.length) throw Error('Select at least one library');
   const base = new URL(baseUrl);

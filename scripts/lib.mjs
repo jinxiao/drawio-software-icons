@@ -64,8 +64,8 @@ export function libraryEntry(icon, svg) {
     w: Number((width*scale).toFixed(4)), h: Number((height*scale).toFixed(4)),
     aspect:'fixed', title:icon.name, tags:[icon.id,...icon.aliases,...icon.tags].join(' '), style:'imageAspect=1;'};
 }
-export function libraryXml(entries, tags = '') {
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<mxlibrary tags="${xmlEscape(tags)}">${xmlEscape(JSON.stringify(entries))}</mxlibrary>\n`;
+export function libraryXml(entries, tags = '', title = '') {
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<mxlibrary${title ? ` title="${xmlEscape(title)}"` : ''} tags="${xmlEscape(tags)}">${xmlEscape(JSON.stringify(entries))}</mxlibrary>\n`;
 }
 export function readLibrary(xml) {
   if (XMLValidator.validate(xml) !== true) throw Error('Invalid library XML');

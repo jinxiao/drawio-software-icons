@@ -1,6 +1,6 @@
 import './style.css';
 import { messages, type Locale } from './i18n';
-import { filterIcons, drawioUrl, isLocalSite, resolveCategory } from './catalog.mjs';
+import { filterIcons, drawioUrl, isLocalSite, resolveCategory, libraryPaths } from './catalog.mjs';
 
 // Vite binds the application to the catalog generated for this build.
 declare const __CATALOG_FILE__: string;
@@ -10,7 +10,7 @@ type Icon = {
   asset:string; homepage:string; repository:string|null;
   source:{id:string;url:string;revision:string;collectionLicense:string;licenseUrl:string};
 };
-type Category = {id:string;name:string;nameEn:string;description:string;descriptionEn:string;keywords:string[];count:number;libraries:Record<Locale,string>};
+type Category = {id:string;name:string;nameEn:string;description:string;descriptionEn:string;keywords:string[];count:number;libraries:Record<Locale,string>;libraryRevisions?:Record<Locale,string>};
 type Catalog = {version:string;icons:Icon[];categories:Category[];categoryAliases?:Record<string,string>};
 const $ = <T extends Element=HTMLElement>(selector:string) => document.querySelector<T>(selector)!;
 const esc = (s:unknown) => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
@@ -46,7 +46,7 @@ function updateUrl() {
 }
 function openLibraries(categories:Category[]) {
   if(local){showNotice();return;}
-  window.open(drawioUrl(siteBase,categories.map(c=>c.libraries[locale])),'_blank','noopener,noreferrer');
+  window.open(drawioUrl(siteBase,libraryPaths(categories,locale)),'_blank','noopener,noreferrer');
 }
 function showNotice() {
   const t=messages[locale];
@@ -54,7 +54,7 @@ function showNotice() {
   $<HTMLDialogElement>('#notice').showModal();
 }
 function openAllLink(className:string) {
-  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,catalog.categories.map(c=>c.libraries[locale])))}" target="_blank" rel="noopener noreferrer">${messages[locale].openAll}${svg('external')}</a>`;
+  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(catalog.categories,locale)))}" target="_blank" rel="noopener noreferrer">${messages[locale].openAll}${svg('external')}</a>`;
 }
 function renderShell() {
   const t=messages[locale];

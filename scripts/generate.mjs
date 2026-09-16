@@ -25,20 +25,27 @@ for(const icon of catalog.icons) {
 }
 for(const category of categories) {
   const items=catalog.icons.filter(i=>i.category===category.id).map(i=>entries.get(i.id));
-  const xml=libraryXml(items,`${category.name} ${category.nameEn} ${category.keywords.join(' ')}`);
-  const parsed=readLibrary(xml);
-  if(JSON.stringify(parsed)!==JSON.stringify(items)) throw Error(`Library round-trip failed: ${category.id}`);
   category.count=items.length;
-  categoryXml.set(category.id,xml);
-  for(const path of Object.values(category.libraries)) {await save(`public/${path}`,xml);addZip(path,xml);}
+  category.libraryRevisions={};
+  const localizedXml={};
+  for(const [locale,path] of Object.entries(category.libraries)) {
+    const title=locale==='en'?category.nameEn:category.name;
+    const xml=libraryXml(items,`${category.name} ${category.nameEn} ${category.keywords.join(' ')}`,title);
+    const parsed=readLibrary(xml);
+    if(JSON.stringify(parsed)!==JSON.stringify(items)) throw Error(`Library round-trip failed: ${category.id}/${locale}`);
+    localizedXml[locale]=xml;
+    category.libraryRevisions[locale]=hash(xml);
+    await save(`public/${path}`,xml);addZip(path,xml);
+  }
+  categoryXml.set(category.id,localizedXml);
 }
 // Keep published URLs usable, without adding duplicate libraries to the ZIP or UI.
 for(const legacy of await json('data/legacy-categories.json')) {
   const xml=categoryXml.get(legacy.category);
   if(!xml) throw Error(`Unknown legacy category: ${legacy.category}`);
-  for(const path of Object.values(legacy.libraries)) await save(`public/${path}`,xml);
+  for(const [locale,path] of Object.entries(legacy.libraries)) await save(`public/${path}`,xml[locale]);
 }
-const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件');
+const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件','全部软件图标 / All Software Icons');
 await save('public/libraries/all.xml',allXml);addZip('libraries/all.xml',allXml);
 const publicCatalog=JSON.stringify({...catalog,categories,categoryAliases},null,2)+'\n';
 await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCatalog);
