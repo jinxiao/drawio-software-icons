@@ -22,4 +22,6 @@ Keep icon IDs stable. Classify projects by purpose using `data/taxonomy.mjs`, in
 
 分类调整使用 `data/taxonomy.mjs`，同类项目统一归类。合并分类时保留旧 ID 映射和 XML 地址，避免已保存的链接失效；中英文分类与使用说明需同步更新。
 
-Only safe, self-contained SVGs are accepted. Scripts, event handlers, external resources and invalid dimensions fail validation. Do not rasterize, recolor or redraw a logo merely to bypass a validation failure; investigate the source or exclude the entry.
+SVGs must be safe and self-contained. Scripts, event handlers, external resources and invalid dimensions fail validation. Do not rasterize, recolor or redraw a logo merely to bypass a validation failure; investigate the source or exclude the entry.
+
+Official publisher PNGs are also supported. Prefer original color publisher artwork over monochrome substitutes. Pin each PNG's exact URL, official product listing, publisher, dimensions and SHA-256 in `data/official-icons.json`; never silently replace it during monthly updates. Keep original pixels, distinguish Feishu from Lark, and describe PNG as raster artwork. Use `inspectPng` validation and embed PNG bytes directly in libraries. The dedicated rights notice must not claim an open-source artwork license.

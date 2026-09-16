@@ -2,15 +2,15 @@
 
 [简体中文](README.zh-CN.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
 
-427 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
+428 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.
 
 ## Messaging and enterprise applications
 
-The **Apps & Content Management** category includes WeChat, WeCom, DingTalk, QQ, Feishu / Lark, Microsoft Teams, Slack, Discord, Telegram, Signal, WhatsApp, Zoom, Cisco Webex, Element, Rocket.Chat, Zulip and ServiceNow, alongside existing Mattermost. Search by English names, Chinese names such as 微信 / 钉钉 / 飞书, or tags such as IM / ITSM / 工单. Messaging clients, hosted services and enterprise editions may have different software licenses; the collection records the linked product's editorial type.
+The **Apps & Content Management** category includes WeChat, WeCom, DingTalk, QQ, Feishu, Lark, Microsoft Teams, Slack, Discord, Telegram, Signal, WhatsApp, Zoom, Cisco Webex, Element, Rocket.Chat, Zulip and ServiceNow, alongside existing Mattermost. Search by English names, Chinese names such as 微信 / 钉钉 / 飞书, or tags such as IM / ITSM / 工单. Messaging clients, hosted services and enterprise editions may have different software licenses; the collection records the linked product's editorial type.
 
-WeChat, WeCom, DingTalk and QQ use upstream monochrome artwork. ServiceNow uses an upstream wordmark, not a newly drawn logo. Original colors and proportions are preserved.
+WeChat, WeCom, DingTalk and Feishu use unmodified 512 × 512 color PNG application icons from their official publishers’ App Store listings. Feishu and Lark are separate entries. QQ retains its upstream monochrome artwork. ServiceNow uses an upstream wordmark, not a newly drawn logo. Original colors and proportions are preserved.
 
 ## Use the icons
 
@@ -22,9 +22,9 @@ Switch between English and Chinese using the header button. Your choice is remem
 
 The eight categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
 
-**Desktop and offline:** download and extract the ZIP. In draw.io, use **File → Open Library → Device** and select an XML under `libraries/en/` or `libraries/zh-CN/`. `libraries/all.xml` is the deduplicated full collection. SVGs are embedded, so imported libraries do not depend on external image hosts. Use Open Library, not Open Diagram.
+**Desktop and offline:** download and extract the ZIP. In draw.io, use **File → Open Library → Device** and select an XML under `libraries/en/` or `libraries/zh-CN/`. `libraries/all.xml` is the deduplicated full collection. SVGs and PNGs are embedded, so imported libraries do not depend on external image hosts. Use Open Library, not Open Diagram.
 
-Icons are scalable SVG image shapes, not individually editable vector paths. Labels are not added to the canvas automatically. Light / dark controls only change the preview background, never the brand colors.
+Most icons are SVG image shapes; four official application icons are PNG images. PNGs retain their original pixels and may blur when enlarged beyond their native resolution. Neither format is an individually editable vector path in draw.io. Labels are not added to the canvas automatically. Light / dark controls only change the preview background, never the brand colors.
 
 ## Development
 
@@ -61,11 +61,11 @@ A monthly Actions workflow checks the existing selection and creates or updates 
 - `data/selection.mjs`: project selection, homepage and editorial software type; `data/taxonomy.mjs`: category merging and project classification rules.
 - `data/communication.mjs`: messaging / enterprise additions and bilingual search aliases.
 - `data/catalog.json`: collected metadata and provenance. `data/categories*.json`: bilingual category text.
-- `assets/icons/` and `licenses/`: packaged SVGs and original collection licenses.
+- `assets/icons/` and `licenses/`: packaged SVG / PNG files and original collection licenses or rights notices.
 - `scripts/` and `src/`: collection / validation / generation tools and the bilingual static site.
 - `dist/catalog.json`: public catalog, `schemaVersion: 1`, version, categories and stable relative asset paths.
 - `dist/libraries/en/`, `dist/libraries/zh-CN/`: 8 category libraries per language, plus compatibility files for legacy URLs; `dist/libraries/all.xml`: all icons. The ZIP includes only current category libraries.
-- `dist/downloads/drawio-software-icons.zip`: SVGs, libraries, catalog, guides and licenses.
+- `dist/downloads/drawio-software-icons.zip`: SVGs, PNGs, libraries, catalog, guides and licenses.
 
 `README.md` is the default English guide; `README.zh-CN.md` is the Chinese guide. `README.en.md` remains a compatibility link. Both guides, `ICON_USAGE.md`, all upstream license texts and provenance are included in the downloadable ZIP. Commercial catalog entries expose `usagePolicy`, `usagePolicyUrl` and `brandPermissionStatus`; these describe project scope, not a vendor authorization.
 

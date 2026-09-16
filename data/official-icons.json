@@ -1,0 +1,54 @@
+{
+  "wechat": {
+    "appId": 414478124,
+    "name": "微信",
+    "publisher": "Tencent Technology (Shenzhen) Company Limited",
+    "artist": "WeChat",
+    "listing": "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=414478124&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/18/c4/6718c476-1b89-430b-e0e0-c7a949990181/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-85-220.png/512x512bb.png",
+    "sha256": "0f014b2a41c2ee05235147d67dcd25dfd4de048b393001055ecf98d3dc928397",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-16"
+  },
+  "wecom": {
+    "appId": 1087897068,
+    "name": "企业微信",
+    "publisher": "Tencent Technology (Shenzhen) Company Limited",
+    "artist": "Tencent Technology (Shenzhen) Company Limited",
+    "listing": "https://apps.apple.com/cn/app/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1/id1087897068?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=1087897068&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/82/4b/37824b8d-b335-c13b-fe78-84496ea917b5/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.png",
+    "sha256": "fd8f906ae60c4b4ac7f7fbd3d14f66d507718d513d484839a501f074cbd8dea6",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-16"
+  },
+  "dingtalk": {
+    "appId": 930368978,
+    "name": "钉钉",
+    "publisher": "DingTalk Technology Co., Ltd.",
+    "artist": "DingTalk Technology Co., Ltd.",
+    "listing": "https://apps.apple.com/cn/app/%E9%92%89%E9%92%89/id930368978?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=930368978&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/d3/dd/93d3ddc5-3118-09d0-4604-bf8b74bcc562/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.png",
+    "sha256": "f610d12d1ffa674f4d8990c8d7975bdaf5877cf21be6db9bc2489a07fb12648e",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-16"
+  },
+  "feishu": {
+    "appId": 1401729613,
+    "name": "飞书 - 字节跳动旗下 AI 工作平台",
+    "publisher": "Beijing Feishu Technology Co., Ltd.",
+    "artist": "Beijing Feishu Technology Co., Ltd.",
+    "listing": "https://apps.apple.com/cn/app/%E9%A3%9E%E4%B9%A6-%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E6%97%97%E4%B8%8B-ai-%E5%B7%A5%E4%BD%9C%E5%B9%B3%E5%8F%B0/id1401729613?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=1401729613&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1e/b5/81/1eb581e2-327f-248f-f43c-8ceb33a7bcab/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-85-220.png/512x512bb.png",
+    "sha256": "5516cca4a7c3ed4afcc052c96997c40808671567c365ae467b3e65517494d3c3",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-16"
+  }
+}

@@ -4,7 +4,7 @@ import {unzipSync,strFromU8} from 'fflate';
 import {json,hash,parser,readLibrary} from './lib.mjs';
 const catalog=await json('dist/catalog.json');
 const zip=unzipSync(await readFile('dist/downloads/drawio-software-icons.zip'));
-const docs=['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','LICENSE',...(await readdir('licenses')).map(name=>`licenses/${name}`)];
+const docs=['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','LICENSE','data/official-icons.json',...(await readdir('licenses')).map(name=>`licenses/${name}`)];
 for(const path of docs) {
   const source=await readFile(path,'utf8');
   assert.equal(await readFile(`dist/${path}`,'utf8'),source,path);
@@ -28,6 +28,14 @@ for(const legacy of await json('data/legacy-categories.json')) {
   for(const [locale,path] of Object.entries(legacy.libraries)) assert.equal(await readFile(`dist/${path}`,'utf8'),await readFile(`dist/${current.libraries[locale]}`,'utf8'));
 }
 assert.equal(readLibrary(strFromU8(zip['libraries/all.xml'])).length,catalog.icons.length);
+const library=readLibrary(strFromU8(zip['libraries/all.xml']));
+for(const [id,official] of Object.entries(await json('data/official-icons.json'))) {
+  const icon=catalog.icons.find(i=>i.id===id);
+  assert.equal(hash(zip[icon.asset]),official.sha256,`${id}: original PNG in ZIP`);
+  const entry=library.find(e=>e.title===icon.name);
+  assert.ok(entry.data.startsWith('data:image/png;base64,'),id);
+  assert.equal(hash(Buffer.from(entry.data.split(',')[1],'base64')),official.sha256,`${id}: embedded PNG`);
+}
 const serviceNow=catalog.icons.find(i=>i.id==='servicenow');
 assert.equal(hash(zip[serviceNow.asset]),serviceNow.source.sha256,'Distribute complete original ServiceNow SVG source');
 console.log('Verified bilingual guides, icon-use notices, licenses, localized XML, legacy URLs and original GPL SVG source in the distribution.');

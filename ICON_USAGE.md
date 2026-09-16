@@ -16,6 +16,8 @@ Commercial software and service icons in this project are provided solely to ide
 
 ## Microsoft and ServiceNow
 
+WeChat, WeCom, DingTalk and Feishu use original color PNG application artwork from their official publisher listings. These assets are proprietary, not MIT-licensed Ant Design substitutes. Publisher identity and source provenance are verified; brand-use authorization is not claimed. See `licenses/official-apps-LICENSE.txt`. Feishu and Lark are cataloged separately.
+
 Microsoft Teams is collected from Dashboard Icons; it is not represented as a download from Microsoft's architecture icon package or as individually authorized by Microsoft. Review the [Microsoft brand guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) and any applicable product-specific permission before use. Permissions covering a particular official architecture package must not automatically be applied to a different third-party asset.
 
 The ServiceNow SVG is collected from `bwks/vendor-icons-svg`, whose repository distributes a GPL-3.0 license. The original SVG source is included verbatim as `icons/servicenow.svg` in the ZIP and `assets/icons/servicenow.svg` in the repository, together with `licenses/vendor-LICENSE.txt`. It is an upstream wordmark variant and is not asserted to be the latest official logo. ServiceNow retains its brand rights; review its [legal notices](https://www.servicenow.com/legal.html). The upstream collection's license does not establish ServiceNow's approval.
@@ -27,6 +29,8 @@ The ServiceNow SVG is collected from `bwks/vendor-icons-svg`, whose repository d
 本项目中的商业软件与服务图标仅用于在 draw.io / diagrams.net 绘制的架构图中标识相应产品，包括将这些架构图用于技术文档。不适用于其他发行用途，包括独立转载图标、转售图标、素材包发行、广告宣传、商品制作，或作为其他产品的 Logo、应用图标。本声明界定本项目提供素材的用途，不是对第三方图形重新授予许可证。
 
 ### 代码、图形与商标分别适用各自条款
+
+微信、企业微信、钉钉和飞书使用官方发布者提供的彩色 PNG 原图，不再使用单色 Ant Design 替代图。它们是专有品牌素材，不适用 Ant Design 的 MIT 许可；核对发布者及来源不等于取得品牌使用授权。详见 `licenses/official-apps-LICENSE.txt`。飞书与 Lark 分开收录。
 
 - 本项目原创代码和文档采用 MIT [许可证](LICENSE)，不据此将第三方 Logo、SVG、XML 内嵌图形或商标重新授权为 MIT。
 - 每项图标保留适用的上游版权许可与品牌方商标权。合集附带原许可文本、固定来源版本和校验值，详见 [第三方说明](THIRD_PARTY_NOTICES.md) 与 `licenses/`。

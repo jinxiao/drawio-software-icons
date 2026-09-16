@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {filterIcons,drawioUrl,isLocalSite,resolveCategory,libraryPaths} from '../src/catalog.mjs';
-import {inspectSvg,normalizeSvg,libraryEntry,libraryXml,readLibrary,json,parser} from '../scripts/lib.mjs';
+import {inspectSvg,inspectPng,normalizeSvg,libraryEntry,libraryXml,readLibrary,json,parser,hash} from '../scripts/lib.mjs';
 import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
 import {communicationProjects} from '../data/communication.mjs';
 
@@ -57,6 +57,30 @@ test('IM and enterprise additions have searchable names, correct categories and 
   const serviceNow=catalog.icons.find(i=>i.id==='servicenow');
   assert.equal(serviceNow.sha256,serviceNow.source.sha256,'GPL SVG source must be preserved verbatim');
   assert.equal(serviceNow.source.collectionLicense,'GPL-3.0-only');
+});
+
+test('Chinese messaging products use pinned official color PNGs and Feishu is distinct from Lark',async()=>{
+  const official=await json('data/official-icons.json');
+  for(const id of ['wechat','wecom','dingtalk','feishu']) {
+    const icon=catalog.icons.find(i=>i.id===id);
+    assert.equal(icon.source.id,'official-apps');
+    assert.equal(icon.asset,`icons/${id}.png`);
+    assert.equal(icon.source.publisher,official[id].publisher);
+    const png=await readFile(`assets/${icon.asset}`);
+    assert.equal(hash(png),official[id].sha256);
+    assert.deepEqual(inspectPng(png),{width:512,height:512});
+    const entry=libraryEntry(icon,png);
+    assert.equal(entry.w,64);assert.equal(entry.h,64);
+    assert.ok(entry.data.startsWith('data:image/png;base64,'));
+    assert.deepEqual(Buffer.from(entry.data.split(',')[1],'base64'),png);
+    assert.deepEqual(readLibrary(libraryXml([entry])),[entry]);
+    assert.throws(()=>inspectPng(png.subarray(0,png.length-1)));
+    const invalid=Buffer.from(png);invalid.writeUInt32BE(0,16);
+    assert.throws(()=>inspectPng(invalid));
+  }
+  assert.deepEqual(filterIcons(catalog.icons,categories,'飞书').map(i=>i.id),['feishu']);
+  assert.deepEqual(filterIcons(catalog.icons,categories,'Lark').map(i=>i.id),['lark']);
+  assert.throws(()=>inspectPng(Buffer.from(square)));
 });
 
 test('related software shares a category across icon sources and legacy categories resolve',async()=>{

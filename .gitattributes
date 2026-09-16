@@ -2,3 +2,4 @@
 *.svg text eol=lf
 assets/icons/*.svg -whitespace
 *.zip binary
+*.png binary

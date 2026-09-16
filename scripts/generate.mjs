@@ -19,7 +19,7 @@ const entries=new Map(), categoryXml=new Map(), zipFiles={};
 const usageNotice='Commercial icons: provided solely for draw.io architecture diagrams, not other distribution purposes. 商业图标仅供 draw.io 架构图绘制，不适用于其他发行用途。 Upstream licenses and brand rights remain applicable; this statement grants no additional rights. See ICON_USAGE.md and THIRD_PARTY_NOTICES.md.';
 const addZip=(name,data)=>{zipFiles[name]=[typeof data==='string'?strToU8(data):data,{mtime:new Date('2020-01-01T00:00:00Z')}];};
 for(const icon of catalog.icons) {
-  const svg=await readFile(`assets/${icon.asset}`,'utf8');
+  const svg=await readFile(`assets/${icon.asset}`,icon.asset.endsWith('.png')?undefined:'utf8');
   entries.set(icon.id,libraryEntry(icon,svg));
   await save(`public/${icon.asset}`,svg);
   addZip(icon.asset,svg);
@@ -53,7 +53,7 @@ await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCata
 // Content-addressed URL keeps new application code from fetching an old cached catalog.
 await save(`public/catalog-${hash(publicCatalog)}.json`,publicCatalog);
 for(const file of await readdir('licenses')) {const content=await readFile(`licenses/${file}`);await save(`public/licenses/${file}`,content);addZip(`licenses/${file}`,content);}
-for(const file of ['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE']) {
+for(const file of ['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE','data/official-icons.json']) {
   const content=await readFile(file);await save(`public/${file}`,content);addZip(file,content);
 }
 const zip=zipSync(zipFiles,{level:6});

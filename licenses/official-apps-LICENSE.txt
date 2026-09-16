@@ -1,0 +1,29 @@
+Official publisher artwork - rights notice (not an open-source license)
+
+WeChat and WeCom: Tencent Technology (Shenzhen) Company Limited.
+DingTalk: DingTalk Technology Co., Ltd.
+Feishu: Beijing Feishu Technology Co., Ltd.
+
+These PNG files are the application icons published by the named developers
+on their verified App Store product listings. They are preserved without
+recoloring, tracing, cropping or changing their pixels. Apple hosts the artwork;
+its availability does not grant an artwork redistribution or trademark license.
+
+The source listing, publisher, artwork URL, retrieval date and SHA-256 are
+recorded in data/official-icons.json and the distributed catalog.json.
+Copyright and trademark rights remain with their respective owners. No
+open-source license or individual brand-owner permission is claimed.
+
+This project provides commercial artwork solely to identify the corresponding
+products in draw.io architecture diagrams, not for other distribution purposes.
+This statement does not confer permission or replace applicable owner terms.
+See ICON_USAGE.md and THIRD_PARTY_NOTICES.md for the project's usage policy.
+
+官方发布者图标权利说明（不是开源许可证）
+
+微信、企业微信、钉钉及飞书 PNG 来自各自官方开发者发布的 App Store
+条目，原样保留彩色应用图标。来源网址、发布者、采集日期与校验值均
+随清单提供。公开可下载不代表获得品牌授权或再分发许可。版权及商标
+权仍归原权利人；本项目不声称这些图标采用 MIT、Apache 或其他开源
+许可。商业图标仅供 draw.io 架构图标识使用，不适用于其他发行用途；
+此用途声明不能替代品牌方授权。详见 ICON_USAGE.md。

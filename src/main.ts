@@ -8,7 +8,7 @@ declare const __CATALOG_FILE__: string;
 type Icon = {
   id:string; name:string; aliases:string[]; tags:string[]; category:string; softwareType:string;
   asset:string; homepage:string; repository:string|null;
-  source:{id:string;url:string;revision:string;collectionLicense:string;licenseUrl:string};
+  source:{id:string;url:string;revision:string;collectionLicense:string;licenseUrl:string;listing?:string;publisher?:string};
 };
 type Category = {id:string;name:string;nameEn:string;description:string;descriptionEn:string;keywords:string[];count:number;libraries:Record<Locale,string>;libraryRevisions?:Record<Locale,string>};
 type Catalog = {version:string;icons:Icon[];categories:Category[];categoryAliases?:Record<string,string>};
@@ -27,7 +27,7 @@ const local=isLocalSite(siteBase);
 const file=(path:string)=>new URL(path,siteBase).href;
 const title=(c:Category)=>locale==='en'?c.nameEn:c.name;
 const description=(c:Category)=>locale==='en'?c.descriptionEn:c.description;
-const sourceName=(id:string)=>({devicon:'Devicon',dashboard:'Dashboard Icons',antdesign:'Ant Design Icons',vendor:'Vendor Icons SVG'} as Record<string,string>)[id]??id;
+const sourceName=(id:string)=>({devicon:'Devicon',dashboard:'Dashboard Icons',antdesign:'Ant Design Icons',vendor:'Vendor Icons SVG','official-apps':messages[locale].officialPublisher} as Record<string,string>)[id]??id;
 const symbols={
   arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
   download:'<path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/>',
@@ -126,8 +126,8 @@ function renderResults() {
 function showDetail(icon:Icon) {
   const t=messages[locale],c=catalog.categories.find(c=>c.id===icon.category)!;
   const dialog=$<HTMLDialogElement>('#detail');
-  dialog.innerHTML=`<button class="dialog-close" data-close="detail" aria-label="${t.close}">${svg('close')}</button><p class="eyebrow">${t.details}</p><div class="detail-art${dark?' dark-preview':''}"><img src="${file(icon.asset)}" width="96" height="96" alt="${esc(icon.name)}"></div><h2 id="detail-title">${esc(icon.name)}</h2><div class="detail-tags"><span>${esc(title(c))}</span><span>${typeLabel(icon.softwareType)}</span></div><div class="detail-actions"><a class="button primary" href="${file(icon.asset)}" download>${svg('download')}${t.downloadSvg}</a><a class="button outline" href="${file(c.libraries[locale])}" download>${t.downloadLibrary}</a></div>
-    <dl><dt>${t.project}</dt><dd><a href="${esc(icon.homepage)}" target="_blank" rel="noopener noreferrer">${t.project} ↗</a></dd>${icon.repository?`<dt>${t.repository}</dt><dd><a href="${esc(icon.repository)}" target="_blank" rel="noopener noreferrer">${t.repository} ↗</a></dd>`:''}<dt>${t.source}</dt><dd><a href="${esc(icon.source.url)}" target="_blank" rel="noopener noreferrer">${esc(sourceName(icon.source.id))} ↗</a></dd><dt>${t.license}</dt><dd><a href="${esc(icon.source.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(icon.source.collectionLicense)} ↗</a></dd><dt>${t.revision}</dt><dd><code>${esc(icon.source.revision.slice(0,12))}</code></dd></dl><div class="detail-notes">${icon.softwareType==='commercial'?`<p>${t.commercialUse} <a href="${file('ICON_USAGE.md')}" target="_blank" rel="noopener noreferrer">${t.usagePolicy} ↗</a></p>`:''}<p>${t.typeNote}</p><p>${t.brandNote}</p></div>`;
+  dialog.innerHTML=`<button class="dialog-close" data-close="detail" aria-label="${t.close}">${svg('close')}</button><p class="eyebrow">${t.details}</p><div class="detail-art${dark?' dark-preview':''}"><img src="${file(icon.asset)}" width="96" height="96" alt="${esc(icon.name)}"></div><h2 id="detail-title">${esc(icon.name)}</h2><div class="detail-tags"><span>${esc(title(c))}</span><span>${typeLabel(icon.softwareType)}</span></div><div class="detail-actions"><a class="button primary" href="${file(icon.asset)}" download>${svg('download')}${icon.asset.endsWith('.png')?t.downloadPng:t.downloadSvg}</a><a class="button outline" href="${file(c.libraries[locale])}" download>${t.downloadLibrary}</a></div>
+    <dl><dt>${t.project}</dt><dd><a href="${esc(icon.homepage)}" target="_blank" rel="noopener noreferrer">${t.project} ↗</a></dd>${icon.repository?`<dt>${t.repository}</dt><dd><a href="${esc(icon.repository)}" target="_blank" rel="noopener noreferrer">${t.repository} ↗</a></dd>`:''}<dt>${t.source}</dt><dd><a href="${esc(icon.source.listing??icon.source.url)}" target="_blank" rel="noopener noreferrer">${esc(sourceName(icon.source.id))} ↗</a></dd>${icon.source.publisher?`<dt>${t.publisher}</dt><dd>${esc(icon.source.publisher)}</dd><dt>${t.sourceLink}</dt><dd><a href="${esc(icon.source.url)}" target="_blank" rel="noopener noreferrer">${t.downloadPng} ↗</a></dd>`:''}<dt>${icon.source.publisher?t.rightsNotice:t.license}</dt><dd><a href="${esc(icon.source.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(icon.source.collectionLicense)} ↗</a></dd><dt>${icon.source.publisher?t.contentPin:t.revision}</dt><dd><code>${esc(icon.source.revision.slice(0,12))}</code></dd></dl><div class="detail-notes">${icon.asset.endsWith('.png')?`<p>${t.officialRaster}</p>`:''}${icon.softwareType==='commercial'?`<p>${t.commercialUse} <a href="${file('ICON_USAGE.md')}" target="_blank" rel="noopener noreferrer">${t.usagePolicy} ↗</a></p>`:''}<p>${t.typeNote}</p><p>${t.brandNote}</p></div>`;
   dialog.showModal();
 }
 function showBundle() {

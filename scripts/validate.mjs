@@ -1,9 +1,10 @@
 import {readFile} from 'node:fs/promises';
 import {selection} from '../data/selection.mjs';
-import {json,hash,inspectSvg} from './lib.mjs';
+import {json,hash,inspectSvg,inspectPng} from './lib.mjs';
 const catalog = await json('data/catalog.json');
 const categories = await json('data/categories.json');
 const sources = await json('data/sources.lock.json');
+const officialIcons = await json('data/official-icons.json');
 const fail = message => {throw Error(message);};
 if(catalog.schemaVersion !== 1 || catalog.icons.length < 300) fail('Catalog must contain at least 300 icons');
 const ids = new Set(), categoryIds = new Set(categories.map(c=>c.id));
@@ -20,14 +21,19 @@ for(const icon of catalog.icons) {
   if(!icon.name || !Array.isArray(icon.aliases) || !icon.tags.length) fail(`Incomplete metadata: ${icon.id}`);
   if(new URL(icon.homepage).protocol !== 'https:') fail(`Invalid project URL: ${icon.id}`);
   const source=sources[icon.source.id];
-  if(!source || icon.source.revision !== source.revision || !/^[a-f0-9]{40}$/.test(source.revision)) fail(`Invalid source pin: ${icon.id}`);
-  if(!icon.source.url.includes(`/${source.revision}/`) || !icon.source.licenseUrl || !icon.source.collectionLicense || !/^[a-f0-9]{64}$/.test(icon.source.sha256)) fail(`Incomplete provenance: ${icon.id}`);
-  if(icon.asset !== `icons/${icon.id}.svg`) fail(`Invalid asset path: ${icon.id}`);
-  const svg=await readFile(`assets/${icon.asset}`,'utf8');
+  const official=source?.kind==='publisher-artwork';
+  if(!source || icon.source.revision !== source.revision || !(official?/^[a-f0-9]{64}$/:/^[a-f0-9]{40}$/).test(source.revision)) fail(`Invalid source pin: ${icon.id}`);
+  if((!official && !icon.source.url.includes(`/${source.revision}/`)) || !icon.source.licenseUrl || !icon.source.collectionLicense || !/^[a-f0-9]{64}$/.test(icon.source.sha256)) fail(`Incomplete provenance: ${icon.id}`);
+  if(official) {
+    const pinned=officialIcons[icon.id];
+    if(!pinned || icon.source.url!==pinned.url || icon.source.publisher!==pinned.publisher || icon.source.listing!==pinned.listing || icon.sha256!==pinned.sha256 || icon.source.sha256!==pinned.sha256 || source.revision!==hash(JSON.stringify(officialIcons))) fail(`Invalid official artwork pin: ${icon.id}`);
+  }
+  if(icon.asset !== `icons/${icon.id}.${official?'png':'svg'}`) fail(`Invalid asset path: ${icon.id}`);
+  const svg=await readFile(`assets/${icon.asset}`,official?undefined:'utf8');
   if(hash(svg)!==icon.sha256) fail(`Checksum mismatch: ${icon.id}`);
-  const size=inspectSvg(svg);
+  const size=official?inspectPng(svg):inspectSvg(svg);
   if(size.width!==icon.width || size.height!==icon.height) fail(`Dimension mismatch: ${icon.id}`);
 }
 for(const c of categories) if(!catalog.icons.some(i=>i.category===c.id)) fail(`Empty category: ${c.id}`);
 for(const id of Object.keys(sources)) if((await readFile(`licenses/${id}-LICENSE.txt`,'utf8')).length<100) fail(`Missing license: ${id}`);
-console.log(`Validated ${ids.size} unique icons, ${categories.length} categories, SVG safety, hashes and provenance.`);
+console.log(`Validated ${ids.size} unique icons, ${categories.length} categories, SVG/PNG safety, hashes and provenance.`);

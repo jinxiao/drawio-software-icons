@@ -1,10 +1,11 @@
 // Brand assets are used to identify products in draw.io architecture diagrams.
 export const communicationProjects = [
-  ['wechat','WeChat','antdesign','https://www.wechat.com','commercial',['微信','weixin'],['IM','即时通讯']],
-  ['wecom','WeCom','antdesign','https://work.weixin.qq.com','commercial',['企业微信','wechat work'],['IM','企业协作']],
-  ['dingtalk','DingTalk','antdesign','https://www.dingtalk.com','commercial',['钉钉','dingding'],['IM','企业协作']],
+  ['wechat','WeChat','official-apps','https://weixin.qq.com','commercial',['微信','weixin'],['IM','即时通讯']],
+  ['wecom','WeCom','official-apps','https://work.weixin.qq.com','commercial',['企业微信','wechat work'],['IM','企业协作']],
+  ['dingtalk','DingTalk','official-apps','https://www.dingtalk.com','commercial',['钉钉','dingding'],['IM','企业协作']],
   ['qq','QQ','antdesign','https://im.qq.com','commercial',['腾讯QQ','腾讯 QQ'],['IM','即时通讯']],
-  ['lark','Feishu / Lark','dashboard','https://www.feishu.cn','commercial',['飞书','feishu'],['IM','企业协作']],
+  ['feishu','Feishu','official-apps','https://www.feishu.cn','commercial',['飞书'],['IM','企业协作']],
+  ['lark','Lark','dashboard','https://www.larksuite.com','commercial',['larksuite'],['IM','企业协作']],
   ['microsoft-teams','Microsoft Teams','dashboard','https://www.microsoft.com/microsoft-teams','commercial',['teams','微软Teams','微软 Teams'],['IM','办公协作']],
   ['slack','Slack','dashboard','https://slack.com','commercial',[],['IM','企业协作']],
   ['discord','Discord','dashboard','https://discord.com','commercial',[],['IM','社群','community']],

@@ -20,9 +20,6 @@
     "index": null,
     "initialRevision": "7f2516ac91226d2b41f93b35cb5197c8d94f7189",
     "paths": {
-      "wechat": "packages/icons-svg/svg/filled/wechat.svg",
-      "wecom": "packages/icons-svg/svg/filled/wechat-work.svg",
-      "dingtalk": "packages/icons-svg/svg/outlined/dingtalk.svg",
       "qq": "packages/icons-svg/svg/outlined/qq.svg"
     },
     "revision": "7f2516ac91226d2b41f93b35cb5197c8d94f7189"
@@ -38,5 +35,11 @@
       "servicenow": "servicenow.svg"
     },
     "revision": "702f2ac88acc71759ce623bc5000a596195e9db3"
+  },
+  "official-apps": {
+    "kind": "publisher-artwork",
+    "manifest": "data/official-icons.json",
+    "revision": "4c38c9c1ca1f4d4155e372d08e5ca07708eb9ebd7651cde5e01e855895d70787",
+    "license": "Proprietary brand artwork; permission not verified"
   }
 }

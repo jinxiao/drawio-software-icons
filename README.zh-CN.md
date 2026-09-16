@@ -2,15 +2,15 @@
 
 [English](README.md) · [在线图标库](https://jinxiao.github.io/drawio-software-icons/)
 
-427 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
+428 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
 **商业图标使用范围：** 本项目中的商业软件与服务图标仅适用于 draw.io / diagrams.net 架构图绘制，不适用于其他发行用途。本项目不额外授予品牌使用权，也不覆盖上游许可证。原创代码和文档继续采用 MIT 许可。使用商业品牌图标前请阅读中英双语 [图标使用声明](ICON_USAGE.md)。
 
 ## 即时通讯与企业应用
 
-「应用与内容管理」收录微信、企业微信、钉钉、QQ、飞书 / Lark、Microsoft Teams、Slack、Discord、Telegram、Signal、WhatsApp、Zoom、Cisco Webex、Element、Rocket.Chat、Zulip 和 ServiceNow，并保留已有 Mattermost。支持中文名称、英文名称以及 IM / ITSM / 工单等标签搜索。客户端、托管服务和企业版本可能采用不同的软件许可，清单记录所链接产品的软件类型。
+「应用与内容管理」收录微信、企业微信、钉钉、QQ、飞书、Lark、Microsoft Teams、Slack、Discord、Telegram、Signal、WhatsApp、Zoom、Cisco Webex、Element、Rocket.Chat、Zulip 和 ServiceNow，并保留已有 Mattermost。支持中文名称、英文名称以及 IM / ITSM / 工单等标签搜索。客户端、托管服务和企业版本可能采用不同的软件许可，清单记录所链接产品的软件类型。
 
-微信、企业微信、钉钉和 QQ 使用上游提供的单色图形；ServiceNow 使用上游字标。保留原素材颜色和比例，不自行重绘品牌 Logo。
+微信、企业微信、钉钉和飞书使用各自官方发布者在 App Store 提供的 512 × 512 彩色 PNG 应用图标，原样保留像素。飞书与 Lark 分开收录。QQ 保留上游单色图形；ServiceNow 使用上游字标。保留原素材颜色和比例，不自行重绘品牌 Logo。
 
 ## 使用
 
@@ -22,9 +22,9 @@
 
 分类按用途合并为：数据与中间件、云与基础设施、开发工具与 DevOps、语言与运行时、框架与应用开发、数据分析与 AI、监控与安全、应用与内容管理。Git、Gitea、Forgejo、GitHub、GitLab 统一归入「开发工具与 DevOps」。旧分类网页参数与 XML 地址继续映射到合并后的分类。
 
-**桌面版与离线使用：** 下载完整 ZIP 后解压，在 draw.io 中打开 **文件 → 打开库 → 设备**，选择 `libraries/zh-CN/` 或 `libraries/en/` 下的 XML。`libraries/all.xml` 是去重后的全集。SVG 已内嵌，导入后不依赖图标源网站。不要用“打开图表”导入图标库。
+**桌面版与离线使用：** 下载完整 ZIP 后解压，在 draw.io 中打开 **文件 → 打开库 → 设备**，选择 `libraries/zh-CN/` 或 `libraries/en/` 下的 XML。`libraries/all.xml` 是去重后的全集。SVG / PNG 已内嵌，导入后不依赖图标源网站。不要用“打开图表”导入图标库。
 
-图标是可缩放的 SVG 图片，不是可逐条编辑路径的原生形状。默认不附加文字，名称用于库内识别。浅色 / 深色按钮仅改变预览背景，不修改品牌颜色。
+大部分图标为 SVG 图片，四款官方应用图标为 PNG 原图。PNG 超过原始分辨率放大时可能变模糊；两种格式都不是可逐条编辑路径的原生形状。默认不附加文字，名称用于库内识别。浅色 / 深色按钮仅改变预览背景，不修改品牌颜色。
 
 ## 本地开发
 
@@ -61,11 +61,11 @@ npm run sync -- --update
 - `data/selection.mjs`：维护的软件范围、官网、软件类型；`data/taxonomy.mjs`：分类合并与项目归类规则。
 - `data/communication.mjs`：即时通讯与企业应用补充清单、中英文搜索别名。
 - `data/catalog.json`：采集后的图标清单与完整来源；`data/categories*.json`：分类中英文案。
-- `assets/icons/`：处理后的 SVG；`licenses/`：原始图标集许可。
+- `assets/icons/`：收录的 SVG / PNG；`licenses/`：原始图标集许可。
 - `scripts/`：采集、校验、离线生成工具；`src/`：中英文静态网站。
 - `dist/catalog.json`：公共目录接口，`schemaVersion: 1`、版本、分类、图标与稳定相对路径。
 - `dist/libraries/zh-CN/` 与 `dist/libraries/en/`：每种语言 8 个分类库，以及兼容旧链接的文件；`dist/libraries/all.xml`：全集。ZIP 只包含当前分类库。
-- `dist/downloads/drawio-software-icons.zip`：全部 SVG、分类库、清单、使用说明与许可文件。
+- `dist/downloads/drawio-software-icons.zip`：全部 SVG / PNG、分类库、清单、使用说明与许可文件。
 
 `README.md` 为默认英文说明，`README.zh-CN.md` 为中文说明，旧 `README.en.md` 保留跳转入口。ZIP 附带中英文说明、`ICON_USAGE.md`、上游许可文本和来源记录。商业图标额外记录 `usagePolicy`、`usagePolicyUrl` 和 `brandPermissionStatus`，这些字段说明项目用途，不表示已获得品牌授权。
 

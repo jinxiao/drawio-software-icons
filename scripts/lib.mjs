@@ -10,6 +10,23 @@ export async function save(path, data) { await mkdir(dirname(path), {recursive:t
 export const saveJson = (path, data) => save(path, JSON.stringify(data, null, 2) + '\n');
 export const xmlEscape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 
+export function inspectPng(data) {
+  const bytes=Buffer.from(data);
+  if(bytes.length<45 || bytes.length>1_000_000 || bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a' || bytes.readUInt32BE(8)!==13 || bytes.toString('ascii',12,16)!=='IHDR') throw Error('Invalid PNG header');
+  const width=bytes.readUInt32BE(16),height=bytes.readUInt32BE(20);
+  if(!width || !height || width>4096 || height>4096) throw Error('Invalid PNG dimensions');
+  let offset=8,hasData=false,ended=false;
+  while(offset+12<=bytes.length) {
+    const length=bytes.readUInt32BE(offset),type=bytes.toString('ascii',offset+4,offset+8);
+    if(offset+12+length>bytes.length) throw Error('Truncated PNG chunk');
+    if(type==='IDAT') hasData=true;
+    offset+=12+length;
+    if(type==='IEND') {if(length!==0) throw Error('Invalid PNG end');ended=true;break;}
+  }
+  if(!hasData || !ended || offset!==bytes.length) throw Error('Incomplete PNG');
+  return {width,height};
+}
+
 export function inspectSvg(svg) {
   if (Buffer.byteLength(svg) > 1_000_000) throw Error('SVG exceeds 1 MB');
   if (/<!DOCTYPE|<!ENTITY|<\?xml-stylesheet/i.test(svg)) throw Error('External XML declarations are not supported');
@@ -57,10 +74,11 @@ export function normalizeSvg(raw) {
     .replace(/<sodipodi:namedview\b[^>]*\/>/gi, '').trim() + '\n';
 }
 
-export function libraryEntry(icon, svg) {
-  const {width, height} = inspectSvg(svg);
+export function libraryEntry(icon, data) {
+  const png=icon.asset?.endsWith('.png');
+  const {width, height} = png?inspectPng(data):inspectSvg(data);
   const scale = 64 / Math.max(width, height);
-  return {data:`data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`,
+  return {data:`data:${png?'image/png':'image/svg+xml'};base64,${Buffer.from(data).toString('base64')}`,
     w: Number((width*scale).toFixed(4)), h: Number((height*scale).toFixed(4)),
     aspect:'fixed', title:icon.name, tags:[icon.id,...icon.aliases,...icon.tags].join(' '), style:'imageAspect=1;'};
 }
