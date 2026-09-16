@@ -2,7 +2,7 @@
 
 [中文](README.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
 
-409 software and service icons across 18 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
+410 software and service icons across 18 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 ## Use the icons
 
