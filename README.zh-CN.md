@@ -2,9 +2,15 @@
 
 [English](README.md) · [在线图标库](https://jinxiao.github.io/drawio-software-icons/)
 
-428 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
+444 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
 **商业图标使用范围：** 本项目中的商业软件与服务图标仅适用于 draw.io / diagrams.net 架构图绘制，不适用于其他发行用途。本项目不额外授予品牌使用权，也不覆盖上游许可证。原创代码和文档继续采用 MIT 许可。使用商业品牌图标前请阅读中英双语 [图标使用声明](ICON_USAGE.md)。
+
+## AI 工具与品牌
+
+「数据分析与 AI」新增 vLLM、DeepSeek、Qwen、Google Gemini、ChatGPT、Claude、Hugging Face、LangChain、LlamaIndex、Dify、Open WebUI、LM Studio、Perplexity、ComfyUI、Cursor 和 GitHub Copilot，与已有 Ollama、PyTorch、TensorFlow 放在一起。支持产品名、深度求索 / 通义千问 / 千问等中文别名，以及 AI / LLM / RAG / 推理 / 智能体等搜索词。
+
+这 16 张 SVG 来自固定版本的 [Lobe Icons](https://github.com/lobehub/lobe-icons)，附带其 MIT 许可。优先采用彩色版本；ChatGPT 使用图标集的单色 OpenAI 标志，Open WebUI、LM Studio、Cursor 和 GitHub Copilot 保留上游单色素材。这些是社区整理的品牌图形，不声称是逐项授权的官方下载。商业条目沿用仅供架构图绘制的用途声明。软件类型指所链接工具或在线服务，不代表模型权重的许可证；Dify 和 Open WebUI 标记为源码可用。新增清单、别名与素材变体维护在 `data/ai.mjs`。
 
 ## 即时通讯与企业应用
 

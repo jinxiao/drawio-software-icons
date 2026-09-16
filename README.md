@@ -2,9 +2,15 @@
 
 [简体中文](README.zh-CN.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
 
-428 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
+444 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.
+
+## AI tools and brands
+
+**Analytics & AI** includes vLLM, DeepSeek, Qwen, Google Gemini, ChatGPT, Claude, Hugging Face, LangChain, LlamaIndex, Dify, Open WebUI, LM Studio, Perplexity, ComfyUI, Cursor and GitHub Copilot, alongside Ollama, PyTorch and TensorFlow. Search by product name, Chinese aliases such as 深度求索 / 通义千问 / 千问, or AI / LLM / RAG / 推理 / 智能体.
+
+The 16 new SVGs come from a pinned revision of [Lobe Icons](https://github.com/lobehub/lobe-icons), with its MIT license included. Color variants are preferred; ChatGPT uses the collection's monochrome OpenAI mark, and Open WebUI, LM Studio, Cursor and GitHub Copilot retain upstream monochrome artwork. These are community-collected brand assets, not individually authorized official downloads. Commercial entries retain the architecture-diagram-only usage notice. Classification refers to the linked tool or hosted service, not model-weight licenses; Dify and Open WebUI are marked source-available.
 
 ## Messaging and enterprise applications
 
@@ -62,6 +68,7 @@ A monthly Actions workflow checks the existing selection and creates or updates 
 
 - `data/selection.mjs`: project selection, homepage and editorial software type; `data/taxonomy.mjs`: category merging and project classification rules.
 - `data/communication.mjs`: messaging / enterprise additions and bilingual search aliases.
+- `data/ai.mjs`: AI tools / services, bilingual search aliases and selected upstream artwork variants.
 - `data/catalog.json`: collected metadata and provenance. `data/categories*.json`: bilingual category text.
 - `assets/icons/` and `licenses/`: packaged SVG / PNG files and original collection licenses or rights notices.
 - `scripts/` and `src/`: collection / validation / generation tools and the bilingual static site.

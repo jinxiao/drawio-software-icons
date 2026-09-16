@@ -14,6 +14,10 @@ Commercial software and service icons in this project are provided solely to ide
 - A collection license (including MIT, Apache-2.0 or GPL) is not proof of brand-owner authorization. Inclusion, attribution, free availability and this purpose statement do not establish permission or imply endorsement. Brand-specific permissions have not been individually verified; commercial entries record `brandPermissionStatus: not-verified`.
 - Preserve artwork, proportions, copyright notices and applicable license texts. Do not present these assets as your own brand or imply affiliation with Microsoft, ServiceNow, other vendors or draw.io.
 
+## AI brands
+
+AI brand additions (including DeepSeek, Qwen, Gemini, ChatGPT and Claude) are collected from Lobe Icons, not represented as individually authorized official brand downloads. Hosted-service classification does not determine the license of any model weights. These commercial entries follow the same draw.io architecture-diagram scope and retain upstream artwork licenses and brand rights.
+
 ## Microsoft and ServiceNow
 
 WeChat, WeCom, DingTalk and Feishu use original color PNG application artwork from their official publisher listings. These assets are proprietary, not MIT-licensed Ant Design substitutes. Publisher identity and source provenance are verified; brand-use authorization is not claimed. See `licenses/official-apps-LICENSE.txt`. Feishu and Lark are cataloged separately.
@@ -29,6 +33,8 @@ The ServiceNow SVG is collected from `bwks/vendor-icons-svg`, whose repository d
 本项目中的商业软件与服务图标仅用于在 draw.io / diagrams.net 绘制的架构图中标识相应产品，包括将这些架构图用于技术文档。不适用于其他发行用途，包括独立转载图标、转售图标、素材包发行、广告宣传、商品制作，或作为其他产品的 Logo、应用图标。本声明界定本项目提供素材的用途，不是对第三方图形重新授予许可证。
 
 ### 代码、图形与商标分别适用各自条款
+
+DeepSeek、Qwen、Gemini、ChatGPT、Claude 等 AI 品牌素材来自 Lobe Icons，不声称是逐项授权的官方品牌下载。在线服务的分类不能用于推断模型权重的许可；这些商业条目沿用仅供 draw.io 架构图绘制的范围，并保留上游图形许可与品牌权利。
 
 微信、企业微信、钉钉和飞书使用官方发布者提供的彩色 PNG 原图，不再使用单色 Ant Design 替代图。它们是专有品牌素材，不适用 Ant Design 的 MIT 许可；核对发布者及来源不等于取得品牌使用授权。详见 `licenses/official-apps-LICENSE.txt`。飞书与 Lark 分开收录。
 

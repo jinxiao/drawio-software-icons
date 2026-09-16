@@ -1,4 +1,30 @@
 {
+  "lobe": {
+    "repo": "lobehub/lobe-icons",
+    "branch": "master",
+    "license": "MIT",
+    "index": null,
+    "initialRevision": "a94750e3f5f8fc33757b839d85030e742284e43a",
+    "paths": {
+      "vllm": "packages/static-svg/icons/vllm-color.svg",
+      "deepseek": "packages/static-svg/icons/deepseek-color.svg",
+      "qwen": "packages/static-svg/icons/qwen-color.svg",
+      "gemini": "packages/static-svg/icons/gemini-color.svg",
+      "chatgpt": "packages/static-svg/icons/openai.svg",
+      "claude": "packages/static-svg/icons/claude-color.svg",
+      "huggingface": "packages/static-svg/icons/huggingface-color.svg",
+      "langchain": "packages/static-svg/icons/langchain-color.svg",
+      "llamaindex": "packages/static-svg/icons/llamaindex-color.svg",
+      "dify": "packages/static-svg/icons/dify-color.svg",
+      "open-webui": "packages/static-svg/icons/openwebui.svg",
+      "lmstudio": "packages/static-svg/icons/lmstudio.svg",
+      "perplexity": "packages/static-svg/icons/perplexity-color.svg",
+      "comfyui": "packages/static-svg/icons/comfyui-color.svg",
+      "cursor": "packages/static-svg/icons/cursor.svg",
+      "github-copilot": "packages/static-svg/icons/githubcopilot.svg"
+    },
+    "revision": "a94750e3f5f8fc33757b839d85030e742284e43a"
+  },
   "devicon": {
     "repo": "devicons/devicon",
     "branch": "master",

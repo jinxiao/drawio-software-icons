@@ -2,9 +2,12 @@ import { readFile, cp, mkdtemp, mkdir } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { selection } from '../data/selection.mjs';
 import { communicationMetadata } from '../data/communication.mjs';
+import { aiMetadata, aiSourcePaths } from '../data/ai.mjs';
 import { hash, json, save, saveJson, inspectSvg, inspectPng, normalizeSvg, packageOfficialPng } from './lib.mjs';
 
 const definitions = {
+  lobe:{repo:'lobehub/lobe-icons',branch:'master',license:'MIT',index:null,
+    initialRevision:'a94750e3f5f8fc33757b839d85030e742284e43a',paths:aiSourcePaths},
   devicon:{repo:'devicons/devicon', branch:'master', license:'MIT', index:'devicon.json'},
   dashboard:{repo:'homarr-labs/dashboard-icons', branch:'main', license:'Apache-2.0', index:'tree.json'},
   antdesign:{repo:'ant-design/ant-design-icons', branch:'master', license:'MIT', index:null,
@@ -80,7 +83,7 @@ async function worker() {
       } else {
         path=source.paths?.[item.id];
         if(!path) throw Error('Missing curated source path');
-        variant=item.source==='antdesign'?'monochrome':'original';
+        variant=item.source==='antdesign'?'monochrome':item.source==='lobe'?(path.endsWith('-color.svg')?'color':'monochrome'):'original';
       }
       const sourceUrl = official?.url ?? `https://raw.githubusercontent.com/${source.repo}/${source.revision}/${path}`;
       const prior = oldIcons.get(item.id);
@@ -104,7 +107,7 @@ async function worker() {
       const category = categoryMap.get(item.category);
       if (!category) throw Error('Unknown category');
       const {source: sourceId, ...project} = item;
-      const extra=communicationMetadata.get(item.id);
+      const extra=communicationMetadata.get(item.id)??aiMetadata.get(item.id);
       const aliases = [...new Set([...(extra?.aliases??[]),...(metadata?.altnames ?? []), ...(item.id === 'kubernetes' ? ['k8s'] : []), ...(item.id === 'postgresql' ? ['postgres','pg'] : []), ...(item.id === 'amazonwebservices' ? ['aws'] : [])])];
       icons[index] = {...project, aliases, tags:[...new Set([...(extra?.tags??[]),...(metadata?.tags ?? []).filter(t=>t !== 'open-source'), category.name,...category.keywords])],
         ...(item.softwareType==='commercial'?{usagePolicy:'drawio-architecture-only',usagePolicyUrl:'ICON_USAGE.md',brandPermissionStatus:'not-verified'}:{}),

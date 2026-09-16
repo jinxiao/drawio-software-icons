@@ -6,6 +6,7 @@ The collection contains brand artwork from these upstream repositories:
 | --- | --- | --- | --- |
 | Devicon | https://github.com/devicons/devicon | MIT | [devicon-LICENSE.txt](licenses/devicon-LICENSE.txt) |
 | Dashboard Icons | https://github.com/homarr-labs/dashboard-icons | Apache-2.0 | [dashboard-LICENSE.txt](licenses/dashboard-LICENSE.txt) |
+| Lobe Icons | https://github.com/lobehub/lobe-icons | MIT | [lobe-LICENSE.txt](licenses/lobe-LICENSE.txt) |
 | Ant Design Icons | https://github.com/ant-design/ant-design-icons | MIT | [antdesign-LICENSE.txt](licenses/antdesign-LICENSE.txt) |
 | Vendor Icons SVG (ServiceNow) | https://github.com/bwks/vendor-icons-svg | GPL-3.0-only | [vendor-LICENSE.txt](licenses/vendor-LICENSE.txt) |
 | Official app publisher artwork / 官方应用图标 | Publisher listings in `data/official-icons.json` | Proprietary brand artwork; no open-source license claimed | [official-apps-LICENSE.txt](licenses/official-apps-LICENSE.txt) |
@@ -33,6 +34,10 @@ Exception: the ServiceNow SVG from Vendor Icons SVG is preserved verbatim, inclu
 例外：Vendor Icons SVG 的 ServiceNow 素材保留完整原始 SVG 源码与元数据，附带上游 GPL 文本及来源；本项目用途声明不额外限制 GPL 已授予的权利。Ant Design 提供 QQ 的单色图形。微信、企业微信、钉钉和飞书使用各自官方应用发布者提供的彩色 PNG 原图，发布页面及内容校验值记录于 `data/official-icons.json`。Lark 保留为独立条目。
 
 ## Attribution and trademarks / 署名与商标
+
+AI additions use SVGs collected by LobeHub's Lobe Icons contributors. Color variants are selected where provided; upstream monochrome marks are retained otherwise. ChatGPT uses the collection's OpenAI mark. Their exact paths, revisions and hashes are recorded per icon; no brand-owner approval or official-download status is claimed. The collection license is separate from model-weight, software and hosted-service terms.
+
+AI 新增素材来自 LobeHub 的 Lobe Icons 社区图标集，有彩色版本时优先使用，否则保留上游单色图形；ChatGPT 使用该集的 OpenAI 标志。逐项记录路径、版本与校验值，不声称获得品牌方批准或来自官方下载。图标集许可与模型权重、软件及在线服务条款分别适用。
 
 Devicon artwork is collected by the Devicon contributors; Dashboard Icons artwork is collected by Homarr Labs and its contributors. All product names, logos, trademarks and brands belong to their respective owners. This independent collection uses them for identification and does not imply endorsement or affiliation with draw.io, Devicon, Homarr Labs, or the featured projects. Collection licenses do not grant trademark rights or replace project-specific brand guidelines.
 

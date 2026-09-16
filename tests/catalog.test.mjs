@@ -5,6 +5,7 @@ import {filterIcons,drawioUrl,isLocalSite,resolveCategory,libraryPaths} from '..
 import {inspectSvg,inspectPng,normalizeSvg,libraryEntry,libraryXml,readLibrary,json,parser,hash} from '../scripts/lib.mjs';
 import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
 import {communicationProjects} from '../data/communication.mjs';
+import {aiProjects} from '../data/ai.mjs';
 
 const catalog=await json('data/catalog.json');
 const english=await json('data/categories.en.json');
@@ -91,6 +92,32 @@ test('Chinese messaging products use pinned official color PNGs and Feishu is di
   assert.deepEqual(filterIcons(catalog.icons,categories,'飞书').map(i=>i.id),['feishu']);
   assert.deepEqual(filterIcons(catalog.icons,categories,'Lark').map(i=>i.id),['lark']);
   assert.throws(()=>inspectPng(Buffer.from(square)));
+});
+
+test('AI tools and hosted brands share a category with bilingual search and intact color artwork',async()=>{
+  for(const project of aiProjects) {
+    const icon=catalog.icons.find(i=>i.id===project.id);
+    assert.ok(icon,project.id);
+    assert.equal(icon.category,'data',project.id);
+    assert.equal(icon.source.id,'lobe',project.id);
+    for(const query of [project.name,...project.aliases]) assert.ok(filterIcons(catalog.icons,categories,query,'data').some(i=>i.id===project.id),query);
+    const svg=await readFile(`assets/${icon.asset}`,'utf8');
+    const entry=readLibrary(libraryXml([libraryEntry(icon,svg)]))[0];
+    assert.equal(Buffer.from(entry.data.split(',')[1],'base64').toString(),svg);
+  }
+  for(const id of ['deepseek','qwen','gemini','chatgpt','claude']) {
+    const icon=catalog.icons.find(i=>i.id===id);
+    assert.equal(icon.softwareType,'commercial');
+    assert.equal(icon.usagePolicy,'drawio-architecture-only');
+  }
+  assert.equal(catalog.icons.find(i=>i.id==='vllm').softwareType,'open-source');
+  for(const id of ['dify','open-webui']) assert.equal(catalog.icons.find(i=>i.id===id).softwareType,'source-available');
+  for(const id of ['vllm','deepseek','qwen','gemini','claude']) {
+    const icon=catalog.icons.find(i=>i.id===id);
+    assert.equal(icon.source.variant,'color');
+    assert.match(await readFile(`assets/${icon.asset}`,'utf8'),/#[a-f0-9]{6}/i);
+  }
+  assert.match(await readFile('assets/icons/gemini.svg','utf8'),/<linearGradient/);
 });
 
 test('related software shares a category across icon sources and legacy categories resolve',async()=>{
