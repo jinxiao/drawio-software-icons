@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 15
     outputs:
       publish: ${{ steps.published.outputs.result != 'true' }}
-      cache_key: published-${{ hashFiles('.github/workflows/pages.yml') }}-${{ github.run_id }}
+      cache_key: ${{ steps.marker.outputs.cache-primary-key }}
       source_sha: ${{ steps.resolve.outputs.result }}
     steps:
       - uses: actions/checkout@v7.0.1
@@ -50,6 +50,7 @@ jobs:
             if (!data.workflow_runs.length) throw new Error('No successful source publication');
             return data.workflow_runs[0].head_sha;
       - name: Restore last successful publication marker
+        id: marker
         uses: actions/cache/restore@v4
         with:
           path: ${{ runner.temp }}/published-source
