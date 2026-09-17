@@ -22,6 +22,9 @@ for(const c of unified.categories) {
     assert.equal(xml.slice(0,10),'<mxlibrary');
     assert.equal(hash(xml),c.libraryRevisions[locale]);
     assert.equal(readLibrary(xml).length,c.count);
+    const collection=unified.collections.find(p=>p.id===c.collection);
+    const title=locale==='en'?`${collection.nameEn} · ${c.nameEn}`:`${collection.name} · ${c.name}`;
+    assert.equal(parser.parse(xml).mxlibrary['@_title'],title);
     assert.equal(strFromU8(archive[c.libraries[locale]]),xml);
     assert.equal(await readFile(`dist-alibaba/${c.libraries[locale]}`,'utf8'),xml);
   }
@@ -32,6 +35,10 @@ for(const locale of ['en','zh-CN']) {
   const entries=config.libraries.flatMap(s=>s.entries);
   assert.deepEqual(entries.map(e=>e.id),['software-icons','alibaba-cloud-iconfont']);
   assert.equal(entries.flatMap(e=>e.libs).length,unified.categories.length);
+  for(const [index,c] of unified.categories.entries()) {
+    const collection=unified.collections.find(p=>p.id===c.collection);
+    assert.equal(entries.flatMap(e=>e.libs)[index].title.main,locale==='en'?`${collection.nameEn} · ${c.nameEn}`:`${collection.name} · ${c.name}`);
+  }
   const softwareData=entries[0].libs.flatMap(l=>l.data);
   assert.equal(softwareData.length,software.icons.length);
   assert.ok(softwareData.every(e=>e.data.startsWith('data:image/')));

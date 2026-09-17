@@ -15,9 +15,9 @@ two collections**. Alibaba counts include color variants and supplemental UI
 symbols, not 888 distinct cloud services. Original names remain where no upstream
 English product name exists; categories, browsing and setup are bilingual.
 
-- [Software entrypoint](https://jinxiao.github.io/drawio-software-icons/) defaults to Software & brands.
+- [Software entrypoint](https://jinxiao.github.io/drawio-software-icons/) defaults to General Software.
 - [Alibaba Cloud entrypoint](https://jinxiao.github.io/alibaba-cloud-icons/) defaults to Alibaba Cloud.
-- Choose **All collections** for cross-collection search and loading. Existing XML,
+- Check **Load all icons (General Software + Alibaba Cloud)** for cross-collection browsing and loading. The collection picker is disabled while checked; **All categories** only clears the category filter. Existing XML,
   JSON, SVG, plugin and ZIP URLs continue to work; the two old `catalog.json` schemas remain separate.
 
 **Desktop with existing configuration:** open **Categories / desktop setup**, select
@@ -62,13 +62,13 @@ DingTalk is displayed through an SVG rounded-corner clip with transparent corner
 
 ## Use the icons
 
-1. Click **Open collection in draw.io** on the website to launch draw.io in a new tab.
+1. Choose General Software or Alibaba Cloud, or check **Load all icons** to include both. Click the open button to launch draw.io in a new tab.
 2. Once you enter the editor, all selected collection categories appear in the left sidebar, without individual XML imports.
 3. Drag an icon onto the canvas, resize it, connect it and add your own labels.
 
 Switch between English and Chinese using the header button. Your choice is remembered in this browser and determines the library names. Brand names retain their original spelling. **Categories / desktop setup** initially selects the entrypoint collection; uncheck any categories you do not need, or open a single category. Standard draw.io libraries remain available.
 
-The eight categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
+The eight software categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Category titles on the website, in XML libraries and in desktop configurations use a **General Software ·** prefix, matching the **Alibaba Cloud ·** prefix. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
 
 **Desktop: import all categories at once:** download and extract the latest ZIP, open a blank diagram in draw.io Desktop, then select the desired XML files inside `libraries/en/` (or `libraries/zh-CN/`) in your file manager and drag them together onto the drawing canvas. Release Ctrl/Shift before dropping. Each file loads as its own sidebar library, preserving their categories. Select the XML files, not the folder or ZIP; choose only one language directory.
 

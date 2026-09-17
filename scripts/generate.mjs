@@ -35,7 +35,7 @@ for(const category of categories) {
   category.libraryRevisions={};
   const localizedXml={};
   for(const [locale,path] of Object.entries(category.libraries)) {
-    const title=locale==='en'?category.nameEn:category.name;
+    const title=locale==='en'?`General Software · ${category.nameEn}`:`通用软件 · ${category.name}`;
     const xml=libraryXml(items,`${category.name} ${category.nameEn} ${category.keywords.join(' ')}`,title,usageNotice);
     const parsed=readLibrary(xml);
     if(JSON.stringify(parsed)!==JSON.stringify(items)) throw Error(`Library round-trip failed: ${category.id}/${locale}`);
@@ -51,7 +51,7 @@ for(const legacy of await json('data/legacy-categories.json')) {
   if(!xml) throw Error(`Unknown legacy category: ${legacy.category}`);
   for(const [locale,path] of Object.entries(legacy.libraries)) await save(`public/${path}`,xml[locale]);
 }
-const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'software 软件','全部软件图标 / All Software Icons',usageNotice);
+const allXml=libraryXml(catalog.icons.map(i=>entries.get(i.id)),'General Software 通用软件','通用软件 · 全部图标 / General Software · All Icons',usageNotice);
 await save('public/libraries/all.xml',allXml);addZip('libraries/all.xml',allXml);
 const publicCatalog=JSON.stringify({...catalog,categories,categoryAliases},null,2)+'\n';
 await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCatalog);

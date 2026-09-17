@@ -21,7 +21,7 @@ export async function generateUnified(software, softwareEntries) {
     await save(`public/guides/${path}`, await readFile(path));
   }
   const collections = [
-    { id: 'software', name: '软件与品牌', nameEn: 'Software & brands', count: software.icons.length, allLibrary: 'libraries/all.xml' },
+    { id: 'software', name: '通用软件', nameEn: 'General Software', count: software.icons.length, allLibrary: 'libraries/all.xml' },
     { id: 'alibaba-cloud', name: '阿里云', nameEn: 'Alibaba Cloud', count: alibaba.entries.length, allLibrary: 'drawio/all-icons.xml' },
   ];
   const categories = software.categories.map(c => ({ ...c, collection: 'software' }));

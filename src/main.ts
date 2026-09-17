@@ -21,7 +21,9 @@ const preference = (key:string,value:string) => {try{localStorage.setItem(key,va
 let locale:Locale = readPreference('icons-locale') === 'en' ? 'en' : readPreference('icons-locale') === 'zh-CN' ? 'zh-CN' : navigator.language.startsWith('zh') ? 'zh-CN' : 'en';
 const params = new URLSearchParams(location.search);
 let query=params.get('q')??'', activeCategory=params.get('category')??'all', activeType=params.get('type')??'all';
-let activeCollection=params.get('collection')??(location.pathname.includes('/alibaba-cloud-icons/')?'alibaba-cloud':'software');
+const defaultCollection=location.pathname.includes('/alibaba-cloud-icons/')?'alibaba-cloud':'software';
+let loadAllCollections=params.get('collection')==='all';
+let activeCollection=loadAllCollections?defaultCollection:(params.get('collection')??defaultCollection);
 let dark=readPreference('icons-preview')==='dark', limit=72;
 let catalog:Catalog;
 let configGeneration=0;
@@ -29,10 +31,14 @@ const selected=new Set<string>();
 const siteBase=new URL('./',location.href).href;
 const local=isLocalSite(siteBase);
 const file=(path:string)=>new URL(path,siteBase).href;
-const title=(c:Category|Collection)=>locale==='en'?c.nameEn:c.name;
-const visibleCategories=()=>catalog.categories.filter(c=>activeCollection==='all'||c.collection===activeCollection);
+const title=(c:Category|Collection):string=>{
+  const name=locale==='en'?c.nameEn:c.name;
+  return 'collection' in c?`${title(catalog.collections.find(p=>p.id===c.collection)!)} · ${name}`:name;
+};
+const browseCollection=()=>loadAllCollections?'all':activeCollection;
+const visibleCategories=()=>catalog.categories.filter(c=>loadAllCollections||c.collection===activeCollection);
 const iconName=(icon:Icon)=>locale==='en'?(icon.nameEn||icon.name):icon.name;
-const allLibrary=()=>catalog.collections.find(c=>c.id===activeCollection)?.allLibrary??'libraries/combined.xml';
+const allLibrary=()=>loadAllCollections?'libraries/combined.xml':catalog.collections.find(c=>c.id===activeCollection)!.allLibrary;
 const description=(c:Category)=>locale==='en'?c.descriptionEn:c.description;
 const sourceName=(id:string)=>({devicon:'Devicon',dashboard:'Dashboard Icons',lobe:'Lobe Icons',antdesign:'Ant Design Icons',vendor:'Vendor Icons SVG','alibaba-iconfont':'Alibaba Cloud · Iconfont','official-apps':messages[locale].officialPublisher} as Record<string,string>)[id]??id;
 const symbols={
@@ -49,7 +55,7 @@ const svg=(id:keyof typeof symbols)=>`<svg width="18" height="18" viewBox="0 0 2
 function typeLabel(type:string) { const t=messages[locale]; return ({'open-source':t.openSource,'source-available':t.sourceAvailable,commercial:t.commercial,unverified:t.unverified} as Record<string,string>)[type]??t.unverified; }
 function updateUrl() {
   const url=new URL(location.href);
-  for(const [key,value] of [['q',query],['category',activeCategory],['type',activeType],['collection',activeCollection]]) value && (value!=='all'||key==='collection')?url.searchParams.set(key,value):url.searchParams.delete(key);
+  for(const [key,value] of [['q',query],['category',activeCategory],['type',activeType],['collection',browseCollection()]]) value && (value!=='all'||key==='collection')?url.searchParams.set(key,value):url.searchParams.delete(key);
   history.replaceState(null,'',url);
 }
 function openLibraries(categories:Category[]) {
@@ -61,8 +67,14 @@ function showNotice() {
   $('#notice-body').textContent=t.localNote;
   $<HTMLDialogElement>('#notice').showModal();
 }
+function allCollectionsCheckbox() {
+  return `<label class="load-all-toggle"><input type="checkbox" data-load-all ${loadAllCollections?'checked':''}><span>${messages[locale].loadAll}</span></label>`;
+}
+function resetSelectionToScope() {
+  selected.clear();visibleCategories().forEach(c=>selected.add(c.id));
+}
 function openAllLink(className:string) {
-  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(visibleCategories(),locale)))}" target="_blank" rel="noopener noreferrer">${messages[locale].openAll}${svg('external')}</a>`;
+  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(visibleCategories(),locale)))}" target="_blank" rel="noopener noreferrer">${loadAllCollections?messages[locale].openEveryCollection:esc(messages[locale].openAll.replace('{collection}',title(catalog.collections.find(c=>c.id===activeCollection)!)))}${svg('external')}</a>`;
 }
 function renderShell() {
   const t=messages[locale];
@@ -78,13 +90,15 @@ function renderShell() {
     <main>
       <section class="hero"><div class="hero-copy"><p class="eyebrow"><span></span>${t.eyebrow}</p>
         <h1>${t.hero1}<br><em>${t.hero2}</em></h1><p class="intro">${t.intro}</p>
-        <div class="hero-actions">${openAllLink('primary')}<a class="button outline" href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${t.openAllHint}</p>
+        ${allCollectionsCheckbox()}<div class="hero-actions">${openAllLink('primary')}<a class="button outline" href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${t.openAllHint}</p>
         <div class="hero-facts"><span><b>${catalog.icons.length}</b> ${t.icons}</span><i></i><span><b>${catalog.categories.length}</b> ${t.categories}</span><i></i><span>${t.vector}</span></div>
       </div><div class="hero-art" aria-hidden="true"><div class="art-label">YOUR STACK, AT A GLANCE</div><div class="art-grid">${featured.map((id,i)=>`<div class="art-tile art-${i}"><img src="${file(`icons/${id}.svg`)}" alt="" width="48" height="48"></div>`).join('')}</div><div class="art-caption"><span class="status-dot"></span>SVG · DRAW.IO · OFFLINE READY</div><span class="art-plus">+</span></div></section>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
         <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">${t.library}</span><span class="tiny-pill">${catalog.icons.length}</span></div>
-          <button class="category-button" data-category="all"><span>${svg('grid')}${t.all}</span><small>${activeCollection==='all'?catalog.icons.length:catalog.collections.find(c=>c.id===activeCollection)!.count}</small></button>
-          <label class="collection-label" for="collection">${t.collectionLabel}</label><select id="collection" class="collection-select"><option value="all" ${activeCollection==='all'?'selected':''}>${t.allCollections}</option>${catalog.collections.map(c=>`<option value="${c.id}" ${activeCollection===c.id?'selected':''}>${esc(title(c))} (${c.count})</option>`).join('')}</select><p class="category-heading">${t.categoryLabel}</p><div class="category-list">${visibleCategories().map(c=>`<button class="category-button" data-category="${c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
+          <label class="collection-label" for="collection">${t.collectionLabel}</label><select id="collection" class="collection-select" ${loadAllCollections?'disabled':''}>${catalog.collections.map(c=>`<option value="${c.id}" ${activeCollection===c.id?'selected':''}>${esc(title(c))} (${c.count})</option>`).join('')}</select>
+          ${allCollectionsCheckbox()}
+          <p class="category-heading">${t.categoryLabel}</p><button class="category-button" data-category="all"><span>${svg('grid')}${t.all}</span><small>${loadAllCollections?catalog.icons.length:catalog.collections.find(c=>c.id===activeCollection)!.count}</small></button>
+          <div class="category-list">${visibleCategories().map(c=>`<button class="category-button" data-category="${c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
           ${openAllLink('primary open-all-sidebar')}<button class="bundle-button" id="bundle"><span>${svg('grid')} ${t.bundle}</span><small>${t.bundleHint}</small></button>
         </aside>
         <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"><kbd>/</kbd></label>
@@ -107,14 +121,18 @@ function renderShell() {
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(button=>button.addEventListener('click',()=>{activeType=button.dataset.type!;limit=72;updateUrl();renderResults();}));
   for(const theme of ['light','dark']) $('#'+theme).addEventListener('click',()=>{dark=theme==='dark';preference('icons-preview',theme);$('#grid').classList.toggle('dark-preview',dark);$('#light').setAttribute('aria-pressed',String(!dark));$('#dark').setAttribute('aria-pressed',String(dark));});
   $('#bundle').addEventListener('click',showBundle);
-  $('#collection').addEventListener('change',event=>{activeCollection=(event.target as HTMLSelectElement).value;activeCategory='all';limit=72;updateUrl();renderShell();});
+  $('#collection').addEventListener('change',event=>{activeCollection=(event.target as HTMLSelectElement).value;activeCategory='all';limit=72;resetSelectionToScope();updateUrl();renderShell();});
+  document.querySelectorAll<HTMLInputElement>('[data-load-all]').forEach(input=>input.addEventListener('change',()=>{
+    loadAllCollections=input.checked;activeCategory='all';limit=72;resetSelectionToScope();updateUrl();renderShell();
+    document.querySelectorAll<HTMLInputElement>('[data-load-all]')[input.closest('.hero')?0:1]?.focus();
+  }));
   renderResults();
 }
 function renderResults() {
   const t=messages[locale], c=catalog.categories.find(c=>c.id===activeCategory);
-  const results=filterIcons(catalog.icons,catalog.categories,query,activeCategory,activeType,activeCollection) as Icon[];
+  const results=filterIcons(catalog.icons,catalog.categories,query,activeCategory,activeType,browseCollection()) as Icon[];
   results.sort((a,b)=>a.name.localeCompare(b.name,'en'));
-  $('#category-title').textContent=c?title(c):activeCollection==='all'?t.all:title(catalog.collections.find(c=>c.id===activeCollection)!);
+  $('#category-title').textContent=c?title(c):loadAllCollections?t.allIcons:title(catalog.collections.find(c=>c.id===activeCollection)!);
   $('#category-description').textContent=c?description(c):t.allDescription;
   $('#result-count').textContent=`${results.length} ${t.results}`;
   document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===activeCategory)));
@@ -127,7 +145,7 @@ function renderResults() {
     return `<button class="icon-card" data-icon="${icon.id}" aria-label="${esc(iconName(icon))} — ${t.details}"><span class="icon-stage"><img src="${file(icon.asset)}" alt="" loading="lazy" width="48" height="48"><span class="card-arrow">${svg('arrow')}</span></span><span class="card-info"><strong>${esc(iconName(icon))}</strong><small>${esc(title(category))}</small></span><span class="type-dot type-${icon.softwareType}" title="${esc(typeLabel(icon.softwareType))}" aria-label="${esc(typeLabel(icon.softwareType))}"></span></button>`;
   }).join(''):`<div class="empty">${svg('search')}<h3>${t.emptyTitle}</h3><p>${t.emptyText}</p><button id="clear" class="button outline">${t.clear}</button></div>`;
   grid.querySelectorAll<HTMLButtonElement>('[data-icon]').forEach(b=>b.addEventListener('click',()=>showDetail(catalog.icons.find(i=>i.id===b.dataset.icon)!)));
-  if(!results.length) $('#clear').addEventListener('click',()=>{query='';activeCategory='all';activeType='all';activeCollection='all';updateUrl();renderShell();$('#search').focus();});
+  if(!results.length) $('#clear').addEventListener('click',()=>{query='';activeCategory='all';activeType='all';loadAllCollections=true;resetSelectionToScope();updateUrl();renderShell();$('#search').focus();});
   $('#more').innerHTML=results.length>limit?`<span>${t.showing} ${limit}${t.of}${results.length}</span><button class="button outline" id="load-more">${t.loadMore}${svg('arrow')}</button>`:'';
   if(results.length>limit) $('#load-more').addEventListener('click',()=>{limit+=72;renderResults();});
 }
@@ -141,18 +159,18 @@ function showDetail(icon:Icon) {
 function showBundle() {
   configGeneration++;
   const t=messages[locale],dialog=$<HTMLDialogElement>('#bundle-dialog');
-  dialog.innerHTML=`<button class="dialog-close" data-close="bundle-dialog" aria-label="${t.close}">${svg('close')}</button><p class="eyebrow">DRAW.IO LIBRARIES</p><h2 id="bundle-title">${t.bundle}</h2><p>${t.bundleHint}</p><div class="bundle-controls"><button class="text-button" id="select-all">${t.selectAll}</button><button class="text-button" id="deselect">${t.deselect}</button></div><div class="bundle-list">${catalog.categories.map(c=>`<label><input type="checkbox" value="${c.id}" ${selected.has(c.id)?'checked':''}><span><small>${esc(title(catalog.collections.find(p=>p.id===c.collection)!))}</small>${esc(title(c))}</span><small>${c.count}</small></label>`).join('')}</div><div class="bundle-footer"><span id="selected-count" role="status"></span><button id="open-bundle" class="button primary">${t.openDrawio}${svg('external')}</button></div><section class="config-export"><h3>${t.desktopConfig}</h3><p>${t.configInstructions}</p><p>${t.configReplacement}</p><label for="existing-config">${t.existingConfig}</label><textarea id="existing-config" rows="4" spellcheck="false" placeholder="{}"></textarea><label class="config-file">${t.importConfig}<input id="config-file" type="file" accept=".json,application/json"></label><button id="generate-config" class="button outline">${t.generateConfig}</button><p id="config-status" role="status" aria-live="polite"></p><textarea id="config-output" rows="4" readonly aria-label="${t.generatedConfig}" hidden></textarea><div class="config-actions"><button id="copy-config" class="button primary" disabled>${t.copyConfig}</button><button id="download-config" class="button outline" disabled>${t.downloadConfig}</button></div></section>${local?`<p class="local-note">${t.localNote}</p>`:''}`;
+  dialog.innerHTML=`<button class="dialog-close" data-close="bundle-dialog" aria-label="${t.close}">${svg('close')}</button><p class="eyebrow">DRAW.IO LIBRARIES</p><h2 id="bundle-title">${t.bundle}</h2><p>${t.bundleHint}</p><div class="bundle-controls"><label class="load-all-toggle"><input type="checkbox" id="bundle-all"><span>${t.loadAll}</span></label><button class="text-button" id="deselect">${t.deselect}</button></div><div class="bundle-list">${catalog.categories.map(c=>`<label><input type="checkbox" value="${c.id}" ${selected.has(c.id)?'checked':''}><span>${esc(title(c))}</span><small>${c.count}</small></label>`).join('')}</div><div class="bundle-footer"><span id="selected-count" role="status"></span><button id="open-bundle" class="button primary">${t.openDrawio}${svg('external')}</button></div><section class="config-export"><h3>${t.desktopConfig}</h3><p>${t.configInstructions}</p><p>${t.configReplacement}</p><label for="existing-config">${t.existingConfig}</label><textarea id="existing-config" rows="4" spellcheck="false" placeholder="{}"></textarea><label class="config-file">${t.importConfig}<input id="config-file" type="file" accept=".json,application/json"></label><button id="generate-config" class="button outline">${t.generateConfig}</button><p id="config-status" role="status" aria-live="polite"></p><textarea id="config-output" rows="4" readonly aria-label="${t.generatedConfig}" hidden></textarea><div class="config-actions"><button id="copy-config" class="button primary" disabled>${t.copyConfig}</button><button id="download-config" class="button outline" disabled>${t.downloadConfig}</button></div></section>${local?`<p class="local-note">${t.localNote}</p>`:''}`;
   const invalidate=()=>{for(const id of ['copy-config','download-config']) $<HTMLButtonElement>('#'+id).disabled=true;$<HTMLTextAreaElement>('#config-output').value='';$('#config-output').hidden=true;$('#config-status').textContent='';};
-  const refresh=()=>{invalidate();$<HTMLButtonElement>('#generate-config').disabled=selected.size===0;$('#selected-count').textContent=`${selected.size} ${t.selected}`;$<HTMLButtonElement>('#open-bundle').disabled=selected.size===0;};
+  const refresh=()=>{invalidate();const all=$<HTMLInputElement>('#bundle-all');all.checked=selected.size===catalog.categories.length;all.indeterminate=selected.size>0&&!all.checked;$<HTMLButtonElement>('#generate-config').disabled=selected.size===0;$('#selected-count').textContent=`${selected.size} ${t.selected}`;$<HTMLButtonElement>('#open-bundle').disabled=selected.size===0;};
   const setAll=(checked:boolean)=>{selected.clear();dialog.querySelectorAll<HTMLInputElement>('.bundle-list input').forEach(i=>{i.checked=checked;if(checked)selected.add(i.value);});refresh();};
-  $('#select-all').addEventListener('click',()=>setAll(true));$('#deselect').addEventListener('click',()=>setAll(false));
+  $('#bundle-all').addEventListener('change',event=>{configGeneration++;setAll((event.target as HTMLInputElement).checked);});$('#deselect').addEventListener('click',()=>setAll(false));
   dialog.querySelectorAll<HTMLInputElement>('.bundle-list input').forEach(i=>i.addEventListener('change',()=>{i.checked?selected.add(i.value):selected.delete(i.value);refresh();}));
   $('#open-bundle').addEventListener('click',()=>{dialog.close();openLibraries(catalog.categories.filter(c=>selected.has(c.id)));});
   dialog.addEventListener('close',()=>configGeneration++,{once:true});
   const dirty=()=>{configGeneration++;invalidate();$<HTMLButtonElement>('#generate-config').disabled=selected.size===0;};
   $('#existing-config').addEventListener('input',dirty);
   dialog.querySelectorAll<HTMLInputElement>('.bundle-list input').forEach(i=>i.addEventListener('change',()=>configGeneration++));
-  for(const id of ['select-all','deselect']) $('#'+id).addEventListener('click',()=>configGeneration++);
+  $('#deselect').addEventListener('click',()=>configGeneration++);
   $('#config-file').addEventListener('change',async event=>{
     const imported=(event.target as HTMLInputElement).files?.[0];
     if(imported){$<HTMLTextAreaElement>('#existing-config').value=await imported.text();dirty();}
@@ -202,9 +220,9 @@ async function init() {
     const response=await fetch(file(__CATALOG_FILE__));
     if(!response.ok)throw Error(String(response.status));
     catalog=await response.json();
-    if(!['all',...catalog.collections.map(c=>c.id)].includes(activeCollection))activeCollection='all';
+    if(!catalog.collections.some(c=>c.id===activeCollection))activeCollection=defaultCollection;
     activeCategory=resolveCategory(catalog,activeCategory);
-    if(activeCategory!=='all')activeCollection=catalog.categories.find(c=>c.id===activeCategory)!.collection;
+    if(activeCategory!=='all'&&!loadAllCollections)activeCollection=catalog.categories.find(c=>c.id===activeCategory)!.collection;
     visibleCategories().forEach(c=>selected.add(c.id));
     if(!['all','open-source','source-available','commercial','unverified'].includes(activeType))activeType='all';
     renderShell();

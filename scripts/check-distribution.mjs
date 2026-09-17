@@ -18,7 +18,7 @@ for(const category of catalog.categories) {
     const xml=await readFile(`dist/${path}`,'utf8');
     assert.equal(xml.substring(0,10),'<mxlibrary',`${path}: desktop drop detection`);
     assert.equal(strFromU8(zip[path]),xml,path);
-    assert.equal(parser.parse(xml).mxlibrary['@_title'],locale==='en'?category.nameEn:category.name);
+    assert.equal(parser.parse(xml).mxlibrary['@_title'],locale==='en'?`General Software · ${category.nameEn}`:`通用软件 · ${category.name}`);
     assert.equal(hash(xml),category.libraryRevisions[locale]);
     assert.match(xml,/ICON_USAGE\.md/);
     assert.equal(readLibrary(xml).length,category.count);
