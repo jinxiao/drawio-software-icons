@@ -1,7 +1,7 @@
 export type Locale = 'zh-CN' | 'en';
 export const messages = {
   'zh-CN': {
-    collectionLabel:'选择图标集',loadAll:'加载全部图标（通用软件 + 阿里云）',allIcons:'所有图标集的图标',openEveryCollection:'加载全部图标到 draw.io',desktopConfig:'桌面端配置 / JSON 合并',
+    collectionLabel:'图标集',allCollections:'全部图标集',loadAll:'加载全部图标（通用软件 + 阿里云）',allIcons:'所有图标集的图标',openEveryCollection:'加载全部图标到 draw.io',desktopConfig:'桌面端配置 / JSON 合并',
     configInstructions:'勾选分类后生成自包含 JSON。桌面端打开「其他 → 配置」（Extras → Configuration），先备份原文；有已有配置时粘贴到下方，再将合并结果复制回客户端，应用后重启。全部处理在浏览器内完成，配置不会上传。',
     configReplacement:'保留其他图标库和设置；如果已有通用软件或阿里云图标集，将用本次所选分类更新对应图标集。更新后如未自动显示，可在「更多图形」中勾选。',
     existingConfig:'已有配置（可选；填写 Extras → Configuration 中的完整 JSON）',importConfig:'或从 JSON 文件读取',generateConfig:'生成 / 合并配置',generatedConfig:'生成的完整配置',copyConfig:'复制配置',downloadConfig:'下载 JSON',
@@ -10,8 +10,8 @@ export const messages = {
     hero1:'让架构图，',hero2:'有熟悉的面孔。',intro:'通用软件、AI 工具、即时通讯，以及阿里云服务图标。在图标集之间切换、搜索和选择分类，一起带入 draw.io。',
     browse:'浏览图标',downloadAll:'下载完整合集',icons:'个图标条目',categories:'个分类',vector:'SVG + 官方 PNG',offline:'支持离线使用',
     downloadPng:'下载 PNG',officialPublisher:'官方应用发布者',publisher:'发布者',rightsNotice:'图标权利说明',contentPin:'清单校验值',officialRaster:'官方发布的 512 × 512 彩色 PNG 原图；钉钉使用 SVG 包装添加圆角透明裁切，内部原图不变。图片在 draw.io 库中内嵌，放大不等同于矢量图。',
-    library:'图标库',all:'全部分类',categoryLabel:'按用途分类',bundle:'选择分类 / 桌面配置',bundleHint:'跨图标集选分类，打开网页版或合并桌面配置',
-    openAll:'加载{collection}图标',openAllHint:'勾选后加载全部图标集；未勾选时只加载下方选中的图标集。点击按钮后在 draw.io 打开，搜索与类型筛选仅影响浏览。',
+    library:'图标库',all:'全部分类',categoryLabel:'分类',bundle:'选择分类 / 桌面配置',bundleHint:'跨图标集选分类，打开网页版或合并桌面配置',
+    openAll:'加载{collection}图标',openAllHint:'在左侧先选择图标集，再选择分类。选择「全部图标集」或勾选上方选框可一起加载所有图标集；搜索与类型筛选仅影响浏览。',
     search:'搜索名称、别名或分类…',searchLabel:'搜索图标',allTypes:'全部类型',openSource:'开源项目',sourceAvailable:'源码可用',commercial:'商业工具 / 服务',unverified:'待核实',
     results:'项结果',light:'浅色背景',dark:'深色背景',preview:'预览背景',clear:'清除筛选',emptyTitle:'暂时没有找到匹配图标',emptyText:'试试软件名称、英文别名，或换一个分类。',
     openDrawio:'在 draw.io 中打开',downloadLibrary:'下载分类库',allDescription:'从基础设施到开发工具，找到你的技术栈。',allLibrary:'下载全集 XML',
@@ -29,7 +29,7 @@ export const messages = {
     error:'图标库加载失败，请刷新页面重试。你仍然可以下载完整合集。',retry:'刷新重试',loadMore:'显示更多',showing:'已显示',of:' / ',
   },
   en: {
-    collectionLabel:'ICON COLLECTION',loadAll:'Load all icons (General Software + Alibaba Cloud)',allIcons:'Icons from every collection',openEveryCollection:'Open all icons in draw.io',desktopConfig:'Desktop configuration / JSON merge',
+    collectionLabel:'COLLECTION',allCollections:'All collections',loadAll:'Load all icons (General Software + Alibaba Cloud)',allIcons:'Icons from every collection',openEveryCollection:'Open all icons in draw.io',desktopConfig:'Desktop configuration / JSON merge',
     configInstructions:'Select categories to generate self-contained JSON. In Desktop, open Extras → Configuration and back up the original text. Paste any existing configuration below, then copy the merged result back, apply and restart. Processing stays in your browser; your configuration is never uploaded.',
     configReplacement:'Other libraries and settings are preserved. An existing General Software or Alibaba Cloud collection is updated with the categories selected here. If it is not visible after restart, enable it under More Shapes.',
     existingConfig:'Existing configuration (optional; complete JSON from Extras → Configuration)',importConfig:'Or read a JSON file',generateConfig:'Generate / merge configuration',generatedConfig:'Generated complete configuration',copyConfig:'Copy configuration',downloadConfig:'Download JSON',
@@ -38,8 +38,8 @@ export const messages = {
     hero1:'Familiar icons.',hero2:'Clearer diagrams.',intro:'General software, AI tools, messaging, and Alibaba Cloud services. Browse collections, search your stack, and bring selected categories together in draw.io.',
     browse:'Explore icons',downloadAll:'Download all collections',icons:'icon entries',categories:'categories',vector:'SVG + official PNGs',offline:'Works offline',
     downloadPng:'Download PNG',officialPublisher:'Official app publisher',publisher:'Publisher',rightsNotice:'Artwork rights notice',contentPin:'Manifest checksum',officialRaster:'Official 512 × 512 color PNG artwork. DingTalk adds an SVG rounded-corner clip around the unchanged PNG. Artwork is embedded in the draw.io library and remains raster when enlarged.',
-    library:'LIBRARY',all:'All categories',categoryLabel:'BROWSE BY CATEGORY',bundle:'Categories / desktop setup',bundleHint:'Choose across collections; open on the web or merge desktop settings',
-    openAll:'Open {collection} icons',openAllHint:'Checked: load every collection. Unchecked: load only the collection selected below. Click the button to open draw.io; search and type filters only affect browsing.',
+    library:'LIBRARY',all:'All categories',categoryLabel:'CATEGORY',bundle:'Categories / desktop setup',bundleHint:'Choose across collections; open on the web or merge desktop settings',
+    openAll:'Open {collection} icons',openAllHint:'Choose a collection in the sidebar, then a category. Select “All collections” or check the box above to load everything together; search and type filters only affect browsing.',
     search:'Search names, aliases, or categories…',searchLabel:'Search icons',allTypes:'All types',openSource:'Open source',sourceAvailable:'Source available',commercial:'Commercial / services',unverified:'Unverified',
     results:'results',light:'Light background',dark:'Dark background',preview:'Preview background',clear:'Clear filters',emptyTitle:'No matching icons yet',emptyText:'Try a project name, an alias, or another category.',
     openDrawio:'Open in draw.io',downloadLibrary:'Download library',allDescription:'From infrastructure to developer tools. Find your stack.',allLibrary:'Download all XML',

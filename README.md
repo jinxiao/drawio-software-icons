@@ -17,7 +17,7 @@ English product name exists; categories, browsing and setup are bilingual.
 
 - [Software entrypoint](https://jinxiao.github.io/drawio-software-icons/) defaults to General Software.
 - [Alibaba Cloud entrypoint](https://jinxiao.github.io/alibaba-cloud-icons/) defaults to Alibaba Cloud.
-- Check **Load all icons (General Software + Alibaba Cloud)** for cross-collection browsing and loading. The collection picker is disabled while checked; **All categories** only clears the category filter. Existing XML,
+- The sidebar follows **Collection → Category**: choose **Alibaba Cloud**, **General Software** or **All collections**, then a category below. All rows share the same button style. Switching collections resets the category filter; **All categories** only clears that filter. The all-icons checkbox beside the main loading button follows the same collection choice. Existing XML,
   JSON, SVG, plugin and ZIP URLs continue to work; the two old `catalog.json` schemas remain separate.
 
 **Desktop with existing configuration:** open **Categories / desktop setup**, select

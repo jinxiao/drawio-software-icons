@@ -95,10 +95,14 @@ function renderShell() {
       </div><div class="hero-art" aria-hidden="true"><div class="art-label">YOUR STACK, AT A GLANCE</div><div class="art-grid">${featured.map((id,i)=>`<div class="art-tile art-${i}"><img src="${file(`icons/${id}.svg`)}" alt="" width="48" height="48"></div>`).join('')}</div><div class="art-caption"><span class="status-dot"></span>SVG · DRAW.IO · OFFLINE READY</div><span class="art-plus">+</span></div></section>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
         <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">${t.library}</span><span class="tiny-pill">${catalog.icons.length}</span></div>
-          <label class="collection-label" for="collection">${t.collectionLabel}</label><select id="collection" class="collection-select" ${loadAllCollections?'disabled':''}>${catalog.collections.map(c=>`<option value="${c.id}" ${activeCollection===c.id?'selected':''}>${esc(title(c))} (${c.count})</option>`).join('')}</select>
-          ${allCollectionsCheckbox()}
-          <p class="category-heading">${t.categoryLabel}</p><button class="category-button" data-category="all"><span>${svg('grid')}${t.all}</span><small>${loadAllCollections?catalog.icons.length:catalog.collections.find(c=>c.id===activeCollection)!.count}</small></button>
-          <div class="category-list">${visibleCategories().map(c=>`<button class="category-button" data-category="${c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
+          <section class="sidebar-group" aria-labelledby="collection-heading">
+            <h2 class="category-heading" id="collection-heading">${t.collectionLabel}</h2>
+            <div class="collection-list">${[...catalog.collections].sort((a,b)=>Number(b.id==='alibaba-cloud')-Number(a.id==='alibaba-cloud')).map(c=>`<button class="category-button" data-collection="${c.id}" aria-pressed="${browseCollection()===c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}<button class="category-button" data-collection="all" aria-pressed="${loadAllCollections}"><span>${t.allCollections}</span><small>${catalog.icons.length}</small></button></div>
+          </section>
+          <section class="sidebar-group category-group" aria-labelledby="category-heading">
+            <h2 class="category-heading" id="category-heading">${t.categoryLabel}<span>${loadAllCollections?t.allCollections:esc(title(catalog.collections.find(c=>c.id===activeCollection)!))}</span></h2>
+            <div class="category-list"><button class="category-button" data-category="all"><span>${svg('grid')}${t.all}</span><small>${loadAllCollections?catalog.icons.length:catalog.collections.find(c=>c.id===activeCollection)!.count}</small></button>${visibleCategories().map(c=>`<button class="category-button" data-category="${c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
+          </section>
           ${openAllLink('primary open-all-sidebar')}<button class="bundle-button" id="bundle"><span>${svg('grid')} ${t.bundle}</span><small>${t.bundleHint}</small></button>
         </aside>
         <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"><kbd>/</kbd></label>
@@ -121,10 +125,16 @@ function renderShell() {
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(button=>button.addEventListener('click',()=>{activeType=button.dataset.type!;limit=72;updateUrl();renderResults();}));
   for(const theme of ['light','dark']) $('#'+theme).addEventListener('click',()=>{dark=theme==='dark';preference('icons-preview',theme);$('#grid').classList.toggle('dark-preview',dark);$('#light').setAttribute('aria-pressed',String(!dark));$('#dark').setAttribute('aria-pressed',String(dark));});
   $('#bundle').addEventListener('click',showBundle);
-  $('#collection').addEventListener('change',event=>{activeCollection=(event.target as HTMLSelectElement).value;activeCategory='all';limit=72;resetSelectionToScope();updateUrl();renderShell();});
+  document.querySelectorAll<HTMLButtonElement>('[data-collection]').forEach(button=>button.addEventListener('click',()=>{
+    const collection=button.dataset.collection!;
+    loadAllCollections=collection==='all';
+    if(!loadAllCollections)activeCollection=collection;
+    activeCategory='all';limit=72;resetSelectionToScope();updateUrl();renderShell();
+    document.querySelector<HTMLButtonElement>(`[data-collection="${collection}"]`)?.focus();
+  }));
   document.querySelectorAll<HTMLInputElement>('[data-load-all]').forEach(input=>input.addEventListener('change',()=>{
     loadAllCollections=input.checked;activeCategory='all';limit=72;resetSelectionToScope();updateUrl();renderShell();
-    document.querySelectorAll<HTMLInputElement>('[data-load-all]')[input.closest('.hero')?0:1]?.focus();
+    document.querySelector<HTMLInputElement>('[data-load-all]')?.focus();
   }));
   renderResults();
 }
