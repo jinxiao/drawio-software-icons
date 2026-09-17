@@ -1,5 +1,7 @@
 node_modules/
 dist/
+dist-alibaba/
+__pycache__/
 public/
 .sync-stage/
 .update-summary.md

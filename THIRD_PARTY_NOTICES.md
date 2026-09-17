@@ -51,6 +51,24 @@ Additional artwork is collected by the Ant Design Icons contributors and bwks / 
 
 ## Software classifications / 软件类型
 
+Alibaba Cloud artwork is imported with its original colors and source metadata from
+`jinxiao/alibaba-cloud-icons` at commit `a2f1cd9c00b7f2ced4af97c537c77493b7b59fa5`.
+The upstream publisher is the Alibaba Cloud Design Center on Iconfont. Its original
+code license, artwork notices and source documentation are retained in
+`collections/alibaba-cloud/` in this repository and `compat/alibaba-cloud/` in site
+downloads. The code's MIT license does not relicense Alibaba Cloud artwork or
+trademarks. Commercial architecture-diagram use restrictions in `ICON_USAGE.md`
+apply without overriding upstream rights. Color variants and supplemental UI
+symbols remain distinct entries. Historical attribution to
+[mcsrainbow/alibaba-cloud-icons](https://github.com/mcsrainbow/alibaba-cloud-icons)
+is preserved in the imported `NOTICE.md`.
+
+阿里云图标及来源数据从上述固定提交迁入，保留原色及 Iconfont 阿里云设计中心的来源信息。
+原代码许可、第三方素材说明和来源文档在源码 `collections/alibaba-cloud/` 及发布包
+`compat/alibaba-cloud/` 内保留。MIT 代码许可不重新授权阿里云图形或商标；商业图标沿用
+`ICON_USAGE.md` 的架构图绘制用途声明，不覆盖上游权利。颜色变体和 UI 补充图形分别保留，
+原项目的历史归属说明不删除。
+
 Software classifications are editorial metadata about the linked project or community edition. Commercial editions may have different terms. `source-available` is separate from `open-source`; unclear or mixed-edition cases are marked `unverified`. SPDX software-license identifiers are currently null because they have not been individually verified. Check the linked project's license for the specific version you use. An icon collection's MIT or Apache-2.0 license is not the software's license.
 
 软件类型由人工整理，按链接所指的项目或社区版本分类；商业版本可能采用不同许可。源码可用不等于开源，不明确或许可混合的项目标为待核实。尚未逐项核实软件 SPDX 许可证，因此对应字段为 null。软件类型不是法律结论，具体版本请查阅项目本身的许可。

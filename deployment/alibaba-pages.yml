@@ -1,0 +1,117 @@
+# Install as .github/workflows/pages.yml in jinxiao/alibaba-cloud-icons.
+name: Publish unified icon collections
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: 'Optional full source commit SHA (otherwise latest successful main publication)'
+        required: false
+        type: string
+  schedule:
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths: ['.github/workflows/pages.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      publish: ${{ steps.published.outputs.result != 'true' }}
+      cache_key: published-${{ hashFiles('.github/workflows/pages.yml') }}-${{ github.run_id }}
+      source_sha: ${{ steps.resolve.outputs.result }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Resolve a tested source commit
+        id: resolve
+        uses: actions/github-script@v8
+        env:
+          REQUESTED_REF: ${{ inputs.source_ref }}
+        with:
+          result-encoding: string
+          script: |
+            const requested = process.env.REQUESTED_REF;
+            if (requested) {
+              if (!/^[a-f0-9]{40}$/.test(requested)) throw new Error('Use a full source commit SHA');
+              return requested;
+            }
+            const {data} = await github.rest.actions.listWorkflowRuns({
+              owner: 'jinxiao', repo: 'drawio-software-icons', workflow_id: 'ci-pages.yml',
+              branch: 'main', event: 'push', status: 'success', per_page: 1
+            });
+            if (!data.workflow_runs.length) throw new Error('No successful source publication');
+            return data.workflow_runs[0].head_sha;
+      - name: Restore last successful publication marker
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/published-source
+          key: published-${{ hashFiles('.github/workflows/pages.yml') }}-${{ github.run_id }}
+          restore-keys: published-${{ hashFiles('.github/workflows/pages.yml') }}-
+      - name: Skip the currently published version
+        id: published
+        uses: actions/github-script@v8
+        env:
+          SOURCE_SHA: ${{ steps.resolve.outputs.result }}
+        with:
+          result-encoding: string
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path').join(process.env.RUNNER_TEMP, 'published-source');
+            return fs.existsSync(path) && fs.readFileSync(path, 'utf8').trim() === process.env.SOURCE_SHA ? 'true' : 'false';
+      - uses: actions/checkout@v7.0.1
+        if: steps.published.outputs.result != 'true'
+        with:
+          repository: jinxiao/drawio-software-icons
+          ref: ${{ steps.resolve.outputs.result }}
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-node@v7.0.0
+        if: steps.published.outputs.result != 'true'
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: source/package-lock.json
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        if: steps.published.outputs.result != 'true'
+        with:
+          python-version: '3.13'
+          enable-cache: false
+      - run: npm ci && npm test && npm run build
+        if: steps.published.outputs.result != 'true'
+        working-directory: source
+      - uses: actions/upload-pages-artifact@v5.0.0
+        if: steps.published.outputs.result != 'true'
+        with:
+          path: source/dist-alibaba
+          include-hidden-files: true
+  deploy:
+    needs: build
+    if: needs.build.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v6
+      - uses: actions/deploy-pages@v5.0.1
+        id: deployment
+      - name: Remember successful publication
+        env:
+          SOURCE_SHA: ${{ needs.build.outputs.source_sha }}
+        run: printf '%s\n' "$SOURCE_SHA" > "$RUNNER_TEMP/published-source"
+      - uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/published-source
+          key: ${{ needs.build.outputs.cache_key }}

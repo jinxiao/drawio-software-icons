@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿里云 · Iconfont 原色分类图标库</title>
+  <style>
+    :root{color-scheme:light;font-family:Inter,"Microsoft YaHei",system-ui,sans-serif;color:#172b43;background:#f5f7fb}
+    *{box-sizing:border-box}body{margin:0}a{color:#175bbb;text-decoration:none}a:hover{text-decoration:underline}
+    header{background:white;border-bottom:1px solid #dde4ee;padding:32px max(24px,calc((100vw - 1440px)/2)) 24px}h1{font-size:30px;margin:10px 0}h2{font-size:19px;margin:0}p{line-height:1.8;color:#52667c}.eyebrow{font-size:12px;letter-spacing:.12em;color:#60748b}.topline,.actions,.section-title{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}.button{border:0;display:inline-block;background:#185abc;color:white;padding:11px 18px;border-radius:7px;cursor:pointer;font:inherit;font-size:14px}.button:hover{background:#124a9d;text-decoration:none;color:white}.button.secondary{background:#e9eff9;color:#24548d}.metrics{display:flex;gap:28px;flex-wrap:wrap;margin:20px 0}.metrics strong{display:block;font-size:25px}.metrics span{font-size:12px;color:#64788b}.help{font-size:13px;margin-bottom:0}
+    main{max-width:1488px;margin:auto;padding:26px 24px;display:grid;grid-template-columns:250px 1fr;gap:24px}nav{position:sticky;top:20px;align-self:start}nav button{border:0;border-left:4px solid var(--category-color);background:none;text-align:left;padding:12px;width:100%;border-radius:5px;color:#445970;cursor:pointer;margin-bottom:5px;font:inherit;font-size:13px;display:flex;gap:8px;justify-content:space-between}nav button.active{background:#e6edf8;color:#182e4c;font-weight:700}nav small{font-weight:400;display:block;color:#65788e;margin-top:3px}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}input,select,textarea{background:white;border:1px solid #ccd6e2;border-radius:7px;padding:11px;font:inherit;font-size:14px}input{flex:1;min-width:200px}input:focus,select:focus,button:focus-visible,a:focus-visible,textarea:focus{outline:3px solid #8bb8ff;outline-offset:2px}.section-title{margin:16px 0}.muted{font-size:12px;color:#65798c;line-height:1.8}.notice{border-left:3px solid #b5c5dc;padding-left:12px;font-size:13px;line-height:1.8;color:#65778b}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}.card{background:#fff;border:1px solid #dfe5ee;border-top:3px solid var(--category-color);border-radius:8px;padding:18px 15px 14px;display:flex;flex-direction:column;min-height:230px}.preview{height:80px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}.preview img{max-width:136px;max-height:64px}.name{font-size:14px;font-weight:650;overflow-wrap:anywhere;line-height:1.6}.card-links{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:auto;padding-top:16px}.status{font-size:11px;margin-top:8px;color:#61788e}.load{display:block;margin:24px auto;border:1px solid #cad6e8;background:#fff;padding:12px 30px;border-radius:7px;cursor:pointer}footer{max-width:1488px;margin:auto;padding:0 24px 24px;font-size:12px;color:#64778c}[hidden]{display:none!important}
+    @media(max-width:760px){main{display:block;padding:18px 14px}nav{position:static;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:20px}header{padding:24px 18px}h1{font-size:24px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.controls>*{width:100%}.card{padding:14px 11px}}
+    .config-actions{justify-content:flex-start;gap:20px;padding:20px;background:#f0f6ff;border:1px solid #d6e5fc;border-radius:12px}.button.copy-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:16px 24px;font-size:17px;font-weight:700;background:#155bd7;border-radius:9px;box-shadow:0 4px 12px #155bd72b}.button.copy-primary:hover{background:#1048ad;box-shadow:0 5px 16px #155bd740}.copy-primary svg{width:22px;height:22px;flex-shrink:0}#copyStatus{font-size:14px;color:#24548d}
+    @media(max-width:760px){.config-actions{padding:16px;gap:16px}.button.copy-primary{width:100%}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">ALIBABA CLOUD DESIGN CENTER / ICONFONT COLLECTIONS</div>
+  <div class="topline"><div><h1>阿里云 · 原色分类图标库</h1><p>按 Iconfont 发布分类整理，保留每个 SVG 的原色、路径和留白。</p></div></div>
+  <div class="metrics" id="metrics"></div>
+  <div class="actions config-actions"><a class="button copy-primary" id="openDrawio" target="_blank" rel="noopener noreferrer">一键加载全部分类到 draw.io ↗</a><button class="button secondary" id="copyConfig" type="button">复制全部分类配置</button><a href="config/alibaba-cloud.json" download>下载 JSON 配置</a><a href="plugins/alibaba-cloud.js" download>下载 JS 插件（自托管）</a><span id="copyStatus" role="status"></span></div>
+  <p class="help">一键打开网页版 draw.io，加载全部 9 个独立分类面板，无需粘贴配置。默认按左侧分类顺序排列，UI 补充图标放在最后。若 draw.io 恢复了旧顺序，请先关闭已有的 9 个阿里云面板，再重新一键加载。首次打开如提示选择存储位置或创建图表，按页面提示继续。图标默认无文字，双击后可在下方填写标签。</p>
+  <p class="help" id="onlineHelp">一键加载需要联网；本地预览使用已发布的在线图库。离线或桌面版可复制配置，粘贴到 draw.io <strong>其他 → 配置 → JSON</strong>，应用并刷新。<a href="README.md">完整使用及旧版迁移说明</a></p>
+  <div id="copyFallback" hidden><p class="help">请按 Ctrl+C / Cmd+C 复制已选中的配置。</p><textarea id="configText" aria-label="完整分类配置" readonly style="width:100%;height:120px"></textarea></div>
+</header>
+<main>
+  <nav id="categories" aria-label="Iconfont 来源分类"></nav>
+  <section aria-label="图标浏览">
+    <div class="controls"><input id="search" type="search" placeholder="搜索原始名称、英文缩写或图标 ID，例如 ECS、备份、13592643" aria-label="搜索图标"><select id="status" aria-label="命名状态"><option value="all">全部图标</option><option value="named">有明确名称</option><option value="unnamed">上游未明确命名</option></select></div>
+    <div class="notice">分类颜色来自图标集本身：基础设施蓝、大数据蓝紫、AI 紫、安全绿等。橙色全集单独保留；相同图形的不同版本不会合并。界面色条仅表示分类主色，不修改图标中的细微色差。<a href="COLORS.md">配色与来源</a></div>
+    <div class="section-title"><div><h2 id="sectionName">全部图标集</h2><div class="muted" id="resultCount" aria-live="polite"></div></div><div class="actions"><a class="button" id="openCategory" target="_blank" rel="noopener noreferrer">加载到 draw.io ↗</a><a class="button secondary" id="downloadCategory" download>下载当前分类 XML</a><a id="collectionSource" target="_blank" rel="noopener">Iconfont 原始分类 ↗</a></div></div>
+    <div class="grid" id="grid"></div><button id="more" class="load" type="button" hidden>显示更多</button>
+  </section>
+</main>
+<footer><a href="catalog.csv" download>名称与来源 CSV</a> · <a href="SOURCES.md">来源记录</a> · <a href="README.md">使用说明</a> · <span id="snapshot"></span></footer>
+<script type="application/json" id="catalog">__CATALOG_DATA__</script>
+<script type="application/json" id="configuration">__CONFIG_DATA__</script>
+<script>
+  'use strict';
+  const {entries,summary}=JSON.parse(document.getElementById('catalog').textContent);
+  const configuration=JSON.parse(document.getElementById('configuration').textContent);
+  const $=id=>document.getElementById(id);let category='all',limit=72;
+  const categoryMap=new Map(summary.categories.map(c=>[c.id,c]));
+  // The online editor needs publicly hosted XML; local previews use the published library.
+  const localHost=/^(localhost|127(?:\.\d+){3}|\[::1\])$/i.test(location.hostname)||location.hostname.endsWith('.localhost');
+  const libraryBase=location.protocol==='https:'&&!localHost?new URL('.',location.href).href:'https://jinxiao.github.io/alibaba-cloud-icons/';
+  function drawioUrl(categories){
+    const libraries=categories.map(c=>'U'+encodeURIComponent(new URL(`drawio/${c.id}.xml`,libraryBase).href));
+    return 'https://app.diagrams.net/?splash=0&clibs='+libraries.join(';');
+  }
+  $('openDrawio').href=drawioUrl(summary.categories);
+  function el(tag,text,className){const node=document.createElement(tag);if(text)node.textContent=text;if(className)node.className=className;return node;}
+  function link(text,url,external=false){const node=el('a',text);node.href=url;if(external){node.target='_blank';node.rel='noopener';}else node.download='';return node;}
+  for(const [count,label] of [[summary.categories.length,'来源分类'],[summary.icon_entries,'图标条目（含不同版本）'],[summary.unnamed,'上游未明确命名']]){const node=el('div');node.append(el('strong',String(count)),el('span',label));$('metrics').append(node);}
+  $('snapshot').textContent='来源快照 '+summary.snapshot_date;
+  for(const c of [{id:'all',name:'全部图标集',name_en:'All collections',total:entries.length,color:'#8896a8'},...summary.categories]){
+    const button=el('button');button.type='button';button.dataset.id=c.id;button.style.setProperty('--category-color',c.color);
+    const label=el('span',c.name);label.append(el('small',c.name_en));button.append(label,el('span',String(c.total)));
+    button.addEventListener('click',()=>{category=c.id;limit=72;render();});$('categories').append(button);
+  }
+  function render(){
+    const terms=$('search').value.trim().toLowerCase().split(/\s+/).filter(Boolean),status=$('status').value;
+    const filtered=entries.filter(e=>(category==='all'||e.categories.includes(category))&&(status==='all'||e.status===status)&&terms.every(t=>[e.name,e.id,...e.categories.flatMap(id=>{const c=categoryMap.get(id);return[c.name,c.name_en];})].join(' ').toLowerCase().includes(t)));
+    for(const button of $('categories').children){button.classList.toggle('active',button.dataset.id===category);button.setAttribute('aria-pressed',button.dataset.id===category);}
+    const current=categoryMap.get(category);
+    $('sectionName').textContent=current?current.name+' / '+current.name_en:'全部图标集';
+    $('resultCount').textContent=`${filtered.length} 个匹配条目 · 已显示 ${Math.min(limit,filtered.length)} 个`;
+    $('downloadCategory').href=`drawio/${current?current.id:'all-icons'}.xml`;
+    $('downloadCategory').textContent=current?'下载当前分类 XML':'下载平铺总库 XML';
+    $('downloadCategory').title='下载完整分类，不受搜索筛选影响；一个 XML 对应一个面板';
+    $('openCategory').href=drawioUrl(current?[current]:summary.categories);
+    $('openCategory').textContent=current?'加载当前分类到 draw.io ↗':'加载全部分类到 draw.io ↗';
+    $('openCategory').title='加载完整分类，不受搜索筛选影响；在新标签页打开网页版 draw.io';
+    $('collectionSource').href=current?current.source_url:'https://www.iconfont.cn/user/detail?uid=6856114';
+    $('grid').replaceChildren();
+    for(const entry of filtered.slice(0,limit)){
+      const c=current||categoryMap.get(entry.categories[0]);
+      const card=el('article',null,'card');card.style.setProperty('--category-color',c.color);
+      const preview=el('div',null,'preview'),img=el('img');img.src=`svg/${entry.id}.svg`;img.alt=entry.name;img.loading='lazy';preview.append(img);
+      card.append(preview,el('div',entry.name,'name'),el('div',c.name_en,'muted'));
+      card.append(el('div',entry.status==='unnamed'?'上游未明确命名 · 按原样保留':'Iconfont #'+entry.source_icon_id,'status'));
+      const links=el('div',null,'card-links');links.append(link('SVG',`svg/${entry.id}.svg`),link('图标来源',entry.source_url,true));card.append(links);$('grid').append(card);
+    }
+    if(!filtered.length)$('grid').append(el('p','没有匹配条目，请调整搜索词或分类。'));
+    $('more').hidden=filtered.length<=limit;
+  }
+  $('copyConfig').addEventListener('click',async()=>{
+    const text=JSON.stringify(configuration,null,2);
+    try{await navigator.clipboard.writeText(text);$('copyStatus').textContent='已复制，请到 draw.io 配置中粘贴。';$('copyFallback').hidden=true;}
+    catch(error){$('configText').value=text;$('copyFallback').hidden=false;$('configText').focus();$('configText').select();$('copyStatus').textContent='请手动复制已选中的配置。';}
+  });
+  for(const id of ['search','status'])$(id).addEventListener(id==='search'?'input':'change',()=>{limit=72;render();});
+  $('more').addEventListener('click',()=>{limit+=72;render();});render();
+</script>
+</body>
+</html>

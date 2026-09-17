@@ -2,13 +2,14 @@ export function resolveCategory(catalog, requested = 'all') {
   const category = catalog.categoryAliases?.[requested] ?? requested;
   return catalog.categories.some(c => c.id === category) ? category : 'all';
 }
-export function filterIcons(icons, categories, query = '', category = 'all', type = 'all') {
+export function filterIcons(icons, categories, query = '', category = 'all', type = 'all', collection = 'all') {
   const terms = query.normalize('NFKC').toLowerCase().trim().split(/\s+/).filter(Boolean);
   const categoryText = new Map(categories.map(c=>[c.id,[c.name,c.nameEn,...c.keywords].join(' ')]));
   return icons.filter(i=> {
-    if(category !== 'all' && i.category !== category) return false;
+    if(collection !== 'all' && i.collection !== collection) return false;
+    if(category !== 'all' && i.category !== category && !i.categories?.includes(category)) return false;
     if(type !== 'all' && i.softwareType !== type) return false;
-    const text=[i.id,i.name,...i.aliases,...i.tags,categoryText.get(i.category)].join(' ').normalize('NFKC').toLowerCase();
+    const text=[i.id,i.name,i.nameEn,...i.aliases,...i.tags,...(i.categories??[i.category]).map(id=>categoryText.get(id))].join(' ').normalize('NFKC').toLowerCase();
     return terms.every(term=>text.includes(term));
   });
 }

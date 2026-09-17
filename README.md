@@ -1,10 +1,50 @@
-# Software Icons for draw.io
+# Architecture Icons for draw.io
 
 [简体中文](README.zh-CN.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
 
 444 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.
+
+
+## Unified collections, unchanged URLs
+
+The site now combines **444 software and service icons** in 8 categories with
+**888 Alibaba Cloud icon entries** in 9 source categories: **1,332 entries across
+two collections**. Alibaba counts include color variants and supplemental UI
+symbols, not 888 distinct cloud services. Original names remain where no upstream
+English product name exists; categories, browsing and setup are bilingual.
+
+- [Software entrypoint](https://jinxiao.github.io/drawio-software-icons/) defaults to Software & brands.
+- [Alibaba Cloud entrypoint](https://jinxiao.github.io/alibaba-cloud-icons/) defaults to Alibaba Cloud.
+- Choose **All collections** for cross-collection search and loading. Existing XML,
+  JSON, SVG, plugin and ZIP URLs continue to work; the two old `catalog.json` schemas remain separate.
+
+**Desktop with existing configuration:** open **Categories / desktop setup**, select
+categories from either collection, and copy your existing JSON from Desktop's
+**Extras → Configuration** into the optional input. Click **Generate / merge
+configuration**, then copy the result back, apply and restart. Back up the original
+text first. Other libraries, fonts, styles and settings are preserved; these two
+collections are updated by stable ID, with no duplicate entry on repeated merges.
+Updating a collection replaces its categories with the current selection; an
+unselected collection is left unchanged. If the sidebar does not show it after
+restart, enable it in **More Shapes**. Processing stays in your browser and does
+not upload your configuration.
+
+The generated JSON embeds images and works offline, without a JS plugin. It is a
+snapshot, not an automatic subscription; generate/merge again to update. For an
+empty configuration you may also download `config/drawio-icons.en.json` or
+`config/drawio-icons.zh-CN.json`. Do not overwrite an existing configuration with
+these unmerged downloads.
+
+The **complete ZIP** (`downloads/drawio-icons.zip`) contains all 17 category XMLs
+in each language directory. `libraries/combined.xml` combines both collections
+into one panel. The older software ZIP and `libraries/all.xml` stay software-only;
+the original Alibaba ZIP and `drawio/all-icons.xml` stay Alibaba-only.
+
+Code, data and tests are maintained in this repository. The old Alibaba repository
+publishes a compatibility site from the latest successful source build, checking
+hourly or on manual dispatch. See [deployment details](docs/DEPLOYMENT.md).
 
 ## AI tools and brands
 
@@ -22,23 +62,23 @@ DingTalk is displayed through an SVG rounded-corner clip with transparent corner
 
 ## Use the icons
 
-1. Click **Open all in draw.io** on the website to launch draw.io in a new tab.
-2. Once you enter the editor, all 8 category libraries appear in the left sidebar, without individual XML imports.
+1. Click **Open collection in draw.io** on the website to launch draw.io in a new tab.
+2. Once you enter the editor, all selected collection categories appear in the left sidebar, without individual XML imports.
 3. Drag an icon onto the canvas, resize it, connect it and add your own labels.
 
-Switch between English and Chinese using the header button. Your choice is remembered in this browser and determines the library names. Brand names retain their original spelling. **Choose categories** starts with everything selected; uncheck any categories you do not need, or open a single category. Standard draw.io libraries remain available.
+Switch between English and Chinese using the header button. Your choice is remembered in this browser and determines the library names. Brand names retain their original spelling. **Categories / desktop setup** initially selects the entrypoint collection; uncheck any categories you do not need, or open a single category. Standard draw.io libraries remain available.
 
 The eight categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
 
-**Desktop: import all categories at once:** download and extract the latest ZIP, open a blank diagram in draw.io Desktop, then select all 8 XML files inside `libraries/en/` (or `libraries/zh-CN/`) in your file manager and drag them together onto the drawing canvas. Release Ctrl/Shift before dropping. Each file loads as its own sidebar library, preserving all 8 categories. Select the XML files, not the folder or ZIP; choose only one language directory.
+**Desktop: import all categories at once:** download and extract the latest ZIP, open a blank diagram in draw.io Desktop, then select the desired XML files inside `libraries/en/` (or `libraries/zh-CN/`) in your file manager and drag them together onto the drawing canvas. Release Ctrl/Shift before dropping. Each file loads as its own sidebar library, preserving their categories. Select the XML files, not the folder or ZIP; choose only one language directory.
 
-For a single library, use **File → Open Library** in Desktop (the web version offers a **Device** submenu). `libraries/all.xml` merges everything into one library and does not preserve separate category panels. SVGs and PNGs are embedded for offline use. When updating, close the old category libraries before dragging in the new ones. Libraries begin with `<mxlibrary` so draw.io's [drop handler](https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/diagramly/EditorUi.js) can recognize them.
+For a single library, use **File → Open Library** in Desktop (the web version offers a **Device** submenu). `libraries/all.xml` merges all software icons into one library and does not preserve separate category panels. SVGs and PNGs are embedded for offline use. When updating, close the old category libraries before dragging in the new ones. Libraries begin with `<mxlibrary` so draw.io's [drop handler](https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/diagramly/EditorUi.js) can recognize them.
 
 Most icons are SVG image shapes; four official application icons are PNG images. PNGs retain their original pixels and may blur when enlarged beyond their native resolution. Neither format is an individually editable vector path in draw.io. Labels are not added to the canvas automatically. Light / dark controls only change the preview background, never the brand colors.
 
 ## Development
 
-Requires Node.js 22.12+ and npm.
+Requires Node.js 22.12+, npm, uv and Python 3.13+ (Python uses only its standard library).
 
 ```sh
 npm ci
@@ -53,7 +93,7 @@ npm run build
 npm run preview
 ```
 
-The build validates the catalog, checks TypeScript, generates libraries and the ZIP, then writes the static site to `dist/`. Once dependencies are installed, testing and building require no upstream downloads.
+The build validates the catalog, checks TypeScript, generates libraries and the ZIP, then writes the two static sites to `dist/` and `dist-alibaba/`. Once dependencies are installed, testing and building require no upstream downloads.
 
 ## Collect and update
 

@@ -1,0 +1,55 @@
+{
+  "snapshot_date": "2026-09-10",
+  "sources": [
+    {
+      "file": "iconfont-21530.json",
+      "sha256": "1e039931b7bc11d55a936357fb8aa83e92dfc03dc53ab550a0ec8d2510939f7d",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21530"
+    },
+    {
+      "file": "iconfont-21419.json",
+      "sha256": "2f0734191fab50587e953c504854123bd5adb870531f76a6a0f9f70a39781385",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21419"
+    },
+    {
+      "file": "iconfont-21426.json",
+      "sha256": "b7e3a63b4b2841a350d3138807bb95b4a8cc440fcb95d617bca2f7aa73d176ce",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21426"
+    },
+    {
+      "file": "iconfont-21532.json",
+      "sha256": "44da14a522adc042681cec3e059f96696e48380f5eed6f59a5ec764b495fa293",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21532"
+    },
+    {
+      "file": "iconfont-21533.json",
+      "sha256": "7b5a69b16175118930e7040fbd4bb7004d8ac200046aca57b059e5af7c09e8f0",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21533"
+    },
+    {
+      "file": "iconfont-21538.json",
+      "sha256": "24c96ffb74a539f9b2401d8293d66133c2407693d4267eb3018fe35ad9e50b11",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21538"
+    },
+    {
+      "file": "iconfont-21539.json",
+      "sha256": "ca93f19ccc185e2fc3514b18331dc9cf3571f13604734aec7c9947f6fc5d8c9d",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21539"
+    },
+    {
+      "file": "iconfont-21408.json",
+      "sha256": "6431fe8615d45dffce7e568260455a3fcf8854004901c68f016b20f936caf6b6",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=21408"
+    },
+    {
+      "file": "iconfont-27723.json",
+      "sha256": "208bc5810d727d39c72938a28c6d9e6bd814ce83277eaef22c9e8e9ee63f717b",
+      "url": "https://www.iconfont.cn/api/collection/detail.json?id=27723"
+    },
+    {
+      "file": "iconfont-user-collections.json",
+      "sha256": "072c1ac16fb17d5635743ef10876449bcd532864d833600098ec85ca404287ee",
+      "url": "https://www.iconfont.cn/api/user/collections.json?uid=6856114&page=1&pageSize=100"
+    }
+  ]
+}
