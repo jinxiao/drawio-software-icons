@@ -27,10 +27,11 @@ for(const icon of catalog.icons) {
   if(official) {
     const pinned=officialIcons[icon.id];
     if(!pinned || icon.source.url!==pinned.url || icon.source.publisher!==pinned.publisher || icon.source.listing!==pinned.listing || icon.source.sha256!==pinned.sha256 || source.revision!==hash(JSON.stringify(officialIcons))) fail(`Invalid official artwork pin: ${icon.id}`);
-    const original=await readFile(`assets/icons/${icon.id}.png`);
-    if(hash(original)!==pinned.sha256 || hash(packageOfficialPng(original,pinned.presentation))!==icon.sha256) fail(`Invalid packaged official artwork: ${icon.id}`);
+    const svg=pinned.format==='svg';
+    const original=await readFile(`assets/icons/${icon.id}.${svg?'svg':'png'}`);
+    if(hash(original)!==pinned.sha256 || hash(svg?original:packageOfficialPng(original,pinned.presentation))!==icon.sha256) fail(`Invalid packaged official artwork: ${icon.id}`);
   }
-  const png=official && !officialIcons[icon.id].presentation;
+  const png=official && officialIcons[icon.id].format!=='svg' && !officialIcons[icon.id].presentation;
   if(icon.asset !== `icons/${icon.id}.${png?'png':'svg'}`) fail(`Invalid asset path: ${icon.id}`);
   const svg=await readFile(`assets/${icon.asset}`,png?undefined:'utf8');
   if(hash(svg)!==icon.sha256) fail(`Checksum mismatch: ${icon.id}`);

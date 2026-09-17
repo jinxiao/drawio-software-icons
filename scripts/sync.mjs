@@ -66,12 +66,14 @@ async function worker() {
       const source = pins[item.source];
       const official = item.source==='official-apps'?officialIcons[item.id]:null;
       if(item.source==='official-apps' && !official) throw Error('Official artwork missing from pinned manifest');
-      const asset=`icons/${item.id}.${official && !official.presentation?'png':'svg'}`;
-      const originalAsset=official?`icons/${item.id}.png`:asset;
+      const officialSvg=official?.format==='svg';
+      const officialPng=official && !officialSvg;
+      const asset=`icons/${item.id}.${officialPng && !official.presentation?'png':'svg'}`;
+      const originalAsset=officialPng?`icons/${item.id}.png`:asset;
       const metadata = item.source === 'devicon' ? devicons.get(item.id) : null;
       let path, variant;
       if(official) {
-        path=originalAsset;variant=official.presentation?'official-png-rounded':'official-png';
+        path=originalAsset;variant=officialSvg?'official-svg':official.presentation?'official-png-rounded':'official-png';
       } else if (item.source === 'devicon') {
         if (!metadata) throw Error('Icon missing in Devicon index');
         variant = ['original','plain','original-wordmark','plain-wordmark','line'].find(v=>metadata.versions.svg.includes(v));
@@ -89,15 +91,15 @@ async function worker() {
       const prior = oldIcons.get(item.id);
       let raw;
       if (prior?.source.url === sourceUrl || official) {
-        try { raw = await readFile(`assets/${originalAsset}`,official?undefined:'utf8'); if(hash(raw)!==(official?.sha256??prior.sha256)) raw = null; }
+        try { raw = await readFile(`assets/${originalAsset}`,officialPng?undefined:'utf8'); if(hash(raw)!==(official?.sha256??prior.sha256)) raw = null; }
         catch(e) {if(e.code !== 'ENOENT') throw e;}
       }
       let upstreamSha256 = official?.sha256 ?? (prior?.source.url === sourceUrl ? prior.source.sha256 : null);
-      if (!raw) { const original = await download(sourceUrl,Boolean(official)); upstreamSha256=hash(original); raw=official?original:normalizeSvg(original); }
+      if (!raw) { const original = await download(sourceUrl,Boolean(officialPng)); upstreamSha256=hash(original); raw=official?original:normalizeSvg(original); }
       if(official && hash(raw)!==official.sha256) throw Error('Official artwork checksum changed; review the source before updating the pin');
       // Keep the GPL collection's SVG source byte-for-byte, including its metadata.
       if(source.preserveOriginal) {raw=await download(sourceUrl);upstreamSha256=hash(raw);}
-      const dimensions = official?inspectPng(raw):inspectSvg(raw);
+      const dimensions = officialPng?inspectPng(raw):inspectSvg(raw);
       if(official && (dimensions.width!==official.width || dimensions.height!==official.height)) throw Error('Official artwork dimensions do not match manifest');
       if(official?.presentation) {
         await save(`${stage}/assets/${originalAsset}`,raw);

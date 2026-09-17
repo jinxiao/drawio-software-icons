@@ -43,7 +43,8 @@ export const selection = Object.entries({devicon: groups, dashboard: extras}).fl
   const split = row.indexOf('~');
   const id = row.slice(0, split), project = row.slice(split + 1);
   const homepage = project.startsWith('https://') ? project : `https://github.com/${project}`;
-  return {id, name: names[id] ?? id[0].toUpperCase() + id.slice(1), category: categoryForProject(id, category), source, homepage,
+  // Use Canonical's standalone Circle of Friends instead of Devicon's vertical Ubuntu tag.
+  return {id, name: names[id] ?? id[0].toUpperCase() + id.slice(1), category: categoryForProject(id, category), source:id==='ubuntu'?'official-apps':source, homepage,
     repository: project.startsWith('https://') ? null : homepage,
     softwareType: commercial.has(id) ? 'commercial' : sourceAvailable.has(id) ? 'source-available' : unverified.has(id) ? 'unverified' : 'open-source',
     softwareLicense: null,

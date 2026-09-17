@@ -15,6 +15,10 @@ Each entry in `catalog.json` (source: `data/catalog.json`) records its original 
 
 For official publisher PNGs, the catalog instead records the verified publisher, App Store listing, original artwork URL, retrieval date and SHA-256; the manifest is pinned by a SHA-256 content digest rather than a Git commit. Public availability and publisher authenticity do not confer copyright or trademark permission. The four official PNGs are embedded as `data:image/png;base64` in draw.io libraries, without tracing or recoloring.
 
+Ubuntu uses Canonical's round Circle of Friends SVG from the [official Ubuntu community asset listing](https://discourse.ubuntu.com/t/ubuntu-merchandise-assets/67314), preserved byte for byte and pinned by SHA-256 in the same manifest. Its provenance is the publisher's listing, not an App Store entry or the Devicon MIT collection. Copyright and trademark rights remain with Canonical Ltd.
+
+Ubuntu 使用 [Ubuntu 官方社区素材页](https://discourse.ubuntu.com/t/ubuntu-merchandise-assets/67314)提供的圆形 Circle of Friends SVG，原文件字节不变，以同一清单中的 SHA-256 固定版本。来源为官方素材页，并非 App Store 或 Devicon 的 MIT 图标集；版权和商标权归 Canonical Ltd. 所有。
+
 官方 PNG 的来源记录包含发布者、App Store 条目、原图网址、采集日期和 SHA-256；清单以内容摘要锁定，不伪造 Git 提交号。来源真实和公开可下载不代表获得版权或商标授权。四张官方 PNG 原样内嵌为 `data:image/png;base64`，不描摹、不改色。
 
 原始来源、固定提交、原文件 SHA-256、处理后 SHA-256 和图标集许可链接均记录在清单中。每项图标的详情页也提供来源和许可链接。

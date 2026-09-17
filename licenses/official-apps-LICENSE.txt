@@ -3,6 +3,12 @@ Official publisher artwork - rights notice (not an open-source license)
 WeChat and WeCom: Tencent Technology (Shenzhen) Company Limited.
 DingTalk: DingTalk Technology Co., Ltd.
 Feishu: Beijing Feishu Technology Co., Ltd.
+Ubuntu: Canonical Ltd.
+
+Ubuntu's standalone Circle of Friends SVG comes from the official Ubuntu
+Community Hub merchandise assets page. The original SVG is preserved byte for
+byte, including its colors and geometry. Ubuntu and Canonical are registered
+trademarks of Canonical Ltd.; no open-source artwork license is claimed.
 
 These PNG files are the application icons published by the named developers
 on their verified App Store product listings. They are preserved without
@@ -34,3 +40,7 @@ See ICON_USAGE.md and THIRD_PARTY_NOTICES.md for the project's usage policy.
 
 钉钉的 SVG 包装为原始 PNG 添加圆角显示裁切，PNG 字节不变，并单独保留
 原图。这是项目显示调整，不是官方矢量素材。
+
+Ubuntu 圆形 Circle of Friends SVG 来自官方 Ubuntu Community Hub 素材页，
+原文件字节、颜色和形状均保持不变。Ubuntu 和 Canonical 商标属于 Canonical
+Ltd.；本项目不声称此品牌素材采用开源许可证。

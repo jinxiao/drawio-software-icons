@@ -60,6 +60,24 @@ test('IM and enterprise additions have searchable names, correct categories and 
   assert.equal(serviceNow.source.collectionLicense,'GPL-3.0-only');
 });
 
+test('Ubuntu preserves the official round SVG through draw.io export',async()=>{
+  const icon=catalog.icons.find(i=>i.id==='ubuntu');
+  const official=(await json('data/official-icons.json')).ubuntu;
+  const svg=await readFile(`assets/${icon.asset}`,'utf8');
+  assert.equal(icon.source.variant,'official-svg');
+  assert.equal(icon.source.publisher,'Canonical Ltd.');
+  assert.equal(hash(svg),official.sha256);
+  assert.equal(icon.sha256,official.sha256);
+  assert.deepEqual(inspectSvg(svg),{width:390,height:390});
+  const root=parser.parse(svg).svg;
+  assert.equal(root.circle['@_r'],'195');
+  const entry=libraryEntry(icon,svg);
+  assert.equal(entry.w,64);assert.equal(entry.h,64);
+  assert.ok(entry.data.startsWith('data:image/svg+xml;base64,'));
+  assert.equal(Buffer.from(entry.data.split(',')[1],'base64').toString('utf8'),svg);
+  assert.deepEqual(readLibrary(libraryXml([entry])),[entry]);
+});
+
 test('Chinese messaging products use pinned official color PNGs and Feishu is distinct from Lark',async()=>{
   const official=await json('data/official-icons.json');
   for(const id of ['wechat','wecom','dingtalk','feishu']) {

@@ -26,7 +26,10 @@
     "retrievedOn": "2026-09-16"
   },
   "dingtalk": {
-    "presentation": {"kind": "rounded-rect", "radius": 112},
+    "presentation": {
+      "kind": "rounded-rect",
+      "radius": 112
+    },
     "appId": 930368978,
     "name": "钉钉",
     "publisher": "DingTalk Technology Co., Ltd.",
@@ -51,5 +54,16 @@
     "width": 512,
     "height": 512,
     "retrievedOn": "2026-09-16"
+  },
+  "ubuntu": {
+    "format": "svg",
+    "name": "Ubuntu Circle of Friends",
+    "publisher": "Canonical Ltd.",
+    "listing": "https://discourse.ubuntu.com/t/ubuntu-merchandise-assets/67314",
+    "url": "https://drive.google.com/uc?export=download&id=1FdksWTDREMNjnfBtN6HbxO7dZUQSchFm",
+    "sha256": "19eb7347a17e95c8443e1db05a7baf646df81d8fec2aa4338ff7e467cd99c2cb",
+    "width": 390,
+    "height": 390,
+    "retrievedOn": "2026-09-18"
   }
 }
