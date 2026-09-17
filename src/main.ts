@@ -106,7 +106,7 @@ function renderShell() {
         <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">${t.library}</span><span class="tiny-pill">${catalog.icons.length}</span></div>
           <section class="sidebar-group" aria-labelledby="collection-heading">
             <h2 class="category-heading" id="collection-heading">${t.collectionLabel}</h2>
-            <div class="collection-list">${[...catalog.collections].sort((a,b)=>Number(b.id==='alibaba-cloud')-Number(a.id==='alibaba-cloud')).map(c=>`<button class="category-button" data-collection="${c.id}" aria-pressed="${browseCollection()===c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}<button class="category-button" data-collection="all" aria-pressed="${loadAllCollections}"><span>${t.allCollections}</span><small>${catalog.icons.length}</small></button></div>
+            <div class="collection-list"><button class="category-button" data-collection="all" aria-pressed="${loadAllCollections}"><span>${t.allCollections}</span><small>${catalog.icons.length}</small></button>${[...catalog.collections].sort((a,b)=>Number(b.id==='alibaba-cloud')-Number(a.id==='alibaba-cloud')).map(c=>`<button class="category-button" data-collection="${c.id}" aria-pressed="${browseCollection()===c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
           </section>
           <section class="sidebar-group category-group" aria-labelledby="category-heading">
             <h2 class="category-heading" id="category-heading">${t.categoryLabel}<span>${loadAllCollections?t.allCollections:esc(title(catalog.collections.find(c=>c.id===activeCollection)!))}</span></h2>
