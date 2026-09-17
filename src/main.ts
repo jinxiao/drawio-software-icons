@@ -21,7 +21,9 @@ const preference = (key:string,value:string) => {try{localStorage.setItem(key,va
 let locale:Locale = readPreference('icons-locale') === 'en' ? 'en' : readPreference('icons-locale') === 'zh-CN' ? 'zh-CN' : navigator.language.startsWith('zh') ? 'zh-CN' : 'en';
 const params = new URLSearchParams(location.search);
 let query=params.get('q')??'', activeCategory=params.get('category')??'all', activeType=params.get('type')??'all';
-const defaultCollection=location.pathname.includes('/alibaba-cloud-icons/')?'alibaba-cloud':'software';
+const alibabaEntrypoint=location.pathname.includes('/alibaba-cloud-icons/');
+const defaultCollection=alibabaEntrypoint?'alibaba-cloud':'software';
+let homepageLoadAll=false;
 let loadAllCollections=params.get('collection')==='all';
 let activeCollection=loadAllCollections?defaultCollection:(params.get('collection')??defaultCollection);
 let dark=readPreference('icons-preview')==='dark', limit=72;
@@ -68,13 +70,20 @@ function showNotice() {
   $<HTMLDialogElement>('#notice').showModal();
 }
 function allCollectionsCheckbox() {
-  return `<label class="load-all-toggle"><input type="checkbox" data-load-all ${loadAllCollections?'checked':''}><span>${messages[locale].loadAll}</span></label>`;
+  return `<label class="load-all-toggle"><input type="checkbox" data-load-all ${homepageLoadAll?'checked':''}><span>${messages[locale].loadAll}</span></label>`;
 }
 function resetSelectionToScope() {
   selected.clear();visibleCategories().forEach(c=>selected.add(c.id));
 }
 function openAllLink(className:string) {
-  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(visibleCategories(),locale)))}" target="_blank" rel="noopener noreferrer">${loadAllCollections?messages[locale].openEveryCollection:esc(messages[locale].openAll.replace('{collection}',title(catalog.collections.find(c=>c.id===activeCollection)!)))}${svg('external')}</a>`;
+  return `<a class="button ${className}" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(visibleCategories(),locale)))}" target="_blank" rel="noopener noreferrer">${messages[locale].openDrawio}${svg('external')}</a>`;
+}
+function homepageLoadLink() {
+  // Homepage loading is independent of sidebar browsing and category selection.
+  const all=!alibabaEntrypoint||homepageLoadAll;
+  const categories=all?catalog.categories:catalog.categories.filter(c=>c.collection==='alibaba-cloud');
+  const label=all?messages[locale].openEveryCollection:messages[locale].openAll.replace('{collection}',title(catalog.collections.find(c=>c.id==='alibaba-cloud')!));
+  return `<a class="button primary" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(categories,locale)))}" target="_blank" rel="noopener noreferrer">${esc(label)}${svg('external')}</a>`;
 }
 function renderShell() {
   const t=messages[locale];
@@ -90,7 +99,7 @@ function renderShell() {
     <main>
       <section class="hero"><div class="hero-copy"><p class="eyebrow"><span></span>${t.eyebrow}</p>
         <h1>${t.hero1}<br><em>${t.hero2}</em></h1><p class="intro">${t.intro}</p>
-        ${allCollectionsCheckbox()}<div class="hero-actions">${openAllLink('primary')}<a class="button outline" href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${t.openAllHint}</p>
+        ${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="hero-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button><a class="button subtle" href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadHint}</p>
         <div class="hero-facts"><span><b>${catalog.icons.length}</b> ${t.icons}</span><i></i><span><b>${catalog.categories.length}</b> ${t.categories}</span><i></i><span>${t.vector}</span></div>
       </div><div class="hero-art" aria-hidden="true"><div class="art-label">YOUR STACK, AT A GLANCE</div><div class="art-grid">${featured.map((id,i)=>`<div class="art-tile art-${i}"><img src="${file(`icons/${id}.svg`)}" alt="" width="48" height="48"></div>`).join('')}</div><div class="art-caption"><span class="status-dot"></span>SVG · DRAW.IO · OFFLINE READY</div><span class="art-plus">+</span></div></section>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
@@ -103,7 +112,7 @@ function renderShell() {
             <h2 class="category-heading" id="category-heading">${t.categoryLabel}<span>${loadAllCollections?t.allCollections:esc(title(catalog.collections.find(c=>c.id===activeCollection)!))}</span></h2>
             <div class="category-list"><button class="category-button" data-category="all"><span>${svg('grid')}${t.all}</span><small>${loadAllCollections?catalog.icons.length:catalog.collections.find(c=>c.id===activeCollection)!.count}</small></button>${visibleCategories().map(c=>`<button class="category-button" data-category="${c.id}"><span>${esc(title(c))}</span><small>${c.count}</small></button>`).join('')}</div>
           </section>
-          ${openAllLink('primary open-all-sidebar')}<button class="bundle-button" id="bundle"><span>${svg('grid')} ${t.bundle}</span><small>${t.bundleHint}</small></button>
+          ${openAllLink('primary open-all-sidebar')}
         </aside>
         <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"><kbd>/</kbd></label>
           <div class="background-toggle" role="group" aria-label="${t.preview}"><button id="light" aria-label="${t.light}" title="${t.light}" aria-pressed="${!dark}"><span class="light-dot"></span></button><button id="dark" aria-label="${t.dark}" title="${t.dark}" aria-pressed="${dark}"><span class="dark-dot"></span></button></div></div>
@@ -133,7 +142,7 @@ function renderShell() {
     document.querySelector<HTMLButtonElement>(`[data-collection="${collection}"]`)?.focus();
   }));
   document.querySelectorAll<HTMLInputElement>('[data-load-all]').forEach(input=>input.addEventListener('change',()=>{
-    loadAllCollections=input.checked;activeCategory='all';limit=72;resetSelectionToScope();updateUrl();renderShell();
+    homepageLoadAll=input.checked;renderShell();
     document.querySelector<HTMLInputElement>('[data-load-all]')?.focus();
   }));
   renderResults();

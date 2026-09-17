@@ -47,9 +47,9 @@ Historical source in the old repo is retained for reference, not built or update
 ## Browser verification after publishing
 
 Open both original URLs. Software should be selected on the software site; Alibaba
-Cloud should be selected on the Alibaba site. Use the Collection → Category sidebar buttons, toggle the top all-icons checkbox, and switch languages,
+Cloud should be selected on the Alibaba site. Use the Collection → Category sidebar buttons and switch languages. Confirm that the main homepage always loads all 17 categories regardless of browsing filters. On the Alibaba homepage, the separate checkbox switches between its 9 categories and all 17. Then
 search for Git and ECS, and open one category in draw.io. Select categories from
-both collections, paste a backed-up existing configuration into **Categories /
+both collections, paste a backed-up existing configuration into the homepage’s **Choose categories /
 desktop setup**, generate a merged result and inspect that unrelated settings
 remain. Apply it in Desktop via **Extras → Configuration**, restart, and enable
 the collections in **More Shapes** if persisted sidebar preferences hide them.
@@ -66,6 +66,6 @@ No custom JavaScript plugin is required for this workflow.
 按提交号构建并发布，重复版本跳过。需要立即同步时手动运行工作流；指定完整提交号
 可回退到已知版本。不需要跨仓库写权限令牌。修改发布规则时同步更新模板和旧仓库工作流。
 
-上线后请打开两个旧网址，检查「图标集 → 分类」两层按钮、顶部加载全部复选框、默认图标集、语言切换、Git / ECS 搜索和分类加载。
+上线后请打开两个旧网址，检查「图标集 → 分类」两层按钮、默认图标集、语言切换、Git / ECS 搜索和分类加载。主站首页应始终加载全部 17 类，阿里云首页复选框应在 9 类与 17 类之间切换；两者独立于浏览筛选。分类加载和桌面配置入口位于首页第一个按钮旁。
 已有桌面配置可在网站中合并，再复制回「其他 → 配置」，应用并重启；若侧栏未出现，
 在「更多图形」中启用图标集。此流程不需要安装 JS 插件。

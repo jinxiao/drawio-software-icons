@@ -17,10 +17,10 @@ English product name exists; categories, browsing and setup are bilingual.
 
 - [Software entrypoint](https://jinxiao.github.io/drawio-software-icons/) defaults to General Software.
 - [Alibaba Cloud entrypoint](https://jinxiao.github.io/alibaba-cloud-icons/) defaults to Alibaba Cloud.
-- The sidebar follows **Collection → Category**: choose **Alibaba Cloud**, **General Software** or **All collections**, then a category below. All rows share the same button style. Switching collections resets the category filter; **All categories** only clears that filter. The all-icons checkbox beside the main loading button follows the same collection choice. Existing XML,
+- The sidebar follows **Collection → Category**: choose **Alibaba Cloud**, **General Software** or **All collections**, then a category below. All rows share the same button style. Switching collections resets the category filter; **All categories** only clears that filter. The main homepage’s first button always loads all collections. The Alibaba homepage has a separate checkbox: unchecked loads Alibaba Cloud, checked loads all collections. Sidebar choices do not change either homepage action. Existing XML,
   JSON, SVG, plugin and ZIP URLs continue to work; the two old `catalog.json` schemas remain separate.
 
-**Desktop with existing configuration:** open **Categories / desktop setup**, select
+**Desktop with existing configuration:** open **Choose categories / desktop setup**, select
 categories from either collection, and copy your existing JSON from Desktop's
 **Extras → Configuration** into the optional input. Click **Generate / merge
 configuration**, then copy the result back, apply and restart. Back up the original
@@ -62,11 +62,11 @@ DingTalk is displayed through an SVG rounded-corner clip with transparent corner
 
 ## Use the icons
 
-1. Choose General Software or Alibaba Cloud, or check **Load all icons** to include both. Click the open button to launch draw.io in a new tab.
+1. Use the first homepage button to load every collection on the main site, or Alibaba Cloud by default on the Alibaba site. Its checkbox includes every collection. Use the adjacent **Choose categories / desktop setup** button for selected categories or desktop JSON.
 2. Once you enter the editor, all selected collection categories appear in the left sidebar, without individual XML imports.
 3. Drag an icon onto the canvas, resize it, connect it and add your own labels.
 
-Switch between English and Chinese using the header button. Your choice is remembered in this browser and determines the library names. Brand names retain their original spelling. **Categories / desktop setup** initially selects the entrypoint collection; uncheck any categories you do not need, or open a single category. Standard draw.io libraries remain available.
+Switch between English and Chinese using the header button. Your choice is remembered in this browser and determines the library names. Brand names retain their original spelling. **Choose categories / desktop setup** initially selects the entrypoint collection; uncheck any categories you do not need, or open a single category. Standard draw.io libraries remain available.
 
 The eight software categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Category titles on the website, in XML libraries and in desktop configurations use a **General Software ·** prefix, matching the **Alibaba Cloud ·** prefix. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
 
