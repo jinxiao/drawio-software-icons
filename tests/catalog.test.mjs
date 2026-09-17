@@ -172,6 +172,9 @@ test('draw.io library titles are explicit Unicode text independent of encoded UR
   const entries=[libraryEntry({id:'git',name:'Git',aliases:[],tags:[]},square)];
   for(const title of [...categories.flatMap(c=>[c.name,c.nameEn]),'中文 & "quoted" <tools>']) {
     const xml=libraryXml(entries,'tags',title,'Commercial icons: draw.io architecture diagrams only. 商业图标使用声明：ICON_USAGE.md');
+    // EditorUi.importFiles/openFileHandle use this literal prefix for dropped libraries.
+    assert.equal(xml.substring(0,10),'<mxlibrary');
+    assert.match(xml,/<!-- .*ICON_USAGE\.md.* -->/);
     // EditorUi.loadLibrary passes the root title attribute to libraryLoaded,
     // which prefers it over the URL filename for the sidebar heading.
     assert.equal(parser.parse(xml).mxlibrary['@_title'],title);

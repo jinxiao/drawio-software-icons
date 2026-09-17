@@ -30,7 +30,9 @@ Switch between English and Chinese using the header button. Your choice is remem
 
 The eight categories are Data & Middleware, Cloud & Infrastructure, Developer Tools & DevOps, Languages & Runtimes, Frameworks & App Development, Analytics & AI, Monitoring & Security, and Apps & Content Management. Git, Gitea, Forgejo, GitHub and GitLab all belong to Developer Tools & DevOps. Legacy category query parameters and XML URLs resolve to the merged categories.
 
-**Desktop and offline:** download and extract the ZIP. In draw.io, use **File → Open Library → Device** and select an XML under `libraries/en/` or `libraries/zh-CN/`. `libraries/all.xml` is the deduplicated full collection. SVGs and PNGs are embedded, so imported libraries do not depend on external image hosts. Use Open Library, not Open Diagram.
+**Desktop: import all categories at once:** download and extract the latest ZIP, open a blank diagram in draw.io Desktop, then select all 8 XML files inside `libraries/en/` (or `libraries/zh-CN/`) in your file manager and drag them together onto the drawing canvas. Release Ctrl/Shift before dropping. Each file loads as its own sidebar library, preserving all 8 categories. Select the XML files, not the folder or ZIP; choose only one language directory.
+
+For a single library, use **File → Open Library** in Desktop (the web version offers a **Device** submenu). `libraries/all.xml` merges everything into one library and does not preserve separate category panels. SVGs and PNGs are embedded for offline use. When updating, close the old category libraries before dragging in the new ones. Libraries begin with `<mxlibrary` so draw.io's [drop handler](https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/diagramly/EditorUi.js) can recognize them.
 
 Most icons are SVG image shapes; four official application icons are PNG images. PNGs retain their original pixels and may blur when enlarged beyond their native resolution. Neither format is an individually editable vector path in draw.io. Labels are not added to the canvas automatically. Light / dark controls only change the preview background, never the brand colors.
 

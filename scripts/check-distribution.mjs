@@ -16,6 +16,7 @@ assert.match(strFromU8(zip['README.md']),/README\.zh-CN\.md/);
 for(const category of catalog.categories) {
   for(const [locale,path] of Object.entries(category.libraries)) {
     const xml=await readFile(`dist/${path}`,'utf8');
+    assert.equal(xml.substring(0,10),'<mxlibrary',`${path}: desktop drop detection`);
     assert.equal(strFromU8(zip[path]),xml,path);
     assert.equal(parser.parse(xml).mxlibrary['@_title'],locale==='en'?category.nameEn:category.name);
     assert.equal(hash(xml),category.libraryRevisions[locale]);

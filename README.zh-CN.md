@@ -30,7 +30,9 @@
 
 分类按用途合并为：数据与中间件、云与基础设施、开发工具与 DevOps、语言与运行时、框架与应用开发、数据分析与 AI、监控与安全、应用与内容管理。Git、Gitea、Forgejo、GitHub、GitLab 统一归入「开发工具与 DevOps」。旧分类网页参数与 XML 地址继续映射到合并后的分类。
 
-**桌面版与离线使用：** 下载完整 ZIP 后解压，在 draw.io 中打开 **文件 → 打开库 → 设备**，选择 `libraries/zh-CN/` 或 `libraries/en/` 下的 XML。`libraries/all.xml` 是去重后的全集。SVG / PNG 已内嵌，导入后不依赖图标源网站。不要用“打开图表”导入图标库。
+**桌面版一次导入全部分类：** 下载并解压最新 ZIP，在 draw.io 桌面版新建空白图表，然后在文件管理器中全选 `libraries/zh-CN/`（英文用 `libraries/en/`）里的 8 个 XML，一起拖到画布空白处。放下前松开 Ctrl / Shift。每个文件会成为左侧一个独立图标库，保留 8 个分类。选择 XML 文件，不要拖整个目录或 ZIP，也不要同时导入两种语言。
+
+单个库也可通过桌面版 **文件 → 打开库** 打开（网页版有“设备”子菜单）。`libraries/all.xml` 将全部图标合并到一个库，不保留独立分类栏。SVG / PNG 已内嵌，可离线使用。更新时先关闭旧分类库，再拖入新版。XML 以 `<mxlibrary` 开头，兼容 draw.io 的[拖拽识别逻辑](https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/diagramly/EditorUi.js)。
 
 大部分图标为 SVG 图片，四款官方应用图标为 PNG 原图。PNG 超过原始分辨率放大时可能变模糊；两种格式都不是可逐条编辑路径的原生形状。默认不附加文字，名称用于库内识别。浅色 / 深色按钮仅改变预览背景，不修改品牌颜色。
 

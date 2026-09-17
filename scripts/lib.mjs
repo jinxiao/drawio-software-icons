@@ -96,7 +96,9 @@ export function libraryEntry(icon, data) {
     aspect:'fixed', title:icon.name, tags:[icon.id,...icon.aliases,...icon.tags].join(' '), style:'imageAspect=1;'};
 }
 export function libraryXml(entries, tags = '', title = '', notice = '') {
-  return `<?xml version="1.0" encoding="UTF-8"?>\n${notice?`<!-- ${xmlEscape(notice).replaceAll('--','- -')} -->\n`:''}<mxlibrary${title ? ` title="${xmlEscape(title)}"` : ''} tags="${xmlEscape(tags)}">${xmlEscape(JSON.stringify(entries))}</mxlibrary>\n`;
+  // Desktop drag-and-drop identifies libraries by the first 10 characters.
+  // UTF-8 is XML's default; keep declarations/comments before the root out.
+  return `<mxlibrary${title ? ` title="${xmlEscape(title)}"` : ''} tags="${xmlEscape(tags)}">${xmlEscape(JSON.stringify(entries))}</mxlibrary>\n${notice?`<!-- ${xmlEscape(notice).replaceAll('--','- -')} -->\n`:''}`;
 }
 export function readLibrary(xml) {
   if (XMLValidator.validate(xml) !== true) throw Error('Invalid library XML');
