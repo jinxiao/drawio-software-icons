@@ -1,5 +1,15 @@
 # Contributing / 贡献指南
 
+## Requests and pull requests / 提交需求与 PR
+
+Use the homepage's **Request an icon / feature** link or the [request forms](https://github.com/jinxiao/drawio-software-icons/issues/new/choose) to suggest icons, correct artwork or report problems. No code changes are required. Include product names, the official homepage, the collection, your use case, and any known artwork sources or brand terms. English and Chinese are both welcome.
+
+Already have changes? Use **Submit a PR** on the homepage or [compare your branch or fork](https://github.com/jinxiao/drawio-software-icons/compare). The PR template collects the change summary, related issue, icon provenance, validation results and compatibility impact. Both website entrypoints send contributions to this repository.
+
+仅提需求可点击首页的**提交图标 / 功能需求**，填写图标申请或功能反馈表单，无需修改代码。请提供产品名称、官网、图标集、使用场景，以及已知的素材来源或品牌规范，中英文均可。
+
+已有修改则点击首页的**提交 PR**，选择你的分支或 Fork，按自动填入的模板说明变更、关联需求、图标来源、验证结果和兼容性影响。主站与阿里云入口统一在本仓库处理。
+
 ## Add or correct an icon / 添加或修正图标
 
 1. Edit `data/selection.mjs`: choose a stable lowercase ID, one primary category and the official project homepage or repository. Devicon entries use their upstream ID; Dashboard Icons entries use the SVG filename without `.svg`.

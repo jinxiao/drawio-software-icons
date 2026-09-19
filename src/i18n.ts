@@ -1,6 +1,7 @@
 export type Locale = 'zh-CN' | 'en';
 export const messages = {
   'zh-CN': {
+    contributeHint:'缺少图标或有改进建议？欢迎在 GitHub 提交。',requestChange:'提交图标 / 功能需求',submitPr:'提交 PR',
     collectionLabel:'图标集',allCollections:'全部图标集',loadAll:'加载全部图标（通用软件 + 阿里云）',allIcons:'所有图标集的图标',openEveryCollection:'加载全部合集图标到 draw.io',desktopConfig:'桌面端配置 / JSON 合并',
     configInstructions:'勾选分类后生成自包含 JSON。桌面端打开「其他 → 配置」（Extras → Configuration），先备份原文；有已有配置时粘贴到下方，再将合并结果复制回客户端，应用后重启。全部处理在浏览器内完成，配置不会上传。',
     configReplacement:'保留其他图标库和设置；如果已有通用软件或阿里云图标集，将用本次所选分类更新对应图标集。更新后如未自动显示，可在「更多图形」中勾选。',
@@ -29,6 +30,7 @@ export const messages = {
     error:'图标库加载失败，请刷新页面重试。你仍然可以下载完整合集。',retry:'刷新重试',loadMore:'显示更多',showing:'已显示',of:' / ',
   },
   en: {
+    contributeHint:'Missing an icon or have an idea? Contribute on GitHub.',requestChange:'Request an icon / feature',submitPr:'Submit a PR',
     collectionLabel:'COLLECTION',allCollections:'All collections',loadAll:'Load all icons (General Software + Alibaba Cloud)',allIcons:'Icons from every collection',openEveryCollection:'Load all collections into draw.io',desktopConfig:'Desktop configuration / JSON merge',
     configInstructions:'Select categories to generate self-contained JSON. In Desktop, open Extras → Configuration and back up the original text. Paste any existing configuration below, then copy the merged result back, apply and restart. Processing stays in your browser; your configuration is never uploaded.',
     configReplacement:'Other libraries and settings are preserved. An existing General Software or Alibaba Cloud collection is updated with the categories selected here. If it is not visible after restart, enable it under More Shapes.',

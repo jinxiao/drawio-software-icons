@@ -1,0 +1,42 @@
+name: Feature request or bug / 功能需求或问题反馈
+description: Suggest an improvement or report a website/import problem. 提交功能建议，或反馈网站、导入及桌面配置问题。
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or Chinese is welcome. For a missing or incorrect icon, use the icon request form instead.
+        中英文均可。新增或修正图标请使用图标需求表单。
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type / 反馈类型
+      options:
+        - Feature request / 功能需求
+        - Bug report / 问题反馈
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case / 问题或使用场景
+      description: What are you trying to do, and what is missing or failing? 想完成什么操作，目前遇到什么问题或缺少什么功能？
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result / 预期结果
+      description: Describe the behavior you would like. 说明希望实现的效果。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and environment / 操作步骤与环境
+      description: For bugs, include steps, site URL, browser/OS and draw.io web or desktop version as applicable. 问题反馈请提供操作步骤、站点地址、浏览器/系统，以及适用的 draw.io 网页版或桌面版版本。
+  - type: textarea
+    id: references
+    attributes:
+      label: Screenshots, errors or references / 截图、报错或参考
+      description: Optional supporting information. Remove private data from screenshots or configuration snippets. 可选补充信息，截图或配置片段请去除私人数据。

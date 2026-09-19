@@ -1,0 +1,67 @@
+name: Icon request or correction / 图标需求或修正
+description: Request a new icon or fix artwork, names or categories. 申请新增图标，或修正图形、名称与分类。
+title: "[Icon] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or Chinese is welcome. Please search existing icons and issues first. Both site entrypoints collect requests here; no code changes are needed.
+        中英文均可。请先搜索已有图标和需求。主站与阿里云入口统一在这里收集需求，无需先提交代码。
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type / 需求类型
+      options:
+        - Add an icon / 新增图标
+        - Correct an icon / 修正图标
+        - Update names or categories / 调整名称或分类
+    validations:
+      required: true
+  - type: input
+    id: product
+    attributes:
+      label: Product names and aliases / 产品名称与别名
+      description: Include Chinese and English names when known. One product per request is preferred. 尽量提供中英文名称，每个产品建议单独提交。
+      placeholder: Ubuntu / 乌班图
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: Official homepage or repository / 官方网站或仓库
+      placeholder: https://ubuntu.com
+    validations:
+      required: true
+  - type: dropdown
+    id: collection
+    attributes:
+      label: Icon collection / 图标集
+      options:
+        - General Software / 通用软件
+        - Alibaba Cloud / 阿里云
+        - Unsure / 不确定
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Suggested category / 建议分类
+      description: Use an existing category if possible; leave blank if unsure. 优先填写现有分类，不确定可留空。
+      placeholder: Cloud & Infrastructure / 云与基础设施
+  - type: textarea
+    id: details
+    attributes:
+      label: Need or correction / 需求或修正说明
+      description: Describe the use case and desired result. For corrections, identify the current icon and what is wrong. 说明使用场景和预期结果；修正时请指出当前图标及具体问题。
+    validations:
+      required: true
+  - type: textarea
+    id: artwork
+    attributes:
+      label: Artwork links and reference images / 素材链接与参考图
+      description: Prefer official SVG or PNG sources and brand pages. Attach screenshots if useful. Leave blank if no source is known. 优先提供官方 SVG、PNG 或品牌素材页，也可附参考截图；找不到来源可留空。
+  - type: textarea
+    id: rights
+    attributes:
+      label: Artwork license or brand guidelines / 图标许可或品牌规范
+      description: Optional links or evidence. Software licenses do not establish artwork permissions; unknown is fine. 可选，提供许可链接或依据；软件许可证不等于图标授权，未知可留空。

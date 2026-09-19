@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Submit a PR / 提交 PR
+    url: https://github.com/jinxiao/drawio-software-icons/compare
+    about: Have code or artwork changes ready? Compare your branch or fork to open a PR. 已有修改？选择你的分支或 Fork 创建 PR。
+  - name: Contribution guide / 贡献指南
+    url: https://github.com/jinxiao/drawio-software-icons/blob/main/CONTRIBUTING.md
+    about: Learn how to collect icons, preserve sources and validate changes. 查看图标采集、来源记录和验证流程。
