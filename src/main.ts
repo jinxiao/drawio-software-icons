@@ -120,12 +120,12 @@ function renderShell() {
     <a class="skip-link" href="#library">${t.browse}</a>
     <header class="topbar"><a class="brand" href="#" aria-label="Architecture Icons"><span class="brand-mark">${svg('grid')}</span><span>architecture<span class="brand-light">icons</span><small>for draw.io</small></span></a>
       <nav aria-label="${locale==='en'?'Main navigation':'主导航'}"><a href="#library">${t.navLibrary}</a><a href="#changelog">${t.changelog}</a><a href="#guide">${t.navGuide}</a></nav>
-      <div class="topbar-actions"><button class="button subtle quick-search" id="quick-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k" aria-label="${t.quickSearch}">${svg('search')}<span>${t.quickSearch}</span><kbd>/</kbd></button><button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button></div>
+      <div class="topbar-actions"><button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button></div>
     </header>
     <main>
       <section class="home-overview" aria-labelledby="home-title">
         <div class="home-intro"><p class="eyebrow"><span></span>${t.eyebrow}</p><h1 id="home-title">${t.hero1}<br><em>${t.hero2}</em></h1><p>${t.homeIntro}</p></div>
-        <div class="home-search"><button class="home-search-trigger" id="home-search" aria-haspopup="dialog" aria-controls="spotlight">${svg('search')}<span>${t.homeSearch}</span><kbd>/</kbd></button><div class="home-search-caption"><span>${t.homeSearchScope.replace('{count}',catalog.icons.length.toLocaleString(locale))}</span><a href="#library">${t.browse}${svg('arrow')}</a></div></div>
+        <div class="home-search"><button class="home-search-trigger" id="home-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k">${svg('search')}<span>${t.homeSearch}</span><kbd>/</kbd></button><div class="home-search-caption"><span>${t.homeSearchScope.replace('{count}',catalog.icons.length.toLocaleString(locale))}</span><a href="#library">${t.browse}${svg('arrow')}</a></div></div>
         ${renderLatestUpdate()}
         <div class="home-actions">${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="home-primary-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button></div><p class="home-load-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadShort}</p></div>
       </section>
@@ -142,10 +142,10 @@ function renderShell() {
           </section>
           ${openAllLink('primary open-all-sidebar')}
         </aside>
-        <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"></label>
+        <div class="library-main"><div class="library-toolbar"><div class="filter-row" aria-label="${t.softwareType}">${['all','open-source','source-available','commercial','unverified'].map(type=>`<button class="filter-chip" data-type="${type}" aria-pressed="${type===activeType}">${type==='all'?t.allTypes:typeLabel(type)}</button>`).join('')}</div>
           <div class="background-toggle" role="group" aria-label="${t.preview}"><button id="light" aria-label="${t.light}" title="${t.light}" aria-pressed="${!dark}"><span class="light-dot"></span></button><button id="dark" aria-label="${t.dark}" title="${t.dark}" aria-pressed="${dark}"><span class="dark-dot"></span></button></div></div>
-          <div class="filter-row" aria-label="${t.softwareType}">${['all','open-source','source-available','commercial','unverified'].map(type=>`<button class="filter-chip" data-type="${type}" aria-pressed="${type===activeType}">${type==='all'?t.allTypes:typeLabel(type)}</button>`).join('')}</div>
-          <div class="section-heading"><div><h2 id="category-title"></h2><p id="category-description"></p></div><span id="result-count" class="result-count" role="status" aria-live="polite"></span></div>
+          <div id="query-filter" class="query-filter" hidden></div>
+          <div class="section-heading"><div><h2 id="category-title" tabindex="-1"></h2><p id="category-description"></p></div><span id="result-count" class="result-count" role="status" aria-live="polite"></span></div>
           <div id="category-actions" class="category-actions"></div>
           <div class="icon-grid${dark?' dark-preview':''}" id="grid"></div><div id="more" class="more"></div>
         </div>
@@ -159,12 +159,10 @@ function renderShell() {
     <dialog id="bundle-dialog" aria-labelledby="bundle-title"></dialog>
     <dialog id="notice" aria-labelledby="notice-title"><button class="dialog-close" data-close="notice" aria-label="${t.close}">${svg('close')}</button><h2 id="notice-title">${t.navGuide}</h2><p id="notice-body"></p><a class="button primary" href="${file('downloads/drawio-icons.zip')}" download>${t.downloadAll}</a></dialog>`;
   $('#language').addEventListener('click',()=>{locale=locale==='en'?'zh-CN':'en';preference('icons-locale',locale);renderShell();});
-  $<HTMLInputElement>('#search').addEventListener('input',event=>{query=(event.target as HTMLInputElement).value;limit=72;updateUrl();renderResults();});
   document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(button=>button.addEventListener('click',()=>{activeCategory=button.dataset.category!;limit=72;updateUrl();renderResults();}));
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(button=>button.addEventListener('click',()=>{activeType=button.dataset.type!;limit=72;updateUrl();renderResults();}));
   for(const theme of ['light','dark']) $('#'+theme).addEventListener('click',()=>{dark=theme==='dark';preference('icons-preview',theme);$('#grid').classList.toggle('dark-preview',dark);$('#light').setAttribute('aria-pressed',String(!dark));$('#dark').setAttribute('aria-pressed',String(dark));});
   $('#bundle').addEventListener('click',showBundle);
-  $('#quick-search').addEventListener('click',showSpotlight);
   $('#home-search').addEventListener('click',showSpotlight);
   document.querySelectorAll<HTMLButtonElement>('[data-collection]').forEach(button=>button.addEventListener('click',()=>{
     const collection=button.dataset.collection!;
@@ -186,6 +184,10 @@ function renderResults() {
   $('#category-title').textContent=c?title(c):loadAllCollections?t.allIcons:title(catalog.collections.find(c=>c.id===activeCollection)!);
   $('#category-description').textContent=c?description(c):t.allDescription;
   $('#result-count').textContent=`${results.length} ${t.results}`;
+  const queryFilter=$('#query-filter');
+  queryFilter.hidden=!query;
+  queryFilter.innerHTML=query?`<span>${t.searchLabel}: <strong>${esc(query)}</strong></span><button class="text-button" id="clear-query">${t.clear}${svg('close')}</button>`:'';
+  if(query)$('#clear-query').addEventListener('click',()=>{query='';limit=72;updateUrl();renderResults();$('#category-title').focus({preventScroll:true});});
   document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===activeCategory)));
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.type===activeType)));
   $('#category-actions').innerHTML=c?`<button class="button small primary" id="open-category">${t.openDrawio}${svg('external')}</button><a class="button small subtle" href="${file(c.libraries[locale])}" download>${svg('download')}${t.downloadLibrary}</a>`:`${openAllLink('small primary')}<a class="button small subtle" href="${file(allLibrary())}" download>${svg('download')}${t.allLibrary}</a>`;
@@ -196,7 +198,7 @@ function renderResults() {
     return `<button class="icon-card" data-icon="${icon.id}" aria-label="${esc(iconName(icon))} — ${t.details}"><span class="icon-stage"><img src="${file(icon.asset)}" alt="" loading="lazy" width="48" height="48"><span class="card-arrow">${svg('arrow')}</span></span><span class="card-info"><strong>${esc(iconName(icon))}</strong><small>${esc(title(category))}</small></span><span class="type-dot type-${icon.softwareType}" title="${esc(typeLabel(icon.softwareType))}" aria-label="${esc(typeLabel(icon.softwareType))}"></span></button>`;
   }).join(''):`<div class="empty">${svg('search')}<h3>${t.emptyTitle}</h3><p>${t.emptyText}</p><button id="clear" class="button outline">${t.clear}</button></div>`;
   grid.querySelectorAll<HTMLButtonElement>('[data-icon]').forEach(b=>b.addEventListener('click',()=>showDetail(catalog.icons.find(i=>i.id===b.dataset.icon)!)));
-  if(!results.length) $('#clear').addEventListener('click',()=>{query='';activeCategory='all';activeType='all';loadAllCollections=true;resetSelectionToScope();updateUrl();renderShell();$('#search').focus();});
+  if(!results.length) $('#clear').addEventListener('click',()=>{query='';activeCategory='all';activeType='all';loadAllCollections=true;resetSelectionToScope();updateUrl();renderShell();$('#category-title').focus({preventScroll:true});});
   $('#more').innerHTML=results.length>limit?`<span>${t.showing} ${limit}${t.of}${results.length}</span><button class="button outline" id="load-more">${t.loadMore}${svg('arrow')}</button>`:'';
   if(results.length>limit) $('#load-more').addEventListener('click',()=>{limit+=72;renderResults();});
 }
@@ -326,7 +328,7 @@ document.addEventListener('click',event=>{
   const updateIcon=(event.target as Element).closest<HTMLElement>('[data-update-icon]');
   if(updateIcon){const icon=catalog.icons.find(i=>i.id===updateIcon.dataset.updateIcon);if(icon)locateIcon(icon);return;}
   const updateCollection=(event.target as Element).closest<HTMLElement>('[data-update-collection]');
-  if(updateCollection){activeCollection=updateCollection.dataset.updateCollection!;loadAllCollections=false;activeCategory='all';activeType='all';query='';limit=72;updateUrl();history.replaceState(null,'',location.pathname+location.search+'#library');renderShell();$('#search').focus({preventScroll:true});$('#library').scrollIntoView();return;}
+  if(updateCollection){activeCollection=updateCollection.dataset.updateCollection!;loadAllCollections=false;activeCategory='all';activeType='all';query='';limit=72;updateUrl();history.replaceState(null,'',location.pathname+location.search+'#library');renderShell();$('#category-title').focus({preventScroll:true});$('#library').scrollIntoView();return;}
   if(local && (event.target as Element).closest('[data-open-all]')) {event.preventDefault();showNotice();}
   const close=(event.target as Element).closest<HTMLElement>('[data-close]');
   if(close) $<HTMLDialogElement>('#'+close.dataset.close).close();
