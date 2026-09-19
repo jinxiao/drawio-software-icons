@@ -185,11 +185,11 @@ function renderResults() {
   if(results.length>limit) $('#load-more').addEventListener('click',()=>{limit+=72;renderResults();});
 }
 function locateIcon(icon:Icon) {
-  const location=spotlightLocation(catalog.icons,catalog.categories,icon.id);
-  if(!location)return;
+  const destination=spotlightLocation(catalog.icons,catalog.categories,icon.id);
+  if(!destination)return;
   $<HTMLDialogElement>('#spotlight').close();
-  activeCollection=location.collection;activeCategory=location.category;
-  loadAllCollections=false;activeType='all';query='';limit=location.limit;
+  activeCollection=destination.collection;activeCategory=destination.category;
+  loadAllCollections=false;activeType='all';query='';limit=destination.limit;
   updateUrl();
   if(location.hash==='#changelog')history.replaceState(null,'',location.pathname+location.search+'#library');
   renderShell();
