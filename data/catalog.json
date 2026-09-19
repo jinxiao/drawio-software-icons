@@ -10941,6 +10941,7 @@
         "LGTM",
         "metrics",
         "prometheus",
+        "time series databases",
         "指标",
         "时序数据库",
         "监控与安全",
@@ -14405,7 +14406,7 @@
       ],
       "tags": [
         "metrics",
-        "time series",
+        "time series databases",
         "指标",
         "时序数据库",
         "monitoring",
@@ -19410,7 +19411,7 @@
       "tags": [
         "metrics",
         "prometheus",
-        "time series",
+        "time series databases",
         "指标",
         "时序数据库",
         "监控与安全",
