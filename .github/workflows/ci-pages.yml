@@ -4,14 +4,24 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      publish_preview:
+        description: Publish preview/homepage under /preview/homepage/ while preserving the main site
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  group: pages-${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview && 'refs/heads/main' || github.ref }}
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      production_sha: ${{ steps.preview.outputs.production_sha }}
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.0.0
@@ -33,22 +43,41 @@ jobs:
         with:
           name: alibaba-compatible-site
           path: dist-alibaba
+      - name: Preserve production and add the homepage preview
+        id: preview
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview
+        run: node scripts/prepare-preview.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
       - uses: actions/upload-pages-artifact@v5.0.0
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview)
         with:
-          path: dist
+          path: ${{ steps.preview.outputs.path || 'dist' }}
           include-hidden-files: true
   deploy:
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview)
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Check main has not changed during preview preparation
+        if: needs.build.outputs.production_sha != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ needs.build.outputs.production_sha }}
+        run: |
+          test "$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)" = "$EXPECTED_SHA"
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5.0.1
+      - name: Link to the preview
+        if: needs.build.outputs.production_sha != ''
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: echo "Homepage preview (main unchanged) — ${PAGE_URL%/}/preview/homepage/" >> "$GITHUB_STEP_SUMMARY"

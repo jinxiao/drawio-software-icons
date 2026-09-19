@@ -88,7 +88,7 @@ function homepageLoadLink() {
   const label=all?messages[locale].openEveryCollection:messages[locale].openAll.replace('{collection}',title(catalog.collections.find(c=>c.id==='alibaba-cloud')!));
   return `<a class="button primary" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(categories,locale)))}" target="_blank" rel="noopener noreferrer">${esc(label)}${svg('external')}</a>`;
 }
-function renderUpdateBanner() {
+function renderLatestUpdate() {
   const latest=catalog.changelog?.[0];
   if(!latest)return '';
   const t=messages[locale];
@@ -97,9 +97,11 @@ function renderUpdateBanner() {
   const labels={added:t.bannerAdded,updated:t.bannerUpdated,removed:t.bannerRemoved};
   const summary=(Object.keys(counts) as Change['kind'][]).filter(kind=>counts[kind]>0)
     .map(kind=>labels[kind].replace('{count}',String(counts[kind]))).join(' · ');
-  const names=[...new Set(latest.changes.flatMap(group=>group.icons.map(icon=>icon.name)))];
-  const preview=names.slice(0,3).join(locale==='en'?', ':'、')+(names.length>3?t.bannerMore:'');
-  return `<div class="latest-update"><a class="update-banner" href="#changelog"><span class="update-banner-label">${t.latestUpdate}<time datetime="${esc(latest.date)}">${esc(latest.date)}</time></span><span class="update-banner-copy"><strong>${esc(summary||latest.title[locale])}</strong><span>${esc(preview||latest.title[locale])}</span></span><span class="update-banner-action">${t.viewChangelog}${svg('arrow')}</span></a></div>`;
+  const refs=[...new Map(latest.changes.flatMap(group=>group.icons.map(icon=>[icon.id,{...icon,kind:group.kind}] as const))).values()].slice(0,4);
+  return `<aside class="home-updates" aria-labelledby="latest-update-title"><div class="home-update-meta"><span>${t.latestUpdate}</span><time datetime="${esc(latest.date)}">${esc(latest.date)}</time></div><h2 id="latest-update-title">${esc(latest.title[locale])}</h2>${summary?`<p class="home-update-count">${esc(summary)}</p>`:''}<div class="home-update-icons">${refs.map(ref=>{
+    const icon=catalog.icons.find(i=>i.id===ref.id);
+    return icon && ref.kind!=='removed'?`<button data-update-icon="${esc(ref.id)}" title="${t.locateCurrentIcon}: ${esc(ref.name)}"><img src="${file(icon.asset)}" width="24" height="24" alt=""><span>${esc(ref.name)}</span>${svg('arrow')}</button>`:`<span>${esc(ref.name)}</span>`;
+  }).join('')}</div><a class="home-update-link" href="#changelog">${t.viewChangelog}${svg('arrow')}</a></aside>`;
 }
 function renderChangelog() {
   const t=messages[locale],history=catalog.changelog??[],icons=new Map(catalog.icons.map(i=>[i.id,i]));
@@ -114,21 +116,20 @@ function renderShell() {
   const t=messages[locale];
   document.documentElement.lang=locale;
   document.title=locale==='en'?'Architecture Icons — for draw.io':'架构图标合集 — for draw.io';
-  const featured=['kubernetes','postgresql','docker','grafana','redis','python','git','react','nginx'];
   $('#app').innerHTML=`
     <a class="skip-link" href="#library">${t.browse}</a>
     <header class="topbar"><a class="brand" href="#" aria-label="Architecture Icons"><span class="brand-mark">${svg('grid')}</span><span>architecture<span class="brand-light">icons</span><small>for draw.io</small></span></a>
-      <nav aria-label="${locale==='en'?'Main navigation':'主导航'}"><a href="#library">${t.navLibrary}</a><a href="#guide">${t.navGuide}</a><a href="#sources">${t.navSources}</a></nav>
+      <nav aria-label="${locale==='en'?'Main navigation':'主导航'}"><a href="#library">${t.navLibrary}</a><a href="#changelog">${t.changelog}</a><a href="#guide">${t.navGuide}</a></nav>
       <div class="topbar-actions"><button class="button subtle quick-search" id="quick-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k" aria-label="${t.quickSearch}">${svg('search')}<span>${t.quickSearch}</span><kbd>/</kbd></button><button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button></div>
     </header>
     <main>
-      <section class="hero"><div class="hero-copy"><p class="eyebrow"><span></span>${t.eyebrow}</p>
-        <h1>${t.hero1}<br><em>${t.hero2}</em></h1><p class="intro">${t.intro}</p>
-        ${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="hero-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button><a class="button subtle" href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadHint}</p>
-        <div class="hero-contribute"><span>${t.contributeHint}</span><div><a class="button outline small" href="https://github.com/jinxiao/drawio-software-icons/issues/new/choose" target="_blank" rel="noopener noreferrer">${t.requestChange}${svg('external')}</a><a class="button subtle small" href="https://github.com/jinxiao/drawio-software-icons/compare" target="_blank" rel="noopener noreferrer">${t.submitPr}${svg('external')}</a></div></div>
-        <div class="hero-facts"><span><b>${catalog.icons.length}</b> ${t.icons}</span><i></i><span><b>${catalog.categories.length}</b> ${t.categories}</span><i></i><span>${t.vector}</span></div>
-      </div><div class="hero-art" aria-hidden="true"><div class="art-label">YOUR STACK, AT A GLANCE</div><div class="art-grid">${featured.map((id,i)=>`<div class="art-tile art-${i}"><img src="${file(`icons/${id}.svg`)}" alt="" width="48" height="48"></div>`).join('')}</div><div class="art-caption"><span class="status-dot"></span>SVG · DRAW.IO · OFFLINE READY</div><span class="art-plus">+</span></div></section>
-      ${renderUpdateBanner()}
+      <section class="home-overview" aria-labelledby="home-title">
+        <div class="home-intro"><p class="eyebrow"><span></span>${t.eyebrow}</p><h1 id="home-title">${t.hero1}<br><em>${t.hero2}</em></h1><p>${t.homeIntro}</p></div>
+        <div class="home-search"><button class="home-search-trigger" id="home-search" aria-haspopup="dialog" aria-controls="spotlight">${svg('search')}<span>${t.homeSearch}</span><kbd>/</kbd></button><div class="home-search-caption"><span>${t.homeSearchScope.replace('{count}',catalog.icons.length.toLocaleString(locale))}</span><a href="#library">${t.browse}${svg('arrow')}</a></div></div>
+        ${renderLatestUpdate()}
+        <div class="home-actions">${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="home-primary-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button></div><p class="home-load-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadShort}</p></div>
+      </section>
+      <div class="home-tools"><span>${catalog.categories.length} ${t.categories} <span aria-hidden="true">·</span> ${t.vector}</span><div><a href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a><a href="https://github.com/jinxiao/drawio-software-icons/issues/new/choose" target="_blank" rel="noopener noreferrer">${t.requestChange}${svg('external')}</a><a href="https://github.com/jinxiao/drawio-software-icons/compare" target="_blank" rel="noopener noreferrer">${t.submitPr}${svg('external')}</a></div></div>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
         <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">${t.library}</span><span class="tiny-pill">${catalog.icons.length}</span></div>
           <section class="sidebar-group" aria-labelledby="collection-heading">
@@ -164,6 +165,7 @@ function renderShell() {
   for(const theme of ['light','dark']) $('#'+theme).addEventListener('click',()=>{dark=theme==='dark';preference('icons-preview',theme);$('#grid').classList.toggle('dark-preview',dark);$('#light').setAttribute('aria-pressed',String(!dark));$('#dark').setAttribute('aria-pressed',String(dark));});
   $('#bundle').addEventListener('click',showBundle);
   $('#quick-search').addEventListener('click',showSpotlight);
+  $('#home-search').addEventListener('click',showSpotlight);
   document.querySelectorAll<HTMLButtonElement>('[data-collection]').forEach(button=>button.addEventListener('click',()=>{
     const collection=button.dataset.collection!;
     loadAllCollections=collection==='all';

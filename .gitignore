@@ -1,6 +1,7 @@
 node_modules/
 dist/
 dist-alibaba/
+.preview-pages/
 __pycache__/
 public/
 .sync-stage/
