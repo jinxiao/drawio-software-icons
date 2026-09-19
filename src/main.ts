@@ -2,6 +2,7 @@ import './style.css';
 import { configurationFor, mergeConfiguration } from './configuration.mjs';
 import { messages, type Locale } from './i18n';
 import { filterIcons, drawioUrl, isLocalSite, resolveCategory, libraryPaths } from './catalog.mjs';
+import { searchSpotlight, spotlightLocation, compareIconNames } from './spotlight.mjs';
 
 // Vite binds the application to the catalog generated for this build.
 declare const __CATALOG_FILE__: string;
@@ -94,7 +95,7 @@ function renderShell() {
     <a class="skip-link" href="#library">${t.browse}</a>
     <header class="topbar"><a class="brand" href="#" aria-label="Architecture Icons"><span class="brand-mark">${svg('grid')}</span><span>architecture<span class="brand-light">icons</span><small>for draw.io</small></span></a>
       <nav aria-label="${locale==='en'?'Main navigation':'主导航'}"><a href="#library">${t.navLibrary}</a><a href="#guide">${t.navGuide}</a><a href="#sources">${t.navSources}</a></nav>
-      <button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button>
+      <div class="topbar-actions"><button class="button subtle quick-search" id="quick-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k" aria-label="${t.quickSearch}">${svg('search')}<span>${t.quickSearch}</span><kbd>/</kbd></button><button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button></div>
     </header>
     <main>
       <section class="hero"><div class="hero-copy"><p class="eyebrow"><span></span>${t.eyebrow}</p>
@@ -115,7 +116,7 @@ function renderShell() {
           </section>
           ${openAllLink('primary open-all-sidebar')}
         </aside>
-        <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"><kbd>/</kbd></label>
+        <div class="library-main"><div class="search-row"><label class="search-box">${svg('search')}<input id="search" type="search" autocomplete="off" aria-label="${t.searchLabel}" placeholder="${t.search}" value="${esc(query)}"></label>
           <div class="background-toggle" role="group" aria-label="${t.preview}"><button id="light" aria-label="${t.light}" title="${t.light}" aria-pressed="${!dark}"><span class="light-dot"></span></button><button id="dark" aria-label="${t.dark}" title="${t.dark}" aria-pressed="${dark}"><span class="dark-dot"></span></button></div></div>
           <div class="filter-row" aria-label="${t.softwareType}">${['all','open-source','source-available','commercial','unverified'].map(type=>`<button class="filter-chip" data-type="${type}" aria-pressed="${type===activeType}">${type==='all'?t.allTypes:typeLabel(type)}</button>`).join('')}</div>
           <div class="section-heading"><div><h2 id="category-title"></h2><p id="category-description"></p></div><span id="result-count" class="result-count" role="status" aria-live="polite"></span></div>
@@ -127,6 +128,7 @@ function renderShell() {
       <section class="sources" id="sources"><div><p class="eyebrow">CLEAR ORIGINS, DEFINED USE</p><h2>${t.sourceTitle}</h2><p>${t.sourceText}</p><p>${t.commercialUse}</p><small>${t.brandNote}</small></div><div class="source-links"><a href="${file('compat/alibaba-cloud/NOTICE.md')}" target="_blank" rel="noopener noreferrer">Alibaba Cloud · Iconfont ${svg('external')}</a><a href="https://github.com/devicons/devicon" target="_blank" rel="noopener noreferrer">Devicon ${svg('external')}</a><a href="https://github.com/homarr-labs/dashboard-icons" target="_blank" rel="noopener noreferrer">Dashboard Icons ${svg('external')}</a><a href="https://github.com/lobehub/lobe-icons" target="_blank" rel="noopener noreferrer">Lobe Icons ${svg('external')}</a><a href="https://github.com/ant-design/ant-design-icons" target="_blank" rel="noopener noreferrer">Ant Design Icons ${svg('external')}</a><a href="https://github.com/bwks/vendor-icons-svg" target="_blank" rel="noopener noreferrer">Vendor Icons SVG ${svg('external')}</a><a href="${file('ICON_USAGE.md')}" target="_blank" rel="noopener noreferrer">${t.usagePolicy} ${svg('external')}</a><a href="${file('THIRD_PARTY_NOTICES.md')}" target="_blank" rel="noopener noreferrer">${t.notices} ${svg('external')}</a></div></section>
     </main><footer><span>${t.footer}<small>${t.footerNote}</small></span><div><a href="${file('guides/README.md')}" target="_blank" rel="noopener noreferrer">${t.englishGuide}</a><a href="${file('guides/README.zh-CN.md')}" target="_blank" rel="noopener noreferrer">${t.chineseGuide}</a><span>v${catalog.version}</span></div></footer>
     <dialog id="detail" aria-labelledby="detail-title"></dialog>
+    <dialog id="spotlight" aria-label="${t.quickSearch}"></dialog>
     <dialog id="bundle-dialog" aria-labelledby="bundle-title"></dialog>
     <dialog id="notice" aria-labelledby="notice-title"><button class="dialog-close" data-close="notice" aria-label="${t.close}">${svg('close')}</button><h2 id="notice-title">${t.navGuide}</h2><p id="notice-body"></p><a class="button primary" href="${file('downloads/drawio-icons.zip')}" download>${t.downloadAll}</a></dialog>`;
   $('#language').addEventListener('click',()=>{locale=locale==='en'?'zh-CN':'en';preference('icons-locale',locale);renderShell();});
@@ -135,6 +137,7 @@ function renderShell() {
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(button=>button.addEventListener('click',()=>{activeType=button.dataset.type!;limit=72;updateUrl();renderResults();}));
   for(const theme of ['light','dark']) $('#'+theme).addEventListener('click',()=>{dark=theme==='dark';preference('icons-preview',theme);$('#grid').classList.toggle('dark-preview',dark);$('#light').setAttribute('aria-pressed',String(!dark));$('#dark').setAttribute('aria-pressed',String(dark));});
   $('#bundle').addEventListener('click',showBundle);
+  $('#quick-search').addEventListener('click',showSpotlight);
   document.querySelectorAll<HTMLButtonElement>('[data-collection]').forEach(button=>button.addEventListener('click',()=>{
     const collection=button.dataset.collection!;
     loadAllCollections=collection==='all';
@@ -151,7 +154,7 @@ function renderShell() {
 function renderResults() {
   const t=messages[locale], c=catalog.categories.find(c=>c.id===activeCategory);
   const results=filterIcons(catalog.icons,catalog.categories,query,activeCategory,activeType,browseCollection()) as Icon[];
-  results.sort((a,b)=>a.name.localeCompare(b.name,'en'));
+  results.sort(compareIconNames);
   $('#category-title').textContent=c?title(c):loadAllCollections?t.allIcons:title(catalog.collections.find(c=>c.id===activeCollection)!);
   $('#category-description').textContent=c?description(c):t.allDescription;
   $('#result-count').textContent=`${results.length} ${t.results}`;
@@ -168,6 +171,69 @@ function renderResults() {
   if(!results.length) $('#clear').addEventListener('click',()=>{query='';activeCategory='all';activeType='all';loadAllCollections=true;resetSelectionToScope();updateUrl();renderShell();$('#search').focus();});
   $('#more').innerHTML=results.length>limit?`<span>${t.showing} ${limit}${t.of}${results.length}</span><button class="button outline" id="load-more">${t.loadMore}${svg('arrow')}</button>`:'';
   if(results.length>limit) $('#load-more').addEventListener('click',()=>{limit+=72;renderResults();});
+}
+function locateIcon(icon:Icon) {
+  const location=spotlightLocation(catalog.icons,catalog.categories,icon.id);
+  if(!location)return;
+  $<HTMLDialogElement>('#spotlight').close();
+  activeCollection=location.collection;activeCategory=location.category;
+  loadAllCollections=false;activeType='all';query='';limit=location.limit;
+  updateUrl();renderShell();
+  const card=document.querySelector<HTMLButtonElement>(`[data-icon="${CSS.escape(icon.id)}"]`);
+  if(card) {
+    card.classList.add('icon-located');
+    card.focus({preventScroll:true});
+    card.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    setTimeout(()=>card.classList.remove('icon-located'),3000);
+  }
+}
+function showSpotlight() {
+  if(!catalog || document.querySelector('dialog[open]'))return;
+  const t=messages[locale],dialog=$<HTMLDialogElement>('#spotlight');
+  dialog.innerHTML=`<div class="spotlight-search">${svg('search')}<input id="spotlight-input" type="text" role="combobox" aria-label="${t.quickSearch}" aria-autocomplete="list" aria-expanded="true" aria-controls="spotlight-results" aria-describedby="spotlight-scope" placeholder="${t.spotlightPlaceholder}" autocomplete="off" spellcheck="false" autofocus><button class="spotlight-close" data-close="spotlight" aria-label="${t.close}"><kbd>Esc</kbd></button></div><p id="spotlight-scope" class="spotlight-scope">${t.spotlightScope}</p><div id="spotlight-results" role="listbox" aria-label="${t.spotlightResults}"></div><p id="spotlight-status" class="spotlight-status" role="status" aria-live="polite"></p><div class="spotlight-help"><span><kbd>↑</kbd><kbd>↓</kbd> ${t.spotlightMove}</span><span><kbd>↵</kbd> ${t.spotlightLocate}</span><span><kbd>Esc</kbd> ${t.close}</span></div>`;
+  const input=$<HTMLInputElement>('#spotlight-input'),list=$('#spotlight-results');
+  let matches:Icon[]=[],active=-1;
+  const select=(index:number,scroll=false)=>{
+    active=index;
+    list.querySelectorAll<HTMLElement>('[role="option"]').forEach((row,i)=>row.setAttribute('aria-selected',String(i===active)));
+    if(active<0){input.removeAttribute('aria-activedescendant');return;}
+    input.setAttribute('aria-activedescendant',`spotlight-option-${active}`);
+    if(scroll)document.getElementById(`spotlight-option-${active}`)?.scrollIntoView({block:'nearest'});
+  };
+  const render=()=>{
+    const results=searchSpotlight(catalog.icons,catalog.categories,input.value) as Icon[];
+    matches=results.slice(0,40);
+    list.innerHTML=matches.map((icon,index)=>{
+      const category=catalog.categories.find(c=>c.id===icon.category)!;
+      return `<div id="spotlight-option-${index}" class="spotlight-option" role="option" aria-selected="false" data-result="${index}"><span class="spotlight-art${dark?' dark-preview':''}"><img src="${file(icon.asset)}" width="32" height="32" alt=""></span><span class="spotlight-label"><strong>${esc(iconName(icon))}</strong><small>${esc(title(category))}</small></span><span class="spotlight-enter" aria-hidden="true">↵</span></div>`;
+    }).join('');
+    $('#spotlight-status').textContent=results.length?`${results.length} ${t.results}${results.length>matches.length?` · ${t.spotlightLimit.replace('{count}',String(matches.length))}`:''}`:t.spotlightEmpty;
+    list.scrollTop=0;select(matches.length?0:-1);
+  };
+  input.addEventListener('input',render);
+  input.addEventListener('keydown',event=>{
+    if(event.isComposing || event.keyCode===229)return;
+    if(event.key==='ArrowDown' || event.key==='ArrowUp') {
+      event.preventDefault();
+      if(matches.length)select((active+(event.key==='ArrowDown'?1:-1)+matches.length)%matches.length,true);
+    } else if(event.key==='Enter') {
+      event.preventDefault();if(matches[active])locateIcon(matches[active]);
+    }
+  });
+  list.addEventListener('click',event=>{
+    const row=(event.target as Element).closest<HTMLElement>('[data-result]');
+    if(row && matches[Number(row.dataset.result)])locateIcon(matches[Number(row.dataset.result)]);
+  });
+  // Keep keyboard focus in the combobox when clicking a result.
+  list.addEventListener('mousedown',event=>{
+    if((event.target as Element).closest('[data-result]'))event.preventDefault();
+  });
+  dialog.onclick=event=>{
+    if(event.target!==dialog)return;
+    const box=dialog.getBoundingClientRect();
+    if(event.clientX<box.left || event.clientX>box.right || event.clientY<box.top || event.clientY>box.bottom)dialog.close();
+  };
+  render();dialog.showModal();input.focus();
 }
 function showDetail(icon:Icon) {
   const t=messages[locale],c=catalog.categories.find(c=>c.id===icon.category)!;
@@ -232,8 +298,10 @@ document.addEventListener('click',event=>{
   if(close) $<HTMLDialogElement>('#'+close.dataset.close).close();
 });
 document.addEventListener('keydown',event=>{
-  if(document.querySelector('dialog[open]') || (event.target as Element).matches('input,textarea,select,[contenteditable]'))return;
-  if(event.key==='/' || ((event.metaKey||event.ctrlKey)&&event.key==='k')) {event.preventDefault();$('#search')?.focus();}
+  if(event.defaultPrevented || event.repeat || event.isComposing || event.keyCode===229 || document.querySelector('dialog[open]') || (event.target as Element).closest('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"]'))return;
+  const slash=event.key==='/'&&!event.ctrlKey&&!event.metaKey&&!event.altKey;
+  const commandK=(event.metaKey||event.ctrlKey)&&!event.altKey&&event.key.toLowerCase()==='k';
+  if(slash || commandK) {event.preventDefault();showSpotlight();}
 });
 async function init() {
   try {

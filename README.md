@@ -20,6 +20,12 @@ English product name exists; categories, browsing and setup are bilingual.
 - The sidebar follows **Collection → Category**: choose **Alibaba Cloud**, **General Software** or **All collections**, then a category below. All rows share the same button style. Switching collections resets the category filter; **All categories** only clears that filter. The main homepage’s first button always loads all collections. The Alibaba homepage has a separate checkbox: unchecked loads Alibaba Cloud, checked loads all collections. Sidebar choices do not change either homepage action. Existing XML,
   JSON, SVG, plugin and ZIP URLs continue to work; the two old `catalog.json` schemas remain separate.
 
+**Spotlight search:** press `/` or `Ctrl/Cmd + K` outside a text field, or click
+**Quick search** in the header. Search across every collection by Chinese/English
+name, alias or category. Use ↑/↓ and Enter, or click a result, to switch to its
+category and scroll to the highlighted icon, including icons on later pages.
+Esc closes the dialog. Existing page filters do not limit this search.
+
 **Desktop with existing configuration:** open **Choose categories / desktop setup**, select
 categories from either collection, and copy your existing JSON from Desktop's
 **Extras → Configuration** into the optional input. Click **Generate / merge
