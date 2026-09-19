@@ -32,6 +32,7 @@ let activeCollection=loadAllCollections?defaultCollection:(params.get('collectio
 let dark=readPreference('icons-preview')==='dark', limit=72;
 let catalog:Catalog;
 let configGeneration=0;
+let cleanupFloatingSearch=()=>{};
 const selected=new Set<string>();
 const siteBase=new URL('./',location.href).href;
 const local=isLocalSite(siteBase);
@@ -112,7 +113,40 @@ function renderChangelog() {
   }).join('')}</div>${!group.icons.length?`<p>${t.collectionImport}</p><button class="button outline small" data-update-collection="${esc(group.collection)}">${t.browse}</button>`:''}</div>`).join('')}${entry.commit?`<a class="update-commit" href="https://github.com/jinxiao/drawio-software-icons/commit/${entry.commit}" target="_blank" rel="noopener noreferrer">${t.viewChange}${svg('external')}</a>`:''}</div></details>`;
   return `<section class="updates" id="changelog" aria-labelledby="updates-title"><div class="updates-heading"><div><p class="eyebrow">${t.changelogEyebrow}</p><h2 id="updates-title">${t.changelog}</h2><p>${t.changelogIntro}</p></div><a class="button outline small" href="${file(locale==='en'?'CHANGELOG.md':'CHANGELOG.zh-CN.md')}" download>${svg('download')}${t.downloadChangelog}</a></div><div class="update-list">${history.slice(0,3).map(record).join('')}${history.length>3?`<details class="update-history"><summary>${t.olderUpdates} (${history.length-3})</summary>${history.slice(3).map((entry,i)=>record(entry,i+3)).join('')}</details>`:''}</div></section>`;
 }
+function setupFloatingSearch() {
+  const anchor=$('.home-search-anchor'),button=$('#home-search'),root=document.documentElement;
+  let frame=0,needsMeasure=true;
+  const update=()=>{
+    frame=0;
+    const wasFloating=anchor.classList.contains('is-floating');
+    if(needsMeasure) {
+      // Measure the original slot even when the button is floating at a different width.
+      anchor.classList.remove('is-floating');
+      anchor.style.height='';
+      anchor.style.height=`${button.getBoundingClientRect().height}px`;
+    }
+    const floating=anchor.getBoundingClientRect().top<=12;
+    anchor.classList.toggle('is-floating',floating);
+    if(needsMeasure || wasFloating!==floating)root.style.setProperty('--floating-search-height',`${button.getBoundingClientRect().height}px`);
+    needsMeasure=false;
+  };
+  const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
+  const measure=()=>{needsMeasure=true;schedule();};
+  const observer=new ResizeObserver(measure);
+  observer.observe(anchor);
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',measure);
+  update();
+  cleanupFloatingSearch=()=>{
+    observer.disconnect();
+    window.removeEventListener('scroll',schedule);
+    window.removeEventListener('resize',measure);
+    cancelAnimationFrame(frame);
+    root.style.removeProperty('--floating-search-height');
+  };
+}
 function renderShell() {
+  cleanupFloatingSearch();
   const t=messages[locale];
   document.documentElement.lang=locale;
   document.title=locale==='en'?'Architecture Icons — for draw.io':'架构图标合集 — for draw.io';
@@ -125,7 +159,7 @@ function renderShell() {
     <main>
       <section class="home-overview" aria-labelledby="home-title">
         <div class="home-intro"><p class="eyebrow"><span></span>${t.eyebrow}</p><h1 id="home-title">${t.hero1}<br><em>${t.hero2}</em></h1><p>${t.homeIntro}</p></div>
-        <div class="home-search"><button class="home-search-trigger" id="home-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k">${svg('search')}<span>${t.homeSearch}</span><kbd>/</kbd></button><div class="home-search-caption"><span>${t.homeSearchScope.replace('{count}',catalog.icons.length.toLocaleString(locale))}</span><a href="#library">${t.browse}${svg('arrow')}</a></div></div>
+        <div class="home-search"><div class="home-search-anchor"><button class="home-search-trigger" id="home-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k">${svg('search')}<span>${t.homeSearch}</span><kbd>/</kbd></button></div><div class="home-search-caption"><span>${t.homeSearchScope.replace('{count}',catalog.icons.length.toLocaleString(locale))}</span><a href="#library">${t.browse}${svg('arrow')}</a></div></div>
         ${renderLatestUpdate()}
         <div class="home-actions">${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="home-primary-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button></div><p class="home-load-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadShort}</p></div>
       </section>
@@ -176,6 +210,7 @@ function renderShell() {
     document.querySelector<HTMLInputElement>('[data-load-all]')?.focus();
   }));
   renderResults();
+  setupFloatingSearch();
 }
 function renderResults() {
   const t=messages[locale], c=catalog.categories.find(c=>c.id===activeCategory);
