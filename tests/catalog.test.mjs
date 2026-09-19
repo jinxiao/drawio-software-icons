@@ -78,6 +78,23 @@ test('Ubuntu preserves the official round SVG through draw.io export',async()=>{
   assert.deepEqual(readLibrary(libraryXml([entry])),[entry]);
 });
 
+test('Grafana product gradients retain their paint definitions through draw.io XML export',async()=>{
+  const official=await json('data/official-icons.json');
+  for(const id of ['loki','tempo','mimir']) {
+    const icon=catalog.icons.find(i=>i.id===id);
+    const svg=await readFile(`assets/${icon.asset}`,'utf8');
+    assert.equal(hash(svg),official[id].sha256,id);
+    const gradients=[...svg.matchAll(/<linearGradient\b[^>]*\bid="([^"]+)"/g)].map(match=>match[1]);
+    assert.ok(gradients.length>0,`${id}: gradient definitions`);
+    assert.ok(new Set([...svg.matchAll(/stop-color="([^"]+)"/g)].map(match=>match[1])).size>=2,`${id}: multiple gradient colors`);
+    const references=[...svg.matchAll(/url\(#([^)]*)\)/g)].map(match=>match[1]);
+    assert.ok(references.length>0,`${id}: artwork uses gradients`);
+    assert.ok(references.every(ref=>gradients.includes(ref)),`${id}: every gradient reference resolves`);
+    const [entry]=readLibrary(libraryXml([libraryEntry(icon,svg)]));
+    assert.equal(Buffer.from(entry.data.split(',')[1],'base64').toString('utf8'),svg,`${id}: preserve original SVG and CSS`);
+  }
+});
+
 test('Chinese messaging products use pinned official color PNGs and Feishu is distinct from Lark',async()=>{
   const official=await json('data/official-icons.json');
   for(const id of ['wechat','wecom','dingtalk','feishu']) {

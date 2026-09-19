@@ -23,9 +23,9 @@ Ubuntu 使用 [Ubuntu 官方社区素材页](https://discourse.ubuntu.com/t/ubun
 
 原始来源、固定提交、原文件 SHA-256、处理后 SHA-256 和图标集许可链接均记录在清单中。每项图标的详情页也提供来源和许可链接。
 
-Grafana Loki, Tempo, Mimir, Alloy and Pyroscope use unmodified SVG artwork linked from [Grafana's official open-source page](https://grafana.com/oss/), with original URLs and SHA-256 pins. Software licenses do not grant rights to these logos; [Grafana's trademark policy](https://grafana.com/trademark-policy/) remains applicable. VictoriaMetrics, VictoriaLogs, Thanos, Alertmanager, Vector and SigNoz use the pinned Dashboard Icons collection; these are upstream-collected assets, not individually authorized publisher downloads. VictoriaMetrics retains the upstream monochrome mark.
+Grafana Loki, Tempo, Mimir, Alloy and Pyroscope use unmodified SVG artwork linked from Grafana's official open-source and product pages, with original URLs and SHA-256 pins. Loki, Tempo and Mimir use the gradient originals from their respective [Loki](https://grafana.com/oss/loki/), [Tempo](https://grafana.com/oss/tempo/) and [Mimir](https://grafana.com/oss/mimir/) pages; Alloy retains the official orange mark. Software licenses do not grant rights to these logos; [Grafana's trademark policy](https://grafana.com/trademark-policy/) remains applicable. VictoriaMetrics, VictoriaLogs, Thanos, Alertmanager, Vector and SigNoz use the pinned Dashboard Icons collection; these are upstream-collected assets, not individually authorized publisher downloads. VictoriaMetrics retains the upstream monochrome mark.
 
-Grafana Loki、Tempo、Mimir、Alloy、Pyroscope 使用官网开源项目页提供的原始 SVG，记录原链接并固定 SHA-256，软件许可证不代表 Logo 授权。VictoriaMetrics、VictoriaLogs、Thanos、Alertmanager、Vector、SigNoz 来自固定版本的 Dashboard Icons，不声称为逐项授权的官方素材下载；VictoriaMetrics 保留上游单色标志。
+Grafana Loki、Tempo、Mimir、Alloy、Pyroscope 使用官网开源项目页和产品页提供的原始 SVG，记录原链接并固定 SHA-256；Loki、Tempo、Mimir 选用各自产品页的渐变原图，Alloy 保持官方橙色标志。软件许可证不代表 Logo 授权。VictoriaMetrics、VictoriaLogs、Thanos、Alertmanager、Vector、SigNoz 来自固定版本的 Dashboard Icons，不声称为逐项授权的官方素材下载；VictoriaMetrics 保留上游单色标志。
 
 ## Modifications / 处理方式
 

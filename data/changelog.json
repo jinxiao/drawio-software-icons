@@ -1,5 +1,37 @@
 [
   {
+    "id": "sync-2026-09-19-fe2a615d4d6b-10",
+    "date": "2026-09-19",
+    "title": {
+      "en": "Official gradients for Loki, Tempo and Mimir",
+      "zh-CN": "修正 Loki、Tempo、Mimir 官方渐变图标"
+    },
+    "summary": {
+      "en": "Replaced the flat orange variants of Grafana Loki, Tempo and Mimir with the original gradient SVGs from their official product pages. Gradients are preserved in previews, downloads and draw.io libraries. Alloy retains its official orange artwork.",
+      "zh-CN": "将 Grafana Loki、Tempo、Mimir 的纯橙色版本替换为官方产品页提供的原始渐变 SVG，预览、下载和 draw.io 图标库均保留渐变。Alloy 保持官方橙色图标。"
+    },
+    "changes": [
+      {
+        "kind": "updated",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "loki",
+            "name": "Grafana Loki"
+          },
+          {
+            "id": "mimir",
+            "name": "Grafana Mimir"
+          },
+          {
+            "id": "tempo",
+            "name": "Grafana Tempo"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "release-060a09b",
     "date": "2026-09-19",
     "commit": "060a09b",
