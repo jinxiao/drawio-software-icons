@@ -4,6 +4,7 @@ import { selection } from '../data/selection.mjs';
 import { communicationMetadata } from '../data/communication.mjs';
 import { aiMetadata, aiSourcePaths } from '../data/ai.mjs';
 import { observabilityMetadata } from '../data/observability.mjs';
+import { syncChangelogEntry, validateChangelog } from './changelog.mjs';
 import { hash, json, save, saveJson, inspectSvg, inspectPng, normalizeSvg, packageOfficialPng } from './lib.mjs';
 
 const definitions = {
@@ -145,10 +146,19 @@ if(oldCatalog && !changed.length && !removed.length && !licenseChanged) {
   await save('.update-summary.md','No selected icon or license changes.\n');
   console.log('No selected icon or license changes; existing pins retained.');
 } else {
+  const history=validateChangelog(await json('data/changelog.json'));
+  const date=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const entry=syncChangelogEntry(oldIcons,changed,removed,licenseChanged,date);
+  if(entry) {
+    // Preserve separate batches, even when the same icon changes twice in one day.
+    entry.id+=`-${history.length+1}`;
+    history.unshift(entry);
+  }
   await cp(`${stage}/assets`,'assets',{recursive:true});
   await cp(`${stage}/licenses`,'licenses',{recursive:true});
   await saveJson('data/catalog.json',catalog);
   await saveJson('data/sources.lock.json',pins);
+  await saveJson('data/changelog.json',history);
   const summary = `## 图标更新\n\n更新或新增 ${changed.length} 项，移除 ${removed.length} 项。\n\n${changed.map(i=>`- ${i.name} (${i.id})`).join('\n')}\n${removed.map(id=>`- 移除 ${id}`).join('\n')}\n\n上游许可变化：${licenseChanged ? '是' : '否'}。请在合并前检查图标与来源信息。\n`;
   await save('.update-summary.md',summary);
   console.log(`Saved ${icons.length} icons and locked provenance.`);

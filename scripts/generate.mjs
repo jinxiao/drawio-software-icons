@@ -3,6 +3,7 @@ import { resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { zipSync, strToU8 } from 'fflate';
 import { json,save,hash,libraryEntry,libraryXml,readLibrary } from './lib.mjs';
+import {changelogMarkdown} from './changelog.mjs';
 import { categoryAliases } from '../data/taxonomy.mjs';
 // Only this script's generated output may be cleaned; never follow an output symlink.
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
@@ -61,6 +62,13 @@ for(const file of await readdir('licenses')) {const content=await readFile(`lice
 for(const file of ['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE','data/official-icons.json','docs/DEPLOYMENT.md']) {
   const content=await readFile(file);await save(`public/${file}`,content);addZip(file,content);
 }
+const history=await json('data/changelog.json');
+for(const [locale,path] of [['en','CHANGELOG.md'],['zh-CN','CHANGELOG.zh-CN.md']]) {
+  const content=changelogMarkdown(history,locale);
+  await save(`public/${path}`,content);addZip(path,content);
+}
+const historyJson=JSON.stringify(history,null,2)+'\n';
+await save('public/changelog.json',historyJson);addZip('changelog.json',historyJson);
 const zip=zipSync(zipFiles,{level:6});
 await save('public/downloads/drawio-software-icons.zip',zip);
 await save('public/.nojekyll','');

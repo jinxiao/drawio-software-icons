@@ -54,6 +54,11 @@ hourly or on manual dispatch. See [deployment details](docs/DEPLOYMENT.md).
 
 ## Monitoring and observability
 
+See the bilingual [changelog](https://jinxiao.github.io/drawio-software-icons/#changelog)
+for each batch of added, corrected or removed icons. Select an icon in the timeline
+to locate its current version. Both English and Chinese Markdown logs are included
+in the software and unified offline ZIPs; the website follows the selected language.
+
 The **Monitoring & Security** category now includes Grafana Loki, Tempo, Mimir,
 Alloy and Pyroscope, plus VictoriaMetrics, VictoriaLogs, Thanos, Prometheus
 Alertmanager, Vector and SigNoz. Existing Grafana, Prometheus, OpenTelemetry,

@@ -41,6 +41,10 @@
 
 ## 监控与可观测性
 
+可在首页[更新日志](https://jinxiao.github.io/drawio-software-icons/#changelog)查看每批新增、
+修正或移除的图标，点击名称可定位当前版本。日志跟随网站语言切换，通用软件及完整合集的
+离线 ZIP 均附带中英文 Markdown 日志。
+
 「监控与安全」分类新增 Grafana Loki、Tempo、Mimir、Alloy、Pyroscope，以及
 VictoriaMetrics、VictoriaLogs、Thanos、Prometheus Alertmanager、Vector、SigNoz。
 已有 Grafana、Prometheus、OpenTelemetry、Jaeger、Zabbix、Netdata 等继续保留；

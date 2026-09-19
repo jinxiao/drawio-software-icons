@@ -1,10 +1,14 @@
 import {readFile} from 'node:fs/promises';
 import {selection} from '../data/selection.mjs';
 import {json,hash,inspectSvg,inspectPng,packageOfficialPng} from './lib.mjs';
+import {validateChangelog} from './changelog.mjs';
 const catalog = await json('data/catalog.json');
 const categories = await json('data/categories.json');
 const sources = await json('data/sources.lock.json');
 const officialIcons = await json('data/official-icons.json');
+const history=validateChangelog(await json('data/changelog.json'));
+const documented=new Set(history.flatMap(entry=>entry.changes.filter(c=>c.collection==='software'&&c.kind==='added').flatMap(c=>c.icons.map(i=>i.id))));
+for(const icon of catalog.icons)if(!documented.has(icon.id))throw Error(`Missing added-icon changelog entry: ${icon.id}`);
 const fail = message => {throw Error(message);};
 if(catalog.schemaVersion !== 1 || catalog.icons.length < 300) fail('Catalog must contain at least 300 icons');
 const ids = new Set(), categoryIds = new Set(categories.map(c=>c.id));

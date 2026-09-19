@@ -2,8 +2,16 @@ import assert from 'node:assert/strict';
 import {readFile,readdir} from 'node:fs/promises';
 import {unzipSync,strFromU8} from 'fflate';
 import {json,hash,parser,readLibrary} from './lib.mjs';
+import {changelogMarkdown} from './changelog.mjs';
 const catalog=await json('dist/catalog.json');
 const zip=unzipSync(await readFile('dist/downloads/drawio-software-icons.zip'));
+const history=await json('data/changelog.json');
+for(const [locale,path] of [['en','CHANGELOG.md'],['zh-CN','CHANGELOG.zh-CN.md']]) {
+  const expected=changelogMarkdown(history,locale);
+  assert.equal(await readFile(`dist/${path}`,'utf8'),expected,path);
+  assert.equal(strFromU8(zip[path]),expected,path);
+}
+assert.deepEqual(JSON.parse(strFromU8(zip['changelog.json'])),history);
 const docs=['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','LICENSE','data/official-icons.json',...(await readdir('licenses')).map(name=>`licenses/${name}`)];
 for(const path of docs) {
   const source=await readFile(path,'utf8');

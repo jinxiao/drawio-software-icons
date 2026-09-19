@@ -11,6 +11,9 @@ assert.equal(unified.icons.length,software.icons.length+alibaba.entries.length);
 assert.equal(unified.categories.length,software.categories.length+alibaba.categories.length);
 assert.equal(new Set(unified.icons.map(i=>i.id)).size,unified.icons.length);
 const archive=unzipSync(await readFile('dist/downloads/drawio-icons.zip'));
+assert.deepEqual(unified.changelog,await json('data/changelog.json'));
+assert.deepEqual(JSON.parse(strFromU8(archive['changelog.json'])),unified.changelog);
+for(const path of ['CHANGELOG.md','CHANGELOG.zh-CN.md','changelog.json'])assert.equal(await readFile(`dist-alibaba/${path}`,'utf8'),await readFile(`dist/${path}`,'utf8'));
 assert.equal(readLibrary(strFromU8(archive['libraries/combined.xml'])).length,unified.icons.length);
 assert.deepEqual(JSON.parse(strFromU8(archive['catalog.json'])),unified);
 for(const c of unified.categories) {

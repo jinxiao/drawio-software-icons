@@ -38,5 +38,6 @@ jobs:
           add-paths: |
             data/catalog.json
             data/sources.lock.json
+            data/changelog.json
             assets/icons
             licenses

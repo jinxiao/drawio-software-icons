@@ -22,6 +22,10 @@ Already have changes? Use **Submit a PR** on the homepage or [compare your branc
 
 ## Localization / 中英文
 
+Icon update history lives in `data/changelog.json`, newest batch first, with dates in Asia/Shanghai. `npm run sync` automatically appends added, updated and removed software icon groups (and license-only changes); review its generated English and Chinese title/summary before merging. Manual artwork changes and collection imports must add an entry too. Keep historical names and removed IDs, and record separate batches rather than overwriting past entries. Validation requires every current software icon to have an addition record. Builds generate both Markdown changelogs, the website timeline and offline ZIP copies from this single source.
+
+图标日志维护在 `data/changelog.json`，最新批次在前，日期采用 Asia/Shanghai。采集脚本自动记录新增、更新、移除及许可变更，合并前可补充具体的中英文说明；手动替换素材或合并图标集也须添加记录。保留历史名称及已移除 ID，不覆盖旧批次。构建会从同一份数据生成网站时间线、中英文 Markdown 和离线包中的日志。
+
 Observability additions live in `data/observability.mjs`, including bilingual aliases and telemetry-specific tags. Keep them in the existing Monitoring & Security category. Grafana publisher SVGs are pinned in `data/official-icons.json` with `format: "svg"` and preserved unchanged. Dashboard Icons additions use their existing pinned revision. Software project licensing is separate from artwork rights; do not classify hosted or enterprise editions from the community repository's license.
 
 监控类新增项目维护于 `data/observability.mjs`，补充中英文别名及日志、指标、追踪等搜索标签，沿用「监控与安全」分类。Grafana 官方 SVG 在素材清单中固定版本并原样保留；不要将社区版的软件许可套用到品牌图标、托管服务或企业版。

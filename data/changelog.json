@@ -1,0 +1,2037 @@
+[
+  {
+    "id": "release-060a09b",
+    "date": "2026-09-19",
+    "commit": "060a09b",
+    "title": {
+      "en": "Grafana ecosystem and observability tools",
+      "zh-CN": "Grafana 生态与可观测性工具"
+    },
+    "summary": {
+      "en": "Added Loki, Tempo, Mimir, Alloy, Pyroscope, VictoriaMetrics, VictoriaLogs, Thanos, Alertmanager, Vector and SigNoz. Includes bilingual search aliases.",
+      "zh-CN": "新增 Loki、Tempo、Mimir、Alloy、Pyroscope、VictoriaMetrics、VictoriaLogs、Thanos、Alertmanager、Vector、SigNoz，并补充中英文搜索别名。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "alertmanager",
+            "name": "Prometheus Alertmanager"
+          },
+          {
+            "id": "alloy",
+            "name": "Grafana Alloy"
+          },
+          {
+            "id": "loki",
+            "name": "Grafana Loki"
+          },
+          {
+            "id": "mimir",
+            "name": "Grafana Mimir"
+          },
+          {
+            "id": "pyroscope",
+            "name": "Grafana Pyroscope"
+          },
+          {
+            "id": "signoz",
+            "name": "SigNoz"
+          },
+          {
+            "id": "tempo",
+            "name": "Grafana Tempo"
+          },
+          {
+            "id": "thanos",
+            "name": "Thanos"
+          },
+          {
+            "id": "vector",
+            "name": "Vector"
+          },
+          {
+            "id": "victorialogs",
+            "name": "VictoriaLogs"
+          },
+          {
+            "id": "victoriametrics",
+            "name": "VictoriaMetrics"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-dd96657",
+    "date": "2026-09-18",
+    "commit": "dd96657",
+    "title": {
+      "en": "Ubuntu round logo",
+      "zh-CN": "Ubuntu 圆形图标"
+    },
+    "summary": {
+      "en": "Replaced the vertical tag with Canonical’s original round Circle of Friends SVG.",
+      "zh-CN": "将竖条标签版替换为 Canonical 官方圆形 Circle of Friends SVG。"
+    },
+    "changes": [
+      {
+        "kind": "updated",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "ubuntu",
+            "name": "Ubuntu"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-5339a13",
+    "date": "2026-09-17",
+    "commit": "5339a13",
+    "title": {
+      "en": "Alibaba Cloud collection",
+      "zh-CN": "合并阿里云图标集"
+    },
+    "summary": {
+      "en": "Imported 888 Alibaba Cloud icon entries across 9 categories while preserving both original site URLs. Counts include color variants and UI symbols.",
+      "zh-CN": "合并 9 类、888 个阿里云图标条目，保留两个旧站网址。条目数包含颜色变体和 UI 图形。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "alibaba-cloud",
+        "icons": [],
+        "count": 888
+      }
+    ]
+  },
+  {
+    "id": "release-ba9cbe4",
+    "date": "2026-09-17",
+    "commit": "ba9cbe4",
+    "title": {
+      "en": "AI tools and brands",
+      "zh-CN": "AI 工具与品牌"
+    },
+    "summary": {
+      "en": "Added 16 AI tools and brands, including vLLM, DeepSeek, Qwen, Gemini, ChatGPT and Claude.",
+      "zh-CN": "新增 16 个 AI 工具与品牌，包括 vLLM、DeepSeek、Qwen、Gemini、ChatGPT、Claude。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "chatgpt",
+            "name": "ChatGPT"
+          },
+          {
+            "id": "claude",
+            "name": "Claude"
+          },
+          {
+            "id": "comfyui",
+            "name": "ComfyUI"
+          },
+          {
+            "id": "cursor",
+            "name": "Cursor"
+          },
+          {
+            "id": "deepseek",
+            "name": "DeepSeek"
+          },
+          {
+            "id": "dify",
+            "name": "Dify"
+          },
+          {
+            "id": "gemini",
+            "name": "Google Gemini"
+          },
+          {
+            "id": "github-copilot",
+            "name": "GitHub Copilot"
+          },
+          {
+            "id": "huggingface",
+            "name": "Hugging Face"
+          },
+          {
+            "id": "langchain",
+            "name": "LangChain"
+          },
+          {
+            "id": "llamaindex",
+            "name": "LlamaIndex"
+          },
+          {
+            "id": "lmstudio",
+            "name": "LM Studio"
+          },
+          {
+            "id": "open-webui",
+            "name": "Open WebUI"
+          },
+          {
+            "id": "perplexity",
+            "name": "Perplexity"
+          },
+          {
+            "id": "qwen",
+            "name": "Qwen"
+          },
+          {
+            "id": "vllm",
+            "name": "vLLM"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-ba366a7",
+    "date": "2026-09-17",
+    "commit": "ba366a7",
+    "title": {
+      "en": "DingTalk rounded presentation",
+      "zh-CN": "钉钉圆角显示"
+    },
+    "summary": {
+      "en": "Added a rounded SVG clip around the unchanged official PNG, including downloads and draw.io libraries.",
+      "zh-CN": "使用 SVG 包装为官方 PNG 添加圆角显示，原 PNG 不变，下载文件与 draw.io 图标库同步生效。"
+    },
+    "changes": [
+      {
+        "kind": "updated",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "dingtalk",
+            "name": "DingTalk"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-62b8b1e",
+    "date": "2026-09-16",
+    "commit": "62b8b1e",
+    "title": {
+      "en": "Official color messaging artwork",
+      "zh-CN": "官方彩色通讯图标"
+    },
+    "summary": {
+      "en": "Added Feishu as a separate entry from Lark. Replaced WeChat, WeCom and DingTalk artwork with official publisher PNGs.",
+      "zh-CN": "新增独立的飞书条目，与 Lark 区分；微信、企业微信、钉钉替换为官方发布者的彩色 PNG。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "feishu",
+            "name": "Feishu"
+          }
+        ]
+      },
+      {
+        "kind": "updated",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "dingtalk",
+            "name": "DingTalk"
+          },
+          {
+            "id": "wechat",
+            "name": "WeChat"
+          },
+          {
+            "id": "wecom",
+            "name": "WeCom"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-03d1457",
+    "date": "2026-09-16",
+    "commit": "03d1457",
+    "title": {
+      "en": "Messaging and enterprise applications",
+      "zh-CN": "即时通讯与企业应用"
+    },
+    "summary": {
+      "en": "Added 17 messaging and enterprise products, including Microsoft Teams and ServiceNow.",
+      "zh-CN": "新增 17 个即时通讯与企业应用图标，包括 Microsoft Teams 和 ServiceNow。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "dingtalk",
+            "name": "DingTalk"
+          },
+          {
+            "id": "discord",
+            "name": "Discord"
+          },
+          {
+            "id": "element",
+            "name": "Element"
+          },
+          {
+            "id": "lark",
+            "name": "Feishu / Lark"
+          },
+          {
+            "id": "microsoft-teams",
+            "name": "Microsoft Teams"
+          },
+          {
+            "id": "qq",
+            "name": "QQ"
+          },
+          {
+            "id": "rocket-chat",
+            "name": "Rocket.Chat"
+          },
+          {
+            "id": "servicenow",
+            "name": "ServiceNow"
+          },
+          {
+            "id": "signal",
+            "name": "Signal"
+          },
+          {
+            "id": "slack",
+            "name": "Slack"
+          },
+          {
+            "id": "telegram",
+            "name": "Telegram"
+          },
+          {
+            "id": "webex",
+            "name": "Cisco Webex"
+          },
+          {
+            "id": "wechat",
+            "name": "WeChat"
+          },
+          {
+            "id": "wecom",
+            "name": "WeCom"
+          },
+          {
+            "id": "whatsapp",
+            "name": "WhatsApp"
+          },
+          {
+            "id": "zoom",
+            "name": "Zoom"
+          },
+          {
+            "id": "zulip",
+            "name": "Zulip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-b584418",
+    "date": "2026-09-16",
+    "commit": "b584418",
+    "title": {
+      "en": "OpenSearch",
+      "zh-CN": "OpenSearch"
+    },
+    "summary": {
+      "en": "Added OpenSearch to the database icon collection.",
+      "zh-CN": "新增 OpenSearch 数据库图标。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "opensearch",
+            "name": "OpenSearch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "release-7b3c538",
+    "date": "2026-09-16",
+    "commit": "7b3c538",
+    "title": {
+      "en": "Initial software icon collection",
+      "zh-CN": "首批软件图标合集"
+    },
+    "summary": {
+      "en": "Initial release of 409 software icons with bilingual browsing and draw.io libraries. Categories were consolidated in later updates.",
+      "zh-CN": "首批发布 409 个软件图标，支持中英文浏览及 draw.io 图标库；分类在后续更新中合并精简。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "adguard-home",
+            "name": "AdGuard Home"
+          },
+          {
+            "id": "adonisjs",
+            "name": "AdonisJS"
+          },
+          {
+            "id": "aerospike",
+            "name": "Aerospike"
+          },
+          {
+            "id": "aframe",
+            "name": "A-Frame"
+          },
+          {
+            "id": "almalinux",
+            "name": "AlmaLinux"
+          },
+          {
+            "id": "alpinejs",
+            "name": "Alpine.js"
+          },
+          {
+            "id": "amazonwebservices",
+            "name": "Amazon Web Services"
+          },
+          {
+            "id": "android",
+            "name": "Android Open Source Project"
+          },
+          {
+            "id": "androidstudio",
+            "name": "Android Studio"
+          },
+          {
+            "id": "angular",
+            "name": "Angular"
+          },
+          {
+            "id": "angularmaterial",
+            "name": "Angular Material"
+          },
+          {
+            "id": "ansible",
+            "name": "Ansible"
+          },
+          {
+            "id": "antdesign",
+            "name": "Ant Design"
+          },
+          {
+            "id": "apache",
+            "name": "Apache HTTP Server"
+          },
+          {
+            "id": "apacheairflow",
+            "name": "Apache Airflow"
+          },
+          {
+            "id": "apachekafka",
+            "name": "Apache Kafka"
+          },
+          {
+            "id": "apachespark",
+            "name": "Apache Spark"
+          },
+          {
+            "id": "apollographql",
+            "name": "Apollo Client"
+          },
+          {
+            "id": "appwrite",
+            "name": "Appwrite"
+          },
+          {
+            "id": "archlinux",
+            "name": "Arch Linux"
+          },
+          {
+            "id": "argocd",
+            "name": "Argo CD"
+          },
+          {
+            "id": "artixlinux",
+            "name": "Artix Linux"
+          },
+          {
+            "id": "astro",
+            "name": "Astro"
+          },
+          {
+            "id": "atom",
+            "name": "Atom"
+          },
+          {
+            "id": "audacity",
+            "name": "Audacity"
+          },
+          {
+            "id": "authelia",
+            "name": "Authelia"
+          },
+          {
+            "id": "authentik",
+            "name": "Authentik"
+          },
+          {
+            "id": "awk",
+            "name": "GNU Awk"
+          },
+          {
+            "id": "axios",
+            "name": "Axios"
+          },
+          {
+            "id": "azure",
+            "name": "Microsoft Azure"
+          },
+          {
+            "id": "babel",
+            "name": "Babel"
+          },
+          {
+            "id": "babylonjs",
+            "name": "Babylon.js"
+          },
+          {
+            "id": "backbonejs",
+            "name": "Backbone.js"
+          },
+          {
+            "id": "ballerina",
+            "name": "Ballerina"
+          },
+          {
+            "id": "bash",
+            "name": "GNU Bash"
+          },
+          {
+            "id": "bazel",
+            "name": "Bazel"
+          },
+          {
+            "id": "beats",
+            "name": "Elastic Beats"
+          },
+          {
+            "id": "bevyengine",
+            "name": "Bevy"
+          },
+          {
+            "id": "biome",
+            "name": "Biome"
+          },
+          {
+            "id": "bitwarden",
+            "name": "Bitwarden"
+          },
+          {
+            "id": "blazor",
+            "name": "Blazor"
+          },
+          {
+            "id": "blender",
+            "name": "Blender"
+          },
+          {
+            "id": "bookstack",
+            "name": "BookStack"
+          },
+          {
+            "id": "bootstrap",
+            "name": "Bootstrap"
+          },
+          {
+            "id": "bower",
+            "name": "Bower"
+          },
+          {
+            "id": "bulma",
+            "name": "Bulma"
+          },
+          {
+            "id": "bun",
+            "name": "Bun"
+          },
+          {
+            "id": "caddy",
+            "name": "Caddy"
+          },
+          {
+            "id": "cakephp",
+            "name": "CakePHP"
+          },
+          {
+            "id": "capacitor",
+            "name": "Capacitor"
+          },
+          {
+            "id": "cassandra",
+            "name": "Apache Cassandra"
+          },
+          {
+            "id": "centos",
+            "name": "CentOS"
+          },
+          {
+            "id": "ceph",
+            "name": "Ceph"
+          },
+          {
+            "id": "chakraui",
+            "name": "Chakra UI"
+          },
+          {
+            "id": "chartjs",
+            "name": "Chart.js"
+          },
+          {
+            "id": "clickhouse",
+            "name": "ClickHouse"
+          },
+          {
+            "id": "clojure",
+            "name": "Clojure"
+          },
+          {
+            "id": "clojurescript",
+            "name": "ClojureScript"
+          },
+          {
+            "id": "cloudflare",
+            "name": "Cloudflare"
+          },
+          {
+            "id": "cmake",
+            "name": "CMake"
+          },
+          {
+            "id": "codeigniter",
+            "name": "CodeIgniter"
+          },
+          {
+            "id": "coffeescript",
+            "name": "CoffeeScript"
+          },
+          {
+            "id": "composer",
+            "name": "Composer"
+          },
+          {
+            "id": "consul",
+            "name": "Consul"
+          },
+          {
+            "id": "contao",
+            "name": "Contao"
+          },
+          {
+            "id": "corejs",
+            "name": "core-js"
+          },
+          {
+            "id": "couchdb",
+            "name": "Apache CouchDB"
+          },
+          {
+            "id": "crystal",
+            "name": "Crystal"
+          },
+          {
+            "id": "cucumber",
+            "name": "Cucumber"
+          },
+          {
+            "id": "cypressio",
+            "name": "Cypress"
+          },
+          {
+            "id": "d3js",
+            "name": "D3.js"
+          },
+          {
+            "id": "dart",
+            "name": "Dart"
+          },
+          {
+            "id": "datadog",
+            "name": "Datadog"
+          },
+          {
+            "id": "dbeaver",
+            "name": "DBeaver Community"
+          },
+          {
+            "id": "debian",
+            "name": "Debian"
+          },
+          {
+            "id": "denojs",
+            "name": "Deno"
+          },
+          {
+            "id": "digitalocean",
+            "name": "DigitalOcean"
+          },
+          {
+            "id": "discordjs",
+            "name": "discord.js"
+          },
+          {
+            "id": "django",
+            "name": "Django"
+          },
+          {
+            "id": "djangorest",
+            "name": "Django REST framework"
+          },
+          {
+            "id": "docker",
+            "name": "Docker Engine"
+          },
+          {
+            "id": "doctrine",
+            "name": "Doctrine"
+          },
+          {
+            "id": "dotnetcore",
+            "name": ".NET"
+          },
+          {
+            "id": "dovecot",
+            "name": "Dovecot"
+          },
+          {
+            "id": "dropwizard",
+            "name": "Dropwizard"
+          },
+          {
+            "id": "drupal",
+            "name": "Drupal"
+          },
+          {
+            "id": "duckdb",
+            "name": "DuckDB"
+          },
+          {
+            "id": "duplicati",
+            "name": "Duplicati"
+          },
+          {
+            "id": "dynatrace",
+            "name": "Dynatrace"
+          },
+          {
+            "id": "eclipse",
+            "name": "Eclipse IDE"
+          },
+          {
+            "id": "ecto",
+            "name": "Ecto"
+          },
+          {
+            "id": "elasticsearch",
+            "name": "Elasticsearch"
+          },
+          {
+            "id": "electron",
+            "name": "Electron"
+          },
+          {
+            "id": "eleventy",
+            "name": "Eleventy"
+          },
+          {
+            "id": "elixir",
+            "name": "Elixir"
+          },
+          {
+            "id": "elm",
+            "name": "Elm"
+          },
+          {
+            "id": "emacs",
+            "name": "GNU Emacs"
+          },
+          {
+            "id": "ember",
+            "name": "Ember.js"
+          },
+          {
+            "id": "entityframeworkcore",
+            "name": "Entity Framework Core"
+          },
+          {
+            "id": "envoy",
+            "name": "Envoy"
+          },
+          {
+            "id": "erlang",
+            "name": "Erlang"
+          },
+          {
+            "id": "eslint",
+            "name": "ESLint"
+          },
+          {
+            "id": "expo",
+            "name": "Expo"
+          },
+          {
+            "id": "express",
+            "name": "Express"
+          },
+          {
+            "id": "fastapi",
+            "name": "FastAPI"
+          },
+          {
+            "id": "fastify",
+            "name": "Fastify"
+          },
+          {
+            "id": "feathersjs",
+            "name": "Feathers"
+          },
+          {
+            "id": "fedora",
+            "name": "Fedora"
+          },
+          {
+            "id": "fiber",
+            "name": "Fiber"
+          },
+          {
+            "id": "filamentphp",
+            "name": "Filament"
+          },
+          {
+            "id": "filezilla",
+            "name": "FileZilla"
+          },
+          {
+            "id": "firebase",
+            "name": "Firebase"
+          },
+          {
+            "id": "firebird",
+            "name": "Firebird"
+          },
+          {
+            "id": "firefox",
+            "name": "Firefox"
+          },
+          {
+            "id": "flask",
+            "name": "Flask"
+          },
+          {
+            "id": "flutter",
+            "name": "Flutter"
+          },
+          {
+            "id": "forgejo",
+            "name": "Forgejo"
+          },
+          {
+            "id": "foundation",
+            "name": "Foundation"
+          },
+          {
+            "id": "framermotion",
+            "name": "Motion"
+          },
+          {
+            "id": "framework7",
+            "name": "Framework7"
+          },
+          {
+            "id": "fsharp",
+            "name": "F#"
+          },
+          {
+            "id": "gardener",
+            "name": "Gardener"
+          },
+          {
+            "id": "gatling",
+            "name": "Gatling"
+          },
+          {
+            "id": "gatsby",
+            "name": "Gatsby"
+          },
+          {
+            "id": "gcc",
+            "name": "GCC"
+          },
+          {
+            "id": "gentoo",
+            "name": "Gentoo"
+          },
+          {
+            "id": "ghost",
+            "name": "Ghost"
+          },
+          {
+            "id": "gimp",
+            "name": "GIMP"
+          },
+          {
+            "id": "git",
+            "name": "Git"
+          },
+          {
+            "id": "gitea",
+            "name": "Gitea"
+          },
+          {
+            "id": "github",
+            "name": "GitHub"
+          },
+          {
+            "id": "githubactions",
+            "name": "GitHub Actions"
+          },
+          {
+            "id": "gitlab",
+            "name": "GitLab"
+          },
+          {
+            "id": "gleam",
+            "name": "Gleam"
+          },
+          {
+            "id": "go",
+            "name": "Go"
+          },
+          {
+            "id": "godot",
+            "name": "Godot"
+          },
+          {
+            "id": "googlecloud",
+            "name": "Google Cloud"
+          },
+          {
+            "id": "gradle",
+            "name": "Gradle"
+          },
+          {
+            "id": "grafana",
+            "name": "Grafana"
+          },
+          {
+            "id": "grails",
+            "name": "Grails"
+          },
+          {
+            "id": "groovy",
+            "name": "Apache Groovy"
+          },
+          {
+            "id": "grpc",
+            "name": "gRPC"
+          },
+          {
+            "id": "grunt",
+            "name": "Grunt"
+          },
+          {
+            "id": "gulp",
+            "name": "Gulp"
+          },
+          {
+            "id": "hadoop",
+            "name": "Apache Hadoop"
+          },
+          {
+            "id": "handlebars",
+            "name": "Handlebars"
+          },
+          {
+            "id": "haproxy",
+            "name": "HAProxy"
+          },
+          {
+            "id": "harbor",
+            "name": "Harbor"
+          },
+          {
+            "id": "harvester",
+            "name": "Harvester"
+          },
+          {
+            "id": "haskell",
+            "name": "Haskell"
+          },
+          {
+            "id": "haxe",
+            "name": "Haxe"
+          },
+          {
+            "id": "hedgedoc",
+            "name": "HedgeDoc"
+          },
+          {
+            "id": "helm",
+            "name": "Helm"
+          },
+          {
+            "id": "heroku",
+            "name": "Heroku"
+          },
+          {
+            "id": "hibernate",
+            "name": "Hibernate"
+          },
+          {
+            "id": "home-assistant",
+            "name": "Home Assistant"
+          },
+          {
+            "id": "homebrew",
+            "name": "Homebrew"
+          },
+          {
+            "id": "hoppscotch",
+            "name": "Hoppscotch"
+          },
+          {
+            "id": "htmx",
+            "name": "htmx"
+          },
+          {
+            "id": "hugo",
+            "name": "Hugo"
+          },
+          {
+            "id": "immich",
+            "name": "Immich"
+          },
+          {
+            "id": "inertiajs",
+            "name": "Inertia.js"
+          },
+          {
+            "id": "influxdb",
+            "name": "InfluxDB"
+          },
+          {
+            "id": "inkscape",
+            "name": "Inkscape"
+          },
+          {
+            "id": "insomnia",
+            "name": "Insomnia"
+          },
+          {
+            "id": "intellij",
+            "name": "IntelliJ IDEA"
+          },
+          {
+            "id": "ionic",
+            "name": "Ionic"
+          },
+          {
+            "id": "jaegertracing",
+            "name": "Jaeger"
+          },
+          {
+            "id": "jasmine",
+            "name": "Jasmine"
+          },
+          {
+            "id": "java",
+            "name": "Java / OpenJDK"
+          },
+          {
+            "id": "jekyll",
+            "name": "Jekyll"
+          },
+          {
+            "id": "jellyfin",
+            "name": "Jellyfin"
+          },
+          {
+            "id": "jenkins",
+            "name": "Jenkins"
+          },
+          {
+            "id": "jest",
+            "name": "Jest"
+          },
+          {
+            "id": "jhipster",
+            "name": "JHipster"
+          },
+          {
+            "id": "jquery",
+            "name": "jQuery"
+          },
+          {
+            "id": "julia",
+            "name": "Julia"
+          },
+          {
+            "id": "junit",
+            "name": "JUnit"
+          },
+          {
+            "id": "jupyter",
+            "name": "Jupyter"
+          },
+          {
+            "id": "k3s",
+            "name": "K3s"
+          },
+          {
+            "id": "k6",
+            "name": "k6"
+          },
+          {
+            "id": "kaldi",
+            "name": "Kaldi"
+          },
+          {
+            "id": "kalilinux",
+            "name": "Kali Linux"
+          },
+          {
+            "id": "karatelabs",
+            "name": "Karate"
+          },
+          {
+            "id": "karma",
+            "name": "Karma"
+          },
+          {
+            "id": "kdeneon",
+            "name": "KDE neon"
+          },
+          {
+            "id": "keras",
+            "name": "Keras"
+          },
+          {
+            "id": "keycloak",
+            "name": "Keycloak"
+          },
+          {
+            "id": "kibana",
+            "name": "Kibana"
+          },
+          {
+            "id": "knexjs",
+            "name": "Knex.js"
+          },
+          {
+            "id": "knockout",
+            "name": "Knockout"
+          },
+          {
+            "id": "kodi",
+            "name": "Kodi"
+          },
+          {
+            "id": "kotlin",
+            "name": "Kotlin"
+          },
+          {
+            "id": "ktor",
+            "name": "Ktor"
+          },
+          {
+            "id": "kubeflow",
+            "name": "Kubeflow"
+          },
+          {
+            "id": "kubernetes",
+            "name": "Kubernetes"
+          },
+          {
+            "id": "laminas",
+            "name": "Laminas"
+          },
+          {
+            "id": "laravel",
+            "name": "Laravel"
+          },
+          {
+            "id": "less",
+            "name": "Less"
+          },
+          {
+            "id": "libgdx",
+            "name": "libGDX"
+          },
+          {
+            "id": "linux",
+            "name": "Linux"
+          },
+          {
+            "id": "linuxmint",
+            "name": "Linux Mint"
+          },
+          {
+            "id": "liquibase",
+            "name": "Liquibase"
+          },
+          {
+            "id": "livewire",
+            "name": "Livewire"
+          },
+          {
+            "id": "llvm",
+            "name": "LLVM"
+          },
+          {
+            "id": "lodash",
+            "name": "Lodash"
+          },
+          {
+            "id": "logstash",
+            "name": "Logstash"
+          },
+          {
+            "id": "love2d",
+            "name": "LÖVE"
+          },
+          {
+            "id": "lua",
+            "name": "Lua"
+          },
+          {
+            "id": "mariadb",
+            "name": "MariaDB"
+          },
+          {
+            "id": "materializecss",
+            "name": "Materialize"
+          },
+          {
+            "id": "materialui",
+            "name": "Material UI"
+          },
+          {
+            "id": "matplotlib",
+            "name": "Matplotlib"
+          },
+          {
+            "id": "mattermost",
+            "name": "Mattermost"
+          },
+          {
+            "id": "maven",
+            "name": "Apache Maven"
+          },
+          {
+            "id": "memcached",
+            "name": "Memcached"
+          },
+          {
+            "id": "mercurial",
+            "name": "Mercurial"
+          },
+          {
+            "id": "meteor",
+            "name": "Meteor"
+          },
+          {
+            "id": "minio",
+            "name": "MinIO"
+          },
+          {
+            "id": "mithril",
+            "name": "Mithril"
+          },
+          {
+            "id": "mobx",
+            "name": "MobX"
+          },
+          {
+            "id": "mocha",
+            "name": "Mocha"
+          },
+          {
+            "id": "modx",
+            "name": "MODX"
+          },
+          {
+            "id": "moleculer",
+            "name": "Moleculer"
+          },
+          {
+            "id": "mongodb",
+            "name": "MongoDB"
+          },
+          {
+            "id": "mongoose",
+            "name": "Mongoose"
+          },
+          {
+            "id": "monogame",
+            "name": "MonoGame"
+          },
+          {
+            "id": "moodle",
+            "name": "Moodle"
+          },
+          {
+            "id": "mysql",
+            "name": "MySQL"
+          },
+          {
+            "id": "nano",
+            "name": "GNU nano"
+          },
+          {
+            "id": "nats",
+            "name": "NATS"
+          },
+          {
+            "id": "neo4j",
+            "name": "Neo4j"
+          },
+          {
+            "id": "neovim",
+            "name": "Neovim"
+          },
+          {
+            "id": "nestjs",
+            "name": "NestJS"
+          },
+          {
+            "id": "netbeans",
+            "name": "Apache NetBeans"
+          },
+          {
+            "id": "netbox",
+            "name": "NetBox"
+          },
+          {
+            "id": "netdata",
+            "name": "Netdata"
+          },
+          {
+            "id": "netlify",
+            "name": "Netlify"
+          },
+          {
+            "id": "networkx",
+            "name": "NetworkX"
+          },
+          {
+            "id": "newrelic",
+            "name": "New Relic"
+          },
+          {
+            "id": "nextcloud",
+            "name": "Nextcloud"
+          },
+          {
+            "id": "nextjs",
+            "name": "Next.js"
+          },
+          {
+            "id": "nginx",
+            "name": "NGINX"
+          },
+          {
+            "id": "ngrx",
+            "name": "NgRx"
+          },
+          {
+            "id": "nhibernate",
+            "name": "NHibernate"
+          },
+          {
+            "id": "nim",
+            "name": "Nim"
+          },
+          {
+            "id": "nixos",
+            "name": "NixOS"
+          },
+          {
+            "id": "nodejs",
+            "name": "Node.js"
+          },
+          {
+            "id": "nodemon",
+            "name": "Nodemon"
+          },
+          {
+            "id": "nodered",
+            "name": "Node-RED"
+          },
+          {
+            "id": "nomad",
+            "name": "Nomad"
+          },
+          {
+            "id": "npm",
+            "name": "npm CLI"
+          },
+          {
+            "id": "nuget",
+            "name": "NuGet"
+          },
+          {
+            "id": "numpy",
+            "name": "NumPy"
+          },
+          {
+            "id": "nuxt",
+            "name": "Nuxt"
+          },
+          {
+            "id": "ocaml",
+            "name": "OCaml"
+          },
+          {
+            "id": "ohmyzsh",
+            "name": "Oh My Zsh"
+          },
+          {
+            "id": "ollama",
+            "name": "Ollama"
+          },
+          {
+            "id": "opencv",
+            "name": "OpenCV"
+          },
+          {
+            "id": "openstack",
+            "name": "OpenStack"
+          },
+          {
+            "id": "opensuse",
+            "name": "openSUSE"
+          },
+          {
+            "id": "opentelemetry",
+            "name": "OpenTelemetry"
+          },
+          {
+            "id": "ory",
+            "name": "Ory"
+          },
+          {
+            "id": "p5js",
+            "name": "p5.js"
+          },
+          {
+            "id": "packer",
+            "name": "Packer"
+          },
+          {
+            "id": "pandas",
+            "name": "pandas"
+          },
+          {
+            "id": "passport",
+            "name": "Passport"
+          },
+          {
+            "id": "perl",
+            "name": "Perl"
+          },
+          {
+            "id": "pfsense",
+            "name": "pfSense CE"
+          },
+          {
+            "id": "phalcon",
+            "name": "Phalcon"
+          },
+          {
+            "id": "phoenix",
+            "name": "Phoenix"
+          },
+          {
+            "id": "php",
+            "name": "PHP"
+          },
+          {
+            "id": "pi-hole",
+            "name": "Pi-hole"
+          },
+          {
+            "id": "pixijs",
+            "name": "PixiJS"
+          },
+          {
+            "id": "playwright",
+            "name": "Playwright"
+          },
+          {
+            "id": "plotly",
+            "name": "Plotly.js"
+          },
+          {
+            "id": "pnpm",
+            "name": "pnpm"
+          },
+          {
+            "id": "podman",
+            "name": "Podman"
+          },
+          {
+            "id": "poetry",
+            "name": "Poetry"
+          },
+          {
+            "id": "portainer",
+            "name": "Portainer CE"
+          },
+          {
+            "id": "postcss",
+            "name": "PostCSS"
+          },
+          {
+            "id": "postgresql",
+            "name": "PostgreSQL"
+          },
+          {
+            "id": "postman",
+            "name": "Postman"
+          },
+          {
+            "id": "powershell",
+            "name": "PowerShell"
+          },
+          {
+            "id": "primeng",
+            "name": "PrimeNG"
+          },
+          {
+            "id": "prisma",
+            "name": "Prisma"
+          },
+          {
+            "id": "processing",
+            "name": "Processing"
+          },
+          {
+            "id": "processwire",
+            "name": "ProcessWire"
+          },
+          {
+            "id": "prometheus",
+            "name": "Prometheus"
+          },
+          {
+            "id": "proxmox",
+            "name": "Proxmox VE"
+          },
+          {
+            "id": "pug",
+            "name": "Pug"
+          },
+          {
+            "id": "pulsar",
+            "name": "Apache Pulsar"
+          },
+          {
+            "id": "pulumi",
+            "name": "Pulumi"
+          },
+          {
+            "id": "puppeteer",
+            "name": "Puppeteer"
+          },
+          {
+            "id": "purescript",
+            "name": "PureScript"
+          },
+          {
+            "id": "putty",
+            "name": "PuTTY"
+          },
+          {
+            "id": "python",
+            "name": "Python"
+          },
+          {
+            "id": "pytorch",
+            "name": "PyTorch"
+          },
+          {
+            "id": "qt",
+            "name": "Qt"
+          },
+          {
+            "id": "quarkus",
+            "name": "Quarkus"
+          },
+          {
+            "id": "quasar",
+            "name": "Quasar"
+          },
+          {
+            "id": "qwik",
+            "name": "Qwik"
+          },
+          {
+            "id": "r",
+            "name": "R"
+          },
+          {
+            "id": "rabbitmq",
+            "name": "RabbitMQ"
+          },
+          {
+            "id": "racket",
+            "name": "Racket"
+          },
+          {
+            "id": "rails",
+            "name": "Ruby on Rails"
+          },
+          {
+            "id": "rancher",
+            "name": "Rancher"
+          },
+          {
+            "id": "react",
+            "name": "React"
+          },
+          {
+            "id": "reactbootstrap",
+            "name": "React Bootstrap"
+          },
+          {
+            "id": "reactnative",
+            "name": "React Native"
+          },
+          {
+            "id": "reactrouter",
+            "name": "React Router"
+          },
+          {
+            "id": "redis",
+            "name": "Redis"
+          },
+          {
+            "id": "redux",
+            "name": "Redux"
+          },
+          {
+            "id": "reflex",
+            "name": "Reflex"
+          },
+          {
+            "id": "remix",
+            "name": "Remix"
+          },
+          {
+            "id": "renpy",
+            "name": "Ren'Py"
+          },
+          {
+            "id": "rocksdb",
+            "name": "RocksDB"
+          },
+          {
+            "id": "rockylinux",
+            "name": "Rocky Linux"
+          },
+          {
+            "id": "rollup",
+            "name": "Rollup"
+          },
+          {
+            "id": "rspec",
+            "name": "RSpec"
+          },
+          {
+            "id": "rstudio",
+            "name": "RStudio"
+          },
+          {
+            "id": "ruby",
+            "name": "Ruby"
+          },
+          {
+            "id": "rust",
+            "name": "Rust"
+          },
+          {
+            "id": "rxjs",
+            "name": "RxJS"
+          },
+          {
+            "id": "sass",
+            "name": "Sass"
+          },
+          {
+            "id": "scala",
+            "name": "Scala"
+          },
+          {
+            "id": "scikitlearn",
+            "name": "scikit-learn"
+          },
+          {
+            "id": "sdl",
+            "name": "SDL"
+          },
+          {
+            "id": "selenium",
+            "name": "Selenium"
+          },
+          {
+            "id": "sentry",
+            "name": "Sentry"
+          },
+          {
+            "id": "sequelize",
+            "name": "Sequelize"
+          },
+          {
+            "id": "socketio",
+            "name": "Socket.IO"
+          },
+          {
+            "id": "solidity",
+            "name": "Solidity"
+          },
+          {
+            "id": "solidjs",
+            "name": "SolidJS"
+          },
+          {
+            "id": "sonarqube",
+            "name": "SonarQube"
+          },
+          {
+            "id": "spack",
+            "name": "Spack"
+          },
+          {
+            "id": "spicedb",
+            "name": "SpiceDB"
+          },
+          {
+            "id": "splunk",
+            "name": "Splunk"
+          },
+          {
+            "id": "spring",
+            "name": "Spring Framework"
+          },
+          {
+            "id": "spyder",
+            "name": "Spyder"
+          },
+          {
+            "id": "sqlalchemy",
+            "name": "SQLAlchemy"
+          },
+          {
+            "id": "sqlite",
+            "name": "SQLite"
+          },
+          {
+            "id": "stenciljs",
+            "name": "Stencil"
+          },
+          {
+            "id": "storybook",
+            "name": "Storybook"
+          },
+          {
+            "id": "streamlit",
+            "name": "Streamlit"
+          },
+          {
+            "id": "styledcomponents",
+            "name": "styled-components"
+          },
+          {
+            "id": "stylus",
+            "name": "Stylus"
+          },
+          {
+            "id": "subversion",
+            "name": "Apache Subversion"
+          },
+          {
+            "id": "sulu",
+            "name": "Sulu"
+          },
+          {
+            "id": "supabase",
+            "name": "Supabase"
+          },
+          {
+            "id": "surrealdb",
+            "name": "SurrealDB"
+          },
+          {
+            "id": "svelte",
+            "name": "Svelte"
+          },
+          {
+            "id": "svgo",
+            "name": "SVGO"
+          },
+          {
+            "id": "swagger",
+            "name": "Swagger UI"
+          },
+          {
+            "id": "swift",
+            "name": "Swift"
+          },
+          {
+            "id": "swiper",
+            "name": "Swiper"
+          },
+          {
+            "id": "symfony",
+            "name": "Symfony"
+          },
+          {
+            "id": "syncthing",
+            "name": "Syncthing"
+          },
+          {
+            "id": "tailwindcss",
+            "name": "Tailwind CSS"
+          },
+          {
+            "id": "talos",
+            "name": "Talos Linux"
+          },
+          {
+            "id": "tauri",
+            "name": "Tauri"
+          },
+          {
+            "id": "tensorflow",
+            "name": "TensorFlow"
+          },
+          {
+            "id": "terraform",
+            "name": "Terraform"
+          },
+          {
+            "id": "terramate",
+            "name": "Terramate"
+          },
+          {
+            "id": "threejs",
+            "name": "Three.js"
+          },
+          {
+            "id": "thymeleaf",
+            "name": "Thymeleaf"
+          },
+          {
+            "id": "tmux",
+            "name": "tmux"
+          },
+          {
+            "id": "tomcat",
+            "name": "Apache Tomcat"
+          },
+          {
+            "id": "tortoisegit",
+            "name": "TortoiseGit"
+          },
+          {
+            "id": "traefikproxy",
+            "name": "Traefik Proxy"
+          },
+          {
+            "id": "trpc",
+            "name": "tRPC"
+          },
+          {
+            "id": "truenas",
+            "name": "TrueNAS"
+          },
+          {
+            "id": "turbo",
+            "name": "Turborepo"
+          },
+          {
+            "id": "typescript",
+            "name": "TypeScript"
+          },
+          {
+            "id": "typo3",
+            "name": "TYPO3"
+          },
+          {
+            "id": "ubuntu",
+            "name": "Ubuntu"
+          },
+          {
+            "id": "uptime-kuma",
+            "name": "Uptime Kuma"
+          },
+          {
+            "id": "uwsgi",
+            "name": "uWSGI"
+          },
+          {
+            "id": "v8",
+            "name": "V8"
+          },
+          {
+            "id": "vaadin",
+            "name": "Vaadin"
+          },
+          {
+            "id": "vagrant",
+            "name": "Vagrant"
+          },
+          {
+            "id": "vala",
+            "name": "Vala"
+          },
+          {
+            "id": "vault",
+            "name": "Vault"
+          },
+          {
+            "id": "vaultwarden",
+            "name": "Vaultwarden"
+          },
+          {
+            "id": "vercel",
+            "name": "Vercel"
+          },
+          {
+            "id": "vertx",
+            "name": "Eclipse Vert.x"
+          },
+          {
+            "id": "vim",
+            "name": "Vim"
+          },
+          {
+            "id": "vite",
+            "name": "Vite"
+          },
+          {
+            "id": "vitess",
+            "name": "Vitess"
+          },
+          {
+            "id": "vitest",
+            "name": "Vitest"
+          },
+          {
+            "id": "vscode",
+            "name": "Visual Studio Code"
+          },
+          {
+            "id": "vscodium",
+            "name": "VSCodium"
+          },
+          {
+            "id": "vuejs",
+            "name": "Vue.js"
+          },
+          {
+            "id": "vuetify",
+            "name": "Vuetify"
+          },
+          {
+            "id": "vyper",
+            "name": "Vyper"
+          },
+          {
+            "id": "weblate",
+            "name": "Weblate"
+          },
+          {
+            "id": "webpack",
+            "name": "webpack"
+          },
+          {
+            "id": "wikijs",
+            "name": "Wiki.js"
+          },
+          {
+            "id": "wireguard",
+            "name": "WireGuard"
+          },
+          {
+            "id": "woocommerce",
+            "name": "WooCommerce"
+          },
+          {
+            "id": "wordpress",
+            "name": "WordPress"
+          },
+          {
+            "id": "yarn",
+            "name": "Yarn"
+          },
+          {
+            "id": "yii",
+            "name": "Yii"
+          },
+          {
+            "id": "yugabytedb",
+            "name": "YugabyteDB"
+          },
+          {
+            "id": "yunohost",
+            "name": "YunoHost"
+          },
+          {
+            "id": "zabbix",
+            "name": "Zabbix"
+          },
+          {
+            "id": "zig",
+            "name": "Zig"
+          },
+          {
+            "id": "zsh",
+            "name": "Zsh"
+          },
+          {
+            "id": "zustand",
+            "name": "Zustand"
+          }
+        ]
+      }
+    ]
+  }
+]

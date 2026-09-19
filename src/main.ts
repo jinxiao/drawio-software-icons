@@ -14,7 +14,9 @@ type Icon = {
 };
 type Category = {id:string;collection:string;configData:string;name:string;nameEn:string;description:string;descriptionEn:string;keywords:string[];count:number;libraries:Record<Locale,string>;libraryRevisions?:Record<Locale,string>};
 type Collection = {id:string;name:string;nameEn:string;count:number;allLibrary:string};
-type Catalog = {collections:Collection[];version:string;icons:Icon[];categories:Category[];categoryAliases?:Record<string,string>};
+type Change = {kind:'added'|'updated'|'removed';collection:string;count?:number;icons:{id:string;name:string}[]};
+type UpdateEntry = {id:string;date:string;commit?:string;title:Record<Locale,string>;summary:Record<Locale,string>;changes:Change[]};
+type Catalog = {collections:Collection[];version:string;icons:Icon[];categories:Category[];categoryAliases?:Record<string,string>;changelog?:UpdateEntry[]};
 const $ = <T extends Element=HTMLElement>(selector:string) => document.querySelector<T>(selector)!;
 const esc = (s:unknown) => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const readPreference = (key:string) => {try{return localStorage.getItem(key);}catch{return null;}};
@@ -86,6 +88,15 @@ function homepageLoadLink() {
   const label=all?messages[locale].openEveryCollection:messages[locale].openAll.replace('{collection}',title(catalog.collections.find(c=>c.id==='alibaba-cloud')!));
   return `<a class="button primary" data-open-all href="${esc(drawioUrl(siteBase,libraryPaths(categories,locale)))}" target="_blank" rel="noopener noreferrer">${esc(label)}${svg('external')}</a>`;
 }
+function renderChangelog() {
+  const t=messages[locale],history=catalog.changelog??[],icons=new Map(catalog.icons.map(i=>[i.id,i]));
+  const labels={added:t.changeAdded,updated:t.changeUpdated,removed:t.changeRemoved};
+  const record=(entry:UpdateEntry,index:number)=>`<details class="update-entry" ${index===0?'open':''}><summary><time datetime="${esc(entry.date)}">${esc(entry.date)}</time><strong>${esc(entry.title[locale])}</strong><span class="update-counts">${entry.changes.map(group=>`<span class="change-${group.kind}">${labels[group.kind]} ${group.count??group.icons.length}</span>`).join('')}</span></summary><div class="update-body"><p>${esc(entry.summary[locale])}</p>${entry.changes.map(group=>`<div class="update-group"><h3>${labels[group.kind]} · ${esc(title(catalog.collections.find(c=>c.id===group.collection)!))} <small>${group.count??group.icons.length}</small></h3><div class="update-icons">${group.icons.map(ref=>{
+    const icon=icons.get(ref.id);
+    return icon && group.kind!=='removed'?`<button class="update-icon" data-update-icon="${esc(ref.id)}" title="${t.locateCurrentIcon}"><img src="${file(icon.asset)}" alt="" width="20" height="20" loading="lazy">${esc(ref.name)}</button>`:`<span class="update-icon removed">${esc(ref.name)}</span>`;
+  }).join('')}</div>${!group.icons.length?`<p>${t.collectionImport}</p><button class="button outline small" data-update-collection="${esc(group.collection)}">${t.browse}</button>`:''}</div>`).join('')}${entry.commit?`<a class="update-commit" href="https://github.com/jinxiao/drawio-software-icons/commit/${entry.commit}" target="_blank" rel="noopener noreferrer">${t.viewChange}${svg('external')}</a>`:''}</div></details>`;
+  return `<section class="updates" id="changelog" aria-labelledby="updates-title"><div class="updates-heading"><div><p class="eyebrow">${t.changelogEyebrow}</p><h2 id="updates-title">${t.changelog}</h2><p>${t.changelogIntro}</p></div><a class="button outline small" href="${file(locale==='en'?'CHANGELOG.md':'CHANGELOG.zh-CN.md')}" download>${svg('download')}${t.downloadChangelog}</a></div><div class="update-list">${history.slice(0,3).map(record).join('')}${history.length>3?`<details class="update-history"><summary>${t.olderUpdates} (${history.length-3})</summary>${history.slice(3).map((entry,i)=>record(entry,i+3)).join('')}</details>`:''}</div></section>`;
+}
 function renderShell() {
   const t=messages[locale];
   document.documentElement.lang=locale;
@@ -102,7 +113,7 @@ function renderShell() {
         <h1>${t.hero1}<br><em>${t.hero2}</em></h1><p class="intro">${t.intro}</p>
         ${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="hero-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button><a class="button subtle" href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a></div><p class="open-all-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadHint}</p>
         <div class="hero-contribute"><span>${t.contributeHint}</span><div><a class="button outline small" href="https://github.com/jinxiao/drawio-software-icons/issues/new/choose" target="_blank" rel="noopener noreferrer">${t.requestChange}${svg('external')}</a><a class="button subtle small" href="https://github.com/jinxiao/drawio-software-icons/compare" target="_blank" rel="noopener noreferrer">${t.submitPr}${svg('external')}</a></div></div>
-        <div class="hero-facts"><span><b>${catalog.icons.length}</b> ${t.icons}</span><i></i><span><b>${catalog.categories.length}</b> ${t.categories}</span><i></i><span>${t.vector}</span></div>
+        <div class="hero-facts"><span><b>${catalog.icons.length}</b> ${t.icons}</span><i></i><span><b>${catalog.categories.length}</b> ${t.categories}</span><i></i><span>${t.vector}</span></div><a class="changelog-link" href="#changelog">${t.changelog}${svg('arrow')}<time>${esc(catalog.changelog?.[0]?.date??'')}</time></a>
       </div><div class="hero-art" aria-hidden="true"><div class="art-label">YOUR STACK, AT A GLANCE</div><div class="art-grid">${featured.map((id,i)=>`<div class="art-tile art-${i}"><img src="${file(`icons/${id}.svg`)}" alt="" width="48" height="48"></div>`).join('')}</div><div class="art-caption"><span class="status-dot"></span>SVG · DRAW.IO · OFFLINE READY</div><span class="art-plus">+</span></div></section>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
         <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">${t.library}</span><span class="tiny-pill">${catalog.icons.length}</span></div>
@@ -124,9 +135,10 @@ function renderShell() {
           <div class="icon-grid${dark?' dark-preview':''}" id="grid"></div><div id="more" class="more"></div>
         </div>
       </section>
+      ${renderChangelog()}
       <section class="guide" id="guide"><p class="eyebrow">FROM LIBRARY TO CANVAS</p><h2>${t.guideTitle}</h2><div class="steps">${[[t.step1,t.step1Text],[t.step2,t.step2Text],[t.step3,t.step3Text]].map(([name,detail],i)=>`<article><span class="step-number">0${i+1}</span><h3>${name}</h3><p>${detail}</p></article>`).join('')}</div><div class="offline-note">${svg('download')}<div><p>${t.guideOffline}</p><p>${t.guideLanguage}</p></div></div></section>
       <section class="sources" id="sources"><div><p class="eyebrow">CLEAR ORIGINS, DEFINED USE</p><h2>${t.sourceTitle}</h2><p>${t.sourceText}</p><p>${t.commercialUse}</p><small>${t.brandNote}</small></div><div class="source-links"><a href="${file('compat/alibaba-cloud/NOTICE.md')}" target="_blank" rel="noopener noreferrer">Alibaba Cloud · Iconfont ${svg('external')}</a><a href="https://github.com/devicons/devicon" target="_blank" rel="noopener noreferrer">Devicon ${svg('external')}</a><a href="https://github.com/homarr-labs/dashboard-icons" target="_blank" rel="noopener noreferrer">Dashboard Icons ${svg('external')}</a><a href="https://github.com/lobehub/lobe-icons" target="_blank" rel="noopener noreferrer">Lobe Icons ${svg('external')}</a><a href="https://github.com/ant-design/ant-design-icons" target="_blank" rel="noopener noreferrer">Ant Design Icons ${svg('external')}</a><a href="https://github.com/bwks/vendor-icons-svg" target="_blank" rel="noopener noreferrer">Vendor Icons SVG ${svg('external')}</a><a href="${file('ICON_USAGE.md')}" target="_blank" rel="noopener noreferrer">${t.usagePolicy} ${svg('external')}</a><a href="${file('THIRD_PARTY_NOTICES.md')}" target="_blank" rel="noopener noreferrer">${t.notices} ${svg('external')}</a></div></section>
-    </main><footer><span>${t.footer}<small>${t.footerNote}</small></span><div><a href="${file('guides/README.md')}" target="_blank" rel="noopener noreferrer">${t.englishGuide}</a><a href="${file('guides/README.zh-CN.md')}" target="_blank" rel="noopener noreferrer">${t.chineseGuide}</a><span>v${catalog.version}</span></div></footer>
+    </main><footer><span>${t.footer}<small>${t.footerNote}</small></span><div><a href="#changelog">${t.changelog}</a><a href="${file('guides/README.md')}" target="_blank" rel="noopener noreferrer">${t.englishGuide}</a><a href="${file('guides/README.zh-CN.md')}" target="_blank" rel="noopener noreferrer">${t.chineseGuide}</a><span>v${catalog.version}</span></div></footer>
     <dialog id="detail" aria-labelledby="detail-title"></dialog>
     <dialog id="spotlight" aria-label="${t.quickSearch}"></dialog>
     <dialog id="bundle-dialog" aria-labelledby="bundle-title"></dialog>
@@ -178,7 +190,9 @@ function locateIcon(icon:Icon) {
   $<HTMLDialogElement>('#spotlight').close();
   activeCollection=location.collection;activeCategory=location.category;
   loadAllCollections=false;activeType='all';query='';limit=location.limit;
-  updateUrl();renderShell();
+  updateUrl();
+  if(location.hash==='#changelog')history.replaceState(null,'',location.pathname+location.search+'#library');
+  renderShell();
   const card=document.querySelector<HTMLButtonElement>(`[data-icon="${CSS.escape(icon.id)}"]`);
   if(card) {
     card.classList.add('icon-located');
@@ -293,6 +307,10 @@ function showBundle() {
   refresh();dialog.showModal();
 }
 document.addEventListener('click',event=>{
+  const updateIcon=(event.target as Element).closest<HTMLElement>('[data-update-icon]');
+  if(updateIcon){const icon=catalog.icons.find(i=>i.id===updateIcon.dataset.updateIcon);if(icon)locateIcon(icon);return;}
+  const updateCollection=(event.target as Element).closest<HTMLElement>('[data-update-collection]');
+  if(updateCollection){activeCollection=updateCollection.dataset.updateCollection!;loadAllCollections=false;activeCategory='all';activeType='all';query='';limit=72;updateUrl();history.replaceState(null,'',location.pathname+location.search+'#library');renderShell();$('#search').focus({preventScroll:true});$('#library').scrollIntoView();return;}
   if(local && (event.target as Element).closest('[data-open-all]')) {event.preventDefault();showNotice();}
   const close=(event.target as Element).closest<HTMLElement>('[data-close]');
   if(close) $<HTMLDialogElement>('#'+close.dataset.close).close();
@@ -314,6 +332,7 @@ async function init() {
     visibleCategories().forEach(c=>selected.add(c.id));
     if(!['all','open-source','source-available','commercial','unverified'].includes(activeType))activeType='all';
     renderShell();
+    if(location.hash==='#changelog')$('#changelog').scrollIntoView();
   } catch(error) {
     console.error(error);
     $('#app').innerHTML=`<div class="boot"><h1>Software Icons</h1><p>${messages[locale].error}</p><button id="retry" class="button primary">${messages[locale].retry}</button> <a class="button outline" href="${file('downloads/drawio-icons.zip')}">${messages[locale].downloadAll}</a></div>`;

@@ -60,7 +60,7 @@ export async function generateUnified(software, softwareEntries) {
         collectionLicense: 'Third-party artwork / 第三方图形权利', licenseUrl: 'compat/alibaba-cloud/NOTICE.md' },
       usagePolicy: 'drawio-architecture-only', usagePolicyUrl: 'ICON_USAGE.md', brandPermissionStatus: 'not-verified' });
   }
-  const combined = { ...software, collections, categories, icons,
+  const combined = { ...software, collections, categories, icons, changelog:await json('data/changelog.json'),
     categoryAliases: { ...software.categoryAliases, ...Object.fromEntries(alibaba.categories.map(c => [c.id, `alibaba-${c.id}`])) } };
   await save('public/libraries/combined.xml', libraryXml([
     ...softwareEntries.values(), ...readLibrary(await readFile(`${upstream}/drawio/all-icons.xml`, 'utf8'))

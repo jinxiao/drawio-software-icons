@@ -27,6 +27,8 @@ Related issue / 关联需求：
 
 ## Validation / 验证情况
 
+- [ ] Icon changes are recorded in `data/changelog.json` in English and Chinese, including added, updated or removed icons. / 图标变更已在 `data/changelog.json` 记录中英文说明和新增、更新或移除的图标。（不涉及图标可标 N/A）
+
 <!-- List checks actually performed, their results, and anything not tested. For icon or export changes, include applicable npm test / npm run build results. For visual changes, attach before/after screenshots and describe light/dark or draw.io checks. Do not claim checks you have not run.
 填写实际执行的检查、结果及未验证项。图标或导出改动填写适用的 npm test / npm run build 结果；界面改动附前后截图，说明浅色/深色或 draw.io 检查情况。 -->
 
