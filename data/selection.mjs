@@ -3,6 +3,7 @@
 import { categoryForProject } from './taxonomy.mjs';
 import { communicationProjects } from './communication.mjs';
 import { aiProjects } from './ai.mjs';
+import { observabilityProjects } from './observability.mjs';
 const groups = {
 databases: `aerospike~aerospike/aerospike-server cassandra~apache/cassandra clickhouse~ClickHouse/ClickHouse couchdb~apache/couchdb duckdb~duckdb/duckdb firebird~FirebirdSQL/firebird influxdb~influxdata/influxdb mariadb~MariaDB/server mongodb~mongodb/mongo mysql~mysql/mysql-server neo4j~neo4j/neo4j postgresql~postgres/postgres rocksdb~facebook/rocksdb sqlite~https://sqlite.org surrealdb~surrealdb/surrealdb vitess~vitessio/vitess yugabytedb~yugabyte/yugabyte-db`,
 caching: `memcached~memcached/memcached redis~redis/redis`,
@@ -51,4 +52,4 @@ export const selection = Object.entries({devicon: groups, dashboard: extras}).fl
     classificationNote: '人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。'};
 }))).concat(communicationProjects.map(({aliases,tags,...project})=>({...project,category:'applications',softwareLicense:null,
   classificationNote:'Editorial classification of the linked product: hosted services may include open-source clients. Verify edition-specific licensing with the vendor.'}))).concat(aiProjects.map(({aliases,tags,artwork,...project})=>({...project,category:'data',softwareLicense:null,
-  classificationNote:'Type describes the linked tool or hosted service, not model weights or every product from the provider. Dify and Open WebUI have additional license conditions. Verify edition-specific terms.'})));
+  classificationNote:'Type describes the linked tool or hosted service, not model weights or every product from the provider. Dify and Open WebUI have additional license conditions. Verify edition-specific terms.'}))).concat(observabilityProjects.map(({aliases,tags,...project})=>project));

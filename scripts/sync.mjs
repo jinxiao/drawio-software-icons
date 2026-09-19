@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { selection } from '../data/selection.mjs';
 import { communicationMetadata } from '../data/communication.mjs';
 import { aiMetadata, aiSourcePaths } from '../data/ai.mjs';
+import { observabilityMetadata } from '../data/observability.mjs';
 import { hash, json, save, saveJson, inspectSvg, inspectPng, normalizeSvg, packageOfficialPng } from './lib.mjs';
 
 const definitions = {
@@ -109,7 +110,7 @@ async function worker() {
       const category = categoryMap.get(item.category);
       if (!category) throw Error('Unknown category');
       const {source: sourceId, ...project} = item;
-      const extra=communicationMetadata.get(item.id)??aiMetadata.get(item.id);
+      const extra=communicationMetadata.get(item.id)??aiMetadata.get(item.id)??observabilityMetadata.get(item.id);
       const aliases = [...new Set([...(extra?.aliases??[]),...(metadata?.altnames ?? []), ...(item.id === 'kubernetes' ? ['k8s'] : []), ...(item.id === 'postgresql' ? ['postgres','pg'] : []), ...(item.id === 'amazonwebservices' ? ['aws'] : [])])];
       icons[index] = {...project, aliases, tags:[...new Set([...(extra?.tags??[]),...(metadata?.tags ?? []).filter(t=>t !== 'open-source'), category.name,...category.keywords])],
         ...(item.softwareType==='commercial'?{usagePolicy:'drawio-architecture-only',usagePolicyUrl:'ICON_USAGE.md',brandPermissionStatus:'not-verified'}:{}),

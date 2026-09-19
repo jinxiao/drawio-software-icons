@@ -65,5 +65,60 @@
     "width": 390,
     "height": 390,
     "retrievedOn": "2026-09-18"
+  },
+  "loki": {
+    "format": "svg",
+    "name": "Grafana Loki",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/",
+    "url": "https://grafana.com/oss/assets/logo-loki.svg",
+    "sha256": "59b50a173ae92eb4b4ef9165df37f7c5c3aa5220ed13482e289bc9a0c7bd6d21",
+    "width": 37,
+    "height": 43,
+    "retrievedOn": "2026-09-19"
+  },
+  "tempo": {
+    "format": "svg",
+    "name": "Grafana Tempo",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/",
+    "url": "https://grafana.com/oss/assets/logo-tempo.svg",
+    "sha256": "4409bba22dfcab5c7b3e976aa348fc13736dee3ddee1d14e632e4faec4ddc51f",
+    "width": 52,
+    "height": 41,
+    "retrievedOn": "2026-09-19"
+  },
+  "mimir": {
+    "format": "svg",
+    "name": "Grafana Mimir",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/",
+    "url": "https://grafana.com/oss/assets/logo-mimir.svg",
+    "sha256": "fef3d222fee66ebddab69ae1510d3e97e138cd06ac113d5e2af1f6bd4ac2b029",
+    "width": 52,
+    "height": 37,
+    "retrievedOn": "2026-09-19"
+  },
+  "alloy": {
+    "format": "svg",
+    "name": "Grafana Alloy",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/",
+    "url": "https://grafana.com/media/oss/alloy/alloy-logo.svg",
+    "sha256": "258fc410b26cb1b0f38d1b084e40148faabcb5a59791ff9785f0373dc943bd8b",
+    "width": 44,
+    "height": 44,
+    "retrievedOn": "2026-09-19"
+  },
+  "pyroscope": {
+    "format": "svg",
+    "name": "Grafana Pyroscope",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/",
+    "url": "https://grafana.com/static/img/pyroscope-logo.svg",
+    "sha256": "559341996765c2d5639a2818d76bcd88ffe252212193a573f2f9f77dae5064dd",
+    "width": 202,
+    "height": 274,
+    "retrievedOn": "2026-09-19"
   }
 }

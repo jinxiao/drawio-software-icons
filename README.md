@@ -2,15 +2,15 @@
 
 [简体中文](README.zh-CN.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
 
-444 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
+455 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.
 
 
 ## Unified collections, unchanged URLs
 
-The site now combines **444 software and service icons** in 8 categories with
-**888 Alibaba Cloud icon entries** in 9 source categories: **1,332 entries across
+The site now combines **455 software and service icons** in 8 categories with
+**888 Alibaba Cloud icon entries** in 9 source categories: **1,343 entries across
 two collections**. Alibaba counts include color variants and supplemental UI
 symbols, not 888 distinct cloud services. Original names remain where no upstream
 English product name exists; categories, browsing and setup are bilingual.
@@ -51,6 +51,21 @@ the original Alibaba ZIP and `drawio/all-icons.xml` stay Alibaba-only.
 Code, data and tests are maintained in this repository. The old Alibaba repository
 publishes a compatibility site from the latest successful source build, checking
 hourly or on manual dispatch. See [deployment details](docs/DEPLOYMENT.md).
+
+## Monitoring and observability
+
+The **Monitoring & Security** category now includes Grafana Loki, Tempo, Mimir,
+Alloy and Pyroscope, plus VictoriaMetrics, VictoriaLogs, Thanos, Prometheus
+Alertmanager, Vector and SigNoz. Existing Grafana, Prometheus, OpenTelemetry,
+Jaeger, Zabbix and Netdata entries remain available. Grafana k6 stays under
+Developer Tools & DevOps because it is a load-testing tool.
+
+Search by product name, `Grafana`, `LGTM`, `Victoria Metrics`, `otel`, or Chinese
+terms such as `日志`, `指标`, `链路追踪` and `持续剖析`, including in Spotlight.
+The five new Grafana logos are original publisher SVGs pinned by SHA-256;
+the other six use the pinned Dashboard Icons source. Original colors and
+proportions are retained; VictoriaMetrics uses the upstream monochrome mark.
+Artwork rights are separate from software licenses. See [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## AI tools and brands
 

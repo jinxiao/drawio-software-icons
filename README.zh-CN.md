@@ -2,15 +2,15 @@
 
 [English](README.md) · [在线图标库](https://jinxiao.github.io/drawio-software-icons/)
 
-444 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
+455 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
 **商业图标使用范围：** 本项目中的商业软件与服务图标仅适用于 draw.io / diagrams.net 架构图绘制，不适用于其他发行用途。本项目不额外授予品牌使用权，也不覆盖上游许可证。原创代码和文档继续采用 MIT 许可。使用商业品牌图标前请阅读中英双语 [图标使用声明](ICON_USAGE.md)。
 
 
 ## 图标集合并，两个旧网址保留
 
-现在包含 **444 个软件与服务图标**（8 类）和 **888 个阿里云图标条目**（9 个来源分类），
-共 **1,332 个条目、两个图标集**。阿里云条目包含颜色变体和 UI 补充图形，不代表 888 种独立云服务。
+现在包含 **455 个软件与服务图标**（8 类）和 **888 个阿里云图标条目**（9 个来源分类），
+共 **1,343 个条目、两个图标集**。阿里云条目包含颜色变体和 UI 补充图形，不代表 888 种独立云服务。
 分类、界面和使用流程支持中英文；上游没有英文产品名称的条目保留原名。
 
 - [软件入口](https://jinxiao.github.io/drawio-software-icons/)默认选中「通用软件」。
@@ -38,6 +38,19 @@
 
 源码、数据和测试统一维护于当前仓库。阿里云旧仓库从主仓库最近一次发布成功的提交构建兼容站点，
 每小时检查更新，也可手动立即同步。详见[发布说明](docs/DEPLOYMENT.md)。
+
+## 监控与可观测性
+
+「监控与安全」分类新增 Grafana Loki、Tempo、Mimir、Alloy、Pyroscope，以及
+VictoriaMetrics、VictoriaLogs、Thanos、Prometheus Alertmanager、Vector、SigNoz。
+已有 Grafana、Prometheus、OpenTelemetry、Jaeger、Zabbix、Netdata 等继续保留；
+Grafana k6 属于负载测试工具，仍在「开发工具与 DevOps」分类。
+
+普通搜索及 Spotlight 均可使用产品名、`Grafana`、`LGTM`、`Victoria Metrics`、`otel`，
+以及「日志」「指标」「链路追踪」「持续剖析」等关键词。
+五个新增 Grafana 图标使用官方原始 SVG，并固定 SHA-256；其余六个来自固定版本的
+Dashboard Icons。保留原色及比例，VictoriaMetrics 使用上游单色标志。
+图标权利与软件许可证分别适用，详见[第三方说明](THIRD_PARTY_NOTICES.md)。
 
 ## AI 工具与品牌
 

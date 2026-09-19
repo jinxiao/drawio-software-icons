@@ -22,6 +22,10 @@ Already have changes? Use **Submit a PR** on the homepage or [compare your branc
 
 ## Localization / 中英文
 
+Observability additions live in `data/observability.mjs`, including bilingual aliases and telemetry-specific tags. Keep them in the existing Monitoring & Security category. Grafana publisher SVGs are pinned in `data/official-icons.json` with `format: "svg"` and preserved unchanged. Dashboard Icons additions use their existing pinned revision. Software project licensing is separate from artwork rights; do not classify hosted or enterprise editions from the community repository's license.
+
+监控类新增项目维护于 `data/observability.mjs`，补充中英文别名及日志、指标、追踪等搜索标签，沿用「监控与安全」分类。Grafana 官方 SVG 在素材清单中固定版本并原样保留；不要将社区版的软件许可套用到品牌图标、托管服务或企业版。
+
 AI additions belong in `data/ai.mjs` under the existing `data` (Analytics & AI) category. Choose the upstream color SVG when available, record its exact filename and add Chinese / English aliases. Classify the linked tool or hosted service separately from model-weight licenses. Lobe Icons artwork is community-collected; do not label it as an official publisher download or infer brand-use permission from its MIT license.
 
 UI strings are paired in `src/i18n.ts`. Categories use `data/categories.json` and `data/categories.en.json`. Both locales must contain corresponding entries. Product names remain in their original language. Search uses both category languages regardless of the selected UI language. Keep the default English `README.md` and Chinese `README.zh-CN.md` in sync; `README.en.md` is a compatibility link.

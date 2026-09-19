@@ -9,7 +9,7 @@ The collection contains brand artwork from these upstream repositories:
 | Lobe Icons | https://github.com/lobehub/lobe-icons | MIT | [lobe-LICENSE.txt](licenses/lobe-LICENSE.txt) |
 | Ant Design Icons | https://github.com/ant-design/ant-design-icons | MIT | [antdesign-LICENSE.txt](licenses/antdesign-LICENSE.txt) |
 | Vendor Icons SVG (ServiceNow) | https://github.com/bwks/vendor-icons-svg | GPL-3.0-only | [vendor-LICENSE.txt](licenses/vendor-LICENSE.txt) |
-| Official app publisher artwork / 官方应用图标 | Publisher listings in `data/official-icons.json` | Proprietary brand artwork; no open-source license claimed | [official-apps-LICENSE.txt](licenses/official-apps-LICENSE.txt) |
+| Official publisher artwork / 官方发布者图标 | Publisher listings in `data/official-icons.json` | Proprietary brand artwork; no open-source license claimed | [official-apps-LICENSE.txt](licenses/official-apps-LICENSE.txt) |
 
 Each entry in `catalog.json` (source: `data/catalog.json`) records its original SVG URL, pinned upstream commit, source checksum, packaged checksum and collection license URL. `data/sources.lock.json` pins the exact collection revisions.
 
@@ -22,6 +22,10 @@ Ubuntu 使用 [Ubuntu 官方社区素材页](https://discourse.ubuntu.com/t/ubun
 官方 PNG 的来源记录包含发布者、App Store 条目、原图网址、采集日期和 SHA-256；清单以内容摘要锁定，不伪造 Git 提交号。来源真实和公开可下载不代表获得版权或商标授权。四张官方 PNG 原样内嵌为 `data:image/png;base64`，不描摹、不改色。
 
 原始来源、固定提交、原文件 SHA-256、处理后 SHA-256 和图标集许可链接均记录在清单中。每项图标的详情页也提供来源和许可链接。
+
+Grafana Loki, Tempo, Mimir, Alloy and Pyroscope use unmodified SVG artwork linked from [Grafana's official open-source page](https://grafana.com/oss/), with original URLs and SHA-256 pins. Software licenses do not grant rights to these logos; [Grafana's trademark policy](https://grafana.com/trademark-policy/) remains applicable. VictoriaMetrics, VictoriaLogs, Thanos, Alertmanager, Vector and SigNoz use the pinned Dashboard Icons collection; these are upstream-collected assets, not individually authorized publisher downloads. VictoriaMetrics retains the upstream monochrome mark.
+
+Grafana Loki、Tempo、Mimir、Alloy、Pyroscope 使用官网开源项目页提供的原始 SVG，记录原链接并固定 SHA-256，软件许可证不代表 Logo 授权。VictoriaMetrics、VictoriaLogs、Thanos、Alertmanager、Vector、SigNoz 来自固定版本的 Dashboard Icons，不声称为逐项授权的官方素材下载；VictoriaMetrics 保留上游单色标志。
 
 ## Modifications / 处理方式
 
