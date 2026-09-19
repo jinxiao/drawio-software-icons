@@ -1,6 +1,7 @@
 export type Locale = 'zh-CN' | 'en';
 export const messages = {
   'zh-CN': {
+    latestUpdate:'最近更新',viewChangelog:'查看更新日志',bannerAdded:'新增 {count} 个图标',bannerUpdated:'更新 {count} 个图标',bannerRemoved:'移除 {count} 个图标',bannerMore:' 等',
     changelog:'更新日志',changelogEyebrow:'图标更新记录',changelogIntro:'按批次查看新增和修正的图标。点击图标名可定位当前版本；日期采用北京时间。',changeAdded:'新增',changeUpdated:'更新',changeRemoved:'移除',olderUpdates:'查看更早更新',downloadChangelog:'下载中文日志',viewChange:'查看此次提交',locateCurrentIcon:'定位当前图标',collectionImport:'此批为整个图标集导入，可浏览图标集查看完整列表。',
     quickSearch:'快捷搜索',spotlightPlaceholder:'搜索图标名称、别名或分类…',spotlightScope:'搜索全部图标集 · 不受页面筛选影响',spotlightResults:'匹配的图标',spotlightMove:'选择',spotlightLocate:'定位图标',spotlightEmpty:'未找到图标，试试其他名称、别名或分类。',spotlightLimit:'显示前 {count} 项，可继续输入缩小范围',
     contributeHint:'缺少图标或有改进建议？欢迎在 GitHub 提交。',requestChange:'提交图标 / 功能需求',submitPr:'提交 PR',
@@ -32,6 +33,7 @@ export const messages = {
     error:'图标库加载失败，请刷新页面重试。你仍然可以下载完整合集。',retry:'刷新重试',loadMore:'显示更多',showing:'已显示',of:' / ',
   },
   en: {
+    latestUpdate:'Latest update',viewChangelog:'View changelog',bannerAdded:'Icons added: {count}',bannerUpdated:'Icons updated: {count}',bannerRemoved:'Icons removed: {count}',bannerMore:' and more',
     changelog:'Changelog',changelogEyebrow:'ICON UPDATES',changelogIntro:'See icons added or corrected in each batch. Select an icon to locate its current version. Dates use Asia/Shanghai.',changeAdded:'Added',changeUpdated:'Updated',changeRemoved:'Removed',olderUpdates:'View earlier updates',downloadChangelog:'Download English changelog',viewChange:'View commit',locateCurrentIcon:'Locate current icon',collectionImport:'This batch imported a complete collection. Browse it to see the full list.',
     quickSearch:'Quick search',spotlightPlaceholder:'Search icon names, aliases or categories…',spotlightScope:'Search every collection · Independent of page filters',spotlightResults:'Matching icons',spotlightMove:'Select',spotlightLocate:'Locate icon',spotlightEmpty:'No icons found. Try another name, alias or category.',spotlightLimit:'Showing the first {count}; type more to narrow results',
     contributeHint:'Missing an icon or have an idea? Contribute on GitHub.',requestChange:'Request an icon / feature',submitPr:'Submit a PR',
