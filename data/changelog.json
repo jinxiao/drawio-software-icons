@@ -1,5 +1,29 @@
 [
   {
+    "id": "sync-2026-09-20-deeed8e2afc8-11",
+    "date": "2026-09-20",
+    "title": {
+      "en": "Official full-color QQ penguin",
+      "zh-CN": "修正 QQ 官方彩色企鹅图标"
+    },
+    "summary": {
+      "en": "Replaced the monochrome Ant Design QQ symbol with Tencent's original 512 × 512 color PNG from its official App Store listing. Preserved the black-and-white penguin, red scarf, yellow beak and feet. Updated provenance and proprietary artwork notices; this QQ artwork is no longer attributed to the Ant Design MIT collection.",
+      "zh-CN": "将 Ant Design 单色 QQ 图形替换为腾讯官方 App Store 条目提供的 512 × 512 彩色 PNG 原图，保留黑白企鹅、红围巾、黄色嘴和脚。同步更新来源和专有品牌素材说明，不再将此 QQ 图标标注为 Ant Design 的 MIT 素材。"
+    },
+    "changes": [
+      {
+        "kind": "updated",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "qq",
+            "name": "QQ"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "sync-2026-09-19-fe2a615d4d6b-10",
     "date": "2026-09-19",
     "title": {

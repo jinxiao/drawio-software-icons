@@ -12,9 +12,6 @@ const definitions = {
     initialRevision:'a94750e3f5f8fc33757b839d85030e742284e43a',paths:aiSourcePaths},
   devicon:{repo:'devicons/devicon', branch:'master', license:'MIT', index:'devicon.json'},
   dashboard:{repo:'homarr-labs/dashboard-icons', branch:'main', license:'Apache-2.0', index:'tree.json'},
-  antdesign:{repo:'ant-design/ant-design-icons', branch:'master', license:'MIT', index:null,
-    initialRevision:'7f2516ac91226d2b41f93b35cb5197c8d94f7189',
-    paths:{qq:'packages/icons-svg/svg/outlined/qq.svg'}},
   vendor:{repo:'bwks/vendor-icons-svg',branch:'master',license:'GPL-3.0-only',index:null,preserveOriginal:true,
     initialRevision:'702f2ac88acc71759ce623bc5000a596195e9db3',paths:{servicenow:'servicenow.svg'}}
 };
@@ -87,7 +84,7 @@ async function worker() {
       } else {
         path=source.paths?.[item.id];
         if(!path) throw Error('Missing curated source path');
-        variant=item.source==='antdesign'?'monochrome':item.source==='lobe'?(path.endsWith('-color.svg')?'color':'monochrome'):'original';
+        variant=item.source==='lobe'?(path.endsWith('-color.svg')?'color':'monochrome'):'original';
       }
       const sourceUrl = official?.url ?? `https://raw.githubusercontent.com/${source.repo}/${source.revision}/${path}`;
       const prior = oldIcons.get(item.id);

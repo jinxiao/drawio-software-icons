@@ -20,7 +20,7 @@ AI brand additions (including DeepSeek, Qwen, Gemini, ChatGPT and Claude) are co
 
 ## Microsoft and ServiceNow
 
-WeChat, WeCom, DingTalk and Feishu use original color PNG application artwork from their official publisher listings. These assets are proprietary, not MIT-licensed Ant Design substitutes. Publisher identity and source provenance are verified; brand-use authorization is not claimed. See `licenses/official-apps-LICENSE.txt`. Feishu and Lark are cataloged separately.
+WeChat, WeCom, DingTalk, QQ and Feishu use original color PNG application artwork from their official publisher listings. These assets are proprietary, not MIT-licensed Ant Design substitutes. Publisher identity and source provenance are verified; brand-use authorization is not claimed. See `licenses/official-apps-LICENSE.txt`. Feishu and Lark are cataloged separately.
 
 Microsoft Teams is collected from Dashboard Icons; it is not represented as a download from Microsoft's architecture icon package or as individually authorized by Microsoft. Review the [Microsoft brand guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) and any applicable product-specific permission before use. Permissions covering a particular official architecture package must not automatically be applied to a different third-party asset.
 
@@ -36,7 +36,7 @@ The ServiceNow SVG is collected from `bwks/vendor-icons-svg`, whose repository d
 
 DeepSeek、Qwen、Gemini、ChatGPT、Claude 等 AI 品牌素材来自 Lobe Icons，不声称是逐项授权的官方品牌下载。在线服务的分类不能用于推断模型权重的许可；这些商业条目沿用仅供 draw.io 架构图绘制的范围，并保留上游图形许可与品牌权利。
 
-微信、企业微信、钉钉和飞书使用官方发布者提供的彩色 PNG 原图，不再使用单色 Ant Design 替代图。它们是专有品牌素材，不适用 Ant Design 的 MIT 许可；核对发布者及来源不等于取得品牌使用授权。详见 `licenses/official-apps-LICENSE.txt`。飞书与 Lark 分开收录。
+微信、企业微信、钉钉、QQ 和飞书使用官方发布者提供的彩色 PNG 原图，不再使用单色 Ant Design 替代图。它们是专有品牌素材，不适用 Ant Design 的 MIT 许可；核对发布者及来源不等于取得品牌使用授权。详见 `licenses/official-apps-LICENSE.txt`。飞书与 Lark 分开收录。
 
 - 本项目原创代码和文档采用 MIT [许可证](LICENSE)，不据此将第三方 Logo、SVG、XML 内嵌图形或商标重新授权为 MIT。
 - 每项图标保留适用的上游版权许可与品牌方商标权。合集附带原许可文本、固定来源版本和校验值，详见 [第三方说明](THIRD_PARTY_NOTICES.md) 与 `licenses/`。

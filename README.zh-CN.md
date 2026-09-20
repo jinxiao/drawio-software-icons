@@ -66,7 +66,7 @@ Dashboard Icons。保留原色及比例，VictoriaMetrics 使用上游单色标�
 
 「应用与内容管理」收录微信、企业微信、钉钉、QQ、飞书、Lark、Microsoft Teams、Slack、Discord、Telegram、Signal、WhatsApp、Zoom、Cisco Webex、Element、Rocket.Chat、Zulip 和 ServiceNow，并保留已有 Mattermost。支持中文名称、英文名称以及 IM / ITSM / 工单等标签搜索。客户端、托管服务和企业版本可能采用不同的软件许可，清单记录所链接产品的软件类型。
 
-微信、企业微信、钉钉和飞书使用各自官方发布者在 App Store 提供的 512 × 512 彩色 PNG 应用图标，原样保留像素。飞书与 Lark 分开收录。QQ 保留上游单色图形；ServiceNow 使用上游字标。保留原素材颜色和比例，不自行重绘品牌 Logo。
+微信、企业微信、钉钉、QQ 和飞书使用各自官方发布者在 App Store 提供的 512 × 512 彩色 PNG 应用图标，原样保留像素。飞书与 Lark 分开收录。QQ 使用腾讯官方彩色企鹅应用图标；ServiceNow 使用上游字标。保留原素材颜色和比例，不自行重绘品牌 Logo。
 
 钉钉通过 SVG 圆角裁切显示，四角透明；内部原始 PNG 保持不变，ZIP 也单独附带原图。这是项目的显示调整，不是新的官方矢量 Logo。
 
@@ -84,7 +84,7 @@ Dashboard Icons。保留原色及比例，VictoriaMetrics 使用上游单色标�
 
 单个库也可通过桌面版 **文件 → 打开库** 打开（网页版有“设备”子菜单）。`libraries/all.xml` 将全部软件图标合并到一个库，不保留独立分类栏。SVG / PNG 已内嵌，可离线使用。更新时先关闭旧分类库，再拖入新版。XML 以 `<mxlibrary` 开头，兼容 draw.io 的[拖拽识别逻辑](https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/diagramly/EditorUi.js)。
 
-大部分图标为 SVG 图片，四款官方应用图标为 PNG 原图。PNG 超过原始分辨率放大时可能变模糊；两种格式都不是可逐条编辑路径的原生形状。默认不附加文字，名称用于库内识别。浅色 / 深色按钮仅改变预览背景，不修改品牌颜色。
+大部分图标为 SVG 图片，五款官方应用图标为 PNG 原图。PNG 超过原始分辨率放大时可能变模糊；两种格式都不是可逐条编辑路径的原生形状。默认不附加文字，名称用于库内识别。浅色 / 深色按钮仅改变预览背景，不修改品牌颜色。
 
 ## 本地开发
 

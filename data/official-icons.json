@@ -120,5 +120,18 @@
     "width": 202,
     "height": 274,
     "retrievedOn": "2026-09-19"
+  },
+  "qq": {
+    "appId": 444934666,
+    "name": "QQ",
+    "publisher": "Tencent Technology (Shenzhen) Company Limited",
+    "artist": "Tencent Technology (Shenzhen) Company Limited",
+    "listing": "https://apps.apple.com/cn/app/qq/id444934666?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=444934666&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/df/c9/0c/dfc90c02-2e83-2c73-f482-59c22a85574f/AppIcon-1-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.png",
+    "sha256": "f14e7a4c12f5d1f16525986c6ccafde78801443015823b59cbc82b7fda6488f4",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-20"
   }
 }

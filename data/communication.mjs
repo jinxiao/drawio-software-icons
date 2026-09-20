@@ -3,7 +3,7 @@ export const communicationProjects = [
   ['wechat','WeChat','official-apps','https://weixin.qq.com','commercial',['微信','weixin'],['IM','即时通讯']],
   ['wecom','WeCom','official-apps','https://work.weixin.qq.com','commercial',['企业微信','wechat work'],['IM','企业协作']],
   ['dingtalk','DingTalk','official-apps','https://www.dingtalk.com','commercial',['钉钉','dingding'],['IM','企业协作']],
-  ['qq','QQ','antdesign','https://im.qq.com','commercial',['腾讯QQ','腾讯 QQ'],['IM','即时通讯']],
+  ['qq','QQ','official-apps','https://im.qq.com','commercial',['腾讯QQ','腾讯 QQ'],['IM','即时通讯']],
   ['feishu','Feishu','official-apps','https://www.feishu.cn','commercial',['飞书'],['IM','企业协作']],
   ['lark','Lark','dashboard','https://www.larksuite.com','commercial',['larksuite'],['IM','企业协作']],
   ['microsoft-teams','Microsoft Teams','dashboard','https://www.microsoft.com/microsoft-teams','commercial',['teams','微软Teams','微软 Teams'],['IM','办公协作']],

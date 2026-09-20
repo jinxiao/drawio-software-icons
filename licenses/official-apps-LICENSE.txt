@@ -1,6 +1,6 @@
 Official publisher artwork - rights notice (not an open-source license)
 
-WeChat and WeCom: Tencent Technology (Shenzhen) Company Limited.
+WeChat, WeCom and QQ: Tencent Technology (Shenzhen) Company Limited.
 DingTalk: DingTalk Technology Co., Ltd.
 Feishu: Beijing Feishu Technology Co., Ltd.
 Ubuntu: Canonical Ltd.
@@ -17,7 +17,7 @@ Community Hub merchandise assets page. The original SVG is preserved byte for
 byte, including its colors and geometry. Ubuntu and Canonical are registered
 trademarks of Canonical Ltd.; no open-source artwork license is claimed.
 
-The four PNG files are the application icons published by the named developers
+The five PNG files are the application icons published by the named developers
 on their verified App Store product listings. They are preserved without
 recoloring, tracing, cropping or changing their pixels. Apple hosts the artwork;
 its availability does not grant an artwork redistribution or trademark license.
@@ -38,7 +38,7 @@ See ICON_USAGE.md and THIRD_PARTY_NOTICES.md for the project's usage policy.
 
 官方发布者图标权利说明（不是开源许可证）
 
-微信、企业微信、钉钉及飞书 PNG 来自各自官方开发者发布的 App Store
+微信、企业微信、钉钉、QQ 及飞书 PNG 来自各自官方开发者发布的 App Store
 条目，原样保留彩色应用图标。来源网址、发布者、采集日期与校验值均
 随清单提供。公开可下载不代表获得品牌授权或再分发许可。版权及商标
 权仍归原权利人；本项目不声称这些图标采用 MIT、Apache 或其他开源

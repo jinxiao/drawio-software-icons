@@ -97,7 +97,7 @@ test('Grafana product gradients retain their paint definitions through draw.io X
 
 test('Chinese messaging products use pinned official color PNGs and Feishu is distinct from Lark',async()=>{
   const official=await json('data/official-icons.json');
-  for(const id of ['wechat','wecom','dingtalk','feishu']) {
+  for(const id of ['wechat','wecom','dingtalk','feishu','qq']) {
     const icon=catalog.icons.find(i=>i.id===id);
     assert.equal(icon.source.id,'official-apps');
     assert.equal(icon.asset,`icons/${id}.${id==='dingtalk'?'svg':'png'}`);
