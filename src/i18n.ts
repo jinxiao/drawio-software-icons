@@ -1,6 +1,7 @@
 export type Locale = 'zh-CN' | 'en';
 export const messages = {
   'zh-CN': {
+    starAction:'点赞',starHint:'前往 GitHub 为项目点 Star（新窗口）',starCount:'{count} 个 Star',
     homeIntro:'通用软件、AI 工具与阿里云图标，为 draw.io 架构图准备。',homeSearch:'搜索图标，例如 Kubernetes、Loki…',homeSearchScope:'搜索全部 {count} 个图标',homeLoadShort:'一键加载全部图标集，或选择分类、配置桌面端。',
     latestUpdate:'最近更新',viewChangelog:'查看更新日志',bannerAdded:'新增 {count} 个图标',bannerUpdated:'更新 {count} 个图标',bannerRemoved:'移除 {count} 个图标',bannerMore:' 等',
     changelog:'更新日志',changelogEyebrow:'图标更新记录',changelogIntro:'按批次查看新增和修正的图标。点击图标名可定位当前版本；日期采用北京时间。',changeAdded:'新增',changeUpdated:'更新',changeRemoved:'移除',olderUpdates:'查看更早更新',downloadChangelog:'下载中文日志',viewChange:'查看此次提交',locateCurrentIcon:'定位当前图标',collectionImport:'此批为整个图标集导入，可浏览图标集查看完整列表。',
@@ -34,6 +35,7 @@ export const messages = {
     error:'图标库加载失败，请刷新页面重试。你仍然可以下载完整合集。',retry:'刷新重试',loadMore:'显示更多',showing:'已显示',of:' / ',
   },
   en: {
+    starAction:'Star',starHint:'Star this project on GitHub (opens a new tab)',starCount:'{count} stars',
     homeIntro:'Software, AI and Alibaba Cloud icons, ready for your draw.io architecture diagrams.',homeSearch:'Find an icon, e.g. Kubernetes, Loki…',homeSearchScope:'Search all {count} icons',homeLoadShort:'Load every collection, or choose categories and configure Desktop.',
     latestUpdate:'Latest update',viewChangelog:'View changelog',bannerAdded:'Icons added: {count}',bannerUpdated:'Icons updated: {count}',bannerRemoved:'Icons removed: {count}',bannerMore:' and more',
     changelog:'Changelog',changelogEyebrow:'ICON UPDATES',changelogIntro:'See icons added or corrected in each batch. Select an icon to locate its current version. Dates use Asia/Shanghai.',changeAdded:'Added',changeUpdated:'Updated',changeRemoved:'Removed',olderUpdates:'View earlier updates',downloadChangelog:'Download English changelog',viewChange:'View commit',locateCurrentIcon:'Locate current icon',collectionImport:'This batch imported a complete collection. Browse it to see the full list.',

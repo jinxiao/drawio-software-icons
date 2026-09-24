@@ -33,6 +33,10 @@ let dark=readPreference('icons-preview')==='dark', limit=72;
 let catalog:Catalog;
 let configGeneration=0;
 let cleanupFloatingSearch=()=>{};
+const starRepository='jinxiao/drawio-software-icons';
+const starCacheKey=`github-stars:${starRepository}`;
+let starCount:number|null=null;
+let starsRequested=false;
 const selected=new Set<string>();
 const siteBase=new URL('./',location.href).href;
 const local=isLocalSite(siteBase);
@@ -48,6 +52,7 @@ const allLibrary=()=>loadAllCollections?'libraries/combined.xml':catalog.collect
 const description=(c:Category)=>locale==='en'?c.descriptionEn:c.description;
 const sourceName=(id:string)=>({devicon:'Devicon',dashboard:'Dashboard Icons',lobe:'Lobe Icons',vendor:'Vendor Icons SVG','alibaba-iconfont':'Alibaba Cloud · Iconfont','official-apps':messages[locale].officialPublisher} as Record<string,string>)[id]??id;
 const symbols={
+  star:'<path d="m12 3 2.8 5.7 6.3.9-4.55 4.45 1.07 6.28L12 17.36l-5.62 2.97 1.07-6.28L2.9 9.6l6.3-.9Z"/>',
   arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
   download:'<path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/>',
   search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
@@ -59,6 +64,39 @@ const symbols={
 };
 const svg=(id:keyof typeof symbols)=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${symbols[id]}</svg>`;
 function typeLabel(type:string) { const t=messages[locale]; return ({'open-source':t.openSource,'source-available':t.sourceAvailable,commercial:t.commercial,unverified:t.unverified} as Record<string,string>)[type]??t.unverified; }
+function updateStarButton() {
+  const button=document.querySelector<HTMLAnchorElement>('#github-star');
+  if(!button)return;
+  const t=messages[locale],count=button.querySelector<HTMLElement>('.github-star-count')!;
+  count.hidden=starCount===null;
+  count.textContent=starCount===null?'':starCount.toLocaleString(locale);
+  button.setAttribute('aria-label',starCount===null?t.starHint:`${t.starHint} · ${t.starCount.replace('{count}',count.textContent)}`);
+}
+async function loadStars() {
+  if(starsRequested)return;
+  starsRequested=true;
+  try {
+    const cached=JSON.parse(readPreference(starCacheKey)??'null');
+    if(cached && Number.isSafeInteger(cached.count) && cached.count>=0 && Number.isFinite(cached.at) && cached.at<=Date.now()) {
+      starCount=cached.count;
+      updateStarButton();
+      if(Date.now()-cached.at<60*60*1000)return;
+    }
+  } catch {/* Ignore invalid or unavailable storage. */}
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),5000);
+  try {
+    const response=await fetch(`https://api.github.com/repos/${starRepository}`,{
+      headers:{Accept:'application/vnd.github+json'},credentials:'omit',signal:controller.signal,
+    });
+    if(!response.ok)return;
+    const data=await response.json();
+    if(!Number.isSafeInteger(data.stargazers_count) || data.stargazers_count<0)return;
+    starCount=data.stargazers_count;
+    preference(starCacheKey,JSON.stringify({count:starCount,at:Date.now()}));
+    updateStarButton();
+  } catch {/* The GitHub link remains usable offline or when the API is limited. */}
+  finally {clearTimeout(timeout);}
+}
 function updateUrl() {
   const url=new URL(location.href);
   for(const [key,value] of [['q',query],['category',activeCategory],['type',activeType],['collection',browseCollection()]]) value && (value!=='all'||key==='collection')?url.searchParams.set(key,value):url.searchParams.delete(key);
@@ -154,7 +192,7 @@ function renderShell() {
     <a class="skip-link" href="#library">${t.browse}</a>
     <header class="topbar"><a class="brand" href="#" aria-label="Architecture Icons"><span class="brand-mark">${svg('grid')}</span><span>architecture<span class="brand-light">icons</span><small>for draw.io</small></span></a>
       <nav aria-label="${locale==='en'?'Main navigation':'主导航'}"><a href="#library">${t.navLibrary}</a><a href="#changelog">${t.changelog}</a><a href="#guide">${t.navGuide}</a></nav>
-      <div class="topbar-actions"><button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button></div>
+      <div class="topbar-actions"><a class="button github-star" id="github-star" href="https://github.com/${starRepository}" target="_blank" rel="noopener noreferrer" title="${t.starHint}" aria-label="${t.starHint}">${svg('star')}<span>${t.starAction}</span><span class="github-star-count" hidden></span></a><button class="language button subtle" id="language">${svg('globe')}${locale==='en'?'中文':'English'}</button></div>
     </header>
     <main>
       <section class="home-overview" aria-labelledby="home-title">
@@ -211,6 +249,8 @@ function renderShell() {
   }));
   renderResults();
   setupFloatingSearch();
+  updateStarButton();
+  void loadStars();
 }
 function renderResults() {
   const t=messages[locale], c=catalog.categories.find(c=>c.id===activeCategory);

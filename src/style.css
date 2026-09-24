@@ -95,6 +95,11 @@ footer>div{flex-wrap:wrap}
 @media(max-width:1000px){.updates{padding:40px 32px}}
 @media(max-width:760px){.updates{padding:36px 24px}.updates-heading{flex-direction:column;gap:14px}.updates-heading h2{font-size:24px}.update-entry>summary{gap:9px;padding:14px;flex-wrap:wrap}.update-entry summary>strong{flex-basis:calc(100% - 110px)}.update-counts{margin-left:18px}.update-body{padding:0 14px 16px}}
 .topbar-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.github-star{min-height:38px;padding:8px 12px;gap:7px;white-space:nowrap;background:#fff8e9;border-color:#ead8b5;color:#72501c;font-size:12px}
+.github-star:hover{background:#fff0cd;border-color:#d5b778}
+.github-star>svg{color:#b17b1e;fill:#f8d886}
+.github-star-count{border-left:1px solid #ead8b5;padding-left:8px;font-variant-numeric:tabular-nums}
+@media(max-width:540px){.topbar{flex-wrap:wrap}.topbar-actions{margin-left:auto;flex-wrap:wrap;justify-content:flex-end}}
 .library-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px;flex-wrap:wrap}
 .library-toolbar .filter-row{margin:0;flex:1}
 .library-toolbar .background-toggle{flex-shrink:0}
