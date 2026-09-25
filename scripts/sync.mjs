@@ -4,6 +4,8 @@ import { selection } from '../data/selection.mjs';
 import { communicationMetadata } from '../data/communication.mjs';
 import { aiMetadata, aiSourcePaths } from '../data/ai.mjs';
 import { observabilityMetadata } from '../data/observability.mjs';
+import { databaseMetadata } from '../data/databases.mjs';
+import { unzipSync } from 'fflate';
 import { syncChangelogEntry, validateChangelog } from './changelog.mjs';
 import { hash, json, save, saveJson, inspectSvg, inspectPng, normalizeSvg, packageOfficialPng } from './lib.mjs';
 
@@ -94,7 +96,16 @@ async function worker() {
         catch(e) {if(e.code !== 'ENOENT') throw e;}
       }
       let upstreamSha256 = official?.sha256 ?? (prior?.source.url === sourceUrl ? prior.source.sha256 : null);
-      if (!raw) { const original = await download(sourceUrl,Boolean(officialPng)); upstreamSha256=hash(original); raw=official?original:normalizeSvg(original); }
+      if (!raw) {
+        let original = await download(sourceUrl,Boolean(officialPng || official?.archivePath));
+        if(official?.archivePath) {
+          if(hash(original)!==official.archiveSha256) throw Error('Official artwork archive checksum changed; review before updating the pin');
+          const entry=unzipSync(original)[official.archivePath];
+          if(!entry) throw Error('Official artwork missing from archive');
+          original=officialPng?Buffer.from(entry):Buffer.from(entry).toString('utf8');
+        }
+        upstreamSha256=hash(original); raw=official?original:normalizeSvg(original);
+      }
       if(official && hash(raw)!==official.sha256) throw Error('Official artwork checksum changed; review the source before updating the pin');
       // Keep the GPL collection's SVG source byte-for-byte, including its metadata.
       if(source.preserveOriginal) {raw=await download(sourceUrl);upstreamSha256=hash(raw);}
@@ -108,12 +119,13 @@ async function worker() {
       const category = categoryMap.get(item.category);
       if (!category) throw Error('Unknown category');
       const {source: sourceId, ...project} = item;
-      const extra=communicationMetadata.get(item.id)??aiMetadata.get(item.id)??observabilityMetadata.get(item.id);
+      const extra=communicationMetadata.get(item.id)??aiMetadata.get(item.id)??observabilityMetadata.get(item.id)??databaseMetadata.get(item.id);
       const aliases = [...new Set([...(extra?.aliases??[]),...(metadata?.altnames ?? []), ...(item.id === 'kubernetes' ? ['k8s'] : []), ...(item.id === 'postgresql' ? ['postgres','pg'] : []), ...(item.id === 'amazonwebservices' ? ['aws'] : [])])];
       icons[index] = {...project, aliases, tags:[...new Set([...(extra?.tags??[]),...(metadata?.tags ?? []).filter(t=>t !== 'open-source'), category.name,...category.keywords])],
         ...(item.softwareType==='commercial'?{usagePolicy:'drawio-architecture-only',usagePolicyUrl:'ICON_USAGE.md',brandPermissionStatus:'not-verified'}:{}),
         asset, ...dimensions, sha256:hash(raw),
         source:{id:sourceId, ...(official?{kind:'publisher-artwork',publisher:official.publisher,listing:official.listing,appId:official.appId,retrievedOn:official.retrievedOn}:{repository:`https://github.com/${source.repo}`}),revision:source.revision,path,url:sourceUrl,variant,sha256:upstreamSha256,collectionLicense:source.license,
+          ...(official?.archivePath?{archivePath:official.archivePath,archiveSha256:official.archiveSha256}:{}),
           licenseUrl:official?'ICON_USAGE.md':`https://github.com/${source.repo}/blob/${source.revision}/LICENSE`,
           note:'图标集许可独立于软件许可；品牌标志及商标属于各自所有者。本项目仅用于标识，不代表官方背书。'}};
       await save(`${stage}/assets/${asset}`,raw);

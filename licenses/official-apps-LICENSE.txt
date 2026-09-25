@@ -55,3 +55,5 @@ Grafana Loki、Tempo、Mimir、Alloy、Pyroscope 的 SVG 来自 Grafana 官方�
 Ubuntu 圆形 Circle of Friends SVG 来自官方 Ubuntu Community Hub 素材页，
 原文件字节、颜色和形状均保持不变。Ubuntu 和 Canonical 商标属于 Canonical
 Ltd.；本项目不声称此品牌素材采用开源许可证。
+
+ScyllaDB SVG is preserved unchanged from the official 2024 brand kit. The exact archive, member path and checksums are pinned in data/official-icons.json. ScyllaDB trademarks belong to ScyllaDB, Inc. Follow the logo and mascot usage guidelines at https://www.scylladb.com/media-kit/; software licensing does not grant artwork rights.

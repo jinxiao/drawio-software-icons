@@ -1,5 +1,29 @@
 [
   {
+    "id": "sync-2026-09-25-55bdeffdd41f-12",
+    "date": "2026-09-25",
+    "title": {
+      "en": "Icon library update",
+      "zh-CN": "图标库更新"
+    },
+    "summary": {
+      "en": "Synced icon artwork, names, categories or search metadata.",
+      "zh-CN": "同步图标素材、名称、分类或搜索信息。"
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "collection": "software",
+        "icons": [
+          {
+            "id": "scylladb",
+            "name": "ScyllaDB"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "sync-2026-09-20-deeed8e2afc8-11",
     "date": "2026-09-20",
     "title": {

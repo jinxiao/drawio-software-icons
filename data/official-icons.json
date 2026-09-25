@@ -133,5 +133,18 @@
     "width": 512,
     "height": 512,
     "retrievedOn": "2026-09-20"
+  },
+  "scylladb": {
+    "format": "svg",
+    "name": "ScyllaDB",
+    "publisher": "ScyllaDB, Inc.",
+    "listing": "https://www.scylladb.com/media-kit/",
+    "url": "https://www.scylladb.com/wp-content/uploads/ScyllaDB-brand-kit-logo-2024.zip",
+    "archivePath": "ScyllaDB-brand-kit-logo/Logo/Web/SVG/scylladb-logo-vertical.svg",
+    "archiveSha256": "b977ce28d5d601165e1b5a501934c8e7ff37e5ca1971c962733c55fc858cad86",
+    "sha256": "be7c587c651c27d3895d4c01d8be53202a23e068c429995e0d9f5f509e4b22de",
+    "width": 1200,
+    "height": 922,
+    "retrievedOn": "2026-09-25"
   }
 }

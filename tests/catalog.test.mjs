@@ -250,3 +250,19 @@ test('unsafe SVG payloads are rejected, including entity-encoded remote URLs',()
   assert.deepEqual(inspectSvg(wrap('<defs><linearGradient id="g"/></defs><path fill="url(#g)"/>')),{width:10,height:10});
   assert.equal(inspectSvg(normalizeSvg('<?xml version="1.0"?>'+square)).width,100);
 });
+
+test('ScyllaDB aliases resolve in databases and official SVG survives draw.io export',async()=>{
+  const icon=catalog.icons.find(i=>i.id==='scylladb');
+  assert.equal(icon.category,'databases');
+  assert.equal(icon.softwareType,'source-available');
+  for(const query of ['Scylla','Scylla DB','Scylla 数据库','CQL']) {
+    assert.ok(filterIcons(catalog.icons,categories,query).some(i=>i.id===icon.id),query);
+  }
+  const original=await readFile(`assets/${icon.asset}`,'utf8');
+  const pinned=(await json('data/official-icons.json')).scylladb;
+  assert.equal(hash(original),pinned.sha256);
+  assert.equal(icon.source.archivePath,pinned.archivePath);
+  const entry=libraryEntry(icon,original);
+  const exported=readLibrary(libraryXml([entry]))[0];
+  assert.equal(hash(Buffer.from(exported.data.split(',')[1],'base64')),pinned.sha256);
+});

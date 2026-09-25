@@ -2,15 +2,15 @@
 
 [简体中文](README.zh-CN.md) · [Browse the collection](https://icons.rambow.cloud/)
 
-455 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
+456 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.
 
 
 ## Unified collections, unchanged URLs
 
-The site now combines **455 software and service icons** in 8 categories with
-**888 Alibaba Cloud icon entries** in 9 source categories: **1,343 entries across
+The site now combines **456 software and service icons** in 8 categories with
+**888 Alibaba Cloud icon entries** in 9 source categories: **1,344 entries across
 two collections**. Alibaba counts include color variants and supplemental UI
 symbols, not 888 distinct cloud services. Original names remain where no upstream
 English product name exists; categories, browsing and setup are bilingual.

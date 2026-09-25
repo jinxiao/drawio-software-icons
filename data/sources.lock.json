@@ -54,7 +54,7 @@
   "official-apps": {
     "kind": "publisher-artwork",
     "manifest": "data/official-icons.json",
-    "revision": "d08ca71308d4693184c57c185a71859a8a579f175e0e7180bdccabc5220f99da",
+    "revision": "32da3cb96d42713a146b5f4ca9772e021bed445f0f96ab8029773a0e097e088f",
     "license": "Proprietary brand artwork; permission not verified"
   }
 }
