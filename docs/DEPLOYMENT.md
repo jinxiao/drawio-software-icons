@@ -7,7 +7,7 @@ Do not rename or delete either repository while its Pages URLs are in use.
 
 | Site | Build directory | Default collection | Legacy catalog |
 | --- | --- | --- | --- |
-| `jinxiao.github.io/drawio-software-icons/` | `dist` | General Software | Software schema |
+| `icons.rambow.cloud/` | `dist` | General Software | Software schema |
 | `jinxiao.github.io/alibaba-cloud-icons/` | `dist-alibaba` | Alibaba Cloud | Alibaba schema |
 
 Both serve the same bilingual UI and a content-addressed unified catalog. Use
@@ -27,6 +27,16 @@ New shared downloads: `downloads/drawio-icons.zip`, `libraries/combined.xml`,
 live under `guides/`, avoiding collisions with legacy Alibaba documentation.
 
 ## Publishing
+
+The primary domain is `https://icons.rambow.cloud/`. Set it in the source
+repository's Settings → Pages → Custom domain and enable Enforce HTTPS.
+Cloudflare DNS uses a DNS-only `CNAME` record, `icons` → `jinxiao.github.io`.
+GitHub Actions publication does not use a repository `CNAME` file.
+Keep the original `jinxiao.github.io/drawio-software-icons/` entrypoint available
+through GitHub Pages and retain the separate Alibaba site's resource paths.
+Both copies of the unified homepage identify the primary domain with canonical
+and Open Graph URL tags. The sitemap lists only the primary homepage; search
+and category parameters remain browsing filters. Preview pages retain `noindex`.
 
 1. Main pushes run `.github/workflows/ci-pages.yml`, test both collections and
    build both targets, then publish `dist` to the software site's Pages.
@@ -56,6 +66,12 @@ the collections in **More Shapes** if persisted sidebar preferences hide them.
 No custom JavaScript plugin is required for this workflow.
 
 ## 中文
+
+主站域名为 `https://icons.rambow.cloud/`，在源仓库 Settings → Pages 中配置
+Custom domain 并启用 Enforce HTTPS。Cloudflare 使用 DNS-only 的 CNAME 记录：
+`icons` → `jinxiao.github.io`。GitHub Actions 发布不依赖仓库中的 CNAME 文件。
+保留原软件站入口及阿里云站资源路径。两份统一首页的 canonical 和 Open Graph URL
+均指向新主域名；站点地图仅列出主站首页，搜索与分类参数作为浏览筛选，预览页继续 noindex。
 
 当前仓库是唯一源码入口；阿里云原始数据、构建器、测试及许可迁入
 `collections/alibaba-cloud/`。两个仓库及 Pages 地址继续保留，不做仓库重命名。

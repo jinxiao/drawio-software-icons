@@ -1,6 +1,6 @@
 # Architecture Icons for draw.io
 
-[简体中文](README.zh-CN.md) · [Browse the collection](https://jinxiao.github.io/drawio-software-icons/)
+[简体中文](README.zh-CN.md) · [Browse the collection](https://icons.rambow.cloud/)
 
 455 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
@@ -15,7 +15,7 @@ two collections**. Alibaba counts include color variants and supplemental UI
 symbols, not 888 distinct cloud services. Original names remain where no upstream
 English product name exists; categories, browsing and setup are bilingual.
 
-- [Software entrypoint](https://jinxiao.github.io/drawio-software-icons/) defaults to General Software.
+- [Software entrypoint](https://icons.rambow.cloud/) defaults to General Software.
 - [Alibaba Cloud entrypoint](https://jinxiao.github.io/alibaba-cloud-icons/) defaults to Alibaba Cloud.
 - The sidebar follows **Collection → Category**: choose **Alibaba Cloud**, **General Software** or **All collections**, then a category below. All rows share the same button style. Switching collections resets the category filter; **All categories** only clears that filter. The main homepage’s first button always loads all collections. The Alibaba homepage has a separate checkbox: unchecked loads Alibaba Cloud, checked loads all collections. Sidebar choices do not change either homepage action. Existing XML,
   JSON, SVG, plugin and ZIP URLs continue to work; the two old `catalog.json` schemas remain separate.
@@ -54,7 +54,7 @@ hourly or on manual dispatch. See [deployment details](docs/DEPLOYMENT.md).
 
 ## Monitoring and observability
 
-See the bilingual [changelog](https://jinxiao.github.io/drawio-software-icons/#changelog)
+See the bilingual [changelog](https://icons.rambow.cloud/#changelog)
 for each batch of added, corrected or removed icons. Select an icon in the timeline
 to locate its current version. Both English and Chinese Markdown logs are included
 in the software and unified offline ZIPs; the website follows the selected language.
@@ -150,7 +150,7 @@ Icon records expose `id/name/aliases/tags/category/softwareType/homepage/reposit
 
 ## Deployment
 
-The public repository is `jinxiao/drawio-software-icons`, with the default Pages URL `https://jinxiao.github.io/drawio-software-icons/`. In Settings → Pages, select GitHub Actions. A push to `main` validates and publishes. Relative asset URLs support repository subpaths and other static hosts.
+The public repository is `jinxiao/drawio-software-icons`, with the primary site URL `https://icons.rambow.cloud/`. In Settings → Pages, select GitHub Actions. A push to `main` validates and publishes. Relative asset URLs support repository subpaths and other static hosts.
 
 Enable **Allow GitHub Actions to create and approve pull requests** under Settings → Actions → General so scheduled updates can open PRs. The update workflow tests and builds its own changes before creating a PR. Additional checks on bot-created PRs may require approval in GitHub's PR interface.
 

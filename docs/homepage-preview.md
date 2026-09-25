@@ -5,7 +5,7 @@
 ## English
 
 The `preview/homepage` branch can be published at:
-https://jinxiao.github.io/drawio-software-icons/preview/homepage/
+https://icons.rambow.cloud/preview/homepage/
 
 After pushing that branch, manually run **Validate and publish** from the same branch with `publish_preview` enabled:
 
@@ -22,7 +22,7 @@ Review at desktop (1440 × 900 and 1366 × 768), tablet (768 × 1024) and phone 
 ## 中文
 
 `preview/homepage` 分支的预览地址：
-https://jinxiao.github.io/drawio-software-icons/preview/homepage/
+https://icons.rambow.cloud/preview/homepage/
 
 推送分支后，在该分支手动触发 **Validate and publish**，勾选 `publish_preview`，或运行上面的命令。
 

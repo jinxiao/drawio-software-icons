@@ -1,6 +1,6 @@
 # Architecture Icons for draw.io
 
-[English](README.md) · [在线图标库](https://jinxiao.github.io/drawio-software-icons/)
+[English](README.md) · [在线图标库](https://icons.rambow.cloud/)
 
 455 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
@@ -13,7 +13,7 @@
 共 **1,343 个条目、两个图标集**。阿里云条目包含颜色变体和 UI 补充图形，不代表 888 种独立云服务。
 分类、界面和使用流程支持中英文；上游没有英文产品名称的条目保留原名。
 
-- [软件入口](https://jinxiao.github.io/drawio-software-icons/)默认选中「通用软件」。
+- [软件入口](https://icons.rambow.cloud/)默认选中「通用软件」。
 - [阿里云入口](https://jinxiao.github.io/alibaba-cloud-icons/)默认选中「阿里云」。
 - 侧栏采用「图标集 → 分类」两层按钮：先选择「阿里云」「通用软件」或「全部图标集」，再选择下方分类，两层按钮风格一致。切换图标集会重置分类，「全部分类」只清除分类筛选。主站首页第一个按钮固定加载全部合集；阿里云首页保留独立复选框，未选时加载阿里云，选中时加载全部合集。侧栏筛选不改变首页按钮的加载范围。原 XML、JSON、SVG、插件及 ZIP 地址保留，
   两个旧站的 `catalog.json` 各自保持原结构。
@@ -41,7 +41,7 @@
 
 ## 监控与可观测性
 
-可在首页[更新日志](https://jinxiao.github.io/drawio-software-icons/#changelog)查看每批新增、
+可在首页[更新日志](https://icons.rambow.cloud/#changelog)查看每批新增、
 修正或移除的图标，点击名称可定位当前版本。日志跟随网站语言切换，通用软件及完整合集的
 离线 ZIP 均附带中英文 Markdown 日志。
 
@@ -133,7 +133,7 @@ npm run sync -- --update
 
 ## GitHub Pages
 
-公开仓库 `jinxiao/drawio-software-icons`，默认网址 `https://jinxiao.github.io/drawio-software-icons/`。Settings → Pages → Source 选择 GitHub Actions，推送到 `main` 后校验并发布。站点使用相对资源地址，也支持其他仓库子路径。
+公开仓库 `jinxiao/drawio-software-icons`，主站网址 `https://icons.rambow.cloud/`。Settings → Pages → Source 选择 GitHub Actions，推送到 `main` 后校验并发布。站点使用相对资源地址，也支持其他仓库子路径。
 
 Settings → Actions → General 中允许 GitHub Actions 创建 Pull Request，供每月更新工作流使用。定时任务用仓库 `GITHUB_TOKEN` 创建更新 PR，并在自身工作流内完成测试及构建；如果 GitHub 对机器人 PR 的附加检查要求批准，在 PR 页面批准运行即可。
 

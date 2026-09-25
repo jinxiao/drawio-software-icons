@@ -56,7 +56,7 @@ export function changelogMarkdown(entries,locale='en') {
     for(const change of entry.changes) {
       const collection=change.collection==='software'?(zh?'通用软件':'General Software'):(zh?'阿里云':'Alibaba Cloud');
       lines.push(`### ${labels[change.kind]} · ${collection} (${change.count??change.icons.length})`,'');
-      for(const icon of change.icons)lines.push(change.kind==='removed'?`- ${markdown(icon.name)} (\`${icon.id}\`)`:`- [${markdown(icon.name)}](https://jinxiao.github.io/drawio-software-icons/?collection=all&q=${encodeURIComponent(icon.id)}) (\`${icon.id}\`)`);
+      for(const icon of change.icons)lines.push(change.kind==='removed'?`- ${markdown(icon.name)} (\`${icon.id}\`)`:`- [${markdown(icon.name)}](https://icons.rambow.cloud/?collection=all&q=${encodeURIComponent(icon.id)}) (\`${icon.id}\`)`);
       if(!change.icons.length)lines.push(zh?'整批导入；请在网站对应图标集中查看完整列表。':'Collection import; browse the collection on the website for the full list.');
       lines.push('');
     }
