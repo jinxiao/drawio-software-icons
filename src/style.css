@@ -63,9 +63,40 @@ html{scroll-padding-top:calc(var(--floating-search-height,58px) + max(12px,env(s
 .mcp-modes .button[aria-pressed=true]{background:#fff;color:#35452d;box-shadow:0 1px 4px #25331912}
 .mcp-selectors{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .mcp-selectors label,.mcp-format{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;color:#4d5944}
-#mcp-dialog select{width:100%;min-height:42px;padding:9px 12px;background:#fff;border:1px solid #d5ddcd;border-radius:6px;color:#34402c;font:inherit}
+#mcp-dialog select{appearance:none;width:100%;min-height:44px;padding:11px 40px 11px 14px;background:#f8f9f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23748068' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center;border:1px solid #dce2d4;border-radius:8px;color:#34402c;font:inherit;font-weight:500;cursor:pointer;transition:border-color .15s,background-color .15s,box-shadow .15s}
+#mcp-dialog select:hover{background-color:#f0f3e9;border-color:#b8c7aa}
+#mcp-dialog select:focus-visible{background-color:#fff;box-shadow:0 0 0 3px #d9532c12}
+#mcp-dialog select option{color:#34402c;background:#fafbf7}
+@supports (appearance:base-select){
+  #mcp-dialog select,#mcp-dialog select::picker(select){appearance:base-select}
+  #mcp-dialog select::picker-icon{display:none}
+  #mcp-dialog select::picker(select){margin-top:6px;padding:5px;border:1px solid #dce2d4;border-radius:9px;background:#fafbf7;box-shadow:0 8px 24px #34402c18}
+  #mcp-dialog select option{min-height:40px;padding:10px 12px;border-radius:5px;font-size:12px;cursor:pointer;gap:10px}
+  #mcp-dialog select option:hover,#mcp-dialog select option:focus{background:#eef2e6;outline:none}
+  #mcp-dialog select option:checked{background:#e7eddd;color:#405b2f;font-weight:600}
+  #mcp-dialog select option::checkmark{color:#617c49}
+}
 #mcp-dialog select:focus-visible,#mcp-dialog textarea:focus-visible{outline:3px solid #e87f49;outline-offset:3px}
 .mcp-code{display:block;width:100%;max-width:100%;margin:14px 0 12px;padding:13px;border:1px solid #dce2d4;border-radius:7px;background:#f7f9f3;color:#34402c;font:12px/1.7 ui-monospace,Consolas,monospace;resize:vertical;tab-size:2}
+.mcp-code-panel{margin:16px 0 0;border:1px solid #dce2d4;border-radius:9px;overflow:hidden;background:#f7f9f3}
+.mcp-code-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 13px;background:#eef2e7;border-bottom:1px solid #dce2d4}
+.mcp-code-heading{display:flex;align-items:center;gap:12px;font:11px ui-monospace,Consolas,monospace;color:#65705d}
+.mcp-code-bar .button{min-height:32px;padding:6px 10px;font-size:11px;background:#fafbf7;border-color:#d5ddcd}
+.mcp-code-body{display:flex;align-items:flex-start;padding:15px;gap:10px}
+.mcp-code-body .mcp-code{min-width:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;line-height:1.8}
+.mcp-terminal-dots,.mcp-terminal-prompt{display:none}
+.mcp-code-panel.is-terminal{background:#252e29;border-color:#354239;box-shadow:0 5px 16px #2533190c}
+.is-terminal .mcp-code-bar{background:#303b34;border-color:#404d43}
+.is-terminal .mcp-code-heading{color:#b4c2b4}
+.is-terminal .mcp-terminal-dots{display:flex;gap:5px}
+.mcp-terminal-dots i{width:7px;height:7px;border-radius:50%;background:#dc967f}
+.mcp-terminal-dots i:nth-child(2){background:#d2bc85}
+.mcp-terminal-dots i:nth-child(3){background:#94b58a}
+.is-terminal .mcp-code-bar .button{background:#38473c;color:#e1eadc;border-color:#53634f}
+.is-terminal .mcp-code-bar .button:hover{background:#465741;transform:none}
+.is-terminal .mcp-terminal-prompt{display:block;color:#a9c68d;font:12px/1.8 ui-monospace,Consolas,monospace;user-select:none}
+.is-terminal .mcp-code{color:#e3edda;resize:none;overflow:hidden;caret-color:#a9c68d}
+.is-terminal .mcp-code::selection{background:#536a47;color:#fff}
 #mcp-dialog .mcp-status{min-height:22px;margin:8px 0;color:#496036;font-size:12px}
 .mcp-example{margin-top:22px;padding-top:22px;border-top:1px solid #e0e5d9}
 .mcp-endpoint{margin-top:20px;border-top:1px solid #e0e5d9;padding-top:18px}
