@@ -62,7 +62,8 @@ test('React dialogs retain accessible labels, selection scope and MCP command co
   assert(mcp.includes('data-code-panel="terminal"'));
   assert(mcp.includes('codex mcp add drawio --env DRAWIO_ICON_SERVICE_URL=https://icons.rambow.cloud/api/icons'));
   assert(mcp.includes('@drawio/mcp@1.6.1'));
-  for(const client of ['Codex','Claude Desktop','Cursor','VS Code'])assert(mcp.includes(client));
+  for(const id of ['mcp-client','mcp-platform','mcp-format'])assert.match(mcp, new RegExp(`<button\\b(?=[^>]*id="${id}")(?=[^>]*role="combobox")[^>]*>`));
+  assert(mcp.includes('Codex'));
   assert(mcp.includes('id="mcp-existing" hidden=""'));
   assert(mcp.includes('aria-live="polite"'));
 });
@@ -74,7 +75,7 @@ test('shared buttons preserve action/link semantics and loading disables repeate
   assert.match(link, /<a\b(?=[^>]*href="\/icons.xml")(?=[^>]*download="")[^>]*>/);
   assert(!link.includes('role="button"'));
   for(const html of [render(<Page/>),render(<BundleDialog/>),render(<McpDialog/>),render(<SpotlightDialog/>),render(<DetailDialog icon={icon}/>)]) {
-    for(const button of html.match(/<button\b[^>]*>/g)??[])assert(button.includes('data-slot="button"'),button);
+    for(const button of html.match(/<button\b[^>]*>/g)??[])assert(/data-slot="(button|select-trigger)"/.test(button),button);
   }
 });
 

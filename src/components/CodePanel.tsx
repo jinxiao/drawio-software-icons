@@ -36,7 +36,7 @@ export function CodePanel({ title, value, fieldRef, terminal = false, prompt = '
   const Icon = terminal ? Terminal : FileCode2;
   return <Card id={panelId} ref={panelRef} data-code-panel={terminal ? 'terminal' : 'config'}
     className={cn('min-w-0 gap-0 overflow-hidden border-border py-0 shadow-sm', terminal && 'terminal-theme')}>
-    <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-3 border-b border-solid border-border bg-muted px-4 py-3">
+    <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 border-b border-solid border-border bg-muted px-3 py-1 [.border-b]:pb-1">
       <CardTitle className="flex min-w-0 items-center gap-2 font-mono text-xs leading-normal font-medium text-muted-foreground">
         <Icon className="size-4 shrink-0" aria-hidden="true" /><span className="break-all">{title}</span>
       </CardTitle>

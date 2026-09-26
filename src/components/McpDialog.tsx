@@ -5,7 +5,7 @@ import { useIcons } from '../site';
 import { CloseButton, Dialog, ExternalLink } from './Ui';
 import { Button } from './ui/button';
 import { Label } from './ui/label';
-import { NativeSelect, NativeSelectOption } from './ui/native-select';
+import { SetupSelect } from './SetupSelect';
 import { CodePanel } from './CodePanel';
 import { CopyButton } from './CopyButton';
 
@@ -47,24 +47,20 @@ export function McpDialog() {
       <p>{t.prerequisites} <ExternalLink href="https://nodejs.org/en/download">{t.node} ↗</ExternalLink></p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2"><Label htmlFor="mcp-client">{t.client}</Label>
-          <NativeSelect id="mcp-client" value={client} onChange={event => { setStatus(''); setClient(event.target.value as Client); }}>
-            <NativeSelectOption value="codex">Codex</NativeSelectOption><NativeSelectOption value="claude">Claude Desktop</NativeSelectOption>
-            <NativeSelectOption value="cursor">Cursor</NativeSelectOption><NativeSelectOption value="vscode">VS Code</NativeSelectOption>
-          </NativeSelect>
+          <SetupSelect id="mcp-client" label={t.client} value={client} onValueChange={next => { setStatus(''); setClient(next); }}
+            options={[{value:'codex',label:'Codex'},{value:'claude',label:'Claude Desktop'},{value:'cursor',label:'Cursor'},{value:'vscode',label:'VS Code'}]} />
         </div>
         <div className="space-y-2"><Label htmlFor="mcp-platform">{t.platform}</Label>
-          <NativeSelect id="mcp-platform" value={platform} onChange={event => { setStatus(''); setPlatform(event.target.value as 'windows' | 'unix'); }}>
-            <NativeSelectOption value="windows">Windows</NativeSelectOption><NativeSelectOption value="unix">macOS / Linux</NativeSelectOption>
-          </NativeSelect>
+          <SetupSelect id="mcp-platform" label={t.platform} value={platform} onValueChange={next => { setStatus(''); setPlatform(next); }}
+            options={[{value:'windows',label:'Windows'},{value:'unix',label:'macOS / Linux'}]} />
         </div>
       </div>
       <p id="mcp-client-help">{t[client]}</p><p id="mcp-merge" hidden={client === 'codex'}>{t.merge}</p>
     </div>
     <div id="mcp-existing" hidden={mode !== 'existing'}>
       <p>{t.existingHelp}</p><div className="space-y-2"><Label htmlFor="mcp-format">{t.format}</Label>
-        <NativeSelect id="mcp-format" value={format} onChange={event => { setStatus(''); setFormat(event.target.value as 'json' | 'toml'); }}>
-          <NativeSelectOption value="json">JSON</NativeSelectOption><NativeSelectOption value="toml">TOML (Codex)</NativeSelectOption>
-        </NativeSelect>
+        <SetupSelect id="mcp-format" label={t.format} value={format} onValueChange={next => { setStatus(''); setFormat(next); }}
+          options={[{value:'json',label:'JSON'},{value:'toml',label:'TOML (Codex)'}]} />
       </div><p id="mcp-toml-help" hidden={format !== 'toml'}>{t.tomlHelp}</p>
     </div>
     <div className="mt-4">
