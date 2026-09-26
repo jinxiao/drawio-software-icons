@@ -1,3 +1,4 @@
+import { Button, ButtonLink } from './ui/button';
 import { useLayoutEffect, useRef, type PropsWithChildren, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { drawioUrl, libraryPaths } from '../catalog.mjs';
@@ -18,9 +19,9 @@ const symbols={
 export function Symbol({name}:{name:keyof typeof symbols}) {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{symbols[name]}</svg>;
 }
-export function LibraryLink({className,categories,children}:{className:string;categories?:Category[];children?:ReactNode}) {
+export function LibraryLink({className,size='default',categories,children}:{className?:string;size?:'default'|'sm';categories?:Category[];children?:ReactNode}) {
   const s=useIcons();
-  return <a className={`button ${className}`} data-open-all href={drawioUrl(siteBase,libraryPaths(categories??s.visibleCategories,s.locale))} target="_blank" rel="noopener noreferrer" onClick={event=>{if(s.local){event.preventDefault();s.setModal({kind:'notice'});}}}>{children??s.t.openDrawio}<Symbol name="external"/></a>;
+  return <ButtonLink className={className} size={size} data-open-all href={drawioUrl(siteBase,libraryPaths(categories??s.visibleCategories,s.locale))} target="_blank" rel="noopener noreferrer" onClick={event=>{if(s.local){event.preventDefault();s.setModal({kind:'notice'});}}}>{children??s.t.openDrawio}<Symbol name="external"/></ButtonLink>;
 }
 export function Dialog({id,label,labelledBy,describedBy,onClose,children}:{id:string;label?:string;labelledBy?:string;describedBy?:string;onClose:()=>void;children:ReactNode}) {
   const ref=useRef<HTMLDialogElement>(null);
@@ -39,7 +40,7 @@ export function Dialog({id,label,labelledBy,describedBy,onClose,children}:{id:st
 }
 export function CloseButton({onClose,children}:{onClose:()=>void;children?:ReactNode}) {
   const {t}=useIcons();
-  return <button className="dialog-close" onClick={onClose} aria-label={t.close}>{children??<Symbol name="close"/>}</button>;
+  return <Button variant="ghost" size="icon-sm" className="absolute right-3.5 top-3.5 rounded-full" onClick={onClose} aria-label={t.close}>{children??<Symbol name="close"/>}</Button>;
 }
 export function ExternalLink({href,children}:PropsWithChildren<{href:string}>) {
   return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;

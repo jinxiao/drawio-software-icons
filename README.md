@@ -134,7 +134,9 @@ npm run build
 npm run preview
 ```
 
-The frontend uses React + TypeScript with Vite. `src/App.tsx` composes the page, `src/components/` contains the page sections and dialogs, and `src/site.tsx` manages shared UI state. The existing stylesheet remains in `src/style.css`. Run `npm run test:ui` for the React rendering and URL restoration checks; these also run as part of `npm test`.
+The frontend uses React + TypeScript with Vite, Tailwind CSS and shadcn/ui. `src/App.tsx` composes the page, `src/components/` contains the page sections and dialogs, and `src/site.tsx` manages shared UI state. Components generated from shadcn/ui live in `src/components/ui/`; all action buttons use `Button`, while button-shaped links use `ButtonLink` to preserve link semantics. `src/theme.css` owns the shared palette and Tailwind utilities, with the remaining page layout in `src/style.css`. Tailwind Preflight is intentionally omitted to preserve that layout.
+
+The terminal and configuration editor share `CodePanel`, composed from shadcn/ui Card and Textarea, with `CopyButton` for clipboard feedback and manual-copy fallback. Terminal colors are scoped through `.terminal-theme`; command prompts are separate from the copied text. Run `npm run test:ui` for rendering, URL restoration, button semantics and configuration-text checks; these also run as part of `npm test`.
 
 The build validates the catalog, checks TypeScript, generates libraries and the ZIP, then writes the two static sites to `dist/` and `dist-alibaba/`. Once dependencies are installed, testing and building require no upstream downloads.
 

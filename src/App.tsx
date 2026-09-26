@@ -1,3 +1,4 @@
+import { Button, ButtonLink } from './components/ui/button';
 import { useEffect, useState } from 'react';
 import { messages } from './i18n';
 import type { Catalog } from './types';
@@ -33,7 +34,7 @@ export default function App() {
     })();
     return()=>controller.abort();
   },[]);
-  if(failed){const t=messages[locale];return <div className="boot"><h1>Software Icons</h1><p>{t.error}</p><button id="retry" className="button primary" onClick={()=>location.reload()}>{t.retry}</button> <a className="button outline" href={file('downloads/drawio-icons.zip')}>{t.downloadAll}</a></div>;}
+  if(failed){const t=messages[locale];return <div className="boot"><h1>Software Icons</h1><p>{t.error}</p><Button variant="default" size="default" id="retry"  onClick={()=>location.reload()}>{t.retry}</Button> <ButtonLink variant="outline" size="default"  href={file('downloads/drawio-icons.zip')}>{t.downloadAll}</ButtonLink></div>;}
   if(!catalog)return <p className="boot" role="status">正在加载图标库 · Loading icons…</p>;
   return <SiteProvider catalog={catalog} locale={locale} setLocale={setLocale}><Page/></SiteProvider>;
 }

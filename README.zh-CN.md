@@ -116,7 +116,9 @@ npm run build
 npm run preview
 ```
 
-前端采用 React + TypeScript 和 Vite。`src/App.tsx` 组合整个页面，`src/components/` 管理页面区块和弹窗，`src/site.tsx` 管理共享交互状态；原有样式保留在 `src/style.css`。`npm run test:ui` 验证 React 渲染和 URL 筛选恢复，也包含在 `npm test` 中。
+前端采用 React + TypeScript、Vite、Tailwind CSS 和 shadcn/ui。`src/App.tsx` 组合整个页面，`src/components/` 管理页面区块和弹窗，`src/site.tsx` 管理共享交互状态。shadcn/ui 生成的基础组件放在 `src/components/ui/`；操作统一使用 `Button`，按钮外观的链接使用 `ButtonLink`，保留链接语义。`src/theme.css` 管理主题配色和 Tailwind 工具类，`src/style.css` 保留页面布局；为兼容现有布局，未引入 Tailwind 的全局 Preflight 重置。
+
+终端和配置编辑器共用 `CodePanel`，由 shadcn/ui 的 Card、Textarea 组合，`CopyButton` 统一复制反馈和手动复制回退。`.terminal-theme` 只调整终端配色，提示符与实际复制内容分离。`npm run test:ui` 验证渲染、URL 筛选恢复、按钮语义和配置文本，也包含在 `npm test` 中。
 
 `npm run build` 校验图标、执行 TypeScript 检查、生成库与 ZIP，再构建两个静态站点到 `dist/` 和 `dist-alibaba/`。依赖安装后，测试和构建完全使用仓库中的资源，不联网采集。
 

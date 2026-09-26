@@ -6,6 +6,8 @@ import { Page } from '../src/App';
 import { BundleDialog } from '../src/components/BundleDialog';
 import { DetailDialog, SpotlightDialog } from '../src/components/IconDialogs';
 import { McpDialog } from '../src/components/McpDialog';
+import { Button, ButtonLink } from '../src/components/ui/button';
+import { CodePanel } from '../src/components/CodePanel';
 import type { Catalog, Icon } from '../src/types';
 import type { Locale } from '../src/i18n';
 import type { ReactNode } from 'react';
@@ -23,13 +25,13 @@ test('React page preserves section structure, bilingual labels, 72-card paginati
   for(const locale of ['en','zh-CN'] as const){
     const html=render(<Page/>,locale);
     for(const id of ['home-title','library','changelog','guide','sources','grid','load-more'])assert(html.includes(`id="${id}"`),id);
-    assert.equal((html.match(/class="icon-card"/g)??[]).length,72);
+    assert.equal((html.match(/<button\b[^>]*data-icon=/g)??[]).length,72);
     assert.equal((html.match(/class="mcp-notice"/g)??[]).length,2);
     assert(html.includes(locale==='en'?'Choose categories / desktop setup':'选择分类加载 / 桌面配置'));
     assert(html.includes('&lt;script&gt;alert(1)&lt;/script&gt;'));
     assert(!html.includes('<script>alert(1)</script>'));
     // The homepage button includes both collections; sidebar links use the browsing scope.
-    const primary=html.match(/class="button primary" data-open-all="true" href="([^"]+)"/)?.[1];
+    const primary=html.match(/data-open-all="true" href="([^"]+)"/)?.[1];
     assert(primary,'homepage draw.io link');
     const libraries=new URL(primary.replaceAll('&amp;','&')).searchParams.get('clibs')!;
     assert.equal(libraries.split(';').length,2);
@@ -49,7 +51,7 @@ test('React dialogs retain accessible labels, selection scope and MCP command co
   const bundle=render(<BundleDialog/>);
   assert(bundle.includes('aria-labelledby="bundle-title"'));
   assert.equal((bundle.match(/checked=""/g)??[]).length,1,'only the active software category starts selected');
-  assert(bundle.includes('id="copy-config" class="button primary" disabled=""'));
+  assert.match(bundle, /<button\b(?=[^>]*id="copy-config")(?=[^>]*disabled="")[^>]*>/);
   const search=render(<SpotlightDialog/>);
   assert(search.includes('role="combobox"'));
   assert(search.includes('aria-controls="spotlight-results"'));
@@ -57,10 +59,34 @@ test('React dialogs retain accessible labels, selection scope and MCP command co
   assert(detail.includes('aria-labelledby="detail-title"'));
   assert(detail.includes('icons/safe-logo.svg'));
   const mcp=render(<McpDialog/>);
-  assert(mcp.includes('mcp-code-panel is-terminal'));
+  assert(mcp.includes('data-code-panel="terminal"'));
   assert(mcp.includes('codex mcp add drawio --env DRAWIO_ICON_SERVICE_URL=https://icons.rambow.cloud/api/icons'));
   assert(mcp.includes('@drawio/mcp@1.6.1'));
   for(const client of ['Codex','Claude Desktop','Cursor','VS Code'])assert(mcp.includes(client));
   assert(mcp.includes('id="mcp-existing" hidden=""'));
   assert(mcp.includes('aria-live="polite"'));
+});
+
+test('shared buttons preserve action/link semantics and loading disables repeated activation',()=>{
+  const action=renderToStaticMarkup(<Button loading>Generate configuration</Button>);
+  assert.match(action, /<button\b(?=[^>]*type="button")(?=[^>]*disabled="")(?=[^>]*aria-busy="true")[^>]*>/);
+  const link=renderToStaticMarkup(<ButtonLink href="/icons.xml" download>Download</ButtonLink>);
+  assert.match(link, /<a\b(?=[^>]*href="\/icons.xml")(?=[^>]*download="")[^>]*>/);
+  assert(!link.includes('role="button"'));
+  for(const html of [render(<Page/>),render(<BundleDialog/>),render(<McpDialog/>),render(<SpotlightDialog/>),render(<DetailDialog icon={icon}/>)]) {
+    for(const button of html.match(/<button\b[^>]*>/g)??[])assert(button.includes('data-slot="button"'),button);
+  }
+});
+
+test('terminal and editable configuration panels preserve exact text without including the shell prompt',()=>{
+  const value='codex mcp add drawio --env KEY="中文 & <value>"\nnext line';
+  const terminal=renderToStaticMarkup(<CodePanel title="PowerShell" terminal prompt="PS>" id="command" aria-label="Command" value={value} readOnly/>);
+  const content=terminal.match(/<textarea\b[^>]*>([\s\S]*?)<\/textarea>/)?.[1];
+  assert.equal(content,'codex mcp add drawio --env KEY=&quot;中文 &amp; &lt;value&gt;&quot;\nnext line');
+  assert.match(terminal, /<textarea\b(?=[^>]*readOnly="")(?=[^>]*aria-label="Command")[^>]*>/);
+  assert(!content.includes('PS&gt;'));
+  const editable=renderToStaticMarkup(<CodePanel title="JSON" id="existing" value={'{"keep":true}'} onChange={()=>{}}/>);
+  assert(editable.includes('data-code-panel="config"'));
+  assert(!editable.includes('readOnly=""'));
+  assert(editable.includes('{&quot;keep&quot;:true}'));
 });

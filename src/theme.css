@@ -1,0 +1,62 @@
+/* Keep the existing page layout; utilities own the migrated components. */
+@layer theme, base, legacy, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "./style.css" layer(legacy);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "./";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--ui-background);
+  --color-foreground: var(--ui-foreground);
+  --color-card: var(--ui-card);
+  --color-card-foreground: var(--ui-foreground);
+  --color-primary: var(--ui-primary);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--ui-secondary);
+  --color-secondary-foreground: var(--ui-foreground);
+  --color-muted: var(--ui-muted);
+  --color-muted-foreground: var(--ui-muted-foreground);
+  --color-accent: var(--ui-accent);
+  --color-accent-foreground: var(--ui-foreground);
+  --color-destructive: #b9382c;
+  --color-border: var(--ui-border);
+  --color-input: var(--ui-border);
+  --color-ring: var(--ui-ring);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+:root {
+  --ui-background: #f8f7f4;
+  --ui-foreground: #344038;
+  --ui-card: #ffffff;
+  --ui-primary: #d9532c;
+  --ui-secondary: #edf0e6;
+  --ui-muted: #f5f6f1;
+  --ui-muted-foreground: #65705d;
+  --ui-accent: #e9ede2;
+  --ui-border: #dce2d4;
+  --ui-ring: #d9532c;
+}
+
+.terminal-theme {
+  --ui-background: #252e29;
+  --ui-foreground: #e3edda;
+  --ui-card: #252e29;
+  --ui-secondary: #303b34;
+  --ui-muted: #303b34;
+  --ui-muted-foreground: #b4c2b4;
+  --ui-accent: #38473c;
+  --ui-border: #53634f;
+  --ui-ring: #a9c68d;
+  color-scheme: dark;
+}
+
+@layer base {
+  /* Component-scoped reset: Tailwind Preflight would alter the existing site. */
+  [data-slot] { border-style: solid; border-width: 0; }
+  [data-slot="button"], [data-slot="textarea"], [data-slot="input"], [data-slot="native-select"] { font-family: inherit; }
+}
