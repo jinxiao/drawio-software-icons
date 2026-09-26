@@ -116,6 +116,8 @@ npm run build
 npm run preview
 ```
 
+前端采用 React + TypeScript 和 Vite。`src/App.tsx` 组合整个页面，`src/components/` 管理页面区块和弹窗，`src/site.tsx` 管理共享交互状态；原有样式保留在 `src/style.css`。`npm run test:ui` 验证 React 渲染和 URL 筛选恢复，也包含在 `npm test` 中。
+
 `npm run build` 校验图标、执行 TypeScript 检查、生成库与 ZIP，再构建两个静态站点到 `dist/` 和 `dist-alibaba/`。依赖安装后，测试和构建完全使用仓库中的资源，不联网采集。
 
 ## 收集与更新

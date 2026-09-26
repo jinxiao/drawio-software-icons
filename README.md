@@ -134,6 +134,8 @@ npm run build
 npm run preview
 ```
 
+The frontend uses React + TypeScript with Vite. `src/App.tsx` composes the page, `src/components/` contains the page sections and dialogs, and `src/site.tsx` manages shared UI state. The existing stylesheet remains in `src/style.css`. Run `npm run test:ui` for the React rendering and URL restoration checks; these also run as part of `npm test`.
+
 The build validates the catalog, checks TypeScript, generates libraries and the ZIP, then writes the two static sites to `dist/` and `dist-alibaba/`. Once dependencies are installed, testing and building require no upstream downloads.
 
 ## Collect and update
