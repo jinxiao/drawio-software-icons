@@ -5,6 +5,18 @@
 **Cloudflare and MCP:** [deployment and icon search API](docs/CLOUDFLARE.md), including
 `DRAWIO_ICON_SERVICE_URL` setup and legacy GitHub Pages redirects.
 
+**Use these icons with AI:** Select **Connect MCP** on the
+[homepage](https://icons.rambow.cloud/), choose Codex, Claude Desktop, Cursor or
+VS Code and your operating system, then copy the official Draw.io MCP command
+or configuration. Node.js LTS is required; merge only the `drawio` entry into
+existing MCP settings. Already using Draw.io MCP? Choose that setup mode, set
+`DRAWIO_ICON_SERVICE_URL` to `https://icons.rambow.cloud/api/icons`, preserve other
+variables and launch arguments, then save and restart the MCP server or client.
+No site account or API key is needed. This is an icon search API, not a remote
+MCP Server URL. The official `search_shapes` tool uses built-in shapes first and
+supplements sparse results with icons from this service. Try: “Use Draw.io MCP
+to search for the ScyllaDB icon and draw a database node.”
+
 456 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.

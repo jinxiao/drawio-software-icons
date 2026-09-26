@@ -3,6 +3,7 @@ import { configurationFor, mergeConfiguration } from './configuration.mjs';
 import { messages, type Locale } from './i18n';
 import { filterIcons, drawioUrl, isLocalSite, resolveCategory, libraryPaths } from './catalog.mjs';
 import { searchSpotlight, spotlightLocation, compareIconNames } from './spotlight.mjs';
+import { mcpNotice, showMcpSetup } from './mcp-setup';
 
 // Vite binds the application to the catalog generated for this build.
 declare const __CATALOG_FILE__: string;
@@ -199,7 +200,7 @@ function renderShell() {
         <div class="home-intro"><p class="eyebrow"><span></span>${t.eyebrow}</p><h1 id="home-title">${t.hero1}<br><em>${t.hero2}</em></h1><p>${t.homeIntro}</p></div>
         <div class="home-search"><div class="home-search-anchor"><button class="home-search-trigger" id="home-search" aria-haspopup="dialog" aria-controls="spotlight" aria-keyshortcuts="/ Control+k Meta+k">${svg('search')}<span>${t.homeSearch}</span><kbd>/</kbd></button></div><div class="home-search-caption"><span>${t.homeSearchScope.replace('{count}',catalog.icons.length.toLocaleString(locale))}</span><a href="#library">${t.browse}${svg('arrow')}</a></div></div>
         ${renderLatestUpdate()}
-        <div class="home-actions">${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="home-primary-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button></div><p class="home-load-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadShort}</p></div>
+        <div class="home-actions">${alibabaEntrypoint?allCollectionsCheckbox():''}<div class="home-primary-actions">${homepageLoadLink()}<button class="button outline" id="bundle">${svg('grid')}${t.bundle}</button></div><p class="home-load-hint">${alibabaEntrypoint?t.alibabaLoadHint:t.homeLoadShort}</p>${mcpNotice(locale)}</div>
       </section>
       <div class="home-tools"><span>${catalog.categories.length} ${t.categories} <span aria-hidden="true">·</span> ${t.vector}</span><div><a href="${file('downloads/drawio-icons.zip')}" download>${svg('download')}${t.downloadAll}</a><a href="https://github.com/jinxiao/drawio-software-icons/issues/new/choose" target="_blank" rel="noopener noreferrer">${t.requestChange}${svg('external')}</a><a href="https://github.com/jinxiao/drawio-software-icons/compare" target="_blank" rel="noopener noreferrer">${t.submitPr}${svg('external')}</a></div></div>
       <section class="workspace" id="library" aria-label="${t.navLibrary}">
@@ -234,6 +235,7 @@ function renderShell() {
   document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(button=>button.addEventListener('click',()=>{activeCategory=button.dataset.category!;limit=72;updateUrl();renderResults();}));
   document.querySelectorAll<HTMLButtonElement>('[data-type]').forEach(button=>button.addEventListener('click',()=>{activeType=button.dataset.type!;limit=72;updateUrl();renderResults();}));
   for(const theme of ['light','dark']) $('#'+theme).addEventListener('click',()=>{dark=theme==='dark';preference('icons-preview',theme);$('#grid').classList.toggle('dark-preview',dark);$('#light').setAttribute('aria-pressed',String(!dark));$('#dark').setAttribute('aria-pressed',String(dark));});
+  $('#guide').insertAdjacentHTML('beforeend',mcpNotice(locale));
   $('#bundle').addEventListener('click',showBundle);
   $('#home-search').addEventListener('click',showSpotlight);
   document.querySelectorAll<HTMLButtonElement>('[data-collection]').forEach(button=>button.addEventListener('click',()=>{
@@ -400,6 +402,8 @@ function showBundle() {
   refresh();dialog.showModal();
 }
 document.addEventListener('click',event=>{
+  const mcpOpener=(event.target as Element).closest<HTMLElement>('[data-mcp-open]');
+  if(mcpOpener){showMcpSetup(locale,mcpOpener);return;}
   const updateIcon=(event.target as Element).closest<HTMLElement>('[data-update-icon]');
   if(updateIcon){const icon=catalog.icons.find(i=>i.id===updateIcon.dataset.updateIcon);if(icon)locateIcon(icon);return;}
   const updateCollection=(event.target as Element).closest<HTMLElement>('[data-update-collection]');

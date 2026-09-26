@@ -5,6 +5,16 @@
 **Cloudflare 与 MCP：** [部署与图标搜索接口](docs/CLOUDFLARE.md)，包含
 `DRAWIO_ICON_SERVICE_URL` 配置及旧 GitHub Pages 首页跳转方案。
 
+**AI 绘图接入：** 在[网站首页](https://icons.rambow.cloud/)点击「接入 MCP」，
+选择 Codex、Claude Desktop、Cursor 或 VS Code，以及 Windows / macOS / Linux，
+即可复制官方 Draw.io MCP 的命令或配置。需要 Node.js LTS；已有 MCP 配置时仅合并
+`drawio` 条目。已有 Draw.io MCP 的用户可切换「已有 Draw.io MCP」，将
+`DRAWIO_ICON_SERVICE_URL` 设置为 `https://icons.rambow.cloud/api/icons`，保留其他
+环境变量和启动参数，保存并重启 MCP 服务或客户端。无需本站账号或 API Key。
+这个地址是图标搜索接口，不能作为远程 MCP Server URL；官方 `search_shapes`
+优先使用内置形状，结果不足时补充本站图标。可试着说：
+「请用 Draw.io MCP 搜索 ScyllaDB 图标，并绘制一个数据库节点。」
+
 456 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
 **商业图标使用范围：** 本项目中的商业软件与服务图标仅适用于 draw.io / diagrams.net 架构图绘制，不适用于其他发行用途。本项目不额外授予品牌使用权，也不覆盖上游许可证。原创代码和文档继续采用 MIT 许可。使用商业品牌图标前请阅读中英双语 [图标使用声明](ICON_USAGE.md)。
