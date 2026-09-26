@@ -84,6 +84,27 @@ Authenticate with `npx wrangler login`, then `npm run deploy:cloudflare` publish
 the site and API on workers.dev, without claiming the production domain. Both
 deployment commands require a fresh `build:cloudflare` output.
 
+### Cloudflare Workers Builds (current deployment pipeline)
+
+The Cloudflare GitHub App connects `jinxiao/drawio-software-icons` directly to
+Workers Builds. Pushes to `main` build and deploy the Worker from root directory
+`/`. The configured build command creates a temporary Python environment,
+installs `uv`, runs `npm test`, then runs `npm run build:cloudflare`. Cloudflare
+installs npm dependencies before executing this command.
+
+Use `npm run deploy:cloudflare` as the deploy command before domain cutover.
+Set `NODE_VERSION=22` and `PYTHON_VERSION=3.13.3` under **Build variables**,
+not Worker runtime variables. Non-main preview builds are currently disabled.
+
+Workers Builds uses its Cloudflare-managed build token; no Cloudflare API token
+is required in GitHub Actions secrets for this pipeline. Keep the GitHub
+repository variable `CLOUDFLARE_ENABLED` unset to avoid deploying the same Worker
+from two pipelines. GitHub Actions continues testing and publishing the GitHub
+Pages compatibility sites.
+
+### Alternative: deployment from GitHub Actions
+
+If switching away from Workers Builds, disable its deployment trigger first.
 For GitHub Actions configure repository secrets `CLOUDFLARE_API_TOKEN` (account
 Workers Scripts edit; Zone edit for custom-domain setup as required by Cloudflare)
 and `CLOUDFLARE_ACCOUNT_ID`. Keep tokens in secrets, never in source. Set repository
@@ -104,7 +125,10 @@ Cloudflare success whenever the Cloudflare job is enabled.
    Cloudflare may require removing a conflicting DNS record before attaching the
    custom domain. Check Cloudflare's deployment/domain status and then open the
    main site in a browser. No local DNS probes are needed.
-3. Set `CLOUDFLARE_PRODUCTION=true` so subsequent CI deployments retain that domain.
+3. Change the Workers Builds deploy command to
+   `npm run deploy:cloudflare:production` so subsequent deployments retain that
+   domain. If using the alternative GitHub Actions deployment instead, set
+   `CLOUDFLARE_PRODUCTION=true`.
    Remove the **Custom domain** setting from the software repository's GitHub
    Pages settings, so its github.io URL serves the compatibility artifact itself.
 4. Set `LEGACY_REDIRECTS=true` in the software repository and publish the main
@@ -136,10 +160,12 @@ and use Wrangler/dashboard rollback for Worker-only regressions.
 ## 中文摘要
 
 静态网页、图标和下载由 Cloudflare Static Assets 直接响应，仅 `/api/*` 执行
-Worker。GitHub Actions 继续构建，搜索索引与网站同版发布。先验证 workers.dev，
+Worker。Cloudflare Workers Builds 通过 GitHub App 自动构建和部署，搜索索引与网站
+同版发布；GitHub Actions 继续测试和发布兼容站。先验证 workers.dev，
 再切主域名，最后开启两仓库 `LEGACY_REDIRECTS`，旧首页跳转、旧资源继续保留。
-仅提交这些代码不会自动切换线上域名；Cloudflare 登录、CI secrets 和迁移开关
-均须完成配置。MCP 设置 `DRAWIO_ICON_SERVICE_URL` 后需要重启对应 MCP 进程。
+仅提交这些代码不会自动切换线上域名；Workers Builds 的仓库连接、构建变量和迁移
+开关需要配置。当前自动部署方案无需向 GitHub 添加 Cloudflare API Token。
+MCP 设置 `DRAWIO_ICON_SERVICE_URL` 后需要重启对应 MCP 进程。
 
 References: [Static Assets](https://developers.cloudflare.com/workers/static-assets/),
 [routing](https://developers.cloudflare.com/workers/static-assets/routing/advanced/),
