@@ -1,5 +1,11 @@
 # Cloudflare website and draw.io MCP icon service
 
+Production cutover is configured as of 2026-09-26: `icons.rambow.cloud` is attached
+to the Cloudflare Worker, and Workers Builds deploys `main` with
+`npm run deploy:cloudflare:production`. Both GitHub Pages repositories have
+`LEGACY_REDIRECTS=true`; their homepages redirect while resource paths remain
+available. The software repository no longer has a GitHub Pages custom domain.
+
 The website is deployed with **Workers Static Assets**. Existing HTML, JS, SVG,
 PNG, JSON, XML and ZIP paths are served directly by static asset hosting. Only
 `/api` and `/api/*` use Worker-first routing. Missing static files return 404;
