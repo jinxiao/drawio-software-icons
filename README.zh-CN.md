@@ -73,7 +73,7 @@ Dashboard Icons。保留原色及比例，VictoriaMetrics 使用上游单色标�
 
 「数据分析与 AI」新增 vLLM、DeepSeek、Qwen、Google Gemini、ChatGPT、Claude、Hugging Face、LangChain、LlamaIndex、Dify、Open WebUI、LM Studio、Perplexity、ComfyUI、Cursor 和 GitHub Copilot，与已有 Ollama、PyTorch、TensorFlow 放在一起。支持产品名、深度求索 / 通义千问 / 千问等中文别名，以及 AI / LLM / RAG / 推理 / 智能体等搜索词。
 
-这 16 张 SVG 来自固定版本的 [Lobe Icons](https://github.com/lobehub/lobe-icons)，附带其 MIT 许可。优先采用彩色版本；ChatGPT 使用图标集的单色 OpenAI 标志，Open WebUI、LM Studio、Cursor 和 GitHub Copilot 保留上游单色素材。这些是社区整理的品牌图形，不声称是逐项授权的官方下载。商业条目沿用仅供架构图绘制的用途声明。软件类型指所链接工具或在线服务，不代表模型权重的许可证；Dify 和 Open WebUI 标记为源码可用。新增清单、别名与素材变体维护在 `data/ai.mjs`。
+这 16 张 SVG 来自固定版本的 [Lobe Icons](https://github.com/lobehub/lobe-icons)，附带其 MIT 许可。优先采用彩色版本；ChatGPT 使用图标集的单色 OpenAI 标志，Open WebUI、LM Studio、Cursor 和 GitHub Copilot 保留上游单色素材。这些是社区整理的品牌图形，不声称是逐项授权的官方下载。商业条目沿用仅供架构图绘制的用途声明。软件类型指所链接工具或在线服务，不代表模型权重的许可证；Dify 和 Open WebUI 标记为源码可用。新增清单、别名与素材变体维护在 `data/icons/data.json`。
 
 ## 即时通讯与企业应用
 
@@ -120,23 +120,28 @@ npm run preview
 
 终端和配置编辑器共用 `CodePanel`，由 shadcn/ui 的 Card、Textarea 组合，`CopyButton` 统一复制反馈和手动复制回退。`.terminal-theme` 只调整终端配色，提示符与实际复制内容分离。`npm run test:ui` 验证渲染、URL 筛选恢复、按钮语义和配置文本，也包含在 `npm test` 中。
 
-`npm run build` 校验图标、执行 TypeScript 检查、生成库与 ZIP，再构建两个静态站点到 `dist/` 和 `dist-alibaba/`。依赖安装后，测试和构建完全使用仓库中的资源，不联网采集。
+`npm run build` 先按 `data/icons/*.json` 同步图标，再校验、执行 TypeScript 检查、生成库与 ZIP，并构建两个静态站点到 `dist/` 和 `dist-alibaba/`。已校验的本地素材与有效缓存会直接复用，新增或来源变更时才需要联网。`npm test` 也会先同步，兼容现有两条 CI 流程。仅构建已同步产物可使用 `npm run build:offline`。
 
 ## 收集与更新
 
 ```sh
 npm run sync
 npm run sync -- --update
+npm run sync -- --refresh
 ```
 
-默认使用 `data/sources.lock.json` 中的固定提交；`--update` 检查上游当前分支。HTTP 下载带超时，按固定 URL 缓存到 `.sync-stage/`。任一文件下载或检查失败时，现有图标、清单及锁定版本保持不变；修复原因后可复用缓存补齐。只有图标、清单内容或许可证实际改变才提交更新，上游无关提交不会产生更新 PR。
+在 `data/icons/*.json` 中新增或修改图标配置后提交即可，构建自动下载缺失素材并生成清单、搜索索引、图标库和 ZIP。来源规则、下载并发、超时及缓存策略维护在 `data/icon-sources.json`；示例见[图标配置说明](docs/ICON_CONFIGURATION.md)。不要手工修改生成的目录和锁文件。
 
-每月通过 Actions 检查一次，更新现有 `automation/icon-update` 分支和 PR，人工审核后合并，不自动上线未经合并的更新。新软件通过维护清单添加，不自动把整个上游目录全部收录。
+默认使用锁文件中的固定提交；`--update` 检查上游分支，但保留配置中显式指定的 `revision`。`--refresh` 跳过本地素材复用并重新验证下载缓存，不改变来源版本。缓存按 URL 与缓存版本区分，过期时在上游支持的情况下使用条件请求。下载或素材检查失败时，现有图标、清单及锁文件保持不变；已校验的固定版本本地素材无需联网。
+
+每月通过 Actions 检查上游一次，更新 `automation/icon-update` 分支和 PR，包含生成的素材与目录。日常新增图标可以只提交配置，发布构建自动生成产物，无需手工提交生成文件；不自动收录整个上游目录。
 
 ## 数据与产物
 
-- `data/selection.mjs`：维护的软件范围、官网、软件类型；`data/taxonomy.mjs`：分类合并与项目归类规则。
-- `data/communication.mjs`：即时通讯与企业应用补充清单、中英文搜索别名。
+- `data/icons/*.json`：按分类维护的图标配置、别名和素材变体；`data/schemas/icons.schema.json`：编辑器提示用的 Schema。
+- `data/icon-sources.json`：来源适配规则、仓库信息、下载与缓存设置。
+- `data/icon-inputs.lock.json`、`data/sources.lock.json`、`data/official-icons.json`：自动生成的输入指纹、来源版本及原始素材信息。
+- `data/selection.mjs`：兼容加载入口；`data/taxonomy.mjs`：历史分类映射。
 - `data/catalog.json`：采集后的图标清单与完整来源；`data/categories*.json`：分类中英文案。
 - `assets/icons/`：收录的 SVG / PNG；`licenses/`：原始图标集许可。
 - `scripts/`：采集、校验、离线生成工具；`src/`：中英文静态网站。

@@ -59,7 +59,7 @@ await save('public/catalog.json',publicCatalog);addZip('catalog.json',publicCata
 // Content-addressed URL keeps new application code from fetching an old cached catalog.
 await save(`public/catalog-${hash(publicCatalog)}.json`,publicCatalog);
 for(const file of await readdir('licenses')) {const content=await readFile(`licenses/${file}`);await save(`public/licenses/${file}`,content);addZip(`licenses/${file}`,content);}
-for(const file of ['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE','data/official-icons.json','docs/DEPLOYMENT.md','docs/CLOUDFLARE.md']) {
+for(const file of ['README.md','README.en.md','README.zh-CN.md','ICON_USAGE.md','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','LICENSE','data/official-icons.json','docs/DEPLOYMENT.md','docs/CLOUDFLARE.md','docs/ICON_CONFIGURATION.md']) {
   const content=await readFile(file);await save(`public/${file}`,content);addZip(file,content);
 }
 const history=await json('data/changelog.json');

@@ -1,29 +1,14 @@
 {
-  "wechat": {
-    "appId": 414478124,
-    "name": "微信",
-    "publisher": "Tencent Technology (Shenzhen) Company Limited",
-    "artist": "WeChat",
-    "listing": "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124?uo=4",
-    "lookup": "https://itunes.apple.com/lookup?id=414478124&country=cn",
-    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/18/c4/6718c476-1b89-430b-e0e0-c7a949990181/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-85-220.png/512x512bb.png",
-    "sha256": "0f014b2a41c2ee05235147d67dcd25dfd4de048b393001055ecf98d3dc928397",
-    "width": 512,
-    "height": 512,
-    "retrievedOn": "2026-09-16"
-  },
-  "wecom": {
-    "appId": 1087897068,
-    "name": "企业微信",
-    "publisher": "Tencent Technology (Shenzhen) Company Limited",
-    "artist": "Tencent Technology (Shenzhen) Company Limited",
-    "listing": "https://apps.apple.com/cn/app/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1/id1087897068?uo=4",
-    "lookup": "https://itunes.apple.com/lookup?id=1087897068&country=cn",
-    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/82/4b/37824b8d-b335-c13b-fe78-84496ea917b5/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.png",
-    "sha256": "fd8f906ae60c4b4ac7f7fbd3d14f66d507718d513d484839a501f074cbd8dea6",
-    "width": 512,
-    "height": 512,
-    "retrievedOn": "2026-09-16"
+  "alloy": {
+    "format": "svg",
+    "name": "Grafana Alloy",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/",
+    "url": "https://grafana.com/media/oss/alloy/alloy-logo.svg",
+    "sha256": "258fc410b26cb1b0f38d1b084e40148faabcb5a59791ff9785f0373dc943bd8b",
+    "width": 44,
+    "height": 44,
+    "retrievedOn": "2026-09-19"
   },
   "dingtalk": {
     "presentation": {
@@ -40,7 +25,8 @@
     "sha256": "f610d12d1ffa674f4d8990c8d7975bdaf5877cf21be6db9bc2489a07fb12648e",
     "width": 512,
     "height": 512,
-    "retrievedOn": "2026-09-16"
+    "retrievedOn": "2026-09-16",
+    "format": "png"
   },
   "feishu": {
     "appId": 1401729613,
@@ -53,18 +39,8 @@
     "sha256": "5516cca4a7c3ed4afcc052c96997c40808671567c365ae467b3e65517494d3c3",
     "width": 512,
     "height": 512,
-    "retrievedOn": "2026-09-16"
-  },
-  "ubuntu": {
-    "format": "svg",
-    "name": "Ubuntu Circle of Friends",
-    "publisher": "Canonical Ltd.",
-    "listing": "https://discourse.ubuntu.com/t/ubuntu-merchandise-assets/67314",
-    "url": "https://drive.google.com/uc?export=download&id=1FdksWTDREMNjnfBtN6HbxO7dZUQSchFm",
-    "sha256": "19eb7347a17e95c8443e1db05a7baf646df81d8fec2aa4338ff7e467cd99c2cb",
-    "width": 390,
-    "height": 390,
-    "retrievedOn": "2026-09-18"
+    "retrievedOn": "2026-09-16",
+    "format": "png"
   },
   "loki": {
     "format": "svg",
@@ -77,17 +53,6 @@
     "height": 56,
     "retrievedOn": "2026-09-19"
   },
-  "tempo": {
-    "format": "svg",
-    "name": "Grafana Tempo",
-    "publisher": "Grafana Labs",
-    "listing": "https://grafana.com/oss/tempo/",
-    "url": "https://grafana.com/static/assets/img/logos/grafana-tempo.svg",
-    "sha256": "bf2aa0089c2e8693400b76c22f745a92bb5d35de7fb63180ecdab05e03a758df",
-    "width": 121.85,
-    "height": 99.17,
-    "retrievedOn": "2026-09-19"
-  },
   "mimir": {
     "format": "svg",
     "name": "Grafana Mimir",
@@ -97,17 +62,6 @@
     "sha256": "f124b734ea21bafbd5f186aff3f184b32972b3894b8f103a33b68e987da4af30",
     "width": 65,
     "height": 46,
-    "retrievedOn": "2026-09-19"
-  },
-  "alloy": {
-    "format": "svg",
-    "name": "Grafana Alloy",
-    "publisher": "Grafana Labs",
-    "listing": "https://grafana.com/oss/",
-    "url": "https://grafana.com/media/oss/alloy/alloy-logo.svg",
-    "sha256": "258fc410b26cb1b0f38d1b084e40148faabcb5a59791ff9785f0373dc943bd8b",
-    "width": 44,
-    "height": 44,
     "retrievedOn": "2026-09-19"
   },
   "pyroscope": {
@@ -132,7 +86,8 @@
     "sha256": "f14e7a4c12f5d1f16525986c6ccafde78801443015823b59cbc82b7fda6488f4",
     "width": 512,
     "height": 512,
-    "retrievedOn": "2026-09-20"
+    "retrievedOn": "2026-09-20",
+    "format": "png"
   },
   "scylladb": {
     "format": "svg",
@@ -146,5 +101,55 @@
     "width": 1200,
     "height": 922,
     "retrievedOn": "2026-09-25"
+  },
+  "tempo": {
+    "format": "svg",
+    "name": "Grafana Tempo",
+    "publisher": "Grafana Labs",
+    "listing": "https://grafana.com/oss/tempo/",
+    "url": "https://grafana.com/static/assets/img/logos/grafana-tempo.svg",
+    "sha256": "bf2aa0089c2e8693400b76c22f745a92bb5d35de7fb63180ecdab05e03a758df",
+    "width": 121.85,
+    "height": 99.17,
+    "retrievedOn": "2026-09-19"
+  },
+  "ubuntu": {
+    "format": "svg",
+    "name": "Ubuntu Circle of Friends",
+    "publisher": "Canonical Ltd.",
+    "listing": "https://discourse.ubuntu.com/t/ubuntu-merchandise-assets/67314",
+    "url": "https://drive.google.com/uc?export=download&id=1FdksWTDREMNjnfBtN6HbxO7dZUQSchFm",
+    "sha256": "19eb7347a17e95c8443e1db05a7baf646df81d8fec2aa4338ff7e467cd99c2cb",
+    "width": 390,
+    "height": 390,
+    "retrievedOn": "2026-09-18"
+  },
+  "wechat": {
+    "appId": 414478124,
+    "name": "微信",
+    "publisher": "Tencent Technology (Shenzhen) Company Limited",
+    "artist": "WeChat",
+    "listing": "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=414478124&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/18/c4/6718c476-1b89-430b-e0e0-c7a949990181/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-85-220.png/512x512bb.png",
+    "sha256": "0f014b2a41c2ee05235147d67dcd25dfd4de048b393001055ecf98d3dc928397",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-16",
+    "format": "png"
+  },
+  "wecom": {
+    "appId": 1087897068,
+    "name": "企业微信",
+    "publisher": "Tencent Technology (Shenzhen) Company Limited",
+    "artist": "Tencent Technology (Shenzhen) Company Limited",
+    "listing": "https://apps.apple.com/cn/app/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1/id1087897068?uo=4",
+    "lookup": "https://itunes.apple.com/lookup?id=1087897068&country=cn",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/82/4b/37824b8d-b335-c13b-fe78-84496ea917b5/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.png",
+    "sha256": "fd8f906ae60c4b4ac7f7fbd3d14f66d507718d513d484839a501f074cbd8dea6",
+    "width": 512,
+    "height": 512,
+    "retrievedOn": "2026-09-16",
+    "format": "png"
   }
 }

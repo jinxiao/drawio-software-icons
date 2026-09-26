@@ -1,60 +1,52 @@
 {
+  "dashboard": {
+    "kind": "github",
+    "repo": "homarr-labs/dashboard-icons",
+    "branch": "main",
+    "license": "Apache-2.0",
+    "index": "tree.json",
+    "initialRevision": "ce550a844bad92ea19b5926cb887285c46bac01a",
+    "licenseFile": "LICENSE",
+    "pathTemplate": "svg/{id}.svg",
+    "revision": "ce550a844bad92ea19b5926cb887285c46bac01a"
+  },
+  "devicon": {
+    "kind": "github",
+    "repo": "devicons/devicon",
+    "branch": "master",
+    "license": "MIT",
+    "index": "devicon.json",
+    "initialRevision": "7330accdbc47e2dc0c19789a48533c4a3c50fe58",
+    "licenseFile": "LICENSE",
+    "adapter": "devicon",
+    "revision": "7330accdbc47e2dc0c19789a48533c4a3c50fe58"
+  },
   "lobe": {
+    "kind": "github",
     "repo": "lobehub/lobe-icons",
     "branch": "master",
     "license": "MIT",
     "index": null,
     "initialRevision": "a94750e3f5f8fc33757b839d85030e742284e43a",
-    "paths": {
-      "vllm": "packages/static-svg/icons/vllm-color.svg",
-      "deepseek": "packages/static-svg/icons/deepseek-color.svg",
-      "qwen": "packages/static-svg/icons/qwen-color.svg",
-      "gemini": "packages/static-svg/icons/gemini-color.svg",
-      "chatgpt": "packages/static-svg/icons/openai.svg",
-      "claude": "packages/static-svg/icons/claude-color.svg",
-      "huggingface": "packages/static-svg/icons/huggingface-color.svg",
-      "langchain": "packages/static-svg/icons/langchain-color.svg",
-      "llamaindex": "packages/static-svg/icons/llamaindex-color.svg",
-      "dify": "packages/static-svg/icons/dify-color.svg",
-      "open-webui": "packages/static-svg/icons/openwebui.svg",
-      "lmstudio": "packages/static-svg/icons/lmstudio.svg",
-      "perplexity": "packages/static-svg/icons/perplexity-color.svg",
-      "comfyui": "packages/static-svg/icons/comfyui-color.svg",
-      "cursor": "packages/static-svg/icons/cursor.svg",
-      "github-copilot": "packages/static-svg/icons/githubcopilot.svg"
-    },
+    "licenseFile": "LICENSE",
     "revision": "a94750e3f5f8fc33757b839d85030e742284e43a"
   },
-  "devicon": {
-    "repo": "devicons/devicon",
-    "branch": "master",
-    "license": "MIT",
-    "index": "devicon.json",
-    "revision": "7330accdbc47e2dc0c19789a48533c4a3c50fe58"
-  },
-  "dashboard": {
-    "repo": "homarr-labs/dashboard-icons",
-    "branch": "main",
-    "license": "Apache-2.0",
-    "index": "tree.json",
-    "revision": "ce550a844bad92ea19b5926cb887285c46bac01a"
+  "official-apps": {
+    "kind": "publisher-artwork",
+    "manifest": "data/official-icons.json",
+    "license": "Proprietary brand artwork; permission not verified",
+    "licenseFile": "licenses/official-apps-LICENSE.txt",
+    "revision": "b1417ff87801459ee62ce0f6d1e43a519026df7bad1ad75f2a10ba59ba58056e"
   },
   "vendor": {
+    "kind": "github",
     "repo": "bwks/vendor-icons-svg",
     "branch": "master",
     "license": "GPL-3.0-only",
     "index": null,
     "preserveOriginal": true,
     "initialRevision": "702f2ac88acc71759ce623bc5000a596195e9db3",
-    "paths": {
-      "servicenow": "servicenow.svg"
-    },
+    "licenseFile": "LICENSE",
     "revision": "702f2ac88acc71759ce623bc5000a596195e9db3"
-  },
-  "official-apps": {
-    "kind": "publisher-artwork",
-    "manifest": "data/official-icons.json",
-    "revision": "32da3cb96d42713a146b5f4ca9772e021bed445f0f96ab8029773a0e097e088f",
-    "license": "Proprietary brand artwork; permission not verified"
   }
 }

@@ -4,8 +4,13 @@ import {readFile} from 'node:fs/promises';
 import {filterIcons,drawioUrl,isLocalSite,resolveCategory,libraryPaths} from '../src/catalog.mjs';
 import {inspectSvg,inspectPng,normalizeSvg,libraryEntry,libraryXml,readLibrary,json,parser,hash} from '../scripts/lib.mjs';
 import {categoryAliases,categoryForProject} from '../data/taxonomy.mjs';
-import {communicationProjects} from '../data/communication.mjs';
-import {aiProjects} from '../data/ai.mjs';
+import {loadIconConfiguration} from '../scripts/icon-config.mjs';
+
+const {icons:configuredIcons}=await loadIconConfiguration();
+const messagingIds=new Set('wechat wecom dingtalk qq feishu lark microsoft-teams slack discord telegram signal whatsapp zoom webex element rocket-chat zulip servicenow'.split(' '));
+const communicationProjects=configuredIcons.filter(icon=>messagingIds.has(icon.id));
+const aiIds=new Set('vllm deepseek qwen gemini chatgpt claude huggingface langchain llamaindex dify open-webui lmstudio perplexity comfyui cursor github-copilot'.split(' '));
+const aiProjects=configuredIcons.filter(icon=>aiIds.has(icon.id));
 
 const catalog=await json('data/catalog.json');
 const english=await json('data/categories.en.json');

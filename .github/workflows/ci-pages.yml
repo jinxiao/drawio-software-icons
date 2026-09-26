@@ -33,8 +33,15 @@ jobs:
           python-version: '3.13'
           enable-cache: false
       - run: npm ci
-      - run: npm test
+      - name: Restore icon download cache
+        uses: actions/cache@v5
+        with:
+          path: .sync-stage/cache
+          key: icon-downloads-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            icon-downloads-v1-${{ runner.os }}-
       - run: npm run build:cloudflare
+      - run: npm run test:offline
       - run: npm run check:cloudflare
       - uses: actions/upload-artifact@v7.0.1
         with:

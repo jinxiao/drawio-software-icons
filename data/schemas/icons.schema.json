@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Icon configuration",
+  "type": "object",
+  "required": ["icons"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "icons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category", "source", "homepage"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "name": { "type": "string", "minLength": 1 },
+          "category": { "type": "string" },
+          "source": { "type": "string", "description": "Source ID from data/icon-sources.json" },
+          "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "repository": { "type": ["string", "null"] },
+          "softwareType": { "enum": ["open-source", "source-available", "commercial", "unverified"] },
+          "softwareLicense": { "type": ["string", "null"] },
+          "classificationNote": { "type": "string" },
+          "aliases": { "type": "array", "items": { "type": "string" } },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "artwork": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": { "type": "string", "description": "SVG path relative to the pinned GitHub repository" },
+              "variant": { "type": "string" },
+              "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+              "format": { "enum": ["svg", "png"] },
+              "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+              "width": { "type": "number", "exclusiveMinimum": 0 },
+              "height": { "type": "number", "exclusiveMinimum": 0 },
+              "publisher": { "type": "string" },
+              "listing": { "type": "string" },
+              "licenseUrl": { "type": "string" },
+              "retrievedOn": { "type": "string" },
+              "appId": { "type": "integer" },
+              "name": { "type": "string" },
+              "artist": { "type": "string" },
+              "lookup": { "type": "string" },
+              "archivePath": { "type": "string" },
+              "archiveSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+              "presentation": {
+                "type": "object", "required": ["kind", "radius"], "additionalProperties": false,
+                "properties": { "kind": { "const": "rounded-rect" }, "radius": { "type": "number", "exclusiveMinimum": 0 } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

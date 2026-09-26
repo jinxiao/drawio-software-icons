@@ -1,0 +1,1272 @@
+{
+  "$schema": "../schemas/icons.schema.json",
+  "icons": [
+    {
+      "id": "awk",
+      "name": "GNU Awk",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://www.gnu.org/software/gawk",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "the awk programming language"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "unix",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/awk/awk-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ballerina",
+      "name": "Ballerina",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/ballerina-platform/ballerina-lang",
+      "repository": "https://github.com/ballerina-platform/ballerina-lang",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "bal"
+      ],
+      "tags": [
+        "java",
+        "cloud",
+        "server",
+        "networking",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/ballerina/ballerina-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "bash",
+      "name": "GNU Bash",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://www.gnu.org/software/bash",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "bourneagainshell"
+      ],
+      "tags": [
+        "shell",
+        "command",
+        "scripting",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/bash/bash-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "bun",
+      "name": "Bun",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/oven-sh/bun",
+      "repository": "https://github.com/oven-sh/bun",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "zig",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/bun/bun-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "clojure",
+      "name": "Clojure",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/clojure/clojure",
+      "repository": "https://github.com/clojure/clojure",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "language",
+        "jvm",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/clojure/clojure-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "clojurescript",
+      "name": "ClojureScript",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/clojure/clojurescript",
+      "repository": "https://github.com/clojure/clojurescript",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/clojurescript/clojurescript-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "coffeescript",
+      "name": "CoffeeScript",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/jashkenas/coffeescript",
+      "repository": "https://github.com/jashkenas/coffeescript",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "transpiler",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/coffeescript/coffeescript-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "crystal",
+      "name": "Crystal",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/crystal-lang/crystal",
+      "repository": "https://github.com/crystal-lang/crystal",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "crystallang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/crystal/crystal-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "dart",
+      "name": "Dart",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/dart-lang/sdk",
+      "repository": "https://github.com/dart-lang/sdk",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "googledart"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/dart/dart-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "denojs",
+      "name": "Deno",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/denoland/deno",
+      "repository": "https://github.com/denoland/deno",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "rust",
+        "runtime",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/denojs/denojs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "dotnetcore",
+      "name": ".NET",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/dotnet/runtime",
+      "repository": "https://github.com/dotnet/runtime",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        ".netcore"
+      ],
+      "tags": [
+        "framework",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/dotnetcore/dotnetcore-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "elixir",
+      "name": "Elixir",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/elixir-lang/elixir",
+      "repository": "https://github.com/elixir-lang/elixir",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "elexirlang"
+      ],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/elixir/elixir-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "elm",
+      "name": "Elm",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/elm/compiler",
+      "repository": "https://github.com/elm/compiler",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "elmlang"
+      ],
+      "tags": [
+        "framework",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/elm/elm-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "erlang",
+      "name": "Erlang",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/erlang/otp",
+      "repository": "https://github.com/erlang/otp",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/erlang/erlang-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "fsharp",
+      "name": "F#",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/dotnet/fsharp",
+      "repository": "https://github.com/dotnet/fsharp",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "f#"
+      ],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/fsharp/fsharp-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "gcc",
+      "name": "GCC",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://gcc.gnu.org",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "gnucompilercollection"
+      ],
+      "tags": [
+        "compiler",
+        "linux",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/gcc/gcc-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "gleam",
+      "name": "Gleam",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/gleam-lang/gleam",
+      "repository": "https://github.com/gleam-lang/gleam",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "language",
+        "programming",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/gleam/gleam-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/golang/go",
+      "repository": "https://github.com/golang/go",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "golang"
+      ],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/go/go-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "groovy",
+      "name": "Apache Groovy",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/apache/groovy",
+      "repository": "https://github.com/apache/groovy",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "groovylang",
+        "apachegroovy"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "jvm",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/groovy/groovy-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "haskell",
+      "name": "Haskell",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://www.haskell.org",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "language",
+        "functional",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/haskell/haskell-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "haxe",
+      "name": "Haxe",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/HaxeFoundation/haxe",
+      "repository": "https://github.com/HaxeFoundation/haxe",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/haxe/haxe-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "java",
+      "name": "Java / OpenJDK",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/openjdk/jdk",
+      "repository": "https://github.com/openjdk/jdk",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "programming",
+        "language",
+        "jvm",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/java/java-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "julia",
+      "name": "Julia",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/JuliaLang/julia",
+      "repository": "https://github.com/JuliaLang/julia",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "julialang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/julia/julia-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "kotlin",
+      "name": "Kotlin",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/JetBrains/kotlin",
+      "repository": "https://github.com/JetBrains/kotlin",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "kotlinlang"
+      ],
+      "tags": [
+        "language",
+        "jetbrains",
+        "jvm",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/kotlin/kotlin-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "llvm",
+      "name": "LLVM",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/llvm/llvm-project",
+      "repository": "https://github.com/llvm/llvm-project",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Low Level Virtual Machine"
+      ],
+      "tags": [
+        "compiler",
+        "framework",
+        "c++",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/llvm/llvm-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "lua",
+      "name": "Lua",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/lua/lua",
+      "repository": "https://github.com/lua/lua",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "lualang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "object-oriented",
+        "scripting",
+        "procedural",
+        "prototype-based",
+        "functional",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/lua/lua-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "nim",
+      "name": "Nim",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/nim-lang/Nim",
+      "repository": "https://github.com/nim-lang/Nim",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "nimlang"
+      ],
+      "tags": [
+        "programming",
+        "functional",
+        "object-oriented",
+        "procedural",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/nim/nim-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/nodejs/node",
+      "repository": "https://github.com/nodejs/node",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/nodejs/nodejs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ocaml",
+      "name": "OCaml",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/ocaml/ocaml",
+      "repository": "https://github.com/ocaml/ocaml",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/ocaml/ocaml-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "perl",
+      "name": "Perl",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/Perl/perl5",
+      "repository": "https://github.com/Perl/perl5",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/perl/perl-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/php/php-src",
+      "repository": "https://github.com/php/php-src",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "PHP Hypertext Preprocessor",
+        "Personal Home Page"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/php/php-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "powershell",
+      "name": "PowerShell",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/PowerShell/PowerShell",
+      "repository": "https://github.com/PowerShell/PowerShell",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "ps"
+      ],
+      "tags": [
+        "command-line",
+        "shell",
+        "terminal",
+        "cli",
+        "windows",
+        "cmdlets",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/powershell/powershell-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "purescript",
+      "name": "PureScript",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/purescript/purescript",
+      "repository": "https://github.com/purescript/purescript",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "functional",
+        "programming",
+        "javascript",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/purescript/purescript-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/python/cpython",
+      "repository": "https://github.com/python/cpython",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/python/python-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "r",
+      "name": "R",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://www.r-project.org",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "rlang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/r/r-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "racket",
+      "name": "Racket",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/racket/racket",
+      "repository": "https://github.com/racket/racket",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/racket/racket-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/ruby/ruby",
+      "repository": "https://github.com/ruby/ruby",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "rubylang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/ruby/ruby-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/rust-lang/rust",
+      "repository": "https://github.com/rust-lang/rust",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "rustlang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/rust/rust-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "scala",
+      "name": "Scala",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/scala/scala3",
+      "repository": "https://github.com/scala/scala3",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "scalalang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "jvm",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/scala/scala-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "solidity",
+      "name": "Solidity",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/ethereum/solidity",
+      "repository": "https://github.com/ethereum/solidity",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "soliditylang"
+      ],
+      "tags": [
+        "programming",
+        "language",
+        "blockchain",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/solidity/solidity-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "swift",
+      "name": "Swift",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/swiftlang/swift",
+      "repository": "https://github.com/swiftlang/swift",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/swift/swift-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/microsoft/TypeScript",
+      "repository": "https://github.com/microsoft/TypeScript",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "ts"
+      ],
+      "tags": [
+        "programming",
+        "transpiler",
+        "javascript",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/typescript/typescript-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "v8",
+      "name": "V8",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/v8/v8",
+      "repository": "https://github.com/v8/v8",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "v8 engine"
+      ],
+      "tags": [
+        "javascript-runtime",
+        "framework",
+        "javascript",
+        "web",
+        "cpp",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "language",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/v8/v8-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "vala",
+      "name": "Vala",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://gitlab.gnome.org/GNOME/vala",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "programming",
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/vala/vala-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "vyper",
+      "name": "Vyper",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://github.com/vyperlang/vyper",
+      "repository": "https://github.com/vyperlang/vyper",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "vyperlang"
+      ],
+      "tags": [
+        "blockchain",
+        "ethereum",
+        "language",
+        "programming",
+        "python",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/vyper/vyper-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "zig",
+      "name": "Zig",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://ziglang.org",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "ziglang"
+      ],
+      "tags": [
+        "language",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/zig/zig-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "zsh",
+      "name": "Zsh",
+      "category": "languages",
+      "source": "devicon",
+      "homepage": "https://www.zsh.org",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "shell",
+        "script",
+        "scripting",
+        "language",
+        "command",
+        "语言与运行时",
+        "Languages & Runtimes",
+        "runtime",
+        "compiler",
+        "编程"
+      ],
+      "artwork": {
+        "path": "icons/zsh/zsh-original.svg",
+        "variant": "original"
+      }
+    }
+  ]
+}

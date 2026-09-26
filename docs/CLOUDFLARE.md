@@ -86,6 +86,15 @@ under `.worker-build`, and produces `dist-pages` / `dist-alibaba-pages` with red
 homepages. It verifies search parity, static-asset size/count limits, and unchanged
 legacy resource bytes. `check:cloudflare` bundles the Worker without deploying it.
 
+`build` and `test` now synchronize icon JSON configuration before consuming the
+catalog. Configuration-only commits therefore work with the existing build
+command. See [Icon configuration](ICON_CONFIGURATION.md) for source and cache
+settings. With `cache.directory: "auto"`, Workers Builds stores icon downloads in
+the `drawio-software-icons` subdirectory of npm's cache; enable **Settings → Build →
+Build cache** for cross-build reuse. GitHub Actions restores `.sync-stage/cache`
+through `actions/cache`. A cache miss only increases build time; missing or
+invalid artwork fails the build before deployment.
+
 Authenticate with `npx wrangler login`, then `npm run deploy:cloudflare` publishes
 the site and API on workers.dev, without claiming the production domain. Both
 deployment commands require a fresh `build:cloudflare` output.

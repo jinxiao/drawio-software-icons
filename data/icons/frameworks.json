@@ -1,0 +1,3552 @@
+{
+  "$schema": "../schemas/icons.schema.json",
+  "icons": [
+    {
+      "id": "adonisjs",
+      "name": "AdonisJS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/adonisjs/core",
+      "repository": "https://github.com/adonisjs/core",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "adonis"
+      ],
+      "tags": [
+        "nodejs",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/adonisjs/adonisjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "aframe",
+      "name": "A-Frame",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/aframevr/aframe",
+      "repository": "https://github.com/aframevr/aframe",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "a-frame"
+      ],
+      "tags": [
+        "framework",
+        "html",
+        "javascript",
+        "js",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/aframe/aframe-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "alpinejs",
+      "name": "Alpine.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/alpinejs/alpine",
+      "repository": "https://github.com/alpinejs/alpine",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Alpine"
+      ],
+      "tags": [
+        "framework",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/alpinejs/alpinejs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "angular",
+      "name": "Angular",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/angular/angular",
+      "repository": "https://github.com/angular/angular",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/angular/angular-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "angularmaterial",
+      "name": "Angular Material",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/angular/components",
+      "repository": "https://github.com/angular/components",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/angularmaterial/angularmaterial-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "antdesign",
+      "name": "Ant Design",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/ant-design/ant-design",
+      "repository": "https://github.com/ant-design/ant-design",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "reactjs",
+        "design",
+        "language",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/antdesign/antdesign-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "apollographql",
+      "name": "Apollo Client",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/apollographql/apollo-client",
+      "repository": "https://github.com/apollographql/apollo-client",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Apollo"
+      ],
+      "tags": [
+        "platform",
+        "graphql",
+        "api",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/apollographql/apollographql-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "astro",
+      "name": "Astro",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/withastro/astro",
+      "repository": "https://github.com/withastro/astro",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "static site generator",
+        "framework",
+        "web-development",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/astro/astro-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "axios",
+      "name": "Axios",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/axios/axios",
+      "repository": "https://github.com/axios/axios",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "http",
+        "promise",
+        "nodejs",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/axios/axios-plain.svg",
+        "variant": "plain"
+      }
+    },
+    {
+      "id": "babylonjs",
+      "name": "Babylon.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/BabylonJS/Babylon.js",
+      "repository": "https://github.com/BabylonJS/Babylon.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "babylon.js"
+      ],
+      "tags": [
+        "3d",
+        "javascript",
+        "library",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/babylonjs/babylonjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "backbonejs",
+      "name": "Backbone.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/jashkenas/backbone",
+      "repository": "https://github.com/jashkenas/backbone",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/backbonejs/backbonejs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "bevyengine",
+      "name": "Bevy",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/bevyengine/bevy",
+      "repository": "https://github.com/bevyengine/bevy",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "bevy engine",
+        "bevy"
+      ],
+      "tags": [
+        "game-engine",
+        "game",
+        "rust",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/bevyengine/bevyengine-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "blazor",
+      "name": "Blazor",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/dotnet/aspnetcore",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "dotnet",
+        ".net",
+        "framework",
+        "design",
+        "ui",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/blazor/blazor-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "bootstrap",
+      "name": "Bootstrap",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/twbs/bootstrap",
+      "repository": "https://github.com/twbs/bootstrap",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "css",
+        "framework",
+        "html",
+        "javascript",
+        "library",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/bootstrap/bootstrap-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "bulma",
+      "name": "Bulma",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/jgthms/bulma",
+      "repository": "https://github.com/jgthms/bulma",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "bulmacss"
+      ],
+      "tags": [
+        "css",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/bulma/bulma-plain.svg",
+        "variant": "plain"
+      }
+    },
+    {
+      "id": "cakephp",
+      "name": "CakePHP",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/cakephp/cakephp",
+      "repository": "https://github.com/cakephp/cakephp",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/cakephp/cakephp-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "capacitor",
+      "name": "Capacitor",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/ionic-team/capacitor",
+      "repository": "https://github.com/ionic-team/capacitor",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "capacitorjs"
+      ],
+      "tags": [
+        "javascript",
+        "js",
+        "ionic",
+        "framework",
+        "universal",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/capacitor/capacitor-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "chakraui",
+      "name": "Chakra UI",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/chakra-ui/chakra-ui",
+      "repository": "https://github.com/chakra-ui/chakra-ui",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "chakra ui"
+      ],
+      "tags": [
+        "ui",
+        "library",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/chakraui/chakraui-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "codeigniter",
+      "name": "CodeIgniter",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/codeigniter4/CodeIgniter4",
+      "repository": "https://github.com/codeigniter4/CodeIgniter4",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "php",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/codeigniter/codeigniter-plain.svg",
+        "variant": "plain"
+      }
+    },
+    {
+      "id": "corejs",
+      "name": "core-js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/zloirock/core-js",
+      "repository": "https://github.com/zloirock/core-js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "core-js",
+        "core.js"
+      ],
+      "tags": [
+        "javascript",
+        "library",
+        "polyfill",
+        "tool",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/corejs/corejs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "discordjs",
+      "name": "discord.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/discordjs/discord.js",
+      "repository": "https://github.com/discordjs/discord.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "wrapper",
+        "api_wrapper",
+        "nodejs",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/discordjs/discordjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "django",
+      "name": "Django",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/django/django",
+      "repository": "https://github.com/django/django",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/django/django-plain.svg",
+        "variant": "plain"
+      }
+    },
+    {
+      "id": "djangorest",
+      "name": "Django REST framework",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/encode/django-rest-framework",
+      "repository": "https://github.com/encode/django-rest-framework",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Django REST framework"
+      ],
+      "tags": [
+        "framework",
+        "rest",
+        "api",
+        "python",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/djangorest/djangorest-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "doctrine",
+      "name": "Doctrine",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/doctrine/orm",
+      "repository": "https://github.com/doctrine/orm",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/doctrine/doctrine-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "dropwizard",
+      "name": "Dropwizard",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/dropwizard/dropwizard",
+      "repository": "https://github.com/dropwizard/dropwizard",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "java",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/dropwizard/dropwizard-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ecto",
+      "name": "Ecto",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/elixir-ecto/ecto",
+      "repository": "https://github.com/elixir-ecto/ecto",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "data",
+        "elixir",
+        "integration",
+        "query",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/ecto/ecto-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "electron",
+      "name": "Electron",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/electron/electron",
+      "repository": "https://github.com/electron/electron",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "electronjs"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/electron/electron-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/11ty/eleventy",
+      "repository": "https://github.com/11ty/eleventy",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "11ty"
+      ],
+      "tags": [
+        "ssg",
+        "static site generator",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/eleventy/eleventy-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ember",
+      "name": "Ember.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/emberjs/ember.js",
+      "repository": "https://github.com/emberjs/ember.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "ember.js",
+        "emberjs"
+      ],
+      "tags": [
+        "framework",
+        "javascript",
+        "web-development",
+        "build",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/ember/ember-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "entityframeworkcore",
+      "name": "Entity Framework Core",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/dotnet/efcore",
+      "repository": "https://github.com/dotnet/efcore",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "ef core",
+        "entity framework core"
+      ],
+      "tags": [
+        "dotnet",
+        ".net",
+        "framework",
+        "database",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/entityframeworkcore/entityframeworkcore-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "expo",
+      "name": "Expo",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/expo/expo",
+      "repository": "https://github.com/expo/expo",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "react",
+        "react-native",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/expo/expo-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "express",
+      "name": "Express",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/expressjs/express",
+      "repository": "https://github.com/expressjs/express",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "expressjs"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/express/express-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/fastapi/fastapi",
+      "repository": "https://github.com/fastapi/fastapi",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "python",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/fastapi/fastapi-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "fastify",
+      "name": "Fastify",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/fastify/fastify",
+      "repository": "https://github.com/fastify/fastify",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "web",
+        "node.js",
+        "javascript",
+        "performance",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/fastify/fastify-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "feathersjs",
+      "name": "Feathers",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/feathersjs/feathers",
+      "repository": "https://github.com/feathersjs/feathers",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "rest",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/feathersjs/feathersjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "fiber",
+      "name": "Fiber",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/gofiber/fiber",
+      "repository": "https://github.com/gofiber/fiber",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "GoFiber"
+      ],
+      "tags": [
+        "framework",
+        "go",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/fiber/fiber-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "filamentphp",
+      "name": "Filament",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/filamentphp/filament",
+      "repository": "https://github.com/filamentphp/filament",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "laravel",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/filamentphp/filamentphp-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "flask",
+      "name": "Flask",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/pallets/flask",
+      "repository": "https://github.com/pallets/flask",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "python",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/flask/flask-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "flutter",
+      "name": "Flutter",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/flutter/flutter",
+      "repository": "https://github.com/flutter/flutter",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "sdk",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/flutter/flutter-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "foundation",
+      "name": "Foundation",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/foundation/foundation-sites",
+      "repository": "https://github.com/foundation/foundation-sites",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "css",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/foundation/foundation-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "framermotion",
+      "name": "Motion",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/motiondivision/motion",
+      "repository": "https://github.com/motiondivision/motion",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "framer-motion",
+        "framer"
+      ],
+      "tags": [
+        "library",
+        "react",
+        "animation",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/framermotion/framermotion-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "framework7",
+      "name": "Framework7",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/framework7io/framework7",
+      "repository": "https://github.com/framework7io/framework7",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "cross-platform",
+        "development",
+        "mobile",
+        "android",
+        "ios",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/framework7/framework7-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "gatsby",
+      "name": "Gatsby",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/gatsbyjs/gatsby",
+      "repository": "https://github.com/gatsbyjs/gatsby",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "gatsbyjs"
+      ],
+      "tags": [
+        "reactjs",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/gatsby/gatsby-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "godot",
+      "name": "Godot",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/godotengine/godot",
+      "repository": "https://github.com/godotengine/godot",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "game-engine",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/godot/godot-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "grails",
+      "name": "Grails",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/apache/grails-core",
+      "repository": "https://github.com/apache/grails-core",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Grails Framework"
+      ],
+      "tags": [
+        "framework",
+        "groovy",
+        "web-development",
+        "jvm",
+        "build",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/grails/grails-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "grpc",
+      "name": "gRPC",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/grpc/grpc",
+      "repository": "https://github.com/grpc/grpc",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "grpcio",
+        "Google Remote Procedure Call"
+      ],
+      "tags": [
+        "programming",
+        "c++",
+        "java",
+        "python",
+        "go",
+        "library",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/grpc/grpc-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "handlebars",
+      "name": "Handlebars",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/handlebars-lang/handlebars.js",
+      "repository": "https://github.com/handlebars-lang/handlebars.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "handlebarsjs"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/handlebars/handlebars-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "hibernate",
+      "name": "Hibernate",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/hibernate/hibernate-orm",
+      "repository": "https://github.com/hibernate/hibernate-orm",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "database",
+        "framework",
+        "java",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/hibernate/hibernate-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "htmx",
+      "name": "htmx",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/bigskysoftware/htmx",
+      "repository": "https://github.com/bigskysoftware/htmx",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "html ui framework"
+      ],
+      "tags": [
+        "framework",
+        "web",
+        "html",
+        "ui",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/htmx/htmx-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "hugo",
+      "name": "Hugo",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/gohugoio/hugo",
+      "repository": "https://github.com/gohugoio/hugo",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "gohugo"
+      ],
+      "tags": [
+        "framework",
+        "ssg",
+        "static-site-generator",
+        "go",
+        "html",
+        "css",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/hugo/hugo-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "inertiajs",
+      "name": "Inertia.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/inertiajs/inertia",
+      "repository": "https://github.com/inertiajs/inertia",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "inertia.js"
+      ],
+      "tags": [
+        "javascript",
+        "js",
+        "library",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/inertiajs/inertiajs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ionic",
+      "name": "Ionic",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/ionic-team/ionic-framework",
+      "repository": "https://github.com/ionic-team/ionic-framework",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/ionic/ionic-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "jekyll",
+      "name": "Jekyll",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/jekyll/jekyll",
+      "repository": "https://github.com/jekyll/jekyll",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "jestjs"
+      ],
+      "tags": [
+        "ruby",
+        "blog",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/jekyll/jekyll-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "jhipster",
+      "name": "JHipster",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/jhipster/generator-jhipster",
+      "repository": "https://github.com/jhipster/generator-jhipster",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "development",
+        "framework",
+        "java",
+        "platform",
+        "web",
+        "web-application",
+        "web-development",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/jhipster/jhipster-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "jquery",
+      "name": "jQuery",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/jquery/jquery",
+      "repository": "https://github.com/jquery/jquery",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "jqueryjs"
+      ],
+      "tags": [
+        "library",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/jquery/jquery-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "knexjs",
+      "name": "Knex.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/knex/knex",
+      "repository": "https://github.com/knex/knex",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "database",
+        "query",
+        "sql",
+        "javascript",
+        "library",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/knexjs/knexjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "knockout",
+      "name": "Knockout",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/knockout/knockout",
+      "repository": "https://github.com/knockout/knockout",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "knockoutjs"
+      ],
+      "tags": [
+        "framework",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/knockout/knockout-plain-wordmark.svg",
+        "variant": "plain-wordmark"
+      }
+    },
+    {
+      "id": "ktor",
+      "name": "Ktor",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/ktorio/ktor",
+      "repository": "https://github.com/ktorio/ktor",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "jetbrains",
+        "kotlin",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/ktor/ktor-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "laminas",
+      "name": "Laminas",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/laminas/laminas-mvc",
+      "repository": "https://github.com/laminas/laminas-mvc",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Laminas Project",
+        "Zend Framework"
+      ],
+      "tags": [
+        "php",
+        "framework",
+        "web",
+        "mvc",
+        "middleware",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/laminas/laminas-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "laravel",
+      "name": "Laravel",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/laravel/framework",
+      "repository": "https://github.com/laravel/framework",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "php",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/laravel/laravel-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "less",
+      "name": "Less",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/less/less.js",
+      "repository": "https://github.com/less/less.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "lesscss"
+      ],
+      "tags": [
+        "css",
+        "pre-processor",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/less/less-plain-wordmark.svg",
+        "variant": "plain-wordmark"
+      }
+    },
+    {
+      "id": "libgdx",
+      "name": "libGDX",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/libgdx/libgdx",
+      "repository": "https://github.com/libgdx/libgdx",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "java",
+        "game-development",
+        "cross-platform",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/libgdx/libgdx-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "livewire",
+      "name": "Livewire",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/livewire/livewire",
+      "repository": "https://github.com/livewire/livewire",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "laravel-livewire"
+      ],
+      "tags": [
+        "framework",
+        "laravel",
+        "php",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/livewire/livewire-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "lodash",
+      "name": "Lodash",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/lodash/lodash",
+      "repository": "https://github.com/lodash/lodash",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/lodash/lodash-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "love2d",
+      "name": "LÖVE",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/love2d/love",
+      "repository": "https://github.com/love2d/love",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "löve"
+      ],
+      "tags": [
+        "programming",
+        "game-engine",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/love2d/love2d-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "materializecss",
+      "name": "Materialize",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/materializecss/materialize",
+      "repository": "https://github.com/materializecss/materialize",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "materialize",
+        "materialize-css",
+        "materialize css"
+      ],
+      "tags": [
+        "framework",
+        "css",
+        "design",
+        "material-design",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/materializecss/materializecss-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "materialui",
+      "name": "Material UI",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/mui/material-ui",
+      "repository": "https://github.com/mui/material-ui",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "mui"
+      ],
+      "tags": [
+        "framework",
+        "design",
+        "ui",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/materialui/materialui-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "meteor",
+      "name": "Meteor",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/meteor/meteor",
+      "repository": "https://github.com/meteor/meteor",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "meteorjs"
+      ],
+      "tags": [
+        "javascript",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/meteor/meteor-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "mithril",
+      "name": "Mithril",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/MithrilJS/mithril.js",
+      "repository": "https://github.com/MithrilJS/mithril.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "mithril.js"
+      ],
+      "tags": [
+        "javascript",
+        "framework",
+        "frontend",
+        "js",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/mithril/mithril-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "mobx",
+      "name": "MobX",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/mobxjs/mobx",
+      "repository": "https://github.com/mobxjs/mobx",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "mobxjs"
+      ],
+      "tags": [
+        "state-management",
+        "testing",
+        "reactjs",
+        "nodejs",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/mobx/mobx-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "moleculer",
+      "name": "Moleculer",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/moleculerjs/moleculer",
+      "repository": "https://github.com/moleculerjs/moleculer",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "moleculerjs",
+        "moleculer.js"
+      ],
+      "tags": [
+        "nodejs",
+        "javascript",
+        "js",
+        "microservices",
+        "micro-services",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/moleculer/moleculer-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "mongoose",
+      "name": "Mongoose",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/Automattic/mongoose",
+      "repository": "https://github.com/Automattic/mongoose",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "mongoosejs"
+      ],
+      "tags": [
+        "data-model",
+        "nodejs",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/mongoose/mongoose-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "monogame",
+      "name": "MonoGame",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/MonoGame/MonoGame",
+      "repository": "https://github.com/MonoGame/MonoGame",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "engine",
+        "game-engine",
+        "C#",
+        "c-sharp",
+        "csharp",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/monogame/monogame-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "nestjs",
+      "name": "NestJS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/nestjs/nest",
+      "repository": "https://github.com/nestjs/nest",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/nestjs/nestjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "nextjs",
+      "name": "Next.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/vercel/next.js",
+      "repository": "https://github.com/vercel/next.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/nextjs/nextjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "ngrx",
+      "name": "NgRx",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/ngrx/platform",
+      "repository": "https://github.com/ngrx/platform",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "state-management",
+        "angular",
+        "redux",
+        "store",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/ngrx/ngrx-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "nhibernate",
+      "name": "NHibernate",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/nhibernate/nhibernate-core",
+      "repository": "https://github.com/nhibernate/nhibernate-core",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "library",
+        "dotnet",
+        ".net",
+        "object-relational mapper",
+        "orm",
+        "C#",
+        "c-sharp",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/nhibernate/nhibernate-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "nuxt",
+      "name": "Nuxt",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/nuxt/nuxt",
+      "repository": "https://github.com/nuxt/nuxt",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "js",
+        "javascript",
+        "framework",
+        "fullstack",
+        "vuejs",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/nuxt/nuxt-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "p5js",
+      "name": "p5.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/processing/p5.js",
+      "repository": "https://github.com/processing/p5.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "p5.js"
+      ],
+      "tags": [
+        "javascript",
+        "js",
+        "library",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/p5js/p5js-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "phalcon",
+      "name": "Phalcon",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/phalcon/cphalcon",
+      "repository": "https://github.com/phalcon/cphalcon",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "php",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/phalcon/phalcon-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/phoenixframework/phoenix",
+      "repository": "https://github.com/phoenixframework/phoenix",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Phoenix Framework"
+      ],
+      "tags": [
+        "framework",
+        "build",
+        "web",
+        "web-development",
+        "development",
+        "elixir",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/phoenix/phoenix-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "pixijs",
+      "name": "PixiJS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/pixijs/pixijs",
+      "repository": "https://github.com/pixijs/pixijs",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "animation",
+        "graphics",
+        "html",
+        "javascript",
+        "library",
+        "visualization",
+        "ui",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/pixijs/pixijs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "postcss",
+      "name": "PostCSS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/postcss/postcss",
+      "repository": "https://github.com/postcss/postcss",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "pre-processor",
+        "css",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/postcss/postcss-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "primeng",
+      "name": "PrimeNG",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/primefaces/primeng",
+      "repository": "https://github.com/primefaces/primeng",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "angular",
+        "ui",
+        "component",
+        "library",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/primeng/primeng-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "prisma",
+      "name": "Prisma",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/prisma/prisma",
+      "repository": "https://github.com/prisma/prisma",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "orm",
+        "nodejs",
+        "typescript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/prisma/prisma-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "processing",
+      "name": "Processing",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/processing/processing4",
+      "repository": "https://github.com/processing/processing4",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "processingpy"
+      ],
+      "tags": [
+        "java",
+        "python",
+        "android",
+        "application",
+        "ide",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/processing/processing-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "pug",
+      "name": "Pug",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/pugjs/pug",
+      "repository": "https://github.com/pugjs/pug",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "pugjs"
+      ],
+      "tags": [
+        "framework",
+        "javascript",
+        "nodejs",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/pug/pug-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "qt",
+      "name": "Qt",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://code.qt.io",
+      "repository": null,
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/qt/qt-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "quarkus",
+      "name": "Quarkus",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/quarkusio/quarkus",
+      "repository": "https://github.com/quarkusio/quarkus",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "java",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/quarkus/quarkus-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "quasar",
+      "name": "Quasar",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/quasarframework/quasar",
+      "repository": "https://github.com/quasarframework/quasar",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/quasar/quasar-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "qwik",
+      "name": "Qwik",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/QwikDev/qwik",
+      "repository": "https://github.com/QwikDev/qwik",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/qwik/qwik-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "rails",
+      "name": "Ruby on Rails",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/rails/rails",
+      "repository": "https://github.com/rails/rails",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "rubyonrails"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/rails/rails-plain.svg",
+        "variant": "plain"
+      }
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/facebook/react",
+      "repository": "https://github.com/facebook/react",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "reactjs"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/react/react-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "reactbootstrap",
+      "name": "React Bootstrap",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/react-bootstrap/react-bootstrap",
+      "repository": "https://github.com/react-bootstrap/react-bootstrap",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "React-Bootstrap",
+        "react bootstrap"
+      ],
+      "tags": [
+        "framework",
+        "library",
+        "frontend",
+        "reactjs",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/reactbootstrap/reactbootstrap-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "reactnative",
+      "name": "React Native",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/facebook/react-native",
+      "repository": "https://github.com/facebook/react-native",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "react-native"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/reactnative/reactnative-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "reactrouter",
+      "name": "React Router",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/remix-run/react-router",
+      "repository": "https://github.com/remix-run/react-router",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "react",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/reactrouter/reactrouter-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "redux",
+      "name": "Redux",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/reduxjs/redux",
+      "repository": "https://github.com/reduxjs/redux",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "reduxjs"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/redux/redux-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "reflex",
+      "name": "Reflex",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/reflex-dev/reflex",
+      "repository": "https://github.com/reflex-dev/reflex",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "python",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/reflex/reflex-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "remix",
+      "name": "Remix",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/remix-run/remix",
+      "repository": "https://github.com/remix-run/remix",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "remix.run"
+      ],
+      "tags": [
+        "framework",
+        "fullstack",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/remix/remix-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "renpy",
+      "name": "Ren'Py",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/renpy/renpy",
+      "repository": "https://github.com/renpy/renpy",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Ren'Py"
+      ],
+      "tags": [
+        "programming",
+        "game-engine",
+        "engine",
+        "python",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/renpy/renpy-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "rxjs",
+      "name": "RxJS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/ReactiveX/rxjs",
+      "repository": "https://github.com/ReactiveX/rxjs",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Reactive Extensions for JavaScript"
+      ],
+      "tags": [
+        "javascript",
+        "library",
+        "observability",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/rxjs/rxjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "sass",
+      "name": "Sass",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/sass/dart-sass",
+      "repository": "https://github.com/sass/dart-sass",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "scss"
+      ],
+      "tags": [
+        "pre-processor",
+        "css",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/sass/sass-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "sdl",
+      "name": "SDL",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/libsdl-org/SDL",
+      "repository": "https://github.com/libsdl-org/SDL",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "simpledirectmedialayer"
+      ],
+      "tags": [
+        "library",
+        "cross-platform",
+        "multimedia",
+        "game",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/sdl/sdl-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "sequelize",
+      "name": "Sequelize",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/sequelize/sequelize",
+      "repository": "https://github.com/sequelize/sequelize",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "sequelizejs"
+      ],
+      "tags": [
+        "database",
+        "language",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/sequelize/sequelize-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "socketio",
+      "name": "Socket.IO",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/socketio/socket.io",
+      "repository": "https://github.com/socketio/socket.io",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "library",
+        "networking",
+        "websockets",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/socketio/socketio-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "solidjs",
+      "name": "SolidJS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/solidjs/solid",
+      "repository": "https://github.com/solidjs/solid",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "framework",
+        "frontend",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/solidjs/solidjs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "spring",
+      "name": "Spring Framework",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/spring-projects/spring-framework",
+      "repository": "https://github.com/spring-projects/spring-framework",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "springframework"
+      ],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/spring/spring-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "sqlalchemy",
+      "name": "SQLAlchemy",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/sqlalchemy/sqlalchemy",
+      "repository": "https://github.com/sqlalchemy/sqlalchemy",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "python",
+        "orm",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/sqlalchemy/sqlalchemy-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "stenciljs",
+      "name": "Stencil",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/stenciljs/core",
+      "repository": "https://github.com/stenciljs/core",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "stencil"
+      ],
+      "tags": [
+        "framework",
+        "ui",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/stenciljs/stenciljs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "styledcomponents",
+      "name": "styled-components",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/styled-components/styled-components",
+      "repository": "https://github.com/styled-components/styled-components",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Styled Components",
+        "styled-components"
+      ],
+      "tags": [
+        "css",
+        "javascript",
+        "js",
+        "library",
+        "nodejs",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/styledcomponents/styledcomponents-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "stylus",
+      "name": "Stylus",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/stylus/stylus",
+      "repository": "https://github.com/stylus/stylus",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "styluslang"
+      ],
+      "tags": [
+        "css",
+        "pre-processor",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/stylus/stylus-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "svelte",
+      "name": "Svelte",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/sveltejs/svelte",
+      "repository": "https://github.com/sveltejs/svelte",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "sveltejs"
+      ],
+      "tags": [
+        "javascript",
+        "framework",
+        "compiler",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/svelte/svelte-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "swiper",
+      "name": "Swiper",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/nolimits4web/swiper",
+      "repository": "https://github.com/nolimits4web/swiper",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "library",
+        "javascript",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/swiper/swiper-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "symfony",
+      "name": "Symfony",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/symfony/symfony",
+      "repository": "https://github.com/symfony/symfony",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "php",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/symfony/symfony-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "tailwindcss",
+      "name": "Tailwind CSS",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/tailwindlabs/tailwindcss",
+      "repository": "https://github.com/tailwindlabs/tailwindcss",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "css",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/tailwindcss/tailwindcss-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "tauri",
+      "name": "Tauri",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/tauri-apps/tauri",
+      "repository": "https://github.com/tauri-apps/tauri",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "nodejs",
+        "rust",
+        "desktop",
+        "framework",
+        "programming",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/tauri/tauri-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "threejs",
+      "name": "Three.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/mrdoob/three.js",
+      "repository": "https://github.com/mrdoob/three.js",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "javascript",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/threejs/threejs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "thymeleaf",
+      "name": "Thymeleaf",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/thymeleaf/thymeleaf",
+      "repository": "https://github.com/thymeleaf/thymeleaf",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "engine",
+        "html",
+        "java",
+        "server",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/thymeleaf/thymeleaf-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "trpc",
+      "name": "tRPC",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/trpc/trpc",
+      "repository": "https://github.com/trpc/trpc",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "Typescript Remote Procedure Call"
+      ],
+      "tags": [
+        "typescript",
+        "javascript",
+        "typesafe",
+        "api",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "framework",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/trpc/trpc-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "vaadin",
+      "name": "Vaadin",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/vaadin/flow",
+      "repository": "https://github.com/vaadin/flow",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "java",
+        "web",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/vaadin/vaadin-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "vertx",
+      "name": "Eclipse Vert.x",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/eclipse-vertx/vert.x",
+      "repository": "https://github.com/eclipse-vertx/vert.x",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "eclipsevertx"
+      ],
+      "tags": [
+        "sdk",
+        "java",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/vertx/vertx-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "vuejs",
+      "name": "Vue.js",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/vuejs/core",
+      "repository": "https://github.com/vuejs/core",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/vuejs/vuejs-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "vuetify",
+      "name": "Vuetify",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/vuetifyjs/vuetify",
+      "repository": "https://github.com/vuetifyjs/vuetify",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "css",
+        "framework",
+        "vuejs-library",
+        "material-design",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/vuetify/vuetify-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "yii",
+      "name": "Yii",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/yiisoft/yii2",
+      "repository": "https://github.com/yiisoft/yii2",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [
+        "yesitis"
+      ],
+      "tags": [
+        "php",
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/yii/yii-original.svg",
+        "variant": "original"
+      }
+    },
+    {
+      "id": "zustand",
+      "name": "Zustand",
+      "category": "frameworks",
+      "source": "devicon",
+      "homepage": "https://github.com/pmndrs/zustand",
+      "repository": "https://github.com/pmndrs/zustand",
+      "softwareType": "open-source",
+      "softwareLicense": null,
+      "classificationNote": "人工整理的软件类型，指向所列项目或社区版本；具体版本及许可请查阅项目官网/仓库，SPDX 许可证尚未逐项核实。",
+      "aliases": [],
+      "tags": [
+        "framework",
+        "框架与应用开发",
+        "Web 框架",
+        "Web Frameworks",
+        "frontend",
+        "backend",
+        "框架"
+      ],
+      "artwork": {
+        "path": "icons/zustand/zustand-original.svg",
+        "variant": "original"
+      }
+    }
+  ]
+}

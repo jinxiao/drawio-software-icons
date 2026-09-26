@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "cache": {
+    "directory": "auto",
+    "enabled": true,
+    "version": "1",
+    "maxAgeHours": null
+  },
+  "download": {
+    "concurrency": 8,
+    "timeoutMs": 30000
+  },
+  "defaults": {
+    "softwareType": "unverified",
+    "classificationNote": "Software classification refers to the linked project or service; artwork licensing is separate."
+  },
+  "sources": {
+    "lobe": {
+      "kind": "github",
+      "repo": "lobehub/lobe-icons",
+      "branch": "master",
+      "license": "MIT",
+      "index": null,
+      "initialRevision": "a94750e3f5f8fc33757b839d85030e742284e43a",
+      "licenseFile": "LICENSE"
+    },
+    "devicon": {
+      "kind": "github",
+      "repo": "devicons/devicon",
+      "branch": "master",
+      "license": "MIT",
+      "index": "devicon.json",
+      "initialRevision": "7330accdbc47e2dc0c19789a48533c4a3c50fe58",
+      "licenseFile": "LICENSE",
+      "adapter": "devicon"
+    },
+    "dashboard": {
+      "kind": "github",
+      "repo": "homarr-labs/dashboard-icons",
+      "branch": "main",
+      "license": "Apache-2.0",
+      "index": "tree.json",
+      "initialRevision": "ce550a844bad92ea19b5926cb887285c46bac01a",
+      "licenseFile": "LICENSE",
+      "pathTemplate": "svg/{id}.svg"
+    },
+    "vendor": {
+      "kind": "github",
+      "repo": "bwks/vendor-icons-svg",
+      "branch": "master",
+      "license": "GPL-3.0-only",
+      "index": null,
+      "preserveOriginal": true,
+      "initialRevision": "702f2ac88acc71759ce623bc5000a596195e9db3",
+      "licenseFile": "LICENSE"
+    },
+    "official-apps": {
+      "kind": "publisher-artwork",
+      "manifest": "data/official-icons.json",
+      "license": "Proprietary brand artwork; permission not verified",
+      "licenseFile": "licenses/official-apps-LICENSE.txt"
+    }
+  }
+}

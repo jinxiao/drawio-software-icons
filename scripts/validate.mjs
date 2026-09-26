@@ -1,11 +1,15 @@
 import {readFile} from 'node:fs/promises';
 import {selection} from '../data/selection.mjs';
+import {loadIconConfiguration,artworkKey,cacheOptions} from './icon-config.mjs';
 import {json,hash,inspectSvg,inspectPng,packageOfficialPng} from './lib.mjs';
 import {validateChangelog} from './changelog.mjs';
 const catalog = await json('data/catalog.json');
 const categories = await json('data/categories.json');
 const sources = await json('data/sources.lock.json');
 const officialIcons = await json('data/official-icons.json');
+const {config,icons:configuredIcons}=await loadIconConfiguration();
+const configured=new Map(configuredIcons.map(icon=>[icon.id,icon]));
+const inputs=await json('data/icon-inputs.lock.json');
 const history=validateChangelog(await json('data/changelog.json'));
 const documented=new Set(history.flatMap(entry=>entry.changes.filter(c=>c.collection==='software'&&c.kind==='added').flatMap(c=>c.icons.map(i=>i.id))));
 for(const icon of catalog.icons)if(!documented.has(icon.id))throw Error(`Missing added-icon changelog entry: ${icon.id}`);
@@ -23,8 +27,14 @@ for(const icon of catalog.icons) {
   if(!['open-source','source-available','commercial','unverified'].includes(icon.softwareType)) fail(`Invalid type: ${icon.id}`);
   if(icon.softwareType==='commercial' && (icon.usagePolicy!=='drawio-architecture-only' || icon.usagePolicyUrl!=='ICON_USAGE.md' || icon.brandPermissionStatus!=='not-verified')) fail(`Missing commercial usage policy: ${icon.id}`);
   if(!icon.name || !Array.isArray(icon.aliases) || !icon.tags.length) fail(`Incomplete metadata: ${icon.id}`);
+  const input=configured.get(icon.id);
+  const category=categories.find(category=>category.id===icon.category);
+  if(JSON.stringify(icon.aliases)!==JSON.stringify([...new Set(input.aliases)]) || JSON.stringify(icon.tags)!==JSON.stringify([...new Set([...input.tags,category.name,...category.keywords])])) fail(`Stale search metadata: ${icon.id}`);
   if(new URL(icon.homepage).protocol !== 'https:') fail(`Invalid project URL: ${icon.id}`);
   const source=sources[icon.source.id];
+  const definition=config.sources[input.source];
+  if(input.source!==icon.source.id || !source || (definition.revision && definition.revision!==source.revision)
+    || inputs.icons[icon.id]!==artworkKey(input,{...definition,revision:source.revision},cacheOptions(config,definition))) fail(`Stale artwork configuration: ${icon.id}; run npm run sync`);
   const official=source?.kind==='publisher-artwork';
   if(!source || icon.source.revision !== source.revision || !(official?/^[a-f0-9]{64}$/:/^[a-f0-9]{40}$/).test(source.revision)) fail(`Invalid source pin: ${icon.id}`);
   if((!official && !icon.source.url.includes(`/${source.revision}/`)) || !icon.source.licenseUrl || !icon.source.collectionLicense || !/^[a-f0-9]{64}$/.test(icon.source.sha256)) fail(`Incomplete provenance: ${icon.id}`);

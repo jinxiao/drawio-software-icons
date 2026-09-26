@@ -17,7 +17,7 @@ export async function generateUnified(software, softwareEntries) {
   for (const path of ['drawio', 'svg', 'plugins', 'previews', 'config', 'alibaba-cloud-drawio.zip']) {
     await cp(`${upstream}/${path}`, `public/${path}`, { recursive: true });
   }
-  for (const path of ['README.md', 'README.zh-CN.md', 'ICON_USAGE.md', 'THIRD_PARTY_NOTICES.md', 'docs/DEPLOYMENT.md', 'docs/CLOUDFLARE.md']) {
+  for (const path of ['README.md', 'README.zh-CN.md', 'ICON_USAGE.md', 'THIRD_PARTY_NOTICES.md', 'docs/DEPLOYMENT.md', 'docs/CLOUDFLARE.md', 'docs/ICON_CONFIGURATION.md']) {
     await save(`public/guides/${path}`, await readFile(path));
   }
   const collections = [

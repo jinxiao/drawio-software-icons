@@ -138,24 +138,28 @@ The frontend uses React + TypeScript with Vite, Tailwind CSS and shadcn/ui. `src
 
 The terminal and configuration editor share `CodePanel`, composed from shadcn/ui Card and Textarea, with `CopyButton` for clipboard feedback and manual-copy fallback. Terminal colors are scoped through `.terminal-theme`; command prompts are separate from the copied text. Run `npm run test:ui` for rendering, URL restoration, button semantics and configuration-text checks; these also run as part of `npm test`.
 
-The build validates the catalog, checks TypeScript, generates libraries and the ZIP, then writes the two static sites to `dist/` and `dist-alibaba/`. Once dependencies are installed, testing and building require no upstream downloads.
+The build first synchronizes `data/icons/*.json`, reusing verified local artwork and download caches, then validates the catalog, checks TypeScript, generates libraries and the ZIP, and writes the two static sites to `dist/` and `dist-alibaba/`. New or changed sources may require network access. `npm test` also synchronizes first so configuration-only contributions work in both CI pipelines. Use `npm run build:offline` to build already synchronized artifacts without downloading.
 
 ## Collect and update
 
 ```sh
 npm run sync
 npm run sync -- --update
+npm run sync -- --refresh
 ```
 
-The default uses commits pinned in `data/sources.lock.json`. `--update` resolves current upstream branches. Downloads have timeouts and a URL-keyed cache under `.sync-stage/`. Network or validation failures do not replace existing committed assets, catalog or pins. Fix the cause, then reuse cached downloads to finish. Unrelated upstream commits alone do not create changes.
+Add or edit an entry in `data/icons/*.json` and commit the configuration; builds download missing artwork and generate the catalog, search index, libraries and ZIP automatically. Source rules, download concurrency/timeouts and cache policy live in `data/icon-sources.json`. See [Icon configuration](docs/ICON_CONFIGURATION.md) for examples and cache settings. Do not hand-edit generated catalogs or locks.
 
-A monthly Actions workflow checks the existing selection and creates or updates one `automation/icon-update` PR. Review and merge it to publish. New software is added through the curated selection; upstream catalogs are not indiscriminately imported.
+The default uses commits pinned in `data/sources.lock.json`. `--update` resolves current branches unless a source declares an explicit `revision`; `--refresh` bypasses local reuse and revalidates cached downloads without changing source revisions. Downloads are cached by URL and cache version. Expired entries use conditional HTTP when the server supplies validators. Download or artwork-validation failures leave existing assets, catalog and locks unchanged. Verified pinned local files need no network requests.
+
+A monthly Actions workflow checks the configured selection and creates or updates one `automation/icon-update` PR with generated artifacts. Configuration-only contributions do not need to commit those artifacts; the publishing build generates them. Upstream catalogs are not indiscriminately imported.
 
 ## Data and artifacts
 
-- `data/selection.mjs`: project selection, homepage and editorial software type; `data/taxonomy.mjs`: category merging and project classification rules.
-- `data/communication.mjs`: messaging / enterprise additions and bilingual search aliases.
-- `data/ai.mjs`: AI tools / services, bilingual search aliases and selected upstream artwork variants.
+- `data/icons/*.json`: icon configuration, bilingual aliases, categories and artwork variants; `data/schemas/icons.schema.json`: editor schema.
+- `data/icon-sources.json`: source adapters, repository rules and configurable download caching.
+- `data/icon-inputs.lock.json`, `data/sources.lock.json`, `data/official-icons.json`: generated input fingerprints, source pins and publisher-artwork provenance.
+- `data/selection.mjs`: compatibility loader; `data/taxonomy.mjs`: legacy category mappings.
 - `data/catalog.json`: collected metadata and provenance. `data/categories*.json`: bilingual category text.
 - `assets/icons/` and `licenses/`: packaged SVG / PNG files and original collection licenses or rights notices.
 - `scripts/` and `src/`: collection / validation / generation tools and the bilingual static site.
