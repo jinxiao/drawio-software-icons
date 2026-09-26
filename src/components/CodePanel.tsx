@@ -37,16 +37,16 @@ export function CodePanel({ title, value, fieldRef, terminal = false, prompt = '
   return <Card id={panelId} ref={panelRef} data-code-panel={terminal ? 'terminal' : 'config'}
     className={cn('min-w-0 gap-0 overflow-hidden border-border py-0 shadow-sm', terminal && 'terminal-theme')}>
     <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 border-b border-solid border-border bg-muted px-3 py-1 [.border-b]:pb-1">
-      <CardTitle className="flex min-w-0 items-center gap-2 font-mono text-xs leading-normal font-medium text-muted-foreground">
+      <CardTitle className="flex min-w-0 max-w-full items-center gap-2 font-mono text-xs leading-normal font-medium text-muted-foreground">
         <Icon className="size-4 shrink-0" aria-hidden="true" /><span className="break-all">{title}</span>
       </CardTitle>
-      {actions}
+      {actions && <div className="flex min-w-0 max-w-full flex-wrap gap-2">{actions}</div>}
     </CardHeader>
-    <CardContent className="flex min-w-0 items-start gap-3 p-4">
-      {terminal && <span className="pt-2 font-mono text-xs leading-6 text-muted-foreground select-none" aria-hidden="true">{prompt}</span>}
+    <CardContent className="flex min-w-0 items-start gap-1 p-2 sm:gap-3 sm:p-4">
+      {terminal && <span className="shrink-0 pt-2 font-mono text-xs leading-6 text-muted-foreground select-none" aria-hidden="true">{prompt}</span>}
       <Textarea {...props} value={value} ref={ref} spellCheck={false}
-        className={cn('field-sizing-fixed min-w-0 border-input bg-background font-mono text-xs leading-6 text-foreground md:text-xs',
-          terminal ? 'min-h-0 resize-none overflow-hidden border-transparent bg-transparent shadow-none' : 'max-h-80 min-h-24 resize-y', className)} />
+        className={cn('field-sizing-fixed min-w-0 flex-1 overscroll-contain border-input bg-background font-mono text-base leading-6 text-foreground [overflow-wrap:anywhere] md:text-xs',
+          terminal ? 'max-h-80 min-h-0 resize-none overflow-auto border-transparent bg-transparent shadow-none' : 'max-h-80 min-h-24 resize-y', className)} />
     </CardContent>
   </Card>;
 }

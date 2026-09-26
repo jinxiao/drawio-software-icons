@@ -27,11 +27,26 @@ export function Dialog({id,label,labelledBy,describedBy,onClose,children}:{id:st
   const ref=useRef<HTMLDialogElement>(null);
   useLayoutEffect(()=>{
     const dialog=ref.current!,opener=document.activeElement as HTMLElement|null;
+    // Mobile keyboards shrink the visual viewport without always changing dvh.
+    const viewport=window.visualViewport;
+    const fit=()=>{
+      dialog.style.setProperty('--dialog-viewport-height',`${viewport?.height??window.innerHeight}px`);
+      dialog.style.setProperty('--dialog-viewport-top',`${viewport?.offsetTop??0}px`);
+    };
+    fit();
+    viewport?.addEventListener('resize',fit);
+    viewport?.addEventListener('scroll',fit);
+    window.addEventListener('resize',fit);
     dialog.showModal();
     dialog.querySelector<HTMLElement>('[data-dialog-autofocus]')?.focus();
-    return()=>{dialog.close();if(opener?.isConnected)opener.focus({preventScroll:true});};
+    return()=>{
+      viewport?.removeEventListener('resize',fit);
+      viewport?.removeEventListener('scroll',fit);
+      window.removeEventListener('resize',fit);
+      dialog.close();if(opener?.isConnected)opener.focus({preventScroll:true});
+    };
   },[]);
-  const element=<dialog id={id} ref={ref} aria-label={label} aria-labelledby={labelledBy} aria-describedby={describedBy} onCancel={event=>{event.preventDefault();onClose();}} onClose={onClose} onClick={event=>{
+  const element=<dialog id={id} className="site-dialog" ref={ref} aria-label={label} aria-labelledby={labelledBy} aria-describedby={describedBy} onCancel={event=>{event.preventDefault();onClose();}} onClose={onClose} onClick={event=>{
     if(event.target!==event.currentTarget)return;
     const box=event.currentTarget.getBoundingClientRect();
     if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)onClose();
@@ -40,7 +55,7 @@ export function Dialog({id,label,labelledBy,describedBy,onClose,children}:{id:st
 }
 export function CloseButton({onClose,children}:{onClose:()=>void;children?:ReactNode}) {
   const {t}=useIcons();
-  return <Button variant="ghost" size="icon-sm" className="absolute right-3.5 top-3.5 rounded-full" onClick={onClose} aria-label={t.close}>{children??<Symbol name="close"/>}</Button>;
+  return <Button variant="ghost" size="icon-sm" className="sticky top-0 z-10 float-right -mt-2 -mr-2 ml-2 rounded-full bg-card max-[760px]:size-11" onClick={onClose} aria-label={t.close}>{children??<Symbol name="close"/>}</Button>;
 }
 export function ExternalLink({href,children}:PropsWithChildren<{href:string}>) {
   return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;

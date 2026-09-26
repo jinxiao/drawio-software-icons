@@ -2,6 +2,7 @@
 @layer theme, base, legacy, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "./style.css" layer(legacy);
+@import "./responsive.css" layer(legacy);
 @import "tailwindcss/utilities.css" layer(utilities) source(none);
 @source "./";
 @custom-variant dark (&:is(.dark *));

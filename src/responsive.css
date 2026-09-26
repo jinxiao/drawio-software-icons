@@ -1,0 +1,82 @@
+/* Constrain layout tracks, not the page overflow: category strips still scroll. */
+.home-overview > *, .workspace > *, .sidebar-group, .library-main,
+.steps > *, .sources > *, .updates-heading > *, .mcp-notice > div {
+  min-width: 0;
+}
+.home-search-trigger > span, .home-search-caption > span,
+.home-update-icons span, .update-entry summary > strong,
+.section-heading > div, .query-filter > span, .bundle-list label > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.home-search-caption, .section-heading, .bundle-controls, .bundle-footer,
+footer > div {
+  flex-wrap: wrap;
+}
+.home-primary-actions, .category-actions, .detail-actions, .home-tools,
+.updates, .sources, footer, .site-dialog {
+  overflow-wrap: anywhere;
+}
+.library-toolbar .filter-row { flex-basis: 280px; min-width: 0; }
+.bundle-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bundle-list label { min-width: 0; }
+.bundle-list input, .bundle-list small { flex-shrink: 0; }
+.detail-tags > span { max-width: 100%; }
+
+/* Every modal shares the same viewport and scrolling rules. */
+html:has(.site-dialog[open]), body:has(.site-dialog[open]) { overflow: hidden; }
+.site-dialog,
+#mcp-dialog.site-dialog {
+  --dialog-gap: 16px;
+  --dialog-top-gap: max(var(--dialog-gap), env(safe-area-inset-top));
+  --dialog-bottom-gap: max(var(--dialog-gap), env(safe-area-inset-bottom));
+  inset-block-start: calc(var(--dialog-viewport-top, 0px) + var(--dialog-top-gap));
+  inset-block-end: calc(100% - var(--dialog-viewport-top, 0px) - var(--dialog-viewport-height, 100dvh) + var(--dialog-bottom-gap));
+  max-height: min(88dvh, calc(var(--dialog-viewport-height, 100dvh) - var(--dialog-top-gap) - var(--dialog-bottom-gap)));
+  max-width: calc(100% - max(16px, env(safe-area-inset-left)) - max(16px, env(safe-area-inset-right)));
+  margin-block: auto;
+  overscroll-behavior: contain;
+  scroll-padding-block: 52px 16px;
+}
+.site-dialog h2 { overflow-wrap: anywhere; }
+.site-dialog dl { grid-template-columns: minmax(0, 105px) minmax(0, 1fr); }
+.site-dialog dt, .site-dialog dd { min-width: 0; overflow-wrap: anywhere; }
+#spotlight.site-dialog {
+  --spotlight-top-gap: max(var(--dialog-top-gap), clamp(16px, 12dvh, 120px));
+  top: calc(var(--dialog-viewport-top, 0px) + var(--spotlight-top-gap));
+  bottom: auto;
+  margin-block: 0;
+  max-height: calc(var(--dialog-viewport-height, 100dvh) - var(--spotlight-top-gap) - var(--dialog-bottom-gap));
+}
+
+@media (max-width: 760px) {
+  .workspace { grid-template-columns: minmax(0, 1fr); }
+  .collection-list, .category-list { max-width: 100%; overscroll-behavior-x: contain; }
+  .steps { grid-template-columns: 1fr; gap: 24px; }
+  .steps p { max-width: none; }
+  .site-dialog, #mcp-dialog.site-dialog { padding: 20px; }
+  #spotlight.site-dialog { --spotlight-top-gap: var(--dialog-top-gap); padding: 0; }
+  .bundle-list { grid-template-columns: minmax(0, 1fr); }
+  .bundle-controls { align-items: center; gap: 8px 16px; }
+  .bundle-footer { align-items: flex-start; }
+  .home-search-caption { gap: 6px 12px; }
+  .section-heading { align-items: flex-start; gap: 8px 16px; }
+  footer > div { justify-content: center; gap: 12px 20px; }
+}
+
+@media (max-width: 480px) {
+  .home-primary-actions { flex-direction: column; align-items: stretch; }
+  .home-primary-actions > [data-slot="button"] { width: 100%; }
+  .home-update-icons { grid-template-columns: minmax(0, 1fr); }
+  .detail-actions { flex-direction: column; align-items: stretch; }
+  .site-dialog dl { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .site-dialog dd { margin: 0 0 12px; }
+}
+
+@media (max-height: 480px) {
+  .site-dialog, #mcp-dialog.site-dialog { --dialog-gap: 8px; }
+  #spotlight.site-dialog { --spotlight-top-gap: var(--dialog-top-gap); }
+  .spotlight-help { display: none; }
+  #spotlight .spotlight-scope, #spotlight .spotlight-status { padding-block: 6px; }
+  .detail-art { height: 120px; }
+}

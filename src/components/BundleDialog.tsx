@@ -74,7 +74,7 @@ export function BundleDialog() {
       <p id="config-status" role="status" aria-live="polite">{status}</p>
       <div hidden={!output}>
         <CodePanel title="drawio-icons-configuration.json" id="config-output" rows={8} readOnly aria-label={t.generatedConfig} value={output} fieldRef={outputRef}
-          actions={<div className="flex flex-wrap gap-2">
+          actions={<div className="flex min-w-0 max-w-full flex-wrap gap-2">
             <CopyButton id="copy-config" label={t.copyConfig} value={output} fieldRef={outputRef} disabled={!output}
               copiedLabel={t.configCopied} fallbackLabel={t.configCopyFallback} onStatus={setStatus} />
             <Button id="download-config" variant="outline" size="sm" disabled={!output} onClick={download}><Download aria-hidden="true" />{t.downloadConfig}</Button>
