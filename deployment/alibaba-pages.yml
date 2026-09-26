@@ -54,8 +54,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ runner.temp }}/published-source
-          key: published-${{ hashFiles('.github/workflows/pages.yml') }}-${{ github.run_id }}
-          restore-keys: published-${{ hashFiles('.github/workflows/pages.yml') }}-
+          key: published-${{ vars.LEGACY_REDIRECTS }}-${{ hashFiles('.github/workflows/pages.yml') }}-${{ github.run_id }}
+          restore-keys: published-${{ vars.LEGACY_REDIRECTS }}-${{ hashFiles('.github/workflows/pages.yml') }}-
       - name: Skip the currently published version
         id: published
         uses: actions/github-script@v8
@@ -88,10 +88,13 @@ jobs:
       - run: npm ci && npm test && npm run build
         if: steps.published.outputs.result != 'true'
         working-directory: source
+      - run: node scripts/prepare-legacy-pages.mjs
+        if: steps.published.outputs.result != 'true' && vars.LEGACY_REDIRECTS == 'true'
+        working-directory: source
       - uses: actions/upload-pages-artifact@v5.0.0
         if: steps.published.outputs.result != 'true'
         with:
-          path: source/dist-alibaba
+          path: ${{ vars.LEGACY_REDIRECTS == 'true' && 'source/dist-alibaba-pages' || 'source/dist-alibaba' }}
           include-hidden-files: true
   deploy:
     needs: build

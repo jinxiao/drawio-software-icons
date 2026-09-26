@@ -1,5 +1,11 @@
 # One source, two Pages sites / 单一源码、双站点发布
 
+Cloudflare migration and the MCP icon API are described in [CLOUDFLARE.md](CLOUDFLARE.md).
+The Pages topology below remains the default until migration switches are enabled.
+After cutover, Cloudflare serves the main domain; both Pages sites retain resource
+files and publish redirect homepages. / Cloudflare 迁移后，两个 Pages 入口保留原资源，
+首页跳转主站；具体开关和切换顺序见上述文档。
+
 The authoritative source is `jinxiao/drawio-software-icons`. The former Alibaba
 source is maintained in `collections/alibaba-cloud`, with its original license,
 notices, source pins, artwork, builder and tests. `ORIGIN.json` records the import.

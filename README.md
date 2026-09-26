@@ -2,6 +2,9 @@
 
 [简体中文](README.zh-CN.md) · [Browse the collection](https://icons.rambow.cloud/)
 
+**Cloudflare and MCP:** [deployment and icon search API](docs/CLOUDFLARE.md), including
+`DRAWIO_ICON_SERVICE_URL` setup and legacy GitHub Pages redirects.
+
 456 software and service icons across 8 categories. Bilingual browsing, search and library downloads, focused on open-source projects with selected commercial tools. Original-color upstream SVGs are preferred.
 
 **Commercial icon usage:** commercial software and service icons are provided solely for drawing draw.io / diagrams.net architecture diagrams, not for other distribution purposes. The project does not grant additional brand rights or override upstream licenses. Original code and documentation remain MIT licensed. Read the bilingual [icon usage policy](ICON_USAGE.md) before using commercial brand assets.

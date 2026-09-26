@@ -34,7 +34,13 @@ jobs:
           enable-cache: false
       - run: npm ci
       - run: npm test
-      - run: npm run build
+      - run: npm run build:cloudflare
+      - run: npm run check:cloudflare
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: worker-index
+          path: .worker-build/search-index.json
+          include-hidden-files: true
       - uses: actions/upload-artifact@v7.0.1
         with:
           name: static-site
@@ -52,11 +58,41 @@ jobs:
       - uses: actions/upload-pages-artifact@v5.0.0
         if: (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview)
         with:
-          path: ${{ steps.preview.outputs.path || 'dist' }}
+          path: ${{ steps.preview.outputs.path || (vars.LEGACY_REDIRECTS == 'true' && 'dist-pages' || 'dist') }}
           include-hidden-files: true
-  deploy:
-    if: (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview)
+  cloudflare:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.CLOUDFLARE_ENABLED == 'true'
     needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: static-site
+          path: dist
+      - uses: actions/download-artifact@v8
+        with:
+          name: worker-index
+          path: .worker-build
+      - name: Deploy Cloudflare website and API
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PRODUCTION_DOMAIN: ${{ vars.CLOUDFLARE_PRODUCTION }}
+        run: |
+          if [ "$PRODUCTION_DOMAIN" = true ]; then
+            npm run deploy:cloudflare:production
+          else
+            npm run deploy:cloudflare
+          fi
+  deploy:
+    if: always() && needs.build.result == 'success' && (needs.cloudflare.result == 'success' || needs.cloudflare.result == 'skipped') && ((github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/preview/homepage' && inputs.publish_preview))
+    needs: [build, cloudflare]
     runs-on: ubuntu-latest
     permissions:
       contents: read

@@ -7,3 +7,8 @@ public/
 .sync-stage/
 .update-summary.md
 *.log
+.wrangler/
+.worker-build/
+dist-pages/
+dist-alibaba-pages/
+.dev.vars*

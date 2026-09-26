@@ -13,13 +13,19 @@
     "typecheck": "tsc --noEmit",
     "build": "npm run validate && npm run typecheck && node scripts/generate.mjs && vite build && node scripts/check-distribution.mjs && node scripts/publish-targets.mjs && node scripts/check-unified.mjs && node --test collections/alibaba-cloud/tests/test_plugin.cjs",
     "dev": "node scripts/generate.mjs && vite --host 127.0.0.1",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "build:cloudflare": "npm run build && node scripts/build-worker-index.mjs && node scripts/prepare-legacy-pages.mjs && node scripts/check-cloudflare.mjs",
+    "dev:cloudflare": "wrangler dev",
+    "check:cloudflare": "wrangler deploy --dry-run --outdir .worker-build/bundle",
+    "deploy:cloudflare": "wrangler deploy",
+    "deploy:cloudflare:production": "wrangler deploy --env production"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "fast-xml-parser": "^5.0.0",
     "fflate": "^0.8.2",
     "typescript": "^5.9.0",
-    "vite": "^7.0.0"
+    "vite": "^7.0.0",
+    "wrangler": "^4.141.0"
   }
 }

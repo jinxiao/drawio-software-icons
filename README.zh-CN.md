@@ -2,6 +2,9 @@
 
 [English](README.md) · [在线图标库](https://icons.rambow.cloud/)
 
+**Cloudflare 与 MCP：** [部署与图标搜索接口](docs/CLOUDFLARE.md)，包含
+`DRAWIO_ICON_SERVICE_URL` 配置及旧 GitHub Pages 首页跳转方案。
+
 456 个软件与服务图标，8 个用途分类，支持中英文浏览、搜索与分类库下载。以开源项目为主，兼收常用商业工具，优先使用上游原色 SVG。
 
 **商业图标使用范围：** 本项目中的商业软件与服务图标仅适用于 draw.io / diagrams.net 架构图绘制，不适用于其他发行用途。本项目不额外授予品牌使用权，也不覆盖上游许可证。原创代码和文档继续采用 MIT 许可。使用商业品牌图标前请阅读中英双语 [图标使用声明](ICON_USAGE.md)。
